@@ -67,8 +67,6 @@
     }
     NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",indexPath.section+1];
     cell.bgImageView.image = IMAGE(imgName);
-//    cell.qm_titleLabel.text = @"Task";
-//    cell.qm_detailLabel.text = @"25分钟";
     [cell setLabelShadow:cell.qm_titleLabel content:@"Task"];
     [cell setLabelShadow:cell.qm_detailLabel content:@"25分钟"];
     return cell;
@@ -93,6 +91,21 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return nil;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //发送
+    WS(weakSelf)
+    UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除   " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+
+    }];
+    action.backgroundColor = BACKGROUND_COLOR;
+    return @[action];
 }
 
 #pragma mark - SEL
