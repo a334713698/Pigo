@@ -44,6 +44,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         [self setupView];
     }
     return self;
@@ -89,6 +90,31 @@
     [attributedString addAttribute:NSShadowAttributeName value:shadow range:NSMakeRange(0, cont.length)];
     
     [lab setAttributedText:attributedString];
+}
+
+// 重写 insertSubview:atIndex 方法
+- (void)insertSubview:(UIView *)view atIndex:(NSInteger)index {
+    [super insertSubview:view atIndex:index];
+    DLog(@"insertSubview");
+    if ([view isKindOfClass:NSClassFromString(@"UITableViewCellDeleteConfirmationView")]) {
+        for (UIButton *btn in view.subviews) {
+
+            if ([btn isKindOfClass:[UIButton class]]) {
+                [btn setBackgroundColor:[UIColor clearColor]];
+                [btn mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.width.mas_equalTo(adaptWidth(35));
+                    make.height.mas_equalTo(adaptWidth(35));
+                    make.centerX.mas_equalTo(0);
+                    make.centerY.mas_equalTo(0);
+                }];
+
+                [btn setTitle:nil forState:UIControlStateNormal];
+                UIImage *img = [IMAGE(@"list_deleting") imageForThemeColor:[UIColor redColor]];
+                [btn setImage:img forState:UIControlStateNormal];
+                [btn setImage:img forState:UIControlStateHighlighted];
+            }
+        }
+    }
 }
 
 @end

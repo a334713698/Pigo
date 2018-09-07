@@ -44,6 +44,7 @@
 		B6A60F592141299A000A737D /* QMSlideUpAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60F4F2141299A000A737D /* QMSlideUpAlertView.m */; };
 		B6A60F5B2141299A000A737D /* QMTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60F552141299A000A737D /* QMTableViewCellViewModel.m */; };
 		B6A60F5C2141299A000A737D /* QMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60F582141299A000A737D /* QMTableViewCell.m */; };
+		B6A60F602142591C000A737D /* PGTaskTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60F5F2142591C000A737D /* PGTaskTableView.m */; };
 		B6E26A5E201AF2A0006C7650 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A5D201AF2A0006C7650 /* AppDelegate.m */; };
 		B6E26A64201AF2A0006C7650 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E26A62201AF2A0006C7650 /* Main.storyboard */; };
 		B6E26A66201AF2A0006C7650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E26A65201AF2A0006C7650 /* Assets.xcassets */; };
@@ -131,6 +132,8 @@
 		B6A60F562141299A000A737D /* QMTableViewCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMTableViewCellViewModel.h; sourceTree = "<group>"; };
 		B6A60F572141299A000A737D /* QMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMTableViewCell.h; sourceTree = "<group>"; };
 		B6A60F582141299A000A737D /* QMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMTableViewCell.m; sourceTree = "<group>"; };
+		B6A60F5E2142591C000A737D /* PGTaskTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskTableView.h; sourceTree = "<group>"; };
+		B6A60F5F2142591C000A737D /* PGTaskTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskTableView.m; sourceTree = "<group>"; };
 		B6E26A59201AF2A0006C7650 /* iOSProjectFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProjectFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E26A5C201AF2A0006C7650 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B6E26A5D201AF2A0006C7650 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -557,6 +560,8 @@
 			children = (
 				B6A60F4A21412142000A737D /* PGTaskCell.h */,
 				B6A60F4B21412142000A737D /* PGTaskCell.m */,
+				B6A60F5E2142591C000A737D /* PGTaskTableView.h */,
+				B6A60F5F2142591C000A737D /* PGTaskTableView.m */,
 			);
 			path = PGTaskList;
 			sourceTree = "<group>";
@@ -971,6 +976,7 @@
 				B6A60E2B2140F19B000A737D /* MBProgressHUD+Add.m in Sources */,
 				B6A60F272140F659000A737D /* UIView+Features.m in Sources */,
 				B6A60F2D2140F659000A737D /* NSString+JSON.m in Sources */,
+				B6A60F602142591C000A737D /* PGTaskTableView.m in Sources */,
 				B6A60F412141003D000A737D /* PGFocusButton.m in Sources */,
 				B6A60F2F2140F659000A737D /* NSString+Device.m in Sources */,
 				B6A60F2A2140F659000A737D /* NSData+ImageCompression.m in Sources */,

@@ -8,19 +8,20 @@
 
 #import "PGTaskListViewController.h"
 #import "PGTaskCell.h"
+#import "PGTaskTableView.h"
 
 @interface PGTaskListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) PGTaskTableView *tableView;
 
 @end
 
 @implementation PGTaskListViewController
 
 #pragma mark - lazy load
-- (UITableView *)tableView{
+- (PGTaskTableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView = [[PGTaskTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         _tableView.backgroundColor = BACKGROUND_COLOR;
         _tableView.delegate = self;
@@ -47,7 +48,7 @@
     [super viewDidLoad];
     self.tableView.hidden = NO;
     [self initNav];
-    
+
 }
 
 #pragma mark - UITableViewDataSource
@@ -97,11 +98,16 @@
     return YES;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     //发送
     WS(weakSelf)
-    UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除   " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
 
     }];
     action.backgroundColor = BACKGROUND_COLOR;
