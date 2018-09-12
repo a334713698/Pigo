@@ -9,10 +9,15 @@
 #import "PGTaskListViewController.h"
 #import "PGTaskCell.h"
 #import "PGTaskTableView.h"
+#import "PGSettingViewController.h"
 
 @interface PGTaskListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) PGTaskTableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *taskList;
+@property (nonatomic, strong) NSDictionary *task;
+
 
 @end
 
@@ -42,10 +47,25 @@
     return _tableView;
 }
 
+- (NSDictionary *)task{
+    if (!_task) {
+        _task = @{@"title":@"Task",@"length":@"25分钟"};
+    }
+    return _task;
+}
+
+- (NSMutableArray *)taskList{
+    if (!_taskList) {
+        _taskList = [NSMutableArray array];
+        [_taskList insertObject:self.task.copy atIndex:0];
+    }
+    return _taskList;
+}
 
 #pragma mark - view func
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.view.backgroundColor = BACKGROUND_COLOR;
     self.tableView.hidden = NO;
     [self initNav];
 
@@ -53,7 +73,7 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return self.taskList.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -61,15 +81,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary* task = self.taskList[indexPath.section];
     
     PGTaskCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGTaskCell"];
     if (!cell) {
         cell = [[PGTaskCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PGTaskCell"];
     }
-    NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",indexPath.section+1];
+    NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",(indexPath.section+1)%5];
     cell.bgImageView.image = IMAGE(imgName);
-    [cell setLabelShadow:cell.qm_titleLabel content:@"Task"];
-    [cell setLabelShadow:cell.qm_detailLabel content:@"25分钟"];
+    [cell setLabelShadow:cell.qm_titleLabel content:task[@"title"]];
+    [cell setLabelShadow:cell.qm_detailLabel content:task[@"length"]];
     return cell;
 }
 
@@ -105,10 +126,10 @@
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    //发送
     WS(weakSelf)
     UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-
+        [weakSelf.taskList removeObjectAtIndex:indexPath.section];
+        [weakSelf.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
     }];
     action.backgroundColor = BACKGROUND_COLOR;
     return @[action];
@@ -123,9 +144,16 @@
         textField.placeholder = @"任务名称";
     }];
     
+    WS(weakSelf)
     [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        NSString* taskName = alertVC.textFields.firstObject.text;
+        if (NULLString(taskName)) {
+            [weakSelf.taskList insertObject:weakSelf.task.copy atIndex:0];
+        }else{
+            [weakSelf.taskList insertObject:@{@"title":taskName,@"length":@"25分钟"} atIndex:0];
+        }
+        [weakSelf.tableView reloadData];
     }]];
     
     [self presentViewController:alertVC animated:YES completion:nil];
@@ -133,7 +161,8 @@
 
 - (void)navSetPressed{
     DLog(@"设置");
-
+    PGSettingViewController* next  =[PGSettingViewController new];
+    [self.navigationController pushViewController:next animated:YES];
 }
 
 #pragma mark - Method

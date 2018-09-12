@@ -17,6 +17,7 @@ typedef enum : NSUInteger {
     QMTableViewCellStyleValue4,         //imageView & title & detail
     QMTableViewCellStyleTextField,      //textField
     QMTableViewCellStyleTextView,       //textView
+    QMTableViewCellStyleSwitcher,       //switcher
     QMTableViewCellStyleNone            //none
 } QMTableViewCellStyle;
 
@@ -35,6 +36,8 @@ UIKIT_EXTERN const CGFloat QMTableViewCellTextViewLeftMargin;
 
 @property (nonatomic, strong) UITextField *qm_textField;
 @property (nonatomic, strong) UITextView *qm_textView;
+
+@property (nonatomic, strong) UISwitch *qm_switcher;
 
 
 @property (nonatomic, strong) UIView *bottomLine;

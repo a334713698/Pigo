@@ -11,7 +11,7 @@
 //Common
 const CGFloat PGCornerRadius = 5;
 const CGFloat PGTableViewRowHeight = 50;
-
+const CGFloat PGTableViewHeaderSectionHeight = 12;
 
 //PGFocusViewController
 const CGFloat PGFocusBtnWidth = 160;

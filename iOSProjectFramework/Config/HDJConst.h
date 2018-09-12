@@ -22,7 +22,7 @@ typedef void (^DataCallbackBlock)(id result);
 //Common
 UIKIT_EXTERN const CGFloat PGCornerRadius;
 UIKIT_EXTERN const CGFloat PGTableViewRowHeight;
-
+UIKIT_EXTERN const CGFloat PGTableViewHeaderSectionHeight;
 
 //PGFocusViewController
 UIKIT_EXTERN const CGFloat PGFocusBtnWidth;

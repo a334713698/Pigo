@@ -80,6 +80,13 @@ const CGFloat QMTableViewCellTextViewLeftMargin = 5;
     return _bottomLine;
 }
 
+- (UISwitch *)qm_switcher{
+    if (!_qm_switcher) {
+        _qm_switcher = [UISwitch new];
+    }
+    return _qm_switcher;
+}
+
 #pragma mark - initialize
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -124,6 +131,9 @@ const CGFloat QMTableViewCellTextViewLeftMargin = 5;
             break;
         case QMTableViewCellStyleTextView:
             [self initSubviews_TextView];
+            break;
+        case QMTableViewCellStyleSwitcher:
+            [self initSubviews_Switcher];
             break;
         default:
             break;
@@ -233,6 +243,16 @@ const CGFloat QMTableViewCellTextViewLeftMargin = 5;
         make.edges.mas_equalTo(UIEdgeInsetsMake(QMTableViewCellTextViewTopMargin, QMTableViewCellTextViewLeftMargin, QMTableViewCellTextViewTopMargin, QMTableViewCellTextViewLeftMargin));
     }];
     self.qm_textView.textContainerInset = UIEdgeInsetsZero;
+}
+
+- (void)initSubviews_Switcher{
+    [self.qm_titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.centerY.mas_equalTo(0);
+    }];
+    
+    self.accessoryType = UITableViewCellAccessoryNone;
+    self.accessoryView = self.qm_switcher;
 }
 
 #pragma mark - method
