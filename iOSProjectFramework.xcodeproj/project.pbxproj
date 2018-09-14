@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		8866D02DE46EFF43DDDAFE99 /* libPods-iOSProjectFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */; };
 		B615E978214B4BD0008D0B6E /* PGTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B615E977214B4BD0008D0B6E /* PGTaskListModel.m */; };
+		B615E9CC214B604F008D0B6E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B615E9CA214B604F008D0B6E /* Interface.storyboard */; };
+		B615E9CE214B604F008D0B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B615E9CD214B604F008D0B6E /* Assets.xcassets */; };
+		B615E9D5214B6050008D0B6E /* pigoWatchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B615E9D4214B6050008D0B6E /* pigoWatchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B615E9DB214B6050008D0B6E /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = B615E9DA214B6050008D0B6E /* InterfaceController.m */; };
+		B615E9DE214B6050008D0B6E /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B615E9DD214B6050008D0B6E /* ExtensionDelegate.m */; };
+		B615E9E1214B6050008D0B6E /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B615E9E0214B6050008D0B6E /* NotificationController.m */; };
+		B615E9E3214B6050008D0B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B615E9E2214B6050008D0B6E /* Assets.xcassets */; };
+		B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */; };
 		B66110832045504700D648E9 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110822045504700D648E9 /* BaseTabBarController.m */; };
 		B6A60E112140CECB000A737D /* PGFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E102140CECB000A737D /* PGFocusViewController.m */; };
 		B6A60E162140D8E2000A737D /* QMLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E132140D8E2000A737D /* QMLoadView.m */; };
@@ -72,11 +80,67 @@
 		B6E26AA1201AF3F2006C7650 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A98201AF3F2006C7650 /* BaseModel.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B615E9D6214B6050008D0B6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6E26A51201AF2A0006C7650 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B615E9D3214B6050008D0B6E;
+			remoteInfo = "pigoWatchOS Extension";
+		};
+		B615E9E6214B6050008D0B6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6E26A51201AF2A0006C7650 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B615E9C7214B604F008D0B6E;
+			remoteInfo = pigoWatchOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B615E9EC214B6050008D0B6E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B615E9D5214B6050008D0B6E /* pigoWatchOS Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B615E9F0214B6050008D0B6E /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2412AEA92032584BCA54A4D1 /* Pods-iOSProjectFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProjectFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSProjectFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B615E976214B4BD0008D0B6E /* PGTaskListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListModel.h; sourceTree = "<group>"; };
 		B615E977214B4BD0008D0B6E /* PGTaskListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListModel.m; sourceTree = "<group>"; };
+		B615E9C8214B604F008D0B6E /* pigoWatchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pigoWatchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B615E9CB214B604F008D0B6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B615E9CD214B604F008D0B6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B615E9CF214B604F008D0B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B615E9D4214B6050008D0B6E /* pigoWatchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "pigoWatchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B615E9D9214B6050008D0B6E /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		B615E9DA214B6050008D0B6E /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		B615E9DC214B6050008D0B6E /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		B615E9DD214B6050008D0B6E /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		B615E9DF214B6050008D0B6E /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		B615E9E0214B6050008D0B6E /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		B615E9E2214B6050008D0B6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B615E9E4214B6050008D0B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B615E9E5214B6050008D0B6E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B66110812045504700D648E9 /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
 		B66110822045504700D648E9 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		B6A60E0F2140CECB000A737D /* PGFocusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusViewController.h; sourceTree = "<group>"; };
@@ -203,6 +267,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B615E9D1214B6050008D0B6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6E26A56201AF2A0006C7650 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +300,32 @@
 				B615E977214B4BD0008D0B6E /* PGTaskListModel.m */,
 			);
 			path = PGTaskList;
+			sourceTree = "<group>";
+		};
+		B615E9C9214B604F008D0B6E /* pigoWatchOS */ = {
+			isa = PBXGroup;
+			children = (
+				B615E9CA214B604F008D0B6E /* Interface.storyboard */,
+				B615E9CD214B604F008D0B6E /* Assets.xcassets */,
+				B615E9CF214B604F008D0B6E /* Info.plist */,
+			);
+			path = pigoWatchOS;
+			sourceTree = "<group>";
+		};
+		B615E9D8214B6050008D0B6E /* pigoWatchOS Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B615E9D9214B6050008D0B6E /* InterfaceController.h */,
+				B615E9DA214B6050008D0B6E /* InterfaceController.m */,
+				B615E9DC214B6050008D0B6E /* ExtensionDelegate.h */,
+				B615E9DD214B6050008D0B6E /* ExtensionDelegate.m */,
+				B615E9DF214B6050008D0B6E /* NotificationController.h */,
+				B615E9E0214B6050008D0B6E /* NotificationController.m */,
+				B615E9E2214B6050008D0B6E /* Assets.xcassets */,
+				B615E9E4214B6050008D0B6E /* Info.plist */,
+				B615E9E5214B6050008D0B6E /* PushNotificationPayload.apns */,
+			);
+			path = "pigoWatchOS Extension";
 			sourceTree = "<group>";
 		};
 		B661108020454CBA00D648E9 /* BaseTabBarController */ = {
@@ -738,6 +835,8 @@
 			isa = PBXGroup;
 			children = (
 				B6E26A5B201AF2A0006C7650 /* iOSProjectFramework */,
+				B615E9C9214B604F008D0B6E /* pigoWatchOS */,
+				B615E9D8214B6050008D0B6E /* pigoWatchOS Extension */,
 				B6E26A5A201AF2A0006C7650 /* Products */,
 				FF0285D71F7433273CFC716F /* Pods */,
 				56F6681CD3364E96184F2DEC /* Frameworks */,
@@ -748,6 +847,8 @@
 			isa = PBXGroup;
 			children = (
 				B6E26A59201AF2A0006C7650 /* iOSProjectFramework.app */,
+				B615E9C8214B604F008D0B6E /* pigoWatchOS.app */,
+				B615E9D4214B6050008D0B6E /* pigoWatchOS Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -966,6 +1067,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B615E9C7214B604F008D0B6E /* pigoWatchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B615E9ED214B6050008D0B6E /* Build configuration list for PBXNativeTarget "pigoWatchOS" */;
+			buildPhases = (
+				B615E9C6214B604F008D0B6E /* Resources */,
+				B615E9EC214B6050008D0B6E /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B615E9D7214B6050008D0B6E /* PBXTargetDependency */,
+			);
+			name = pigoWatchOS;
+			productName = pigoWatchOS;
+			productReference = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		B615E9D3214B6050008D0B6E /* pigoWatchOS Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B615E9E9214B6050008D0B6E /* Build configuration list for PBXNativeTarget "pigoWatchOS Extension" */;
+			buildPhases = (
+				B615E9D0214B6050008D0B6E /* Sources */,
+				B615E9D1214B6050008D0B6E /* Frameworks */,
+				B615E9D2214B6050008D0B6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "pigoWatchOS Extension";
+			productName = "pigoWatchOS Extension";
+			productReference = B615E9D4214B6050008D0B6E /* pigoWatchOS Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		B6E26A58201AF2A0006C7650 /* iOSProjectFramework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6E26A6F201AF2A0006C7650 /* Build configuration list for PBXNativeTarget "iOSProjectFramework" */;
@@ -976,10 +1111,12 @@
 				B6E26A57201AF2A0006C7650 /* Resources */,
 				D672B9A184CB576C344A1140 /* [CP] Embed Pods Frameworks */,
 				C08B852EF9AD26DD8A1FBAC2 /* [CP] Copy Pods Resources */,
+				B615E9F0214B6050008D0B6E /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B615E9E7214B6050008D0B6E /* PBXTargetDependency */,
 			);
 			name = iOSProjectFramework;
 			productName = iOSProjectFramework;
@@ -995,6 +1132,14 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "洪冬介";
 				TargetAttributes = {
+					B615E9C7214B604F008D0B6E = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
+					B615E9D3214B6050008D0B6E = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
 					B6E26A58201AF2A0006C7650 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -1015,11 +1160,30 @@
 			projectRoot = "";
 			targets = (
 				B6E26A58201AF2A0006C7650 /* iOSProjectFramework */,
+				B615E9C7214B604F008D0B6E /* pigoWatchOS */,
+				B615E9D3214B6050008D0B6E /* pigoWatchOS Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B615E9C6214B604F008D0B6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B615E9CE214B604F008D0B6E /* Assets.xcassets in Resources */,
+				B615E9CC214B604F008D0B6E /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B615E9D2214B6050008D0B6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B615E9E3214B6050008D0B6E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6E26A57201AF2A0006C7650 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1091,6 +1255,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B615E9D0214B6050008D0B6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B615E9DE214B6050008D0B6E /* ExtensionDelegate.m in Sources */,
+				B615E9DB214B6050008D0B6E /* InterfaceController.m in Sources */,
+				B615E9E1214B6050008D0B6E /* NotificationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6E26A55201AF2A0006C7650 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1156,7 +1330,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B615E9D7214B6050008D0B6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B615E9D3214B6050008D0B6E /* pigoWatchOS Extension */;
+			targetProxy = B615E9D6214B6050008D0B6E /* PBXContainerItemProxy */;
+		};
+		B615E9E7214B6050008D0B6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B615E9C7214B604F008D0B6E /* pigoWatchOS */;
+			targetProxy = B615E9E6214B6050008D0B6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		B615E9CA214B604F008D0B6E /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B615E9CB214B604F008D0B6E /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		B6E26A62201AF2A0006C7650 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1176,6 +1371,86 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B615E9EA214B6050008D0B6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HHW6X6T397;
+				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		B615E9EB214B6050008D0B6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HHW6X6T397;
+				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		B615E9EE214B6050008D0B6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HHW6X6T397;
+				IBSC_MODULE = pigoWatchOS_Extension;
+				INFOPLIST_FILE = pigoWatchOS/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		B615E9EF214B6050008D0B6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HHW6X6T397;
+				IBSC_MODULE = pigoWatchOS_Extension;
+				INFOPLIST_FILE = pigoWatchOS/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
 		B6E26A6D201AF2A0006C7650 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1291,7 +1566,7 @@
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1308,7 +1583,7 @@
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1317,6 +1592,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B615E9E9214B6050008D0B6E /* Build configuration list for PBXNativeTarget "pigoWatchOS Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B615E9EA214B6050008D0B6E /* Debug */,
+				B615E9EB214B6050008D0B6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B615E9ED214B6050008D0B6E /* Build configuration list for PBXNativeTarget "pigoWatchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B615E9EE214B6050008D0B6E /* Debug */,
+				B615E9EF214B6050008D0B6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B6E26A54201AF2A0006C7650 /* Build configuration list for PBXProject "iOSProjectFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
