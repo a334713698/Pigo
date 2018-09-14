@@ -76,7 +76,7 @@
     [playButton setImage:IMAGE(@"icon_play") forState:UIControlStateNormal];
     [playButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
-        make.right.mas_equalTo(-10);
+        make.right.mas_equalTo(-20);
     }];
 }
 

@@ -11,12 +11,21 @@
 #import "PGFocusButton.h"
 #import "PGFocusContView.h"
 #import "PGTaskListViewController.h"
+#import "PGFocusViewModel.h"
+#import "PGTaskListModel.h"
 
 @interface PGFocusViewController ()
 
-@property (nonatomic, strong) PGCountdownLabel *cdLabel;
-@property (nonatomic, strong) PGFocusButton *startButton;
 @property (nonatomic, strong) PGFocusContView *contView;
+
+@property (nonatomic, strong) PGCountdownLabel *cdLabel;
+
+@property (nonatomic, strong) PGFocusButton *leftButton;
+@property (nonatomic, strong) PGFocusButton *centerButton;
+@property (nonatomic, strong) PGFocusButton *rightButton;
+
+@property (nonatomic, strong) PGFocusViewModel *viewModel;
+
 
 @end
 
@@ -36,18 +45,49 @@
     return _cdLabel;
 }
 
-- (PGFocusButton *)startButton{
-    if (!_startButton) {
-        _startButton = [PGFocusButton new];
-        [self.view addSubview:_startButton];
-        [_startButton mas_makeConstraints:^(MASConstraintMaker *make) {
+- (PGFocusButton *)centerButton{
+    if (!_centerButton) {
+        _centerButton = [PGFocusButton new];
+        [self.view addSubview:_centerButton];
+        [_centerButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(0);
-            make.bottom.mas_equalTo(-adaptHeight(100));
-            make.width.mas_equalTo(adaptWidth(PGFocusBtnWidth));
+            make.bottom.mas_equalTo(-adaptHeight(PGFocusBtnBottomLayout));
+            make.width.mas_equalTo(adaptWidth(PGFocusCenterBtnWidth));
             make.height.mas_equalTo(adaptWidth(PGFocusBtnHeight));
         }];
+        [_centerButton settingRoundedBorderWithWidth:adaptWidth(PGFocusCenterBtnWidth)];
     }
-    return _startButton;
+    return _centerButton;
+}
+
+- (PGFocusButton *)leftButton{
+    if (!_leftButton) {
+        _leftButton = [PGFocusButton new];
+        [self.view addSubview:_leftButton];
+        [_leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(self.view.mas_centerX).offset(-adaptWidth(PGFocusBtnCenterXOffset));
+            make.bottom.mas_equalTo(-adaptHeight(PGFocusBtnBottomLayout));
+            make.width.mas_equalTo(adaptWidth(PGFocusSideBtnWidth));
+            make.height.mas_equalTo(adaptWidth(PGFocusBtnHeight));
+        }];
+        [_leftButton settingRoundedBorderWithWidth:adaptWidth(PGFocusSideBtnWidth)];
+    }
+    return _leftButton;
+}
+
+- (PGFocusButton *)rightButton{
+    if (!_rightButton) {
+        _rightButton = [PGFocusButton new];
+        [self.view addSubview:_rightButton];
+        [_rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.view.mas_centerX).offset(adaptWidth(PGFocusBtnCenterXOffset));
+            make.bottom.mas_equalTo(-adaptHeight(PGFocusBtnBottomLayout));
+            make.width.mas_equalTo(adaptWidth(PGFocusSideBtnWidth));
+            make.height.mas_equalTo(adaptWidth(PGFocusBtnHeight));
+        }];
+        [_rightButton settingRoundedBorderWithWidth:adaptWidth(PGFocusSideBtnWidth)];
+    }
+    return _rightButton;
 }
 
 - (PGFocusContView *)contView{
@@ -67,16 +107,28 @@
     return _contView;
 }
 
+- (PGFocusViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [PGFocusViewModel new];
+        _viewModel.cdLabel = self.cdLabel;
+        _viewModel.leftButton = self.leftButton;
+        _viewModel.rightButton = self.rightButton;
+        _viewModel.centerButton = self.centerButton;
+    }
+    return _viewModel;
+}
 
 #pragma mark - view func
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.naviTranslucent = YES;
+    [[UIApplication sharedApplication] setIdleTimerDisabled:PGConfigMgr.ScreenBright];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.naviTranslucent = NO;
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
 
@@ -85,9 +137,15 @@
     
     [self hideAllNavButton];
     self.view.backgroundColor = MAIN_COLOR;
-    self.cdLabel.text = @"25:00";
-    self.startButton.pg_state = PGFocusStateStart;
     self.contView.hidden = NO;
+    [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
+    
+    [self.dbMgr.database open];
+    NSDictionary* dic = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"1"]].firstObject;
+    PGTaskListModel* model = [[PGTaskListModel alloc] mj_setKeyValues:dic];
+    self.contView.labText = model.task_name;
+    [self.dbMgr.database close];
+
 }
 
 
@@ -102,8 +160,6 @@
 - (BOOL)prefersStatusBarHidden{
     return YES;
 }
-
-
 
 #pragma mark - NetRequest
 

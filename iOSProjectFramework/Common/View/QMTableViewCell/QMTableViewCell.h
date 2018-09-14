@@ -39,9 +39,7 @@ UIKIT_EXTERN const CGFloat QMTableViewCellTextViewLeftMargin;
 
 @property (nonatomic, strong) UISwitch *qm_switcher;
 
-
 @property (nonatomic, strong) UIView *bottomLine;
-
 
 - (instancetype)initWithQMStyle:(QMTableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 

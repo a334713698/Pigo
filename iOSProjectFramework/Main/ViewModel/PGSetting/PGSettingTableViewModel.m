@@ -7,8 +7,9 @@
 //
 
 #import "PGSettingTableViewModel.h"
+#import "PGSettingCell.h"
 
-@interface PGSettingTableViewModel()
+@interface PGSettingTableViewModel()<PGSettingCellDelegate>
 
 @property (nonatomic, strong) NSArray *cellData;
 
@@ -57,8 +58,9 @@
     
     PGSettingEventType eventType = [cellDic[@"eventType"] integerValue];
     PGSettingContentType contentType = [cellDic[@"contentType"] integerValue];
+    NSString *paraName = cellDic[@"paraName"];
 
-    QMTableViewCell* cell = [[QMTableViewCell alloc] initWithQMStyle:QMTableViewCellStyleDefault reuseIdentifier:nil];
+    PGSettingCell* cell = [[PGSettingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if ((eventType & PGSettingEventTypeDetail) == PGSettingEventTypeDetail) {
         [cell.qm_detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -66,15 +68,19 @@
             make.centerY.mas_equalTo(0);
             make.width.mas_lessThanOrEqualTo(SCREEN_WIDTH / 2);
         }];
-        cell.qm_detailLabel.text = @"detail";
+        NSString* unit = cellDic[@"unit"] ? :@"";
+        cell.qm_detailLabel.text = [NSString stringWithFormat:@"%@%@",cellDic[@"detail"],unit];
     }
     if ((eventType & PGSettingEventTypeSwicher) == PGSettingEventTypeSwicher){
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.accessoryView = cell.qm_switcher;
+        [cell setupSwitchEvent];
+        cell.qm_switcher.on = [cellDic[@"detail"] boolValue];
     }
+    cell.delegate = self;
+    cell.paraName = paraName;
+    cell.contentType = contentType;
     cell.qm_titleLabel.text = cellDic[@"title"];
-
-    
     
     return cell;
 }
@@ -112,6 +118,12 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return nil;
+}
+
+#pragma mark - PGSettingCellDelegate
+- (void)pg_cell:(PGSettingCell*)cell switchValueDidChange:(UISwitch*)switcher{
+    DLog(@"%@",switcher.on?@"开":@"关");
+    [PGConfigMgr setValue:@(switcher.on) forKey:cell.paraName];
 }
 
 @end

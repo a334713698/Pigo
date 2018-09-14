@@ -12,7 +12,9 @@
 
 @property (nonatomic, copy) NSString *pg_title;
 
-@property (nonatomic, assign) PGFocusState pg_state;
+@property (nonatomic, assign) PGFocusButtonState pg_state;
 
+
+- (void)settingRoundedBorderWithWidth:(CGFloat)width;
 
 @end

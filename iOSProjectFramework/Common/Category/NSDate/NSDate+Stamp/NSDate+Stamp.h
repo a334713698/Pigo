@@ -17,6 +17,8 @@
 ///秒数转换成时分秒（xx小时xx分钟xx秒）
 + (NSString*)secondsToHMS:(long long)seconds;
 
++ (NSString*)pg_secondsToHMS:(long long)seconds;
+
 ///转换成昨天，今天，明天字符串
 + (NSString *)compareDate:(NSDate *)date;
 

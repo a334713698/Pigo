@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "QMLoadView.h"
+#import "DJDatabaseManager.h"
 
 @interface BaseViewController : UIViewController
 
@@ -21,6 +22,7 @@
 @property (nonatomic, assign, getter=isNaviTranslucent) BOOL naviTranslucent;
 @property (nonatomic, assign, getter=isShowShadowImage) BOOL showShadowImage;
 
+@property (nonatomic, strong) DJDatabaseManager* dbMgr;
 
 @property (nonatomic, strong) QMLoadView *qm_loadView;
 

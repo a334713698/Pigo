@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BaseNavigationController.h"
 #import "PGFocusViewController.h"
+#import "LaunchViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,19 +20,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    
-    PGFocusViewController* focusVC = [PGFocusViewController new];
-    
-    BaseNavigationController *navi = [[BaseNavigationController alloc] initWithRootViewController:focusVC];
-    // 设置根视图
-    self.window.rootViewController = navi;
 
+    [[PGConfigManager sharedPGConfigManager] setup];
+    [self registerUserNotiSettings];
+    
+//    PGFocusViewController* focusVC = [PGFocusViewController new];
+//    BaseNavigationController *navi = [[BaseNavigationController alloc] initWithRootViewController:focusVC];
+    
+    LaunchViewController *launchScreen = [[LaunchViewController alloc] init];
+
+    self.window.rootViewController = launchScreen;
     [self.window makeKeyAndVisible];
 
     return YES;
 }
 
+- (void)registerUserNotiSettings{
+    UIUserNotificationSettings* setting  = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+    
+    
+    [[UIApplication sharedApplication] registerUserNotificationSettings:setting];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

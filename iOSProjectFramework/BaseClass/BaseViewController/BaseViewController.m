@@ -17,6 +17,12 @@
 @implementation BaseViewController
 
 #pragma mark - lazy load
+- (DJDatabaseManager *)dbMgr{
+    if (!_dbMgr) {
+        _dbMgr = [DJDatabaseManager sharedDJDatabaseManager];
+    }
+    return _dbMgr;
+}
 
 - (QMLoadView *)qm_loadView{
     if (!_qm_loadView) {

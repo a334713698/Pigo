@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8866D02DE46EFF43DDDAFE99 /* libPods-iOSProjectFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */; };
+		B615E978214B4BD0008D0B6E /* PGTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B615E977214B4BD0008D0B6E /* PGTaskListModel.m */; };
 		B66110832045504700D648E9 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110822045504700D648E9 /* BaseTabBarController.m */; };
 		B6A60E112140CECB000A737D /* PGFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E102140CECB000A737D /* PGFocusViewController.m */; };
 		B6A60E162140D8E2000A737D /* QMLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E132140D8E2000A737D /* QMLoadView.m */; };
@@ -45,6 +46,13 @@
 		B6A60F5B2141299A000A737D /* QMTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60F552141299A000A737D /* QMTableViewCellViewModel.m */; };
 		B6A60F5C2141299A000A737D /* QMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60F582141299A000A737D /* QMTableViewCell.m */; };
 		B6A60F602142591C000A737D /* PGTaskTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60F5F2142591C000A737D /* PGTaskTableView.m */; };
+		B6CC32572149066900E66D64 /* PGFocusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC32562149066900E66D64 /* PGFocusViewModel.m */; };
+		B6CC325B2149109700E66D64 /* PGConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC325A2149109700E66D64 /* PGConfigManager.m */; };
+		B6CC325E2149EE2C00E66D64 /* PGConfigDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6CC325D2149EE2C00E66D64 /* PGConfigDefault.plist */; };
+		B6CC32622149F3E500E66D64 /* PGSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC32612149F3E500E66D64 /* PGSettingCell.m */; };
+		B6CC3266214A635D00E66D64 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC3264214A635D00E66D64 /* DJDatabaseManager.m */; };
+		B6CC326A214A63D900E66D64 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC3268214A63D900E66D64 /* HDJDSQLSearchModel.m */; };
+		B6CC326D214A676B00E66D64 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC326C214A676B00E66D64 /* LaunchViewController.m */; };
 		B6CF21732147B28400067470 /* PGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF21722147B28400067470 /* PGSettingViewController.m */; };
 		B6CF217A2147B36700067470 /* BaseTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF21752147B36700067470 /* BaseTableViewModel.m */; };
 		B6CF217B2147B36700067470 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF21782147B36700067470 /* BaseViewModel.m */; };
@@ -67,6 +75,8 @@
 /* Begin PBXFileReference section */
 		2412AEA92032584BCA54A4D1 /* Pods-iOSProjectFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProjectFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSProjectFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B615E976214B4BD0008D0B6E /* PGTaskListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListModel.h; sourceTree = "<group>"; };
+		B615E977214B4BD0008D0B6E /* PGTaskListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListModel.m; sourceTree = "<group>"; };
 		B66110812045504700D648E9 /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
 		B66110822045504700D648E9 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		B6A60E0F2140CECB000A737D /* PGFocusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusViewController.h; sourceTree = "<group>"; };
@@ -139,6 +149,19 @@
 		B6A60F582141299A000A737D /* QMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMTableViewCell.m; sourceTree = "<group>"; };
 		B6A60F5E2142591C000A737D /* PGTaskTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskTableView.h; sourceTree = "<group>"; };
 		B6A60F5F2142591C000A737D /* PGTaskTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskTableView.m; sourceTree = "<group>"; };
+		B6CC32552149066900E66D64 /* PGFocusViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusViewModel.h; sourceTree = "<group>"; };
+		B6CC32562149066900E66D64 /* PGFocusViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusViewModel.m; sourceTree = "<group>"; };
+		B6CC32592149109700E66D64 /* PGConfigManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGConfigManager.h; sourceTree = "<group>"; };
+		B6CC325A2149109700E66D64 /* PGConfigManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGConfigManager.m; sourceTree = "<group>"; };
+		B6CC325D2149EE2C00E66D64 /* PGConfigDefault.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PGConfigDefault.plist; sourceTree = "<group>"; };
+		B6CC32602149F3E500E66D64 /* PGSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGSettingCell.h; sourceTree = "<group>"; };
+		B6CC32612149F3E500E66D64 /* PGSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGSettingCell.m; sourceTree = "<group>"; };
+		B6CC3264214A635D00E66D64 /* DJDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJDatabaseManager.m; sourceTree = "<group>"; };
+		B6CC3265214A635D00E66D64 /* DJDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJDatabaseManager.h; sourceTree = "<group>"; };
+		B6CC3268214A63D900E66D64 /* HDJDSQLSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDJDSQLSearchModel.m; sourceTree = "<group>"; };
+		B6CC3269214A63D900E66D64 /* HDJDSQLSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJDSQLSearchModel.h; sourceTree = "<group>"; };
+		B6CC326B214A676B00E66D64 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
+		B6CC326C214A676B00E66D64 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		B6CF21712147B28400067470 /* PGSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGSettingViewController.h; sourceTree = "<group>"; };
 		B6CF21722147B28400067470 /* PGSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGSettingViewController.m; sourceTree = "<group>"; };
 		B6CF21752147B36700067470 /* BaseTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewModel.m; sourceTree = "<group>"; };
@@ -197,6 +220,15 @@
 				4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B615E975214B4BBE008D0B6E /* PGTaskList */ = {
+			isa = PBXGroup;
+			children = (
+				B615E976214B4BD0008D0B6E /* PGTaskListModel.h */,
+				B615E977214B4BD0008D0B6E /* PGTaskListModel.m */,
+			);
+			path = PGTaskList;
 			sourceTree = "<group>";
 		};
 		B661108020454CBA00D648E9 /* BaseTabBarController */ = {
@@ -526,8 +558,8 @@
 		B6A60F1B2140F659000A737D /* NSDate+Stamp */ = {
 			isa = PBXGroup;
 			children = (
-				B6A60F1C2140F659000A737D /* NSDate+Stamp.m */,
 				B6A60F1D2140F659000A737D /* NSDate+Stamp.h */,
+				B6A60F1C2140F659000A737D /* NSDate+Stamp.m */,
 			);
 			path = "NSDate+Stamp";
 			sourceTree = "<group>";
@@ -609,6 +641,52 @@
 			path = QMTableViewCellViewModel;
 			sourceTree = "<group>";
 		};
+		B6CC32542149065A00E66D64 /* PGFocus */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC32552149066900E66D64 /* PGFocusViewModel.h */,
+				B6CC32562149066900E66D64 /* PGFocusViewModel.m */,
+			);
+			path = PGFocus;
+			sourceTree = "<group>";
+		};
+		B6CC32582149107D00E66D64 /* PGConfigManager */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC32592149109700E66D64 /* PGConfigManager.h */,
+				B6CC325A2149109700E66D64 /* PGConfigManager.m */,
+			);
+			path = PGConfigManager;
+			sourceTree = "<group>";
+		};
+		B6CC325F2149F3B200E66D64 /* PGSetting */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC32602149F3E500E66D64 /* PGSettingCell.h */,
+				B6CC32612149F3E500E66D64 /* PGSettingCell.m */,
+			);
+			path = PGSetting;
+			sourceTree = "<group>";
+		};
+		B6CC3263214A635D00E66D64 /* DJDB */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC3267214A63D900E66D64 /* HDJDSQLSearchModel */,
+				B6CC3265214A635D00E66D64 /* DJDatabaseManager.h */,
+				B6CC3264214A635D00E66D64 /* DJDatabaseManager.m */,
+			);
+			path = DJDB;
+			sourceTree = "<group>";
+		};
+		B6CC3267214A63D900E66D64 /* HDJDSQLSearchModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC3269214A63D900E66D64 /* HDJDSQLSearchModel.h */,
+				B6CC3268214A63D900E66D64 /* HDJDSQLSearchModel.m */,
+			);
+			path = HDJDSQLSearchModel;
+			sourceTree = "<group>";
+		};
 		B6CF21702147B26800067470 /* PGSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +717,7 @@
 		B6CF217C2147B3F100067470 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B6CC32542149065A00E66D64 /* PGFocus */,
 				B6CF217D2147B40400067470 /* PGSetting */,
 			);
 			path = ViewModel;
@@ -691,6 +770,7 @@
 		B6E26A76201AF3D1006C7650 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6CC325D2149EE2C00E66D64 /* PGConfigDefault.plist */,
 				B6E26AA9201AF4A1006C7650 /* ProjectPrefix.pch */,
 				B6E26AA4201AF457006C7650 /* Config */,
 				B6E26A62201AF2A0006C7650 /* Main.storyboard */,
@@ -728,6 +808,7 @@
 		B6E26A7B201AF3F2006C7650 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B615E975214B4BBE008D0B6E /* PGTaskList */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -735,6 +816,7 @@
 		B6E26A7C201AF3F2006C7650 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B6CC325F2149F3B200E66D64 /* PGSetting */,
 				B6A60F4921412116000A737D /* PGTaskList */,
 				B6A60F3E2141002F000A737D /* PGFocus */,
 			);
@@ -783,6 +865,8 @@
 		B6E26A88201AF3F2006C7650 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B6CC3263214A635D00E66D64 /* DJDB */,
+				B6CC32582149107D00E66D64 /* PGConfigManager */,
 				B6A60F322140F919000A737D /* PGCountdownTool */,
 			);
 			path = Tool;
@@ -791,6 +875,8 @@
 		B6E26A89201AF3F2006C7650 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				B6CC326B214A676B00E66D64 /* LaunchViewController.h */,
+				B6CC326C214A676B00E66D64 /* LaunchViewController.m */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -941,6 +1027,7 @@
 				B6A60E172140D8E2000A737D /* pic_loading.gif in Resources */,
 				B6E26A69201AF2A0006C7650 /* LaunchScreen.storyboard in Resources */,
 				B6A60E2C2140F19B000A737D /* MBProgressHUD.bundle in Resources */,
+				B6CC325E2149EE2C00E66D64 /* PGConfigDefault.plist in Resources */,
 				B6E26A66201AF2A0006C7650 /* Assets.xcassets in Resources */,
 				B6E26A64201AF2A0006C7650 /* Main.storyboard in Resources */,
 			);
@@ -1019,6 +1106,7 @@
 				B6A60F2C2140F659000A737D /* NSString+sha1.m in Sources */,
 				B6A60F442141083E000A737D /* PGFocusContView.m in Sources */,
 				B6CF217A2147B36700067470 /* BaseTableViewModel.m in Sources */,
+				B615E978214B4BD0008D0B6E /* PGTaskListModel.m in Sources */,
 				B6A60F292140F659000A737D /* UIView+QMLayer.m in Sources */,
 				B6A60E112140CECB000A737D /* PGFocusViewController.m in Sources */,
 				B6A60F4C21412142000A737D /* PGTaskCell.m in Sources */,
@@ -1027,6 +1115,7 @@
 				B6E26AA0201AF3F2006C7650 /* BaseViewController.m in Sources */,
 				B6A60F232140F659000A737D /* UITableViewCell+Features.m in Sources */,
 				B6E26A9D201AF3F2006C7650 /* BaseNavigationController.m in Sources */,
+				B6CC325B2149109700E66D64 /* PGConfigManager.m in Sources */,
 				B6E26AA1201AF3F2006C7650 /* BaseModel.m in Sources */,
 				B6A60F5C2141299A000A737D /* QMTableViewCell.m in Sources */,
 				B6A60F262140F659000A737D /* UIColor+mostColor.m in Sources */,
@@ -1047,15 +1136,20 @@
 				B6A60F272140F659000A737D /* UIView+Features.m in Sources */,
 				B6A60F2D2140F659000A737D /* NSString+JSON.m in Sources */,
 				B6A60F602142591C000A737D /* PGTaskTableView.m in Sources */,
+				B6CC326A214A63D900E66D64 /* HDJDSQLSearchModel.m in Sources */,
 				B6A60F412141003D000A737D /* PGFocusButton.m in Sources */,
 				B6A60F2F2140F659000A737D /* NSString+Device.m in Sources */,
+				B6CC326D214A676B00E66D64 /* LaunchViewController.m in Sources */,
 				B6A60F2A2140F659000A737D /* NSData+ImageCompression.m in Sources */,
 				B6A60E2A2140F19B000A737D /* UITextView+ZWPlaceHolder.m in Sources */,
 				B6E26A9F201AF3F2006C7650 /* BaseNetRequest.m in Sources */,
 				B6E26A9A201AF3F2006C7650 /* ViewController.m in Sources */,
 				B6A60F2E2140F659000A737D /* NSString+URLCode.m in Sources */,
+				B6CC32622149F3E500E66D64 /* PGSettingCell.m in Sources */,
 				B6E26A5E201AF2A0006C7650 /* AppDelegate.m in Sources */,
 				B6A60F48214115ED000A737D /* PGTaskListViewController.m in Sources */,
+				B6CC3266214A635D00E66D64 /* DJDatabaseManager.m in Sources */,
+				B6CC32572149066900E66D64 /* PGFocusViewModel.m in Sources */,
 				B6A60F312140F659000A737D /* NSDate+Stamp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1130,7 +1224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1179,7 +1273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1195,7 +1289,7 @@
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1212,7 +1306,7 @@
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";

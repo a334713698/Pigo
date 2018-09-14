@@ -10,13 +10,13 @@
 #import "PGTaskCell.h"
 #import "PGTaskTableView.h"
 #import "PGSettingViewController.h"
+#import "PGTaskListModel.h"
 
 @interface PGTaskListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) PGTaskTableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray *taskList;
-@property (nonatomic, strong) NSDictionary *task;
+@property (nonatomic, strong) NSMutableArray<PGTaskListModel*> *taskList;
 
 
 @end
@@ -47,17 +47,15 @@
     return _tableView;
 }
 
-- (NSDictionary *)task{
-    if (!_task) {
-        _task = @{@"title":@"Task",@"length":@"25分钟"};
-    }
-    return _task;
-}
-
-- (NSMutableArray *)taskList{
+- (NSMutableArray<PGTaskListModel*> *)taskList{
     if (!_taskList) {
         _taskList = [NSMutableArray array];
-        [_taskList insertObject:self.task.copy atIndex:0];
+        [self.dbMgr.database open];
+        NSArray* arr = [self.dbMgr getAllTuplesFromTabel:task_list_table withSortedMode:NSOrderedDescending andColumnName:@"task_id"];
+        [self.dbMgr.database close];
+        if (arr.count) {
+            [_taskList addObjectsFromArray:[PGTaskListModel mj_objectArrayWithKeyValuesArray:arr]];
+        }
     }
     return _taskList;
 }
@@ -81,7 +79,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary* task = self.taskList[indexPath.section];
+    PGTaskListModel* task = self.taskList[indexPath.section];
     
     PGTaskCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGTaskCell"];
     if (!cell) {
@@ -89,8 +87,8 @@
     }
     NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",(indexPath.section+1)%5];
     cell.bgImageView.image = IMAGE(imgName);
-    [cell setLabelShadow:cell.qm_titleLabel content:task[@"title"]];
-    [cell setLabelShadow:cell.qm_detailLabel content:task[@"length"]];
+    [cell setLabelShadow:cell.qm_titleLabel content:task.task_name];
+    [cell setLabelShadow:cell.qm_detailLabel content:@"25分钟"];
     return cell;
 }
 
@@ -125,11 +123,15 @@
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    PGTaskListModel* task = self.taskList[indexPath.section];
+
     WS(weakSelf)
     UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         [weakSelf.taskList removeObjectAtIndex:indexPath.section];
         [weakSelf.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+        [self.dbMgr.database open];
+        [self.dbMgr deleteDataFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_name" andSymbol:@"=" andSpecificValue:[NSString stringWithFormat:@"\'%@\'",task.task_name]]];
+        [self.dbMgr.database close];
     }];
     action.backgroundColor = BACKGROUND_COLOR;
     return @[action];
@@ -149,11 +151,16 @@
     [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSString* taskName = alertVC.textFields.firstObject.text;
         if (NULLString(taskName)) {
-            [weakSelf.taskList insertObject:weakSelf.task.copy atIndex:0];
+            [MBProgressHUD showError:@"啥也没输入"];
         }else{
-            [weakSelf.taskList insertObject:@{@"title":taskName,@"length":@"25分钟"} atIndex:0];
+            PGTaskListModel* model = [PGTaskListModel new];
+            model.task_name = taskName;
+            [weakSelf.taskList insertObject:model atIndex:0];
+            [weakSelf.tableView reloadData];
+            [self.dbMgr.database open];
+            [self.dbMgr insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":[NSString stringWithFormat:@"\'%@\'",taskName]}];
+            [self.dbMgr.database close];
         }
-        [weakSelf.tableView reloadData];
     }]];
     
     [self presentViewController:alertVC animated:YES completion:nil];
@@ -167,7 +174,7 @@
 
 #pragma mark - Method
 - (void)initNav{
-    self.navTitle = @"TODO";
+    self.navTitle = @"番茄列表";
     
     // 导航栏右侧按钮
     UIButton* settingButton = [UIButton buttonWithType:UIButtonTypeCustom];

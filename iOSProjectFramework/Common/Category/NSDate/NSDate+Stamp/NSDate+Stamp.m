@@ -114,6 +114,14 @@
     return str;
 }
 
++ (NSString*)pg_secondsToHMS:(long long)seconds{
+    NSInteger min = seconds / 60;
+    NSInteger sec = seconds % 3600 % 60;
+    DLog(@"%ld:%ld",min,sec);
+    NSString *str = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+    return str;
+}
+
 
 ///自定义格式，转换时间，直接传stamp
 + (NSString *)dateToCustomFormateString:(NSString*)formate andTimeStamp:(id)timeStamp{

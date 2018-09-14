@@ -11,7 +11,13 @@
 
 /** 统一管理全局变量 */
 
+/** 是否是第一次打开 */
+#define IS_FIRSTOPEN                            @"IS_FIRSTOPEN"
 
 #define APP_SECRET @""
+
+#define DATABASE_NAME                           @"pigo_db.sqlite"
+#define task_list_table                        @"task_list_table"
+
 
 #endif /* HDJGlobalVariables_h */

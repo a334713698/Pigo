@@ -29,8 +29,33 @@ typedef enum : NSUInteger {
 } QMNavTintColor;
 
 typedef enum : NSUInteger {
-    PGFocusStateStart,
-    PGFocusStateStop
-} PGFocusState;
+    PGFocusButtonStateHidden,//隐藏
+    PGFocusButtonStateStartFocus,//开始专注
+    PGFocusButtonStateObsolete,//作废
+    PGFocusButtonStateNext,//下一个番茄
+    PGFocusButtonStateStartRest,//开始休息
+    PGFocusButtonStateStopRest,//停止休息
+} PGFocusButtonState;
+
+typedef enum : NSInteger {
+    PGSettingEventTypeClick    = 1 <<  0,
+    PGSettingEventTypeDetail   = 1 <<  1,
+    PGSettingEventTypeSwicher  = 1 <<  2
+} PGSettingEventType;
+
+
+typedef enum : NSInteger {
+    PGSettingContentTypeStatistics,         //统计
+    PGSettingContentTypeVibratingAlert,     //震动提示
+    PGSettingContentTypeNotifyAlert,        //通知提示
+    PGSettingContentTypeTomatoLength,       //番茄时长
+    PGSettingContentTypeShortBreak,         //短时休息
+    PGSettingContentTypeLongBreak,          //长时休息
+    PGSettingContentTypeLongBreakInterval,  //长时休息间隔
+    PGSettingContentTypeAutomaticNext,      //自动下一个
+    PGSettingContentTypeAutomaticRest,      //自动休息
+    PGSettingContentTypeScreenBright,       //屏幕亮
+    PGSettingContentTypeDataSync            //数据同步
+} PGSettingContentType;
 
 #endif /* HDJEnum_h */
