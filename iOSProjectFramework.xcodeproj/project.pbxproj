@@ -18,6 +18,7 @@
 		B615E9E3214B6050008D0B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B615E9E2214B6050008D0B6E /* Assets.xcassets */; };
 		B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */; };
 		B66110832045504700D648E9 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110822045504700D648E9 /* BaseTabBarController.m */; };
+		B68887AF2150A42B0013874D /* PGFocusInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */; };
 		B6A60E112140CECB000A737D /* PGFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E102140CECB000A737D /* PGFocusViewController.m */; };
 		B6A60E162140D8E2000A737D /* QMLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E132140D8E2000A737D /* QMLoadView.m */; };
 		B6A60E172140D8E2000A737D /* pic_loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = B6A60E142140D8E2000A737D /* pic_loading.gif */; };
@@ -78,6 +79,7 @@
 		B6E26A9F201AF3F2006C7650 /* BaseNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A93201AF3F2006C7650 /* BaseNetRequest.m */; };
 		B6E26AA0201AF3F2006C7650 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A95201AF3F2006C7650 /* BaseViewController.m */; };
 		B6E26AA1201AF3F2006C7650 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A98201AF3F2006C7650 /* BaseModel.m */; };
+		B6E5DB68214F544600227D1D /* PGTaskListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E5DB67214F544600227D1D /* PGTaskListCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,8 @@
 		B615E9E5214B6050008D0B6E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B66110812045504700D648E9 /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
 		B66110822045504700D648E9 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
+		B68887AD2150A42B0013874D /* PGFocusInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusInterfaceController.h; sourceTree = "<group>"; };
+		B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusInterfaceController.m; sourceTree = "<group>"; };
 		B6A60E0F2140CECB000A737D /* PGFocusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusViewController.h; sourceTree = "<group>"; };
 		B6A60E102140CECB000A737D /* PGFocusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusViewController.m; sourceTree = "<group>"; };
 		B6A60E132140D8E2000A737D /* QMLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMLoadView.m; sourceTree = "<group>"; };
@@ -263,6 +267,8 @@
 		B6E26AA7201AF470006C7650 /* HDJConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJConfig.h; sourceTree = "<group>"; };
 		B6E26AA8201AF470006C7650 /* HDJGlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJGlobalVariables.h; sourceTree = "<group>"; };
 		B6E26AA9201AF4A1006C7650 /* ProjectPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectPrefix.pch; sourceTree = "<group>"; };
+		B6E5DB66214F544600227D1D /* PGTaskListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListCell.h; sourceTree = "<group>"; };
+		B6E5DB67214F544600227D1D /* PGTaskListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListCell.m; sourceTree = "<group>"; };
 		D702A9089C56B6A20595648C /* Pods-iOSProjectFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProjectFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -315,8 +321,8 @@
 		B615E9D8214B6050008D0B6E /* pigoWatchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B615E9D9214B6050008D0B6E /* InterfaceController.h */,
-				B615E9DA214B6050008D0B6E /* InterfaceController.m */,
+				B68887B02150A4640013874D /* Controller */,
+				B68887B22150A47E0013874D /* View */,
 				B615E9DC214B6050008D0B6E /* ExtensionDelegate.h */,
 				B615E9DD214B6050008D0B6E /* ExtensionDelegate.m */,
 				B615E9DF214B6050008D0B6E /* NotificationController.h */,
@@ -335,6 +341,41 @@
 				B66110822045504700D648E9 /* BaseTabBarController.m */,
 			);
 			path = BaseTabBarController;
+			sourceTree = "<group>";
+		};
+		B68887AC2150A4120013874D /* PGFocus */ = {
+			isa = PBXGroup;
+			children = (
+				B68887AD2150A42B0013874D /* PGFocusInterfaceController.h */,
+				B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */,
+			);
+			path = PGFocus;
+			sourceTree = "<group>";
+		};
+		B68887B02150A4640013874D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B68887B32150A5500013874D /* PGTaskList */,
+				B68887AC2150A4120013874D /* PGFocus */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B68887B22150A47E0013874D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6E5DB5A214F432000227D1D /* PGTaskList */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B68887B32150A5500013874D /* PGTaskList */ = {
+			isa = PBXGroup;
+			children = (
+				B615E9D9214B6050008D0B6E /* InterfaceController.h */,
+				B615E9DA214B6050008D0B6E /* InterfaceController.m */,
+			);
+			path = PGTaskList;
 			sourceTree = "<group>";
 		};
 		B6A60E0E2140CB6E000A737D /* PGFocus */ = {
@@ -1055,6 +1096,15 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		B6E5DB5A214F432000227D1D /* PGTaskList */ = {
+			isa = PBXGroup;
+			children = (
+				B6E5DB66214F544600227D1D /* PGTaskListCell.h */,
+				B6E5DB67214F544600227D1D /* PGTaskListCell.m */,
+			);
+			path = PGTaskList;
+			sourceTree = "<group>";
+		};
 		FF0285D71F7433273CFC716F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1230,7 +1280,6 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1260,6 +1309,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B615E9DE214B6050008D0B6E /* ExtensionDelegate.m in Sources */,
+				B68887AF2150A42B0013874D /* PGFocusInterfaceController.m in Sources */,
+				B6E5DB68214F544600227D1D /* PGTaskListCell.m in Sources */,
 				B615E9DB214B6050008D0B6E /* InterfaceController.m in Sources */,
 				B615E9E1214B6050008D0B6E /* NotificationController.m in Sources */,
 			);

@@ -10,17 +10,21 @@
 
 @implementation ExtensionDelegate
 
+//项目加载时会调用
 - (void)applicationDidFinishLaunching {
-    // Perform any final initialization of your application.
+    NSLog(@"项目加载");
+
 }
 
+//项目显示界面时会调用
 - (void)applicationDidBecomeActive {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    NSLog(@"显示界面");
 }
 
+//项目退到后台时会调用
 - (void)applicationWillResignActive {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, etc.
+    NSLog(@"退到后台");
+
 }
 
 - (void)handleBackgroundTasks:(NSSet<WKRefreshBackgroundTask *> *)backgroundTasks {
