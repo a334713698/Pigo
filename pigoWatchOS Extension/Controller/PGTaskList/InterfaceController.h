@@ -8,7 +8,8 @@
 
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
+#import "BaseInterfaceController.h"
 
-@interface InterfaceController : WKInterfaceController
+@interface InterfaceController : BaseInterfaceController
 
 @end

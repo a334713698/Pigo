@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8866D02DE46EFF43DDDAFE99 /* libPods-iOSProjectFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */; };
+		B60D500F2151E587008CE149 /* BaseInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D500E2151E587008CE149 /* BaseInterfaceController.m */; };
+		B60D50142151F29C008CE149 /* PGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D50132151F29C008CE149 /* PGTool.m */; };
+		B60D50182152444B008CE149 /* PGTaskListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D50172152444B008CE149 /* PGTaskListViewModel.m */; };
+		B60D501D21524A54008CE149 /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D501C21524A54008CE149 /* NSData+Conversion.m */; };
 		B615E978214B4BD0008D0B6E /* PGTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B615E977214B4BD0008D0B6E /* PGTaskListModel.m */; };
 		B615E9CC214B604F008D0B6E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B615E9CA214B604F008D0B6E /* Interface.storyboard */; };
 		B615E9CE214B604F008D0B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B615E9CD214B604F008D0B6E /* Assets.xcassets */; };
@@ -127,6 +131,16 @@
 /* Begin PBXFileReference section */
 		2412AEA92032584BCA54A4D1 /* Pods-iOSProjectFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProjectFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSProjectFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60D500D2151E587008CE149 /* BaseInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseInterfaceController.h; sourceTree = "<group>"; };
+		B60D500E2151E587008CE149 /* BaseInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseInterfaceController.m; sourceTree = "<group>"; };
+		B60D50122151F29C008CE149 /* PGTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTool.h; sourceTree = "<group>"; };
+		B60D50132151F29C008CE149 /* PGTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTool.m; sourceTree = "<group>"; };
+		B60D50162152444B008CE149 /* PGTaskListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListViewModel.h; sourceTree = "<group>"; };
+		B60D50172152444B008CE149 /* PGTaskListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListViewModel.m; sourceTree = "<group>"; };
+		B60D501B21524A54008CE149 /* NSData+Conversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Conversion.h"; sourceTree = "<group>"; };
+		B60D501C21524A54008CE149 /* NSData+Conversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Conversion.m"; sourceTree = "<group>"; };
+		B60D501F215255A7008CE149 /* PGWatchEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGWatchEnum.h; sourceTree = "<group>"; };
+		B60D502021525652008CE149 /* watchExtensionPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = watchExtensionPrefix.pch; sourceTree = "<group>"; };
 		B615E976214B4BD0008D0B6E /* PGTaskListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListModel.h; sourceTree = "<group>"; };
 		B615E977214B4BD0008D0B6E /* PGTaskListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListModel.m; sourceTree = "<group>"; };
 		B615E9C8214B604F008D0B6E /* pigoWatchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pigoWatchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +283,7 @@
 		B6E26AA9201AF4A1006C7650 /* ProjectPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectPrefix.pch; sourceTree = "<group>"; };
 		B6E5DB66214F544600227D1D /* PGTaskListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListCell.h; sourceTree = "<group>"; };
 		B6E5DB67214F544600227D1D /* PGTaskListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListCell.m; sourceTree = "<group>"; };
+		B6FDA4172150F5D9006717BB /* pigoWatchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pigoWatchOS Extension.entitlements"; sourceTree = "<group>"; };
 		D702A9089C56B6A20595648C /* Pods-iOSProjectFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProjectFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -299,6 +314,59 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B60D500C2151E571008CE149 /* BaseInterfaceController */ = {
+			isa = PBXGroup;
+			children = (
+				B60D500D2151E587008CE149 /* BaseInterfaceController.h */,
+				B60D500E2151E587008CE149 /* BaseInterfaceController.m */,
+			);
+			path = BaseInterfaceController;
+			sourceTree = "<group>";
+		};
+		B60D50102151F279008CE149 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				B60D50112151F282008CE149 /* PGTool */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		B60D50112151F282008CE149 /* PGTool */ = {
+			isa = PBXGroup;
+			children = (
+				B60D50122151F29C008CE149 /* PGTool.h */,
+				B60D50132151F29C008CE149 /* PGTool.m */,
+			);
+			path = PGTool;
+			sourceTree = "<group>";
+		};
+		B60D501521524414008CE149 /* PGTaskList */ = {
+			isa = PBXGroup;
+			children = (
+				B60D50162152444B008CE149 /* PGTaskListViewModel.h */,
+				B60D50172152444B008CE149 /* PGTaskListViewModel.m */,
+			);
+			path = PGTaskList;
+			sourceTree = "<group>";
+		};
+		B60D501A21524A04008CE149 /* NSData+Conversion */ = {
+			isa = PBXGroup;
+			children = (
+				B60D501B21524A54008CE149 /* NSData+Conversion.h */,
+				B60D501C21524A54008CE149 /* NSData+Conversion.m */,
+			);
+			path = "NSData+Conversion";
+			sourceTree = "<group>";
+		};
+		B60D501E21525586008CE149 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B60D502021525652008CE149 /* watchExtensionPrefix.pch */,
+				B60D501F215255A7008CE149 /* PGWatchEnum.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		B615E975214B4BBE008D0B6E /* PGTaskList */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,12 +389,15 @@
 		B615E9D8214B6050008D0B6E /* pigoWatchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B6FDA4172150F5D9006717BB /* pigoWatchOS Extension.entitlements */,
+				B60D50102151F279008CE149 /* Tool */,
 				B68887B02150A4640013874D /* Controller */,
 				B68887B22150A47E0013874D /* View */,
 				B615E9DC214B6050008D0B6E /* ExtensionDelegate.h */,
 				B615E9DD214B6050008D0B6E /* ExtensionDelegate.m */,
 				B615E9DF214B6050008D0B6E /* NotificationController.h */,
 				B615E9E0214B6050008D0B6E /* NotificationController.m */,
+				B60D501E21525586008CE149 /* Config */,
 				B615E9E2214B6050008D0B6E /* Assets.xcassets */,
 				B615E9E4214B6050008D0B6E /* Info.plist */,
 				B615E9E5214B6050008D0B6E /* PushNotificationPayload.apns */,
@@ -355,6 +426,7 @@
 		B68887B02150A4640013874D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B60D500C2151E571008CE149 /* BaseInterfaceController */,
 				B68887B32150A5500013874D /* PGTaskList */,
 				B68887AC2150A4120013874D /* PGFocus */,
 			);
@@ -597,6 +669,7 @@
 		B6A60F022140F659000A737D /* NSData */ = {
 			isa = PBXGroup;
 			children = (
+				B60D501A21524A04008CE149 /* NSData+Conversion */,
 				B6A60F032140F659000A737D /* NSData+UIImage */,
 			);
 			path = NSData;
@@ -855,6 +928,7 @@
 		B6CF217C2147B3F100067470 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B60D501521524414008CE149 /* PGTaskList */,
 				B6CC32542149065A00E66D64 /* PGFocus */,
 				B6CF217D2147B40400067470 /* PGSetting */,
 			);
@@ -1189,6 +1263,11 @@
 					B615E9D3214B6050008D0B6E = {
 						CreatedOnToolsVersion = 9.4.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					B6E26A58201AF2A0006C7650 = {
 						CreatedOnToolsVersion = 9.2;
@@ -1308,6 +1387,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60D50142151F29C008CE149 /* PGTool.m in Sources */,
+				B60D500F2151E587008CE149 /* BaseInterfaceController.m in Sources */,
 				B615E9DE214B6050008D0B6E /* ExtensionDelegate.m in Sources */,
 				B68887AF2150A42B0013874D /* PGFocusInterfaceController.m in Sources */,
 				B6E5DB68214F544600227D1D /* PGTaskListCell.m in Sources */,
@@ -1324,6 +1405,7 @@
 				B6A60F302140F659000A737D /* NSString+Features.m in Sources */,
 				B6A60F222140F659000A737D /* UILabel+TextAttribute.m in Sources */,
 				B6A60E212140F0C1000A737D /* HDJConst.m in Sources */,
+				B60D501D21524A54008CE149 /* NSData+Conversion.m in Sources */,
 				B6CF21832147B43300067470 /* PGSettingTableViewModel.m in Sources */,
 				B6A60F282140F659000A737D /* UIView+Extension.m in Sources */,
 				B6A60F5B2141299A000A737D /* QMTableViewCellViewModel.m in Sources */,
@@ -1344,6 +1426,7 @@
 				B6E26AA1201AF3F2006C7650 /* BaseModel.m in Sources */,
 				B6A60F5C2141299A000A737D /* QMTableViewCell.m in Sources */,
 				B6A60F262140F659000A737D /* UIColor+mostColor.m in Sources */,
+				B60D50182152444B008CE149 /* PGTaskListViewModel.m in Sources */,
 				B6A60F1E2140F659000A737D /* UIImage+QRCode.m in Sources */,
 				B66110832045504700D648E9 /* BaseTabBarController.m in Sources */,
 				B6A60F592141299A000A737D /* QMSlideUpAlertView.m in Sources */,
@@ -1431,6 +1514,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
 				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp.watchkitextension;
@@ -1451,6 +1535,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
 				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp.watchkitextension;

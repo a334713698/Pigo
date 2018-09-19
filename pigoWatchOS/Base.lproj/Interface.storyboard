@@ -71,7 +71,7 @@
                         </group>
                         <group width="1" height="45" alignment="left" id="TT7-SA-0ca">
                             <items>
-                                <button width="120" height="100" alignment="center" verticalAlignment="center" title="Focus" id="LcG-Bp-T7f"/>
+                                <button width="120" height="100" alignment="center" verticalAlignment="center" title="Focusing" id="LcG-Bp-T7f"/>
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="5"/>
                         </group>

@@ -10,4 +10,19 @@
 
 @implementation BaseViewModel
 
+- (WCSession *)sessionDefault{
+    if (!_sessionDefault) {
+        _sessionDefault = [WCSession defaultSession];
+        _sessionDefault.delegate = self;
+        [_sessionDefault activateSession];
+    }
+    return _sessionDefault;
+}
+
+- (NSDictionary *)messageDic{
+    if (!_messageDic) {
+        _messageDic = @{@"message":@"这是一条来自iPhone的信息"};
+    }
+    return _messageDic;
+}
 @end

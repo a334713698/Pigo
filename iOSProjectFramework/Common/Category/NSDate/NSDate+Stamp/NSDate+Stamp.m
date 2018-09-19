@@ -102,7 +102,7 @@
     NSInteger hour = seconds / 3600;
     NSInteger min = seconds % 3600 / 60;
     NSInteger sec = seconds % 3600 % 60;
-    DLog(@"%ld:%ld:%ld",hour,min,sec);
+//    DLog(@"%ld:%ld:%ld",hour,min,sec);
     NSString *str;
     if (hour) {
         str = [NSString stringWithFormat:@"%02ld:%02ld:%02ld",hour,min,sec];
@@ -117,7 +117,7 @@
 + (NSString*)pg_secondsToHMS:(long long)seconds{
     NSInteger min = seconds / 60;
     NSInteger sec = seconds % 3600 % 60;
-    DLog(@"%ld:%ld",min,sec);
+//    DLog(@"%ld:%ld",min,sec);
     NSString *str = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
     return str;
 }

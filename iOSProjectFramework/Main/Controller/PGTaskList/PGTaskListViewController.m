@@ -11,10 +11,12 @@
 #import "PGTaskTableView.h"
 #import "PGSettingViewController.h"
 #import "PGTaskListModel.h"
+#import "PGTaskListViewModel.h"
 
 @interface PGTaskListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) PGTaskTableView *tableView;
+@property (nonatomic, strong) PGTaskListViewModel *viewModel;
 
 @property (nonatomic, strong) NSMutableArray<PGTaskListModel*> *taskList;
 
@@ -55,9 +57,17 @@
         [self.dbMgr.database close];
         if (arr.count) {
             [_taskList addObjectsFromArray:[PGTaskListModel mj_objectArrayWithKeyValuesArray:arr]];
+            [self.viewModel watch_updateTaskList:_taskList.copy];
         }
     }
     return _taskList;
+}
+
+- (PGTaskListViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [PGTaskListViewModel new];
+    }
+    return _viewModel;
 }
 
 #pragma mark - view func
@@ -88,7 +98,7 @@
     NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",(indexPath.section+1)%5];
     cell.bgImageView.image = IMAGE(imgName);
     [cell setLabelShadow:cell.qm_titleLabel content:task.task_name];
-    [cell setLabelShadow:cell.qm_detailLabel content:@"25分钟"];
+    [cell setLabelShadow:cell.qm_detailLabel content:[NSString stringWithFormat:@"%ld分钟",PGConfigMgr.TomatoLength]];
     return cell;
 }
 
@@ -196,9 +206,6 @@
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:settingButton],[[UIBarButtonItem alloc] initWithCustomView:addButton]];
 
 }
-
-#pragma mark - NetRequest
-
 
 
 @end

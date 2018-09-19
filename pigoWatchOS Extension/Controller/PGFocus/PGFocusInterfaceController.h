@@ -8,10 +8,11 @@
 
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
+#import "BaseInterfaceController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PGFocusInterfaceController : WKInterfaceController
+@interface PGFocusInterfaceController : BaseInterfaceController
 
 @end
 

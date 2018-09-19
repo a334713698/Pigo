@@ -1,0 +1,20 @@
+//
+//  watchExtensionPrefix.pch
+//  iOSProjectFramework
+//
+//  Created by 洪冬介 on 2018/9/19.
+//  Copyright © 2018年 洪冬介. All rights reserved.
+//
+
+#ifndef watchExtensionPrefix_pch
+#define watchExtensionPrefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//Base
+#import <Foundation/Foundation.h>
+#import "PGWatchEnum.h"
+
+
+#endif /* watchExtensionPrefix_pch */

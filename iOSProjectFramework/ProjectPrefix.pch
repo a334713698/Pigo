@@ -62,6 +62,7 @@
 #import "NSString+Features.h"
 #import "NSString+JSON.h"
 #import "NSData+ImageCompression.h"
+#import "NSData+Conversion.h"
 #import "NSString+Device.h"
 #import "UIColor+mostColor.h"
 
