@@ -7,18 +7,42 @@
 //
 
 #import "PGFocusInterfaceController.h"
+#import "PGFocusingViewModel.h"
+#import "PGTaskListModel.h"
 
 @interface PGFocusInterfaceController ()
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceButton *topBtn;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceButton *bottomBtn;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *timeLab;
+
+@property (nonatomic, strong) PGFocusingViewModel *viewModel;
+@property (nonatomic, strong) PGTaskListModel *taskModel;
+
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *taskNameLab;
 
 @end
 
 @implementation PGFocusInterfaceController
+
+- (PGFocusingViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [PGFocusingViewModel new];
+        _viewModel.timeLab = self.timeLab;
+        _viewModel.topBtn = self.topBtn;
+        _viewModel.bottomBtn = self.bottomBtn;
+    }
+    return _viewModel;
+}
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
     // Configure interface objects here.
     [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"删除这个番茄" action:@selector(deleteTask)];
+
+    self.taskModel = context;
+    [self.taskNameLab setText:self.taskModel.task_name];
+    [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
 
 }
 
@@ -35,6 +59,13 @@
 - (void)deleteTask{
     NSLog(@"删除这个番茄");
     [self dismissController];
+}
+- (IBAction)topBtnClick {
+    [self.viewModel topBtnClick];
+}
+
+- (IBAction)bottomBtnClick {
+    [self.viewModel bottomBtnClick];
 }
 
 @end

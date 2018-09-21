@@ -47,4 +47,7 @@ NSString *const PGConfigParaScreenBright = @"ScreenBright";             //屏幕
 BOOL      const PGConfigParaScreenBrightDefault = NO;                              //屏幕亮（默认值）
 
 
+//PGShortcutType
+NSString *const PGShortcutTypeFocus = @"PGShortcutTypeFocus";
+NSString *const PGShortcutTypeSetting = @"PGShortcutTypeSetting";
 

@@ -23,6 +23,23 @@
 		B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */; };
 		B66110832045504700D648E9 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110822045504700D648E9 /* BaseTabBarController.m */; };
 		B68887AF2150A42B0013874D /* PGFocusInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */; };
+		B68B51F721538F5500C1254F /* PGTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B51F521538F5500C1254F /* PGTaskListModel.m */; };
+		B68B52112153912A00C1254F /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B51FE2153912A00C1254F /* MJPropertyType.m */; };
+		B68B52122153912A00C1254F /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52012153912A00C1254F /* NSObject+MJKeyValue.m */; };
+		B68B52132153912A00C1254F /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52022153912A00C1254F /* MJProperty.m */; };
+		B68B52142153912A00C1254F /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52042153912A00C1254F /* NSObject+MJCoding.m */; };
+		B68B52152153912A00C1254F /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52062153912A00C1254F /* MJExtensionConst.m */; };
+		B68B52162153912A00C1254F /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52072153912A00C1254F /* NSObject+MJProperty.m */; };
+		B68B52172153912A00C1254F /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52092153912A00C1254F /* NSObject+MJClass.m */; };
+		B68B52182153912A00C1254F /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B520A2153912A00C1254F /* NSString+MJExtension.m */; };
+		B68B52192153912A00C1254F /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B520B2153912A00C1254F /* MJPropertyKey.m */; };
+		B68B521B2153912A00C1254F /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52102153912A00C1254F /* MJFoundation.m */; };
+		B68B522A21539A0F00C1254F /* PGFocusingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B522921539A0F00C1254F /* PGFocusingViewModel.m */; };
+		B68B523521539FD000C1254F /* PGWatchTransTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B523421539FD000C1254F /* PGWatchTransTool.m */; };
+		B68B523F2153A21200C1254F /* NSDate+Stamp.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B523D2153A21200C1254F /* NSDate+Stamp.m */; };
+		B68B52422153A26200C1254F /* WKConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52412153A26200C1254F /* WKConfigManager.m */; };
+		B68B524A215480DA00C1254F /* WKWatchTransTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B5249215480DA00C1254F /* WKWatchTransTool.m */; };
+		B68B524D2154D9DD00C1254F /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B68B524C2154D9DD00C1254F /* Intents.intentdefinition */; };
 		B6A60E112140CECB000A737D /* PGFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E102140CECB000A737D /* PGFocusViewController.m */; };
 		B6A60E162140D8E2000A737D /* QMLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E132140D8E2000A737D /* QMLoadView.m */; };
 		B6A60E172140D8E2000A737D /* pic_loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = B6A60E142140D8E2000A737D /* pic_loading.gif */; };
@@ -161,6 +178,43 @@
 		B66110822045504700D648E9 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		B68887AD2150A42B0013874D /* PGFocusInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusInterfaceController.h; sourceTree = "<group>"; };
 		B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusInterfaceController.m; sourceTree = "<group>"; };
+		B68B51F521538F5500C1254F /* PGTaskListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTaskListModel.m; sourceTree = "<group>"; };
+		B68B51F621538F5500C1254F /* PGTaskListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTaskListModel.h; sourceTree = "<group>"; };
+		B68B51FB2153912A00C1254F /* MJPropertyKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyKey.h; sourceTree = "<group>"; };
+		B68B51FC2153912A00C1254F /* NSObject+MJClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJClass.h"; sourceTree = "<group>"; };
+		B68B51FD2153912A00C1254F /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
+		B68B51FE2153912A00C1254F /* MJPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyType.m; sourceTree = "<group>"; };
+		B68B51FF2153912A00C1254F /* NSObject+MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJProperty.h"; sourceTree = "<group>"; };
+		B68B52002153912A00C1254F /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
+		B68B52012153912A00C1254F /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		B68B52022153912A00C1254F /* MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJProperty.m; sourceTree = "<group>"; };
+		B68B52032153912A00C1254F /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
+		B68B52042153912A00C1254F /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
+		B68B52052153912A00C1254F /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
+		B68B52062153912A00C1254F /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
+		B68B52072153912A00C1254F /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
+		B68B52082153912A00C1254F /* MJPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyType.h; sourceTree = "<group>"; };
+		B68B52092153912A00C1254F /* NSObject+MJClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJClass.m"; sourceTree = "<group>"; };
+		B68B520A2153912A00C1254F /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		B68B520B2153912A00C1254F /* MJPropertyKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyKey.m; sourceTree = "<group>"; };
+		B68B520C2153912A00C1254F /* MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJProperty.h; sourceTree = "<group>"; };
+		B68B520D2153912A00C1254F /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
+		B68B520E2153912A00C1254F /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
+		B68B52102153912A00C1254F /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		B68B521C2153919B00C1254F /* PGGlobalVariables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGGlobalVariables.h; sourceTree = "<group>"; };
+		B68B521D215391A400C1254F /* PGConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGConfig.h; sourceTree = "<group>"; };
+		B68B522821539A0F00C1254F /* PGFocusingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusingViewModel.h; sourceTree = "<group>"; };
+		B68B522921539A0F00C1254F /* PGFocusingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusingViewModel.m; sourceTree = "<group>"; };
+		B68B523321539FD000C1254F /* PGWatchTransTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGWatchTransTool.h; sourceTree = "<group>"; };
+		B68B523421539FD000C1254F /* PGWatchTransTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGWatchTransTool.m; sourceTree = "<group>"; };
+		B68B523D2153A21200C1254F /* NSDate+Stamp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Stamp.m"; sourceTree = "<group>"; };
+		B68B523E2153A21200C1254F /* NSDate+Stamp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Stamp.h"; sourceTree = "<group>"; };
+		B68B52402153A26200C1254F /* WKConfigManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKConfigManager.h; sourceTree = "<group>"; };
+		B68B52412153A26200C1254F /* WKConfigManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKConfigManager.m; sourceTree = "<group>"; };
+		B68B5248215480DA00C1254F /* WKWatchTransTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWatchTransTool.h; sourceTree = "<group>"; };
+		B68B5249215480DA00C1254F /* WKWatchTransTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWatchTransTool.m; sourceTree = "<group>"; };
+		B68B524B21548FF400C1254F /* PGNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGNotification.h; sourceTree = "<group>"; };
+		B68B524C2154D9DD00C1254F /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		B6A60E0F2140CECB000A737D /* PGFocusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusViewController.h; sourceTree = "<group>"; };
 		B6A60E102140CECB000A737D /* PGFocusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusViewController.m; sourceTree = "<group>"; };
 		B6A60E132140D8E2000A737D /* QMLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMLoadView.m; sourceTree = "<group>"; };
@@ -326,6 +380,8 @@
 		B60D50102151F279008CE149 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B68B524321547EF200C1254F /* WKWatchTransTool */,
+				B68B52362153A13F00C1254F /* WKConfigManager */,
 				B60D50112151F282008CE149 /* PGTool */,
 			);
 			path = Tool;
@@ -362,7 +418,10 @@
 			isa = PBXGroup;
 			children = (
 				B60D502021525652008CE149 /* watchExtensionPrefix.pch */,
+				B68B521D215391A400C1254F /* PGConfig.h */,
 				B60D501F215255A7008CE149 /* PGWatchEnum.h */,
+				B68B521C2153919B00C1254F /* PGGlobalVariables.h */,
+				B68B524B21548FF400C1254F /* PGNotification.h */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -390,9 +449,12 @@
 			isa = PBXGroup;
 			children = (
 				B6FDA4172150F5D9006717BB /* pigoWatchOS Extension.entitlements */,
-				B60D50102151F279008CE149 /* Tool */,
+				B68B51F82153907000C1254F /* Commom */,
+				B68B51F221538AB500C1254F /* BaseClass */,
 				B68887B02150A4640013874D /* Controller */,
 				B68887B22150A47E0013874D /* View */,
+				B68B51F321538F3200C1254F /* Model */,
+				B68B5226215399EE00C1254F /* ViewModel */,
 				B615E9DC214B6050008D0B6E /* ExtensionDelegate.h */,
 				B615E9DD214B6050008D0B6E /* ExtensionDelegate.m */,
 				B615E9DF214B6050008D0B6E /* NotificationController.h */,
@@ -426,7 +488,6 @@
 		B68887B02150A4640013874D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B60D500C2151E571008CE149 /* BaseInterfaceController */,
 				B68887B32150A5500013874D /* PGTaskList */,
 				B68887AC2150A4120013874D /* PGFocus */,
 			);
@@ -448,6 +509,146 @@
 				B615E9DA214B6050008D0B6E /* InterfaceController.m */,
 			);
 			path = PGTaskList;
+			sourceTree = "<group>";
+		};
+		B68B51F221538AB500C1254F /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				B60D500C2151E571008CE149 /* BaseInterfaceController */,
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
+		B68B51F321538F3200C1254F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B68B51F421538F5500C1254F /* PGTaskList */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B68B51F421538F5500C1254F /* PGTaskList */ = {
+			isa = PBXGroup;
+			children = (
+				B68B51F621538F5500C1254F /* PGTaskListModel.h */,
+				B68B51F521538F5500C1254F /* PGTaskListModel.m */,
+			);
+			path = PGTaskList;
+			sourceTree = "<group>";
+		};
+		B68B51F82153907000C1254F /* Commom */ = {
+			isa = PBXGroup;
+			children = (
+				B68B523A2153A20500C1254F /* Cate */,
+				B68B51F92153908B00C1254F /* Third */,
+				B60D50102151F279008CE149 /* Tool */,
+			);
+			path = Commom;
+			sourceTree = "<group>";
+		};
+		B68B51F92153908B00C1254F /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				B68B51FA2153912A00C1254F /* MJExtension */,
+			);
+			path = Third;
+			sourceTree = "<group>";
+		};
+		B68B51FA2153912A00C1254F /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B68B51FB2153912A00C1254F /* MJPropertyKey.h */,
+				B68B51FC2153912A00C1254F /* NSObject+MJClass.h */,
+				B68B51FD2153912A00C1254F /* NSString+MJExtension.h */,
+				B68B51FE2153912A00C1254F /* MJPropertyType.m */,
+				B68B51FF2153912A00C1254F /* NSObject+MJProperty.h */,
+				B68B52002153912A00C1254F /* MJExtensionConst.h */,
+				B68B52012153912A00C1254F /* NSObject+MJKeyValue.m */,
+				B68B52022153912A00C1254F /* MJProperty.m */,
+				B68B52032153912A00C1254F /* MJFoundation.h */,
+				B68B52042153912A00C1254F /* NSObject+MJCoding.m */,
+				B68B52052153912A00C1254F /* MJExtension.h */,
+				B68B52062153912A00C1254F /* MJExtensionConst.m */,
+				B68B52072153912A00C1254F /* NSObject+MJProperty.m */,
+				B68B52082153912A00C1254F /* MJPropertyType.h */,
+				B68B52092153912A00C1254F /* NSObject+MJClass.m */,
+				B68B520A2153912A00C1254F /* NSString+MJExtension.m */,
+				B68B520B2153912A00C1254F /* MJPropertyKey.m */,
+				B68B520C2153912A00C1254F /* MJProperty.h */,
+				B68B520D2153912A00C1254F /* NSObject+MJKeyValue.h */,
+				B68B520E2153912A00C1254F /* NSObject+MJCoding.h */,
+				B68B52102153912A00C1254F /* MJFoundation.m */,
+			);
+			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		B68B5226215399EE00C1254F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B68B5227215399FC00C1254F /* PGFocus */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B68B5227215399FC00C1254F /* PGFocus */ = {
+			isa = PBXGroup;
+			children = (
+				B68B522821539A0F00C1254F /* PGFocusingViewModel.h */,
+				B68B522921539A0F00C1254F /* PGFocusingViewModel.m */,
+			);
+			path = PGFocus;
+			sourceTree = "<group>";
+		};
+		B68B522F21539F9600C1254F /* PGWatchTransTool */ = {
+			isa = PBXGroup;
+			children = (
+				B68B523321539FD000C1254F /* PGWatchTransTool.h */,
+				B68B523421539FD000C1254F /* PGWatchTransTool.m */,
+			);
+			path = PGWatchTransTool;
+			sourceTree = "<group>";
+		};
+		B68B52362153A13F00C1254F /* WKConfigManager */ = {
+			isa = PBXGroup;
+			children = (
+				B68B52402153A26200C1254F /* WKConfigManager.h */,
+				B68B52412153A26200C1254F /* WKConfigManager.m */,
+			);
+			path = WKConfigManager;
+			sourceTree = "<group>";
+		};
+		B68B523A2153A20500C1254F /* Cate */ = {
+			isa = PBXGroup;
+			children = (
+				B68B523B2153A21200C1254F /* NSDate */,
+			);
+			path = Cate;
+			sourceTree = "<group>";
+		};
+		B68B523B2153A21200C1254F /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				B68B523C2153A21200C1254F /* NSDate+Stamp */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		B68B523C2153A21200C1254F /* NSDate+Stamp */ = {
+			isa = PBXGroup;
+			children = (
+				B68B523E2153A21200C1254F /* NSDate+Stamp.h */,
+				B68B523D2153A21200C1254F /* NSDate+Stamp.m */,
+			);
+			path = "NSDate+Stamp";
+			sourceTree = "<group>";
+		};
+		B68B524321547EF200C1254F /* WKWatchTransTool */ = {
+			isa = PBXGroup;
+			children = (
+				B68B5248215480DA00C1254F /* WKWatchTransTool.h */,
+				B68B5249215480DA00C1254F /* WKWatchTransTool.m */,
+			);
+			path = WKWatchTransTool;
 			sourceTree = "<group>";
 		};
 		B6A60E0E2140CB6E000A737D /* PGFocus */ = {
@@ -986,12 +1187,13 @@
 		B6E26A76201AF3D1006C7650 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B6CC325D2149EE2C00E66D64 /* PGConfigDefault.plist */,
+				B68B524C2154D9DD00C1254F /* Intents.intentdefinition */,
 				B6E26AA9201AF4A1006C7650 /* ProjectPrefix.pch */,
 				B6E26AA4201AF457006C7650 /* Config */,
 				B6E26A62201AF2A0006C7650 /* Main.storyboard */,
 				B6E26A67201AF2A0006C7650 /* LaunchScreen.storyboard */,
 				B6E26A6A201AF2A0006C7650 /* Info.plist */,
+				B6CC325D2149EE2C00E66D64 /* PGConfigDefault.plist */,
 				B6E26A6B201AF2A0006C7650 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1081,6 +1283,7 @@
 		B6E26A88201AF3F2006C7650 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B68B522F21539F9600C1254F /* PGWatchTransTool */,
 				B6CC3263214A635D00E66D64 /* DJDB */,
 				B6CC32582149107D00E66D64 /* PGConfigManager */,
 				B6A60F322140F919000A737D /* PGCountdownTool */,
@@ -1387,13 +1590,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68B523F2153A21200C1254F /* NSDate+Stamp.m in Sources */,
+				B68B52112153912A00C1254F /* MJPropertyType.m in Sources */,
+				B68B52152153912A00C1254F /* MJExtensionConst.m in Sources */,
 				B60D50142151F29C008CE149 /* PGTool.m in Sources */,
+				B68B521B2153912A00C1254F /* MJFoundation.m in Sources */,
+				B68B52172153912A00C1254F /* NSObject+MJClass.m in Sources */,
 				B60D500F2151E587008CE149 /* BaseInterfaceController.m in Sources */,
 				B615E9DE214B6050008D0B6E /* ExtensionDelegate.m in Sources */,
+				B68B52192153912A00C1254F /* MJPropertyKey.m in Sources */,
+				B68B51F721538F5500C1254F /* PGTaskListModel.m in Sources */,
 				B68887AF2150A42B0013874D /* PGFocusInterfaceController.m in Sources */,
+				B68B52182153912A00C1254F /* NSString+MJExtension.m in Sources */,
 				B6E5DB68214F544600227D1D /* PGTaskListCell.m in Sources */,
 				B615E9DB214B6050008D0B6E /* InterfaceController.m in Sources */,
+				B68B52162153912A00C1254F /* NSObject+MJProperty.m in Sources */,
+				B68B52142153912A00C1254F /* NSObject+MJCoding.m in Sources */,
+				B68B52122153912A00C1254F /* NSObject+MJKeyValue.m in Sources */,
+				B68B522A21539A0F00C1254F /* PGFocusingViewModel.m in Sources */,
+				B68B524A215480DA00C1254F /* WKWatchTransTool.m in Sources */,
 				B615E9E1214B6050008D0B6E /* NotificationController.m in Sources */,
+				B68B52132153912A00C1254F /* MJProperty.m in Sources */,
+				B68B52422153A26200C1254F /* WKConfigManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1419,6 +1637,7 @@
 				B6A60F4C21412142000A737D /* PGTaskCell.m in Sources */,
 				B6A60F352140F946000A737D /* PGCountdownTool.m in Sources */,
 				B6A60F392140F9A5000A737D /* PGCountdownLabel.m in Sources */,
+				B68B524D2154D9DD00C1254F /* Intents.intentdefinition in Sources */,
 				B6E26AA0201AF3F2006C7650 /* BaseViewController.m in Sources */,
 				B6A60F232140F659000A737D /* UITableViewCell+Features.m in Sources */,
 				B6E26A9D201AF3F2006C7650 /* BaseNavigationController.m in Sources */,
@@ -1439,6 +1658,7 @@
 				B6CF21732147B28400067470 /* PGSettingViewController.m in Sources */,
 				B6E26A6C201AF2A0006C7650 /* main.m in Sources */,
 				B6CF217B2147B36700067470 /* BaseViewModel.m in Sources */,
+				B68B523521539FD000C1254F /* PGWatchTransTool.m in Sources */,
 				B6E26A9C201AF3F2006C7650 /* HDJEmptyView.m in Sources */,
 				B6A60E2B2140F19B000A737D /* MBProgressHUD+Add.m in Sources */,
 				B6A60F272140F659000A737D /* UIView+Features.m in Sources */,

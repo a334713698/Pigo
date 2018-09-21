@@ -26,9 +26,6 @@
                                             <imageView width="25" height="25" alignment="right" verticalAlignment="center" image="icon_tomato" contentMode="scaleAspectFit" id="ooA-Wf-yP1"/>
                                             <label alignment="right" verticalAlignment="center" text="0" id="U32-Sd-2az"/>
                                         </items>
-                                        <connections>
-                                            <segue destination="PhE-CP-vsO" kind="modal" id="17Z-Af-ufx"/>
-                                        </connections>
                                     </group>
                                     <connections>
                                         <outlet property="countLabel" destination="U32-Sd-2az" id="SH7-5e-yd8"/>
@@ -69,30 +66,23 @@
                                 </group>
                             </items>
                         </group>
-                        <group width="1" height="45" alignment="left" id="TT7-SA-0ca">
-                            <items>
-                                <button width="120" height="100" alignment="center" verticalAlignment="center" title="Focusing" id="LcG-Bp-T7f"/>
-                            </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="5"/>
-                        </group>
-                        <group width="1" height="45" alignment="left" id="SFn-Ad-nsf">
-                            <items>
-                                <group width="0.5" height="1" alignment="left" id="XG3-D9-evd">
-                                    <items>
-                                        <button width="120" height="100" alignment="center" verticalAlignment="center" title="Stop" id="y8r-Rx-riQ"/>
-                                    </items>
-                                    <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
-                                </group>
-                                <group width="0.5" height="1" alignment="left" id="I7g-qu-9iC">
-                                    <items>
-                                        <button width="120" height="100" alignment="center" verticalAlignment="center" title="Next" id="cLg-Pm-Qda"/>
-                                    </items>
-                                    <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
-                                </group>
-                            </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                        </group>
+                        <button width="1" alignment="left" title="Button" id="hJi-W0-LWa">
+                            <connections>
+                                <action selector="topBtnClick" destination="PhE-CP-vsO" id="zLK-I2-77p"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Button" id="uvC-Rh-xiM">
+                            <connections>
+                                <action selector="bottomBtnClick" destination="PhE-CP-vsO" id="vnX-tq-GoK"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="bottomBtn" destination="uvC-Rh-xiM" id="RC2-OJ-fWg"/>
+                        <outlet property="taskNameLab" destination="2BY-51-Wt9" id="NII-Ei-ZOz"/>
+                        <outlet property="timeLab" destination="LtD-G7-RwL" id="p11-JW-M6U"/>
+                        <outlet property="topBtn" destination="hJi-W0-LWa" id="nac-cb-LPJ"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="467.86956521739125" y="343.79464285714289"/>

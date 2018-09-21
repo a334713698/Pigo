@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <WatchConnectivity/WatchConnectivity.h>
 
-@interface BaseViewModel : NSObject<WCSessionDelegate>
-
-@property (nonatomic, strong) WCSession *sessionDefault;
-
-@property (nonatomic, strong) NSDictionary *messageDic;
+@interface BaseViewModel : NSObject
 
 @end

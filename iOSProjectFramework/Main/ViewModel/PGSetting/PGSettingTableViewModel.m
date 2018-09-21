@@ -88,6 +88,24 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DLog(@"cell：%ld-%ld",indexPath.section,indexPath.row);
+    NSDictionary* sectionDic = self.cellData[indexPath.section];
+    NSArray* arr = sectionDic[@"data"];
+    NSDictionary* cellDic = arr[indexPath.row];
+    
+    PGSettingEventType eventType = [cellDic[@"eventType"] integerValue];
+    if ((eventType & PGSettingEventTypeClick) != PGSettingEventTypeClick){
+        return;
+    }
+    PGSettingContentType contentType = [cellDic[@"contentType"] integerValue];
+
+    switch (contentType) {
+        case PGSettingContentTypeDataSync:
+            [self DataSync];
+            break;
+            
+        default:
+            break;
+    }
     
 }
 
@@ -126,4 +144,9 @@
     [PGConfigMgr setValue:@(switcher.on) forKey:cell.paraName];
 }
 
+
+#pragma mark - Method
+- (void)DataSync{
+    [PGSettingViewModel watch_updateSettingConfig];
+}
 @end

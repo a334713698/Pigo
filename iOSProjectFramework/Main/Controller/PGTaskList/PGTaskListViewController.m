@@ -142,6 +142,7 @@
         [self.dbMgr.database open];
         [self.dbMgr deleteDataFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_name" andSymbol:@"=" andSpecificValue:[NSString stringWithFormat:@"\'%@\'",task.task_name]]];
         [self.dbMgr.database close];
+        [self watch_updateTaskList];
     }];
     action.backgroundColor = BACKGROUND_COLOR;
     return @[action];
@@ -170,6 +171,7 @@
             [self.dbMgr.database open];
             [self.dbMgr insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":[NSString stringWithFormat:@"\'%@\'",taskName]}];
             [self.dbMgr.database close];
+            [self watch_updateTaskList];
         }
     }]];
     
@@ -205,6 +207,10 @@
 
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:settingButton],[[UIBarButtonItem alloc] initWithCustomView:addButton]];
 
+}
+
+- (void)watch_updateTaskList{
+    [self.viewModel watch_updateTaskList:self.taskList.copy];
 }
 
 

@@ -9,6 +9,7 @@
 #import "PGConfigManager.h"
 
 #define PGConfigDefaultPath [[NSBundle mainBundle] pathForResource:@"PGConfigDefault" ofType:@"plist"]
+#define PGConfigPath ([NSString stringWithFormat:@"%@/PGConfig.plist",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject])
 
 @implementation PGConfigManager
 
@@ -16,16 +17,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGConfigManager)
 
 - (void)setup{
     
-    NSMutableString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject.mutableCopy;
-    [path appendString:@"/PGConfig.plist"];
+//    NSMutableString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject.mutableCopy;
+//    [path appendString:@"/PGConfig.plist"];
     
     NSMutableDictionary* configDic;
 
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        configDic = [NSMutableDictionary dictionaryWithContentsOfFile:path];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:PGConfigPath]) {
+        configDic = [NSMutableDictionary dictionaryWithContentsOfFile:PGConfigPath];
     }else{
         configDic = [NSMutableDictionary dictionaryWithContentsOfFile:PGConfigDefaultPath];
-        if ([[NSFileManager defaultManager] createFileAtPath:path contents:[NSData new] attributes:nil]) {
+        if ([[NSFileManager defaultManager] createFileAtPath:PGConfigPath contents:[NSData new] attributes:nil]) {
             DLog(@"创建成功");
         }else{
             DLog(@"创建失败");
@@ -38,12 +39,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGConfigManager)
 - (void)setValue:(id)value forKey:(NSString *)key{
     [super setValue:value forKey:key];
     
-    NSMutableString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject.mutableCopy;
-    [path appendString:@"/PGConfig.plist"];
+//    NSMutableString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject.mutableCopy;
+//    [path appendString:@"/PGConfig.plist"];
     
     NSMutableDictionary* config = [self mj_keyValues];
     DLog(@"%@",config);
-    if ([config writeToFile:path atomically:YES]) {
+    if ([config writeToFile:PGConfigPath atomically:YES]) {
         DLog(@"写入成功");
     }else{
         DLog(@"写入失败");

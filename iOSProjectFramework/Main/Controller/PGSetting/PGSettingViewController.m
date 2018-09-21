@@ -70,12 +70,6 @@
  */
 - (void)setupTableView{
     [self.tableViewModel handleWithTable:self.tableView];
-    
-    WS(weakSelf)
-    self.tableViewModel.didSelectItemBlock = ^(NSIndexPath *indexPath, NSDictionary *info) {
-        
-    };
 }
-
 
 @end

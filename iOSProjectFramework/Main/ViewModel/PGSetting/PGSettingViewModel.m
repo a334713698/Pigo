@@ -50,4 +50,16 @@
              ];
 }
 
++ (void)watch_updateSettingConfig{
+    if ([PGWatchTransTool canSendMsgToWatch]){
+        NSMutableDictionary* config = [PGConfigMgr mj_keyValues].mutableCopy;
+        [config removeObjectForKey:@"DataSync"];
+        [PGWatchTransTool sendMessageObj:config type:PGTransmittedtTypeSettingConfig replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
+            DLog(@"replyMessage：%@",replyMessage[@"reply"]);
+        } errorHandler:^(NSError * _Nonnull error) {
+            DLog(@"%@",error.userInfo);
+        }];
+    }
+}
+
 @end

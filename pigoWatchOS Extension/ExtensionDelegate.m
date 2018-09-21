@@ -13,7 +13,8 @@
 //项目加载时会调用
 - (void)applicationDidFinishLaunching {
     NSLog(@"项目加载");
-
+    [WKConfigMgr setup];
+    [WKWatchTransToolInstance.sessionDefault activateSession];
 }
 
 //项目显示界面时会调用

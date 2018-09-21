@@ -1,27 +1,18 @@
-
 //
-//  HDJConfig.h
+//  PGConfig.h
 //  iOSProjectFramework
 //
-//  Created by 洪冬介 on 2018/1/26.
+//  Created by 洪冬介 on 2018/9/20.
 //  Copyright © 2018年 洪冬介. All rights reserved.
 //
 
-#ifndef HDJConfig_h
-#define HDJConfig_h
-
+#ifndef PGConfig_h
+#define PGConfig_h
 
 /** 统一管理常用的常量 */
 
-// 服务器地址
-#define API_URL @""
-
-//图片前缀
-//#define IMG_PRE_URL @"http://quanmaikeji.oss-cn-hangzhou.aliyuncs.com"
 
 
-///当前设备是否是iPhoneX
-#define isPhoneX ([UIScreen mainScreen].bounds.size.width == 375 && [UIScreen mainScreen].bounds.size.height == 812)
 // 自适应设备宽度
 #define adaptWidth(w) (SCREEN_WIDTH / 375 * (w))
 // 自适应设备高度
@@ -31,26 +22,11 @@
 #define adaptFont(font) ((SCREEN_WIDTH / 375 * (font) < 10.0f && font >= 10.0f) ? 10.0f : SCREEN_WIDTH / 375 * (font))
 //#define adaptFont(font) (font)
 
-// 尺寸宏
-#define STATUSBAR_HEIGHT (isPhoneX ? 44 : 20)
-#define NAVIGATIONBAR_WIDTH 24 //不确定
-#define NAVIGATIONBAR_HEIGHT 44
-#define NavigationBarIcon 20
-#define TABBAR_HEIGHT 49   //iPhone X例外吗？
-#define TabBarIcon 30
-#define SAFEAREA_BOTTOM_HEIGHT (isPhoneX ? 34 : 0)
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-
 #define WS(weakSelf)   __weak typeof(self) weakSelf = self;
 #define WSObj(obj,weakObj)   __weak typeof(obj) weakObj = obj;
 
 
-// dealloc宏
-#define deallocPrint \
-- (void)dealloc {\
-NSLog(@"%@--dealloc", [self class]);\
-}\
+
 
 // 打印宏
 //替换NSLog来使用，debug模式下可以打印很多方法名，行信息。
@@ -67,56 +43,20 @@ NSLog(@"%@--dealloc", [self class]);\
 
 #define PrintFuncName DLog(@"%s",__func__);
 
-
-
-//屏幕window
-#define WINDOW [UIApplication sharedApplication].keyWindow
-
-//当前显示的视图控制器
-#define TOPVC [DJTools topViewController]
-
 //文件管理
 #define QMFileMgr [NSFileManager defaultManager]
 
-// 系统宏
-// 获取版本
-//#define iOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
-#define CurrentSystemVersion [[UIDevice currentDevice] systemVersion]
-// 获取当前语言
-#define CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
-
-// 判断是真机还是模拟器
-#if TARGET_OS_IPHONE
-// iPhone Device
-#endif
-#if TARGET_IPHONE_SIMULATOR
-// iPhone Simulator
-#endif
-
-
-//检查系统版本
-#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
-#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 
 // 图片宏
-// 读取本地图片
-#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:ext]]
 // 定义UIImage对象
 #define IMAGE(imageName) [UIImage imageNamed:imageName]
 #define IMAGEForThemeColor(imageName, color) [[UIImage imageNamed:@imageName] imageForThemeColor:color]
-// 默认头像
-#define DefaultAvatarImage [UIImage imageNamed:@"defaultAvatar"]
-#define DefaultAvatarImg(identity) [UIImage getAvatarImageWithIdentity:identity]
+
 
 // 默认图像
 #define DefaultImage [UIImage imageNamed:@"pic_placeholder"]
 
-// 国际化读取宏 便于整体修改
-#define QMLOCALSTRING(key,comment) NSLocalizedString(key, comment)
 
 // 颜色宏
 // rgb颜色转换（16进制->10进制）
@@ -165,13 +105,6 @@ NSLog(@"%@--dealloc", [self class]);\
 #define CACHES_PATH NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject
 
 
-//移除iOS7之后，cell默认左侧的分割线边距
-#define removeCellSeparator \
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{\
-cell.separatorInset = UIEdgeInsetsZero;\
-cell.layoutMargins = UIEdgeInsetsZero; \
-cell.preservesSuperviewLayoutMargins = NO; \
-}\
 
 //判断空字符串
 #define NULLString(string) ((![string isKindOfClass:[NSString class]])||[string isEqualToString:@""] || (string == nil) || [string isEqualToString:@""] || [string isKindOfClass:[NSNull class]]||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0)
@@ -231,6 +164,4 @@ return nil; \
 return self; \
 }
 
-
-
-#endif /* HDJConfig_h */
+#endif /* PGConfig_h */

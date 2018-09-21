@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "BaseNavigationController.h"
 #import "PGFocusViewController.h"
+#import "PGSettingViewController.h"
 #import "LaunchViewController.h"
+#import "FocusIntent.h"
 
 @interface AppDelegate ()
 
@@ -32,8 +34,42 @@
     self.window.rootViewController = launchScreen;
     [self.window makeKeyAndVisible];
 
+    //初始化 3D-Touch 和 Siri Shortcut
+    [self setupShortcutItems];
     return YES;
 }
+
+- (void)setupShortcutItems{
+    /**
+     type 该item 唯一标识符
+     localizedTitle ：标题
+     localizedSubtitle：副标题
+     icon：icon图标 可以使用系统类型 也可以使用自定义的图片
+     userInfo：用户信息字典 自定义参数，完成具体功能需求
+     */
+    
+    if (@available(iOS 9.0, *)) {
+//        UIApplicationShortcutIcon *focusIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_tomato"];
+        UIApplicationShortcutIcon *focusIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeConfirmation];
+        UIApplicationShortcutItem *focusItem = [[UIApplicationShortcutItem alloc] initWithType:PGShortcutTypeFocus localizedTitle:@"开始专注" localizedSubtitle:nil icon:focusIcon userInfo:nil];
+
+        UIApplicationShortcutIcon *settingIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"iocn_setting"];
+        UIApplicationShortcutItem *settingItem = [[UIApplicationShortcutItem alloc] initWithType:PGShortcutTypeSetting localizedTitle:@"设置" localizedSubtitle:nil icon:settingIcon userInfo:nil];
+
+        /** 将items 添加到app图标 */
+        [UIApplication sharedApplication].shortcutItems = @[focusItem,settingItem];
+    }
+    
+    if (@available(iOS 12.0, *)) {
+        /** 初始化Siri Shortcut */
+        FocusIntent *focusIntent = [[FocusIntent alloc] init];
+        INInteraction *interaction = [[INInteraction alloc] initWithIntent:focusIntent response:nil];
+        [interaction donateInteractionWithCompletion:^(NSError * _Nullable error) {
+            DLog(@"donateInteractionWithCompletion");
+        }];
+    }
+}
+
 
 - (void)registerUserNotiSettings{
     UIUserNotificationSettings* setting  = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
@@ -68,6 +104,38 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+//iOS 12 only
+-(BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler{
+    //根据不同的INIntent类型做不同的处理
+    if ([userActivity.activityType isEqualToString:@"FocusIntent"]) {
+        [self shortcutItem_focus];
+    }
+    return YES;
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+API_AVAILABLE(ios(9.0)){
+    if ([shortcutItem.type isEqualToString:PGShortcutTypeSetting]){
+        [self shortcutItem_setting];
+    }else if (([shortcutItem.type isEqualToString:PGShortcutTypeFocus])){
+        [self shortcutItem_focus];
+    }
+}
+
+- (void)shortcutItem_focus{
+    BaseNavigationController* nav = (BaseNavigationController*)WINDOW.rootViewController;
+    [nav popToRootViewControllerAnimated:NO];
+}
+
+- (void)shortcutItem_setting{
+    BaseNavigationController* nav = (BaseNavigationController*)WINDOW.rootViewController;
+    [nav popToRootViewControllerAnimated:NO];
+    //体检用户列表
+    PGSettingViewController* next = [PGSettingViewController new];
+    [nav pushViewController:next animated:YES];
+}
+
 
 
 @end

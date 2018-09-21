@@ -23,11 +23,11 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, assign) PGFocusState currentFocusState;
 
-@property (nonatomic, strong) PGCountdownLabel *cdLabel;
+@property (nonatomic, weak) PGCountdownLabel *cdLabel;
 
-@property (nonatomic, strong) PGFocusButton *leftButton;
-@property (nonatomic, strong) PGFocusButton *centerButton;
-@property (nonatomic, strong) PGFocusButton *rightButton;
+@property (nonatomic, weak) PGFocusButton *leftButton;
+@property (nonatomic, weak) PGFocusButton *centerButton;
+@property (nonatomic, weak) PGFocusButton *rightButton;
 
 
 //- (void)setCurrentFocusState:(PGFocusState)currentFocusState timeLabel:(UILabel*)timeLabel leftButton:(PGFocusButton*)leftButton centerButton:(PGFocusButton*)centerButton rightButton:(PGFocusButton*)rightButton;

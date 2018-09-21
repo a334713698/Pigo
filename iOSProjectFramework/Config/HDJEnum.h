@@ -58,4 +58,14 @@ typedef enum : NSInteger {
     PGSettingContentTypeDataSync            //数据同步
 } PGSettingContentType;
 
+
+
+
+
+//传输数据的类型
+typedef enum : NSInteger {
+    PGTransmittedtTypeTaskList = 1,     //番茄列表
+    PGTransmittedtTypeSettingConfig     //设置参数
+} PGTransmittedtType;
+
 #endif /* HDJEnum_h */

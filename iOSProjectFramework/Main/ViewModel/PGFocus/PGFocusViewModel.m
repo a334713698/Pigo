@@ -156,7 +156,6 @@
 //开始专注
 - (void)startFocus{
     [self timerInvalidate];
-    [self sendMsgToWatch];
     WS(weakSelf)
 
     //开始计时
@@ -193,7 +192,7 @@
     __block NSInteger seconds = PGConfigMgr.ShortBreak * 60;
     seconds = 5;
     NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
-    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"休息结束，下一个番茄"];
+    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"休息结束，开始下一个番茄"];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
 //        DLog(@"倒计时");
         int interval = [endTime timeIntervalSinceNow];
@@ -234,61 +233,6 @@
     
     //4.调度通知
     [[UIApplication sharedApplication] scheduleLocalNotification:ln];
-}
-
-
-#pragma mark - Watch
-- (void)sendMsgToWatch{
-
-    if (![WCSession isSupported]) {
-        DLog(@"当前系统版本不支持 Connectivity框架");
-    }else if (!self.sessionDefault.isReachable){
-        DLog(@"watch 当前不在激活状态");
-    }else{
-        //发送前台字典数据
-        [self sendFrontMsgDic];
-        
-        //发送队列式字典传输
-//        [self sendBGMsgDic];
-    }
-}
-
-//发送前台字典数据
-- (void)sendFrontMsgDic{
-    [self.sessionDefault sendMessage:self.messageDic replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
-        DLog(@"replyMessage：%@",replyMessage[@"reply"]);
-    } errorHandler:^(NSError * _Nonnull error) {
-        DLog(@"%@",error);
-    }];
-}
-
-//发送队列式字典传输
-- (void)sendBGMsgDic{
-    [self.sessionDefault transferUserInfo:self.messageDic];
-}
-
-- (void)session:(WCSession *)session didReceiveMessageData:(NSData *)messageData replyHandler:(void (^)(NSData * _Nonnull))replyHandler{
-    DLog(@"收到来自watch的信息");
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [MBProgressHUD showSuccess:@"收到来自watch的信息"];
-    });
-}
-
-- (void)session:(nonnull WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error {
-    DLog(@"--------------------");
-    DLog(@"activationDidCompleteWithState：%ld",activationState)
-}
-
-
-- (void)sessionDidBecomeInactive:(nonnull WCSession *)session {
-    DLog(@"--------------------");
-    DLog(@"sessionDidBecomeInactive");
-}
-
-
-- (void)sessionDidDeactivate:(nonnull WCSession *)session {
-    DLog(@"--------------------");
-    DLog(@"sessionDidDeactivate");
 }
 
 

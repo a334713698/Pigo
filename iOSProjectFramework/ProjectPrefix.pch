@@ -39,6 +39,7 @@
 //Common-Tool
 #import "PGConfigManager.h"
 #import "DJDatabaseManager.h"
+#import "PGWatchTransTool.h"
 
 //Common
 

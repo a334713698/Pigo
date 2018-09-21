@@ -12,4 +12,6 @@
 
 + (NSArray*)gettingCellData;
 
++ (void)watch_updateSettingConfig;
+
 @end

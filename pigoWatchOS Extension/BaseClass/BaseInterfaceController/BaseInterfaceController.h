@@ -8,16 +8,11 @@
 
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
-#import <WatchConnectivity/WatchConnectivity.h>
-#import "PGTool.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseInterfaceController : WKInterfaceController<WCSessionDelegate>
+@interface BaseInterfaceController : WKInterfaceController
 
-@property (nonatomic, strong) WCSession *sessionDefault;
-
-@property (nonatomic, strong) NSDictionary *messageDic;
 
 @end
 

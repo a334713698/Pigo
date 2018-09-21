@@ -15,6 +15,20 @@
 //Base
 #import <Foundation/Foundation.h>
 #import "PGWatchEnum.h"
+#import "PGGlobalVariables.h"
+#import "PGConfig.h"
+#import "PGNotification.h"
+
+//Third
+#import "MJExtension.h"
+
+//Tool
+#import "WKConfigManager.h"
+#import "WKWatchTransTool.h"
+#import "PGTool.h"
+
+//Cate
+#import "NSDate+Stamp.h"
 
 
 #endif /* watchExtensionPrefix_pch */
