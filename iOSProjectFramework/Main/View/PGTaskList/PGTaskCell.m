@@ -17,7 +17,7 @@
         _qm_titleLabel.text  = @"Task";
         _qm_titleLabel.textColor = WHITE_COLOR;
         [_contView addSubview:_qm_titleLabel];
-        [_qm_titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        [_qm_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
             make.bottom.mas_equalTo(self.contView.mas_centerY).offset(-1);
         }];
@@ -28,18 +28,13 @@
 - (UILabel *)qm_detailLabel{
     if (!_qm_detailLabel) {
         _qm_detailLabel = [UILabel new];
-        _qm_detailLabel.font = [UIFont systemFontOfSize:adaptFont(14)];
+        _qm_detailLabel.font = [UIFont systemFontOfSize:adaptFont(15)];
         _qm_detailLabel.text  = @"25分钟";
         _qm_detailLabel.textColor = WHITE_COLOR;
         [_contView addSubview:_qm_detailLabel];
-        [_qm_detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.qm_titleLabel.mas_left);
-            make.top.mas_equalTo(self.contView.mas_centerY).offset(7);
-        }];
     }
     return _qm_detailLabel;
 }
-
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -78,6 +73,20 @@
         make.centerY.mas_equalTo(0);
         make.right.mas_equalTo(-20);
     }];
+    
+    UIImageView* tomatoIV = [[UIImageView alloc] initWithImage:IMAGE(@"icon_tomato")];
+    [_contView addSubview:tomatoIV];
+    [tomatoIV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.qm_titleLabel.mas_left);
+        make.top.mas_equalTo(self.contView.mas_centerY).offset(5);
+        make.width.height.mas_equalTo(25);
+    }];
+
+    [self.qm_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(tomatoIV.mas_right).offset(5);
+        make.centerY.mas_equalTo(tomatoIV.mas_centerY);
+    }];
+
 }
 
 - (void)setLabelShadow:(UILabel*)lab content:(NSString*)cont{
@@ -91,6 +100,7 @@
     
     [lab setAttributedText:attributedString];
 }
+
 
 // 重写 insertSubview:atIndex 方法
 - (void)insertSubview:(UIView *)view atIndex:(NSInteger)index {

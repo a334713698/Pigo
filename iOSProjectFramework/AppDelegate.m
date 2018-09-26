@@ -10,6 +10,7 @@
 #import "BaseNavigationController.h"
 #import "PGFocusViewController.h"
 #import "PGSettingViewController.h"
+#import "PGTaskListViewController.h"
 #import "LaunchViewController.h"
 #import "FocusIntent.h"
 
@@ -25,9 +26,6 @@
 
     [[PGConfigManager sharedPGConfigManager] setup];
     [self registerUserNotiSettings];
-    
-//    PGFocusViewController* focusVC = [PGFocusViewController new];
-//    BaseNavigationController *navi = [[BaseNavigationController alloc] initWithRootViewController:focusVC];
     
     LaunchViewController *launchScreen = [[LaunchViewController alloc] init];
 
@@ -49,15 +47,15 @@
      */
     
     if (@available(iOS 9.0, *)) {
-//        UIApplicationShortcutIcon *focusIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_tomato"];
-        UIApplicationShortcutIcon *focusIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeConfirmation];
-        UIApplicationShortcutItem *focusItem = [[UIApplicationShortcutItem alloc] initWithType:PGShortcutTypeFocus localizedTitle:@"开始专注" localizedSubtitle:nil icon:focusIcon userInfo:nil];
 
-        UIApplicationShortcutIcon *settingIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"iocn_setting"];
+        UIApplicationShortcutIcon *listIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_3dtouch_list"];
+        UIApplicationShortcutItem *listItem = [[UIApplicationShortcutItem alloc] initWithType:PGShortcutTypeList localizedTitle:@"番茄列表" localizedSubtitle:nil icon:listIcon userInfo:nil];
+
+        UIApplicationShortcutIcon *settingIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_3dtouch_set"];
         UIApplicationShortcutItem *settingItem = [[UIApplicationShortcutItem alloc] initWithType:PGShortcutTypeSetting localizedTitle:@"设置" localizedSubtitle:nil icon:settingIcon userInfo:nil];
 
         /** 将items 添加到app图标 */
-        [UIApplication sharedApplication].shortcutItems = @[focusItem,settingItem];
+        [UIApplication sharedApplication].shortcutItems = @[listItem,settingItem];
     }
     
     if (@available(iOS 12.0, *)) {
@@ -109,7 +107,12 @@
 -(BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler{
     //根据不同的INIntent类型做不同的处理
     if ([userActivity.activityType isEqualToString:@"FocusIntent"]) {
-        [self shortcutItem_focus];
+        if ([WINDOW.rootViewController isKindOfClass:[BaseNavigationController class]]) {
+            BaseNavigationController* nav = (BaseNavigationController*)WINDOW.rootViewController;
+            [nav popToRootViewControllerAnimated:YES];
+        }else{
+            [self enterMain];
+        }
     }
     return YES;
 }
@@ -118,24 +121,36 @@
 API_AVAILABLE(ios(9.0)){
     if ([shortcutItem.type isEqualToString:PGShortcutTypeSetting]){
         [self shortcutItem_setting];
-    }else if (([shortcutItem.type isEqualToString:PGShortcutTypeFocus])){
-        [self shortcutItem_focus];
+    }else if (([shortcutItem.type isEqualToString:PGShortcutTypeList])){
+        [self shortcutItem_list];
     }
 }
 
-- (void)shortcutItem_focus{
+- (void)enterMain {
+    PGFocusViewController* focusVC = [PGFocusViewController new];
+    BaseNavigationController *navi = [[BaseNavigationController alloc] initWithRootViewController:focusVC];
+    [UIApplication sharedApplication].keyWindow.rootViewController = navi;
+}
+
+- (void)shortcutItem_list{
+    if (![WINDOW.rootViewController isKindOfClass:[BaseNavigationController class]]) {
+        [self enterMain];
+    }
     BaseNavigationController* nav = (BaseNavigationController*)WINDOW.rootViewController;
     [nav popToRootViewControllerAnimated:NO];
+    PGTaskListViewController* next = [PGTaskListViewController new];
+    [nav pushViewController:next animated:NO];
 }
 
 - (void)shortcutItem_setting{
+    if (![WINDOW.rootViewController isKindOfClass:[BaseNavigationController class]]) {
+        [self enterMain];
+    }
     BaseNavigationController* nav = (BaseNavigationController*)WINDOW.rootViewController;
     [nav popToRootViewControllerAnimated:NO];
-    //体检用户列表
     PGSettingViewController* next = [PGSettingViewController new];
-    [nav pushViewController:next animated:YES];
+    [nav pushViewController:next animated:NO];
 }
-
 
 
 @end

@@ -53,7 +53,7 @@ const CGFloat PGFocusContViewHeight = 30;
 }
 
 - (void)setupView{
-    self.tomatoButton.height = NO;
+    self.tomatoButton.hidden = NO;
     UIView* line = [UIView new];
     [self addSubview:line];
     line.backgroundColor = WHITE_COLOR;

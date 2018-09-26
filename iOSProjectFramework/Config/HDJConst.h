@@ -60,7 +60,13 @@ UIKIT_EXTERN BOOL      const PGConfigParaScreenBrightDefault;       //屏幕亮�
 
 
 //PGShortcutType
-UIKIT_EXTERN NSString *const PGShortcutTypeFocus;
+UIKIT_EXTERN NSString *const PGShortcutTypeList;
 UIKIT_EXTERN NSString *const PGShortcutTypeSetting;
+
+//PGSettingCell
+UIKIT_EXTERN const CGFloat PGSettingCellContentHeight;
+UIKIT_EXTERN const CGFloat PGSettingCellMoreHeight;
+UIKIT_EXTERN const CGFloat PGSettingCellAccessoryWidth;
+UIKIT_EXTERN const CGFloat PGSettingCellAccessoryHeight;
 
 #endif /* PGConst_h */

@@ -45,7 +45,7 @@ typedef enum : NSInteger {
 
 
 typedef enum : NSInteger {
-    PGSettingContentTypeStatistics,         //统计
+    PGSettingContentTypeStatistics = 1,         //统计
     PGSettingContentTypeVibratingAlert,     //震动提示
     PGSettingContentTypeNotifyAlert,        //通知提示
     PGSettingContentTypeTomatoLength,       //番茄时长

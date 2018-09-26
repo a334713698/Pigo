@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewModel.h"
+#import "PGSettingDataModel.h"
 
 @interface PGSettingViewModel : BaseViewModel
 

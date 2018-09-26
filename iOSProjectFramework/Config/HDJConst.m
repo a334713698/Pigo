@@ -48,6 +48,11 @@ BOOL      const PGConfigParaScreenBrightDefault = NO;                           
 
 
 //PGShortcutType
-NSString *const PGShortcutTypeFocus = @"PGShortcutTypeFocus";
+NSString *const PGShortcutTypeList = @"PGShortcutTypeList";
 NSString *const PGShortcutTypeSetting = @"PGShortcutTypeSetting";
 
+//PGSettingCell
+const CGFloat PGSettingCellContentHeight = 40;
+const CGFloat PGSettingCellMoreHeight = 150;
+const CGFloat PGSettingCellAccessoryWidth = 7;
+const CGFloat PGSettingCellAccessoryHeight = 20;

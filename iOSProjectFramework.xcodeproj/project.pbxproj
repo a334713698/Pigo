@@ -22,6 +22,7 @@
 		B615E9E3214B6050008D0B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B615E9E2214B6050008D0B6E /* Assets.xcassets */; };
 		B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */; };
 		B66110832045504700D648E9 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110822045504700D648E9 /* BaseTabBarController.m */; };
+		B6760E0F215B3AFC005E97A4 /* PGSettingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6760E0E215B3AFC005E97A4 /* PGSettingDataModel.m */; };
 		B68887AF2150A42B0013874D /* PGFocusInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */; };
 		B68B51F721538F5500C1254F /* PGTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B51F521538F5500C1254F /* PGTaskListModel.m */; };
 		B68B52112153912A00C1254F /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B51FE2153912A00C1254F /* MJPropertyType.m */; };
@@ -176,6 +177,8 @@
 		B615E9E5214B6050008D0B6E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B66110812045504700D648E9 /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
 		B66110822045504700D648E9 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
+		B6760E0D215B3AFC005E97A4 /* PGSettingDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGSettingDataModel.h; sourceTree = "<group>"; };
+		B6760E0E215B3AFC005E97A4 /* PGSettingDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGSettingDataModel.m; sourceTree = "<group>"; };
 		B68887AD2150A42B0013874D /* PGFocusInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusInterfaceController.h; sourceTree = "<group>"; };
 		B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusInterfaceController.m; sourceTree = "<group>"; };
 		B68B51F521538F5500C1254F /* PGTaskListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTaskListModel.m; sourceTree = "<group>"; };
@@ -474,6 +477,15 @@
 				B66110822045504700D648E9 /* BaseTabBarController.m */,
 			);
 			path = BaseTabBarController;
+			sourceTree = "<group>";
+		};
+		B6760E0C215B3AE7005E97A4 /* PGSetting */ = {
+			isa = PBXGroup;
+			children = (
+				B6760E0D215B3AFC005E97A4 /* PGSettingDataModel.h */,
+				B6760E0E215B3AFC005E97A4 /* PGSettingDataModel.m */,
+			);
+			path = PGSetting;
 			sourceTree = "<group>";
 		};
 		B68887AC2150A4120013874D /* PGFocus */ = {
@@ -1226,6 +1238,7 @@
 		B6E26A7B201AF3F2006C7650 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B6760E0C215B3AE7005E97A4 /* PGSetting */,
 				B615E975214B4BBE008D0B6E /* PGTaskList */,
 			);
 			path = Model;
@@ -1648,6 +1661,7 @@
 				B60D50182152444B008CE149 /* PGTaskListViewModel.m in Sources */,
 				B6A60F1E2140F659000A737D /* UIImage+QRCode.m in Sources */,
 				B66110832045504700D648E9 /* BaseTabBarController.m in Sources */,
+				B6760E0F215B3AFC005E97A4 /* PGSettingDataModel.m in Sources */,
 				B6A60F592141299A000A737D /* QMSlideUpAlertView.m in Sources */,
 				B6A60F212140F659000A737D /* UILabel+Builder.m in Sources */,
 				B6A60F252140F659000A737D /* UIButton+ImageTitleSpacing.m in Sources */,

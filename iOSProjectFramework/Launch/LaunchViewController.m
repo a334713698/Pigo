@@ -15,6 +15,7 @@
 @interface LaunchViewController ()<UIScrollViewDelegate>{
     UIPageControl *_pageControl;
     BOOL _requestSuccess;
+    NSTimer* _timer;
 }
 
 
@@ -22,13 +23,19 @@
 
 @implementation LaunchViewController
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if (_timer.isValid) {
+        [_timer invalidate];
+        _timer = nil;
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = WHITE_COLOR;
+
     // Do any additional setup after loading the view.
     
     // 初始化子视图
@@ -46,7 +53,7 @@
     }
 }
 
-- (void)initTabBar {
+- (void)enterMain {
     PGFocusViewController* focusVC = [PGFocusViewController new];
     BaseNavigationController *navi = [[BaseNavigationController alloc] initWithRootViewController:focusVC];
     [UIApplication sharedApplication].keyWindow.rootViewController = navi;
@@ -100,14 +107,14 @@
  非第一次进入应用实现方法
  */
 - (void)appActiveByNotFirst {
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"launch_icon"]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pg_logo"]];
     [self.view addSubview:imageView];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_offset(CGSizeMake(150, 51));
+        make.size.mas_offset(CGSizeMake(150, 150));
         make.centerX.mas_offset(0);
-        make.bottom.mas_offset(-45);
+        make.centerY.mas_offset(-100);
     }];
-    [self performSelector:@selector(initTabBar) withObject:nil afterDelay:0.1];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(enterMain) userInfo:nil repeats:NO];
 }
 
 /**
@@ -120,7 +127,7 @@
     [USER_DEFAULT synchronize];
     [[DJDatabaseManager sharedDJDatabaseManager] initializeDB];
     // 进入应用主界面
-    [self initTabBar];
+    [self enterMain];
 }
 
 @end

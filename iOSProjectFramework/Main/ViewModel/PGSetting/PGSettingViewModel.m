@@ -35,20 +35,73 @@
              @{@"sectionTitle":@"专注设置",@"data":@[
                        @{@"title":@"震动提示",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeVibratingAlert),@"detail":@(PGConfigMgr.VibratingAlert),@"paraName":PGConfigParaVibratingAlert},
                        @{@"title":@"通知提示",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeNotifyAlert),@"detail":@(PGConfigMgr.NotifyAlert),@"paraName":PGConfigParaNotifyAlert},
-                       @{@"title":@"番茄时长",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeTomatoLength),@"detail":@(PGConfigMgr.TomatoLength),@"unit":@"分钟",@"paraName":PGConfigParaTomatoLength},
-                       @{@"title":@"短时休息",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeShortBreak),@"detail":@(PGConfigMgr.ShortBreak),@"unit":@"分钟",@"paraName":PGConfigParaShortBreak},
-                       @{@"title":@"长时休息",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeLongBreak),@"detail":@(PGConfigMgr.LongBreak),@"unit":@"分钟",@"paraName":PGConfigParaLongBreak},
-                       @{@"title":@"长时休息间隔",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeLongBreakInterval),@"detail":@(PGConfigMgr.LongBreakInterval),@"unit":@"个番茄",@"paraName":PGConfigParaLongBreakInterval},
+                       @{@"title":@"番茄时长",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeTomatoLength),@"detail":@(PGConfigMgr.TomatoLength),@"unit":@"分钟",@"paraName":PGConfigParaTomatoLength,@"pickArr":[self TomatoLengthDataArr]},
+                       @{@"title":@"短时休息",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeShortBreak),@"detail":@(PGConfigMgr.ShortBreak),@"unit":@"分钟",@"paraName":PGConfigParaShortBreak,@"pickArr":[self ShortBreakDataArr]},
+                       @{@"title":@"长时休息",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeLongBreak),@"detail":@(PGConfigMgr.LongBreak),@"unit":@"分钟",@"paraName":PGConfigParaLongBreak,@"pickArr":[self LongBreakDataArr]},
+                       @{@"title":@"长时休息间隔",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeLongBreakInterval),@"detail":@(PGConfigMgr.LongBreakInterval),@"unit":@"个番茄",@"paraName":PGConfigParaLongBreakInterval,@"pickArr":[self LongBreakIntervalDataArr]},
                        @{@"title":@"自动进入下个番茄",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeAutomaticNext),@"detail":@(PGConfigMgr.AutomaticNext),@"paraName":PGConfigParaAutomaticNext},
                        @{@"title":@"自动进入休息时间",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeAutomaticRest),@"detail":@(PGConfigMgr.AutomaticRest),@"paraName":PGConfigParaAutomaticRest},
                        @{@"title":@"屏幕常亮",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeScreenBright),@"detail":@(PGConfigMgr.ScreenBright),@"paraName":PGConfigParaScreenBright},
              ]},
 
              @{@"sectionTitle":@"数据同步",@"data":@[
-                       @{@"title":@"最近同步时间",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeDataSync),@"detail":@"未同步",@"paraName":@""}
+                       @{@"title":@"最近同步时间",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeDataSync),@"detail":@"未同步",@"paraName":PGConfigParaDataSync}
                        ]}
              ];
 }
+
+//番茄时长
++ (NSArray*)TomatoLengthDataArr{
+    NSMutableArray* mutableArr = [NSMutableArray array];
+    NSInteger index = 0;
+    for (NSInteger i = 5; i <= 120; i+=5) {
+        PGSettingDataModel* model = [PGSettingDataModel new];
+        model.indexNum = index++;
+        model.valueStr = QMStringFromNSInteger(i);
+        [mutableArr addObject:model];
+    }
+    return mutableArr.copy;
+}
+
+//短时休息
++ (NSArray*)ShortBreakDataArr{
+    NSMutableArray* mutableArr = [NSMutableArray array];
+    NSInteger index = 0;
+    for (NSInteger i = 1; i <= 25; i++) {
+        PGSettingDataModel* model = [PGSettingDataModel new];
+        model.indexNum = index++;
+        model.valueStr = QMStringFromNSInteger(i);
+        [mutableArr addObject:model];
+    }
+    return mutableArr.copy;
+}
+
+//长时休息
++ (NSArray*)LongBreakDataArr{
+    NSMutableArray* mutableArr = [NSMutableArray array];
+    NSInteger index = 0;
+    for (NSInteger i = 25; i <= 60; i++) {
+        PGSettingDataModel* model = [PGSettingDataModel new];
+        model.indexNum = index++;
+        model.valueStr = QMStringFromNSInteger(i);
+        [mutableArr addObject:model];
+    }
+    return mutableArr.copy;
+}
+
+//长时休息间隔
++ (NSArray*)LongBreakIntervalDataArr{
+    NSMutableArray* mutableArr = [NSMutableArray array];
+    NSInteger index = 0;
+    for (NSInteger i = 2; i <= 36; i++) {
+        PGSettingDataModel* model = [PGSettingDataModel new];
+        model.indexNum = index++;
+        model.valueStr = QMStringFromNSInteger(i);
+        [mutableArr addObject:model];
+    }
+    return mutableArr.copy;
+}
+
 
 + (void)watch_updateSettingConfig{
     if ([PGWatchTransTool canSendMsgToWatch]){

@@ -98,7 +98,7 @@
     NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",(indexPath.section+1)%5];
     cell.bgImageView.image = IMAGE(imgName);
     [cell setLabelShadow:cell.qm_titleLabel content:task.task_name];
-    [cell setLabelShadow:cell.qm_detailLabel content:[NSString stringWithFormat:@"%ld分钟",PGConfigMgr.TomatoLength]];
+    [cell setLabelShadow:cell.qm_detailLabel content:@"1"];
     return cell;
 }
 

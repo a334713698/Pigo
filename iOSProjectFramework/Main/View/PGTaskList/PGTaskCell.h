@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UILabel *qm_titleLabel;
 @property (nonatomic, strong) UILabel *qm_detailLabel;
 
+
 - (void)setLabelShadow:(UILabel*)lab content:(NSString*)cont;
 
 @end
