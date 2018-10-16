@@ -42,6 +42,7 @@
 #import "PGWatchTransTool.h"
 
 //Common
+#import "PGUserModel.h"
 
 
 //Category

@@ -84,5 +84,9 @@ const CGFloat PGFocusContViewHeight = 30;
     [self.labButton setTitle:labText forState:UIControlStateNormal];
 }
 
+- (void)setTomatoCount:(NSInteger)tomatoCount{
+    _tomatoCount = tomatoCount;
+    [self.tomatoButton setTitle:QMStringFromNSInteger(tomatoCount) forState:UIControlStateNormal];
+}
 
 @end

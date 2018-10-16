@@ -26,6 +26,7 @@
 
 @property (nonatomic, strong) PGFocusViewModel *viewModel;
 
+@property (nonatomic, strong) PGTaskListModel *taskModel;
 
 @end
 
@@ -114,6 +115,11 @@
         _viewModel.leftButton = self.leftButton;
         _viewModel.rightButton = self.rightButton;
         _viewModel.centerButton = self.centerButton;
+        WS(weakSelf)
+        self.viewModel.updateCount = ^{
+            weakSelf.taskModel.count++;
+            weakSelf.contView.tomatoCount = weakSelf.taskModel.count;
+        };
     }
     return _viewModel;
 }
@@ -123,6 +129,8 @@
     [super viewWillAppear:animated];
     self.naviTranslucent = YES;
     [[UIApplication sharedApplication] setIdleTimerDisabled:PGConfigMgr.ScreenBright];
+    
+    [self updateTask];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -140,12 +148,6 @@
     self.contView.hidden = NO;
     [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
     
-    [self.dbMgr.database open];
-    NSDictionary* dic = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"1"]].firstObject;
-    PGTaskListModel* model = [[PGTaskListModel alloc] mj_setKeyValues:dic];
-    self.contView.labText = model.task_name;
-    [self.dbMgr.database close];
-
 }
 
 
@@ -159,6 +161,14 @@
 #pragma mark - Method
 - (BOOL)prefersStatusBarHidden{
     return YES;
+}
+
+- (void)updateTask{
+    if (self.taskModel.task_id != PGUserModelInstance.currentTask.task_id) {
+        self.taskModel = PGUserModelInstance.currentTask;
+        self.contView.labText = self.taskModel.task_name;
+        self.contView.tomatoCount = self.taskModel.count;
+    }
 }
 
 #pragma mark - NetRequest

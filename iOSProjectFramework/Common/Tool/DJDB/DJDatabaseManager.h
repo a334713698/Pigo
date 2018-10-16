@@ -41,6 +41,8 @@
 
 ///通过单个搜索条件，获取某张表所有的元组
 - (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel;
+///通过多个搜索条件，获取某张表所有的元组
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModels:(NSArray<HDJDSQLSearchModel*>*)searchModels;
 
 
 /**

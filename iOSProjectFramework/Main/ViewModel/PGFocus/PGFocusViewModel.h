@@ -19,6 +19,8 @@ typedef enum : NSUInteger {
     PGFocusStateLongBreaking,//长时休息中
 } PGFocusState;
 
+typedef void(^UpdateTomatoCount)();
+
 @interface PGFocusViewModel : BaseViewModel
 
 @property (nonatomic, assign) PGFocusState currentFocusState;
@@ -28,6 +30,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) PGFocusButton *leftButton;
 @property (nonatomic, weak) PGFocusButton *centerButton;
 @property (nonatomic, weak) PGFocusButton *rightButton;
+
+@property (nonatomic, copy) UpdateTomatoCount updateCount;
 
 
 //- (void)setCurrentFocusState:(PGFocusState)currentFocusState timeLabel:(UILabel*)timeLabel leftButton:(PGFocusButton*)leftButton centerButton:(PGFocusButton*)centerButton rightButton:(PGFocusButton*)rightButton;

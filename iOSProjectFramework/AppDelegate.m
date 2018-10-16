@@ -25,6 +25,7 @@
     // Override point for customization after application launch.
 
     [[PGConfigManager sharedPGConfigManager] setup];
+    [PGUserModelInstance setup];
     [self registerUserNotiSettings];
     
     LaunchViewController *launchScreen = [[LaunchViewController alloc] init];

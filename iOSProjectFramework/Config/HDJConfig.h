@@ -21,7 +21,7 @@
 
 
 ///当前设备是否是iPhoneX
-#define isPhoneX ([UIScreen mainScreen].bounds.size.width == 375 && [UIScreen mainScreen].bounds.size.height == 812)
+#define isPhoneX ([UIScreen mainScreen].bounds.size.height == 896 | [UIScreen mainScreen].bounds.size.height == 812)
 // 自适应设备宽度
 #define adaptWidth(w) (SCREEN_WIDTH / 375 * (w))
 // 自适应设备高度
@@ -36,7 +36,7 @@
 #define NAVIGATIONBAR_WIDTH 24 //不确定
 #define NAVIGATIONBAR_HEIGHT 44
 #define NavigationBarIcon 20
-#define TABBAR_HEIGHT 49   //iPhone X例外吗？
+#define TABBAR_HEIGHT (isPhoneX ? 83 : 49)
 #define TabBarIcon 30
 #define SAFEAREA_BOTTOM_HEIGHT (isPhoneX ? 34 : 0)
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
@@ -179,6 +179,8 @@ cell.preservesSuperviewLayoutMargins = NO; \
 
 
 //快速将数字转换成字符串
+#define TextFromNSString(n) [NSString stringWithFormat:@"\'%@\'",n]
+
 #define QMStringFromCGFloat(n) [NSString stringWithFormat:@"%lf",n]
 #define QMStringFromNSValue(n) [NSString stringWithFormat:@"%@",n]
 

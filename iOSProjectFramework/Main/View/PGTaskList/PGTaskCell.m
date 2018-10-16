@@ -19,6 +19,7 @@
         [_contView addSubview:_qm_titleLabel];
         [_qm_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
+            make.width.mas_lessThanOrEqualTo(SCREEN_WIDTH*0.75);
             make.bottom.mas_equalTo(self.contView.mas_centerY).offset(-1);
         }];
     }
@@ -28,7 +29,7 @@
 - (UILabel *)qm_detailLabel{
     if (!_qm_detailLabel) {
         _qm_detailLabel = [UILabel new];
-        _qm_detailLabel.font = [UIFont systemFontOfSize:adaptFont(15)];
+        _qm_detailLabel.font = [UIFont systemFontOfSize:adaptFont(17)];
         _qm_detailLabel.text  = @"25分钟";
         _qm_detailLabel.textColor = WHITE_COLOR;
         [_contView addSubview:_qm_detailLabel];
@@ -73,18 +74,20 @@
         make.centerY.mas_equalTo(0);
         make.right.mas_equalTo(-20);
     }];
+    [playButton addTarget:self action:@selector(playButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UIImageView* tomatoIV = [[UIImageView alloc] initWithImage:IMAGE(@"icon_tomato")];
     [_contView addSubview:tomatoIV];
     [tomatoIV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.qm_titleLabel.mas_left);
         make.top.mas_equalTo(self.contView.mas_centerY).offset(5);
-        make.width.height.mas_equalTo(25);
+        make.width.height.mas_equalTo(adaptWidth(20));
     }];
 
     [self.qm_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(tomatoIV.mas_right).offset(5);
-        make.centerY.mas_equalTo(tomatoIV.mas_centerY);
+//        make.centerY.mas_equalTo(tomatoIV.mas_centerY);
+        make.bottom.mas_equalTo(tomatoIV.mas_bottom);
     }];
 
 }
@@ -126,5 +129,13 @@
         }
     }
 }
+
+- (void)playButtonClick:(UIButton*)sender{
+    if ([self.delegate respondsToSelector:@selector(taskCell:playButtonDidClick:)]) {
+        [self.delegate taskCell:self playButtonDidClick:sender];
+    }
+
+}
+
 
 @end

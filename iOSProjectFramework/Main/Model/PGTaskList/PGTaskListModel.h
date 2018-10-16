@@ -16,4 +16,8 @@
 
 @property (nonatomic, assign) BOOL is_default;
 
+
+
+@property (nonatomic, assign) NSInteger count;
+
 @end

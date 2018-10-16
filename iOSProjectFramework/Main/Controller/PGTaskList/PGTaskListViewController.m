@@ -12,8 +12,10 @@
 #import "PGSettingViewController.h"
 #import "PGTaskListModel.h"
 #import "PGTaskListViewModel.h"
+#import "PGTomatoRecordModel.h"
+#import "PGStatisticsAndCheckinViewController.h"
 
-@interface PGTaskListViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface PGTaskListViewController ()<UITableViewDataSource,UITableViewDelegate,PGTaskCellDelegate>
 
 @property (nonatomic, strong) PGTaskTableView *tableView;
 @property (nonatomic, strong) PGTaskListViewModel *viewModel;
@@ -53,12 +55,30 @@
     if (!_taskList) {
         _taskList = [NSMutableArray array];
         [self.dbMgr.database open];
-        NSArray* arr = [self.dbMgr getAllTuplesFromTabel:task_list_table withSortedMode:NSOrderedDescending andColumnName:@"task_id"];
-        [self.dbMgr.database close];
-        if (arr.count) {
-            [_taskList addObjectsFromArray:[PGTaskListModel mj_objectArrayWithKeyValuesArray:arr]];
+        NSArray* taskArr = [self.dbMgr getAllTuplesFromTabel:task_list_table withSortedMode:NSOrderedDescending andColumnName:@"task_id"];
+        if (taskArr.count) {
+            NSString* dateToday = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
+            NSArray* recordDicArr = [self.dbMgr getAllTuplesFromTabel:tomato_record_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateToday)]];
+            NSMutableArray* recordModelArr = [PGTomatoRecordModel mj_objectArrayWithKeyValuesArray:recordDicArr];
+            if (recordDicArr.count) {
+                for (NSDictionary* taskDic in taskArr) {
+                    PGTaskListModel *model = [[PGTaskListModel alloc] mj_setKeyValues:taskDic];
+                    for (PGTomatoRecordModel* recordModel in recordModelArr) {
+                        if (model.task_id == recordModel.task_id) {
+                            model.count = recordModel.count;
+                            [recordModelArr removeObject:recordModel];
+                            break;
+                        }
+                    }
+                    [_taskList addObject:model];
+                }
+            }else{
+                [_taskList addObjectsFromArray:[PGTaskListModel mj_objectArrayWithKeyValuesArray:taskArr]];
+            }
+            
             [self.viewModel watch_updateTaskList:_taskList.copy];
         }
+        [self.dbMgr.database close];
     }
     return _taskList;
 }
@@ -76,7 +96,6 @@
     self.view.backgroundColor = BACKGROUND_COLOR;
     self.tableView.hidden = NO;
     [self initNav];
-
 }
 
 #pragma mark - UITableViewDataSource
@@ -94,17 +113,25 @@
     PGTaskCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGTaskCell"];
     if (!cell) {
         cell = [[PGTaskCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PGTaskCell"];
+        cell.delegate = self;
     }
     NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",(indexPath.section+1)%5];
     cell.bgImageView.image = IMAGE(imgName);
+//    cell.contView.backgroundColor = [UIColor redColor];
     [cell setLabelShadow:cell.qm_titleLabel content:task.task_name];
-    [cell setLabelShadow:cell.qm_detailLabel content:@"1"];
+    [cell setLabelShadow:cell.qm_detailLabel content:QMStringFromNSInteger(task.count)];
+    cell.taskModel = task;
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DLog(@"cell：%ld-%ld",indexPath.section,indexPath.row);
+    
+    PGStatisticsAndCheckinViewController* next = [PGStatisticsAndCheckinViewController new];
+    BaseNavigationController* nav = [[BaseNavigationController alloc] initWithRootViewController:next];
+    next.taskModel = self.taskList[indexPath.section];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -182,6 +209,12 @@
     DLog(@"设置");
     PGSettingViewController* next  =[PGSettingViewController new];
     [self.navigationController pushViewController:next animated:YES];
+}
+
+#pragma mark - PGTaskCellDelegate
+- (void)taskCell:(PGTaskCell*)cell playButtonDidClick:(UIButton*)btn{
+    PGUserModelInstance.currentTask = cell.taskModel;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Method

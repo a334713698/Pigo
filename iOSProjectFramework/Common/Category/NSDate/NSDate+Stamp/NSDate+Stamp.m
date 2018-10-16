@@ -16,7 +16,7 @@
  *  @return 时间戳
  */
 - (NSString *)dateToTimeStamp {
-    return [NSString stringWithFormat:@"%lf", [self timeIntervalSince1970]];
+    return [NSString stringWithFormat:@"%.0lf", [self timeIntervalSince1970]];
 }
 
 /**

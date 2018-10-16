@@ -16,4 +16,6 @@ UIKIT_EXTERN const CGFloat PGFocusContViewHeight;
 @property (nonatomic, strong) UIButton *tomatoButton;
 @property (nonatomic, strong) UIButton *labButton;
 
+@property (nonatomic, assign) NSInteger tomatoCount;
+
 @end

@@ -29,6 +29,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     
     if (isOpen) {
         [self init_task_list_table];
+        [self init_tomato_record_table];
     }else{
         NSLog(@"数据库打开失败");
     }
@@ -42,8 +43,18 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     BOOL isCreated = [self createTableWithName:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int"}];
     
     if (isCreated) {
-        DLog(@"任务列表创建成功");
-        [self insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":@"\'Swift学习\'",@"is_default":@"1"}];
+        DLog(@"任务表创建成功");
+        [self insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":TextFromNSString(@"Swift学习"),@"is_default":@"1"}];
+    }
+}
+
+//创建tomato_record_table，并插入数据
+- (void)init_tomato_record_table{
+    
+    BOOL isCreated = [self createTableWithName:tomato_record_table andKeyValues:@{@"tomato_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long",@"count":@"integer"}];
+    
+    if (isCreated) {
+        DLog(@"番茄记录表创建成功");
     }
 }
 
@@ -174,6 +185,25 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     NSMutableArray<NSDictionary*>* result_arr = [NSMutableArray array];
     
     NSString* sql = [NSString stringWithFormat:@"select * from %@ where %@%@%@",name,searchModel.attriName,searchModel.symbol,searchModel.specificValue];
+    FMResultSet *result = [self.database executeQuery:sql];
+    while([result next]) {
+        [result_arr addObject:result.resultDictionary];
+    }
+    
+    return [result_arr copy];
+}
+///通过多个搜索条件，获取某张表所有的元组
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModels:(NSArray<HDJDSQLSearchModel*>*)searchModels{
+    if (searchModels.count<2) {
+        return [self getAllTuplesFromTabel:name andSearchModel:searchModels.firstObject];
+    }
+    NSMutableArray<NSDictionary*>* result_arr = [NSMutableArray array];
+    
+    NSMutableArray* searchStrArr = [NSMutableArray arrayWithCapacity:searchModels.count];
+    for (HDJDSQLSearchModel* searchModel in searchModels) {
+        [searchStrArr addObject:[NSString stringWithFormat:@"%@%@%@",searchModel.attriName,searchModel.symbol,searchModel.specificValue]];
+    }
+    NSString* sql = [NSString stringWithFormat:@"select * from %@ where %@",name,[searchStrArr componentsJoinedByString:@" and "]];
     FMResultSet *result = [self.database executeQuery:sql];
     while([result next]) {
         [result_arr addObject:result.resultDictionary];
