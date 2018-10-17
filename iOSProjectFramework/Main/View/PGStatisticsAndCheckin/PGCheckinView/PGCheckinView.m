@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) NSDate *date;
 
+@property (nonatomic, strong) NSArray *checkinRecordArr;
+
 @end
 
 @implementation PGCheckinView{
@@ -50,7 +52,7 @@
     return _date;
 }
 
-- (instancetype)init
+- (instancetype)initWithTaskID:(NSInteger)task_id
 {
     self = [super init];
     if (self) {
@@ -59,6 +61,8 @@
         _completedDaysLab = [UILabel new];
         _continuousDaysLab = [UILabel new];
         _highestDaysLab = [UILabel new];
+        _task_id = task_id;
+        _checkinRecordArr = [PGUserModelInstance getCheckinRecordWithTaskID:_task_id];
         self.backgroundColor = WHITE_COLOR;
         [self setupView];
     }
@@ -100,12 +104,20 @@
         make.height.mas_equalTo(btnH);
         make.top.mas_equalTo(titleItemWidth + 12);
     }];
+    [_checkinButton setTitle:@"今日已打卡" forState:UIControlStateDisabled];
+    [_checkinButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [_checkinButton addRoundMaskWithRoundedRect:CGRectMake(0, 0, SCREEN_WIDTH - leftMargin * 2, btnH) CornerRadius:PGCornerRadius andBorderWidth:1 andBorderColor:MAIN_COLOR];
+    NSString* todayDateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
+    if ([self.checkinRecordArr containsObject:todayDateStr]) {
+        _checkinButton.enabled = NO;
+        CAShapeLayer *borderLayer = _checkinButton.layer.sublayers.firstObject;
+        borderLayer.strokeColor = [UIColor grayColor].CGColor;
+    }
+    [_checkinButton addTarget:self action:@selector(checkin) forControlEvents:UIControlEventTouchUpInside];
     
     CGFloat weekViewH = adaptWidth(35);
     UIView *weekView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, CalendarView_Week_TopView_Height)];
     [self addSubview:weekView];
-//    weekView.backgroundColor = [UIColor cyanColor];
     [weekView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.checkinButton.mas_bottom).offset(12);
         make.left.mas_equalTo(leftMargin);
@@ -153,8 +165,8 @@
     DLog(@"停止滚动");
     if (_lastOffsetY < 0) {
         _num += increaseNum;
-        [self.tableView insertSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, increaseNum)] withRowAnimation:UITableViewRowAnimationNone];
-//        [self.tableView reloadData];
+        [self.tableView reloadData];
+        [self.tableView layoutIfNeeded];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:increaseNum] atScrollPosition:UITableViewScrollPositionTop animated:NO];
         _lastOffsetY = 0;
     }
@@ -172,6 +184,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     PGCheckinCell* cell = [[PGCheckinCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.task_id = self.task_id;
+    cell.checkinRecordArr = self.checkinRecordArr;
     cell.date = [self getDateFrom:self.date offsetMonths:-(_num-indexPath.section-1)];
     return cell;
 }
@@ -218,5 +232,15 @@
     return newdate;
 }
 
+- (void)checkin{
+    DLog(@"今日打卡");
+    _checkinButton.enabled = NO;
+    CAShapeLayer *borderLayer = _checkinButton.layer.sublayers.firstObject;
+    borderLayer.strokeColor = [UIColor grayColor].CGColor;
+    NSString* dateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
+    [PGUserModelInstance taskCheckinWithID:self.task_id andDateStr:dateStr];
+    self.checkinRecordArr = [self.checkinRecordArr arrayByAddingObject:dateStr];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:_num - 1] withRowAnimation:UITableViewRowAnimationNone];
+}
 
 @end

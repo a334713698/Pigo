@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIButton *checkinButton;
 
+@property (nonatomic, assign) NSInteger task_id;
+
+- (instancetype)initWithTaskID:(NSInteger)task_id;
 @end
 
 NS_ASSUME_NONNULL_END

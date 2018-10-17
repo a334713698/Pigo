@@ -16,9 +16,10 @@
 
 #define APP_SECRET @""
 
-#define DATABASE_NAME                          @"pigo_db.sqlite"
-#define task_list_table                        @"task_list_table"
-#define tomato_record_table                    @"tomato_record_table"
+#define DATABASE_NAME                     @"pigo_db.sqlite"
+#define task_list_table                   @"task_list_table"
+#define tomato_record_table               @"tomato_record_table"
+#define check_in_table                    @"check_in_table"
 
 
 #endif /* HDJGlobalVariables_h */

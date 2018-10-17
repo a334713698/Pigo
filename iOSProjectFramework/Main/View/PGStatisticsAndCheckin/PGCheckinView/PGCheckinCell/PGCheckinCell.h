@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PGCheckinCell : UITableViewCell
 
 @property (nonatomic, strong) NSDate* date;
+@property (nonatomic, assign) NSInteger task_id;
+
+@property (nonatomic, strong) NSArray *checkinRecordArr;
 
 //本月日期所需要占用的行数
 + (NSInteger)getTotalRowsInThisMonth:(NSDate *)date;

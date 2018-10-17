@@ -39,13 +39,6 @@
     [self.itemButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self.itemButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     
-    [self.itemButton addTarget:self action:@selector(itemButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 }
-
-- (void)itemButtonClick:(UIButton*)sender{
-    sender.selected = !sender.isSelected;
-    
-}
-
 
 @end

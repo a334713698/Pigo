@@ -10,6 +10,8 @@
 
 @interface PGTaskListModel : BaseModel
 
+@property (nonatomic, assign) long add_time;
+
 @property (nonatomic, assign) NSInteger task_id;
 
 @property (nonatomic, copy) NSString *task_name;

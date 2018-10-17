@@ -45,7 +45,7 @@
 
 - (PGCheckinView *)checkinView{
     if (!_checkinView) {
-        _checkinView = [PGCheckinView new];
+        _checkinView = [[PGCheckinView alloc] initWithTaskID:self.taskModel.task_id];
     }
     return _checkinView;
 }

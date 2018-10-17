@@ -196,7 +196,10 @@
             [weakSelf.taskList insertObject:model atIndex:0];
             [weakSelf.tableView reloadData];
             [self.dbMgr.database open];
-            [self.dbMgr insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":[NSString stringWithFormat:@"\'%@\'",taskName]}];
+            NSString* now = [[NSDate date] dateToTimeStamp];
+            [self.dbMgr insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":[NSString stringWithFormat:@"\'%@\'",taskName],@"add_time":now}];
+            NSDictionary* tuples = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_time" andSymbol:@"=" andSpecificValue:now]].firstObject;
+            model.task_id = [tuples[@"task_id"] integerValue];
             [self.dbMgr.database close];
             [self watch_updateTaskList];
         }

@@ -110,6 +110,8 @@
 		B6FFB0A621748EC700076F44 /* PGCheckinView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0A521748EC700076F44 /* PGCheckinView.m */; };
 		B6FFB0A921748ECD00076F44 /* PGStatisticsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0A821748ECD00076F44 /* PGStatisticsView.m */; };
 		B6FFB0AD2175873A00076F44 /* PGCheckinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */; };
+		D6D9C2402177118B00EF9D91 /* PGCheckinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */; };
+		D6D9C249217731A400EF9D91 /* DJTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C247217731A400EF9D91 /* DJTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -365,6 +367,10 @@
 		B6FFB0A821748ECD00076F44 /* PGStatisticsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStatisticsView.m; sourceTree = "<group>"; };
 		B6FFB0AB2175873A00076F44 /* PGCheckinCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCheckinCell.h; sourceTree = "<group>"; };
 		B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCheckinCell.m; sourceTree = "<group>"; };
+		D6D9C23E2177118B00EF9D91 /* PGCheckinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCheckinModel.h; sourceTree = "<group>"; };
+		D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCheckinModel.m; sourceTree = "<group>"; };
+		D6D9C247217731A400EF9D91 /* DJTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTools.m; sourceTree = "<group>"; };
+		D6D9C248217731A400EF9D91 /* DJTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJTools.h; sourceTree = "<group>"; };
 		D702A9089C56B6A20595648C /* Pods-iOSProjectFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProjectFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1174,6 +1180,7 @@
 		B6CF217C2147B3F100067470 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D6D9C241217719AF00EF9D91 /* PGStatisticsAndCheckin */,
 				B60D501521524414008CE149 /* PGTaskList */,
 				B6CC32542149065A00E66D64 /* PGFocus */,
 				B6CF217D2147B40400067470 /* PGSetting */,
@@ -1271,6 +1278,7 @@
 		B6E26A7B201AF3F2006C7650 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D6D9C23D2177116800EF9D91 /* PGCheckinModel */,
 				B6FFB091217432CA00076F44 /* PGUserModel */,
 				B6760E0C215B3AE7005E97A4 /* PGSetting */,
 				B6FFB09521743DA900076F44 /* PGTomatoRecordModel */,
@@ -1325,6 +1333,7 @@
 		B6E26A88201AF3F2006C7650 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				D6D9C246217731A400EF9D91 /* DJTools */,
 				B68B522F21539F9600C1254F /* PGWatchTransTool */,
 				B6CC3263214A635D00E66D64 /* DJDB */,
 				B6CC32582149107D00E66D64 /* PGConfigManager */,
@@ -1497,6 +1506,31 @@
 				B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */,
 			);
 			path = PGCheckinCell;
+			sourceTree = "<group>";
+		};
+		D6D9C23D2177116800EF9D91 /* PGCheckinModel */ = {
+			isa = PBXGroup;
+			children = (
+				D6D9C23E2177118B00EF9D91 /* PGCheckinModel.h */,
+				D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */,
+			);
+			path = PGCheckinModel;
+			sourceTree = "<group>";
+		};
+		D6D9C241217719AF00EF9D91 /* PGStatisticsAndCheckin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PGStatisticsAndCheckin;
+			sourceTree = "<group>";
+		};
+		D6D9C246217731A400EF9D91 /* DJTools */ = {
+			isa = PBXGroup;
+			children = (
+				D6D9C248217731A400EF9D91 /* DJTools.h */,
+				D6D9C247217731A400EF9D91 /* DJTools.m */,
+			);
+			path = DJTools;
 			sourceTree = "<group>";
 		};
 		FF0285D71F7433273CFC716F /* Pods */ = {
@@ -1784,6 +1818,8 @@
 				B6CF217B2147B36700067470 /* BaseViewModel.m in Sources */,
 				B68B523521539FD000C1254F /* PGWatchTransTool.m in Sources */,
 				B6E26A9C201AF3F2006C7650 /* HDJEmptyView.m in Sources */,
+				D6D9C249217731A400EF9D91 /* DJTools.m in Sources */,
+				D6D9C2402177118B00EF9D91 /* PGCheckinModel.m in Sources */,
 				B6A60E2B2140F19B000A737D /* MBProgressHUD+Add.m in Sources */,
 				B6A60F272140F659000A737D /* UIView+Features.m in Sources */,
 				B6A60F2D2140F659000A737D /* NSString+JSON.m in Sources */,

@@ -56,23 +56,26 @@
     NSInteger colIndex = 0;
     NSInteger dateIndex = 1;
     
-    NSString* dateTodayStr = [NSDate dateToCustomFormateString:@"yyyyMM" andDate:[NSDate new]];
-    NSString* cellDateStr = [NSDate dateToCustomFormateString:@"yyyyMM" andDate:date];
-    NSInteger todayIndex = [[NSDate dateToCustomFormateString:@"dd" andDate:[NSDate new]] integerValue];
+    NSString* todayDateYearMonthStr = [NSDate dateToCustomFormateString:@"yyyyMM" andDate:[NSDate new]];
+    NSString* cellDateYearMonthStr = [NSDate dateToCustomFormateString:@"yyyyMM" andDate:date];
+    NSInteger todayDayIndex = [[NSDate dateToCustomFormateString:@"dd" andDate:[NSDate new]] integerValue];
     for (NSInteger i = firstWeekdayInMonth; i < totaldaysInMonth + firstWeekdayInMonth; i++) {
         CGFloat w = (SCREEN_WIDTH - 2 * 20) / DayCountOfWeek;
         CGFloat h = CalendarView_Content_Item_Height;
         CGFloat x = w * weekDayIndex;
         CGFloat y = h * colIndex;
         
+        NSString* dateYMDStr = [cellDateYearMonthStr stringByAppendingFormat:@"%02ld",i];
         CalendarItemView *calendarItem = [[CalendarItemView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-        calendarItem.tag = dateIndex;
+        calendarItem.itemButton.tag = dateIndex;
         [self addSubview:calendarItem];
         [self.itemsArr addObject:calendarItem];
         [calendarItem.itemButton setTitle:[NSString stringWithFormat:@"%ld",dateIndex] forState:UIControlStateNormal];
         [calendarItem.itemButton addTarget:self action:@selector(calendarItemClick:) forControlEvents:UIControlEventTouchUpInside];
-        if (QMEqualToString(dateTodayStr, cellDateStr) && dateIndex > todayIndex) {
+        if (QMEqualToString(todayDateYearMonthStr, cellDateYearMonthStr) && dateIndex > todayDayIndex) {
             calendarItem.itemButton.enabled = NO;
+        }else if ([self.checkinRecordArr containsObject:dateYMDStr]){
+            calendarItem.itemButton.selected = YES;
         }
         dateIndex++;
         weekDayIndex++;
@@ -116,9 +119,22 @@
     return [self totalRowsInThisMonth:date];
 }
 
-- (void)calendarItemClick:(CalendarItemView*)sender{
-
+- (void)calendarItemClick:(UIButton*)sender{
+    DLog(@"%ld",sender.tag);
+    NSString* cellDateYearMonthStr = [NSDate dateToCustomFormateString:@"yyyyMM" andDate:_date];
+    DLog(@"%@%02ld",cellDateYearMonthStr,sender.tag);
+    if (sender.isSelected) {
+        return;
+    }
+    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"打卡" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [PGUserModelInstance taskCheckinWithID:self.task_id andDateStr:[NSString stringWithFormat:@"%@%02ld",cellDateYearMonthStr,sender.tag]];
+        sender.selected = YES;
+    }]];
+    
+    [TOPVC presentViewController:alertVC animated:YES completion:nil];
 }
 
 

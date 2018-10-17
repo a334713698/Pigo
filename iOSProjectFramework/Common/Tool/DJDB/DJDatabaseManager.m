@@ -30,6 +30,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     if (isOpen) {
         [self init_task_list_table];
         [self init_tomato_record_table];
+        [self init_check_in_table];
     }else{
         NSLog(@"数据库打开失败");
     }
@@ -40,7 +41,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
 //创建task_list_table，并插入数据
 - (void)init_task_list_table{
     
-    BOOL isCreated = [self createTableWithName:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int"}];
+    BOOL isCreated = [self createTableWithName:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int",@"add_time":@"long"}];
     
     if (isCreated) {
         DLog(@"任务表创建成功");
@@ -58,6 +59,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     }
 }
 
+//创建check_in_table，并插入数据
+- (void)init_check_in_table{
+    
+    BOOL isCreated = [self createTableWithName:check_in_table andKeyValues:@{@"checkin_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long"}];
+    
+    if (isCreated) {
+        DLog(@"番茄记录表创建成功");
+    }
+}
 
 //创建表
 - (BOOL)createTableWithName:(NSString*)name andKeyValues:(NSDictionary*)key_values{
