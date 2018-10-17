@@ -1250,7 +1250,6 @@
 				B6E26A78201AF3F2006C7650 /* Controller */,
 				B6E26A7B201AF3F2006C7650 /* Model */,
 				B6E26A7C201AF3F2006C7650 /* View */,
-				B6E26A7D201AF3F2006C7650 /* Request */,
 				B6CF217C2147B3F100067470 /* ViewModel */,
 			);
 			path = Main;
@@ -1289,13 +1288,6 @@
 				B6A60F3E2141002F000A737D /* PGFocus */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B6E26A7D201AF3F2006C7650 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		B6E26A7E201AF3F2006C7650 /* Common */ = {

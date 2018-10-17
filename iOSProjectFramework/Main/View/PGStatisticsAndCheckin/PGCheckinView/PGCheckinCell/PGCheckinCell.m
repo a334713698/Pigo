@@ -69,11 +69,12 @@
         calendarItem.tag = dateIndex;
         [self addSubview:calendarItem];
         [self.itemsArr addObject:calendarItem];
-        [calendarItem.itemButton setTitle:[NSString stringWithFormat:@"%ld",dateIndex++] forState:UIControlStateNormal];
+        [calendarItem.itemButton setTitle:[NSString stringWithFormat:@"%ld",dateIndex] forState:UIControlStateNormal];
         [calendarItem.itemButton addTarget:self action:@selector(calendarItemClick:) forControlEvents:UIControlEventTouchUpInside];
         if (QMEqualToString(dateTodayStr, cellDateStr) && dateIndex > todayIndex) {
             calendarItem.itemButton.enabled = NO;
         }
+        dateIndex++;
         weekDayIndex++;
         if (weekDayIndex == 7) {
             weekDayIndex = 0;
