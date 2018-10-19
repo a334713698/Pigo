@@ -29,14 +29,14 @@
     }];
     
     UILabel* countDesc = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:TEXT_BACKGROUND_COLOR andText:@"完成次数"];
-    [self addSubview:countDesc];
+    [self.contentView addSubview:countDesc];
     [countDesc mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(adaptWidth(PGStatisticsTodayDataCellHeight)*0.25);
         make.centerX.mas_equalTo(-SCREEN_WIDTH*0.25);
     }];
     
     UILabel* durationDesc = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:TEXT_BACKGROUND_COLOR andText:@"专注时长"];
-    [self addSubview:durationDesc];
+    [self.contentView addSubview:durationDesc];
     [durationDesc mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(adaptWidth(PGStatisticsTodayDataCellHeight)*0.25);
         make.centerX.mas_equalTo(SCREEN_WIDTH*0.25);
@@ -44,14 +44,14 @@
     
     
     UILabel* countLab = [UILabel createLabelWithFontSize:adaptFont(25) andTextColor:TEXT_BLACK_COLOR andText:@"0"];
-    [self addSubview:countLab];
+    [self.contentView addSubview:countLab];
     [countLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(-SCREEN_WIDTH*0.25);
         make.bottom.mas_equalTo(countDesc.mas_top).offset(-8);
     }];
     
     UILabel* durationLab = [UILabel createLabelWithFontSize:adaptFont(25) andTextColor:TEXT_BLACK_COLOR andText:@"0"];
-    [self addSubview:durationLab];
+    [self.contentView addSubview:durationLab];
     [durationLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(SCREEN_WIDTH*0.25);
         make.bottom.mas_equalTo(durationDesc.mas_top).offset(-8);
@@ -59,6 +59,14 @@
     
     _countLab = countLab;
     _durationLab = durationLab;
+    
+    UILabel* jinLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:BLACK_COLOR andText:@"今\n日"];
+    jinLab.numberOfLines = 0;
+    [self.contentView addSubview:jinLab];
+    [jinLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(15);
+        make.centerY.mas_equalTo(0);
+    }];
 }
 
 @end

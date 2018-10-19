@@ -35,6 +35,7 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <YYWebImage/YYWebImage.h>
 #import "MBProgressHUD+Add.h"
+#import "AAGlobalMacro.h"
 
 //Common-Tool
 #import "PGConfigManager.h"

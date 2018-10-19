@@ -10,6 +10,7 @@
 #import "PGStatisticsTodayDataCell.h"
 #import "PGStatisticsChartCell.h"
 #import "PGStatisticsAnnualActivityCell.h"
+#import "PGStatisticsTodayPeriodCell.h"
 
 @interface PGStatisticsView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -31,7 +32,7 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.01, 0.01)];
-        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.01, adaptHeight(10))];
+        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.01, adaptHeight(10) + SAFEAREA_BOTTOM_HEIGHT)];
         if ([[[UIDevice currentDevice] systemVersion] doubleValue] > 11.0) {
             _tableView.estimatedSectionHeaderHeight = 10;
             _tableView.estimatedSectionFooterHeight = 0.01;
@@ -120,9 +121,14 @@
         return cell;
     }else{
         //图表
+        if (indexPath.row != 1) {
+            PGStatisticsChartCell* cell = [[PGStatisticsChartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PGStatisticsChartCell"];
+            return cell;
+        }else{
+            PGStatisticsTodayPeriodCell* cell = [[PGStatisticsTodayPeriodCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PGStatisticsTodayPeriodCell"];
+            return cell;
+        }
     }
-    UITableViewCell* cell = [UITableViewCell new];
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
@@ -136,11 +142,15 @@
         return adaptWidth(PGStatisticsTodayDataCellHeight);
     }else if (indexPath.section == 2){
         //活跃度
-        return 151;
+        return 116;
     }else{
         //图表
+        if (indexPath.row != 1) {
+            return adaptHeight(PGStatisticsChartCellHeight);
+        }else{
+            return 35;
+        }
     }
-    return adaptHeight(44);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

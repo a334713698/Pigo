@@ -7,25 +7,33 @@
 //
 
 #import "PGStatisticsAnnualActivityCell.h"
+#import "PGStatisticsAnnualActivityViewController.h"
 
-@interface PGStatisticsAnnualActivityCell ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface PGStatisticsAnnualActivityCell ()<UICollectionViewDelegate,UICollectionViewDataSource,UIPopoverPresentationControllerDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+@property (nonatomic, strong) PGStatisticsAnnualActivityViewController *popVc;
 
 @end
 
 @implementation PGStatisticsAnnualActivityCell
 
+- (PGStatisticsAnnualActivityViewController *)popVc{
+    if (!_popVc) {
+        _popVc = [PGStatisticsAnnualActivityViewController new];
+    }
+    return _popVc;
+}
 
 - (UICollectionView *)collectionView{
     if (!_collectionView) {
         UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        CGFloat itemWidth = 15;
-        CGFloat itemHeight = 15;
+        CGFloat itemWidth = 12;
+        CGFloat itemHeight = 12;
         flowLayout.itemSize = CGSizeMake(itemWidth, itemHeight);
-        flowLayout.minimumInteritemSpacing = 5; //项间隔
-        flowLayout.minimumLineSpacing = 5; //行间隔
+        flowLayout.minimumInteritemSpacing = 2; //项间隔
+        flowLayout.minimumLineSpacing = 2; //行间隔
         flowLayout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8);
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
@@ -67,20 +75,33 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell* cell =  [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-    cell.layer.cornerRadius = 2;
+    cell.layer.cornerRadius = 1.5;
     cell.backgroundColor = LINE_COLOR_GRAY_LIGHT;
     NSString* dateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[self getDateFrom:[NSDate new] offsetDays:-(PGStatisticsAnnualActivityDuration - 1 - indexPath.item)]];
     PGTomatoRecordModel* model = self.recordMutableDic[dateStr];
     cell.backgroundColor = [self colorForTomatoCount:model.count];
-    if (model) {
-        DLog(@"%@ ———— %ld",dateStr,model.count);
-    }
+//    if (model) {
+//        DLog(@"%@ ———— %ld",dateStr,model.count);
+//    }
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSString* dateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[self getDateFrom:[NSDate new] offsetDays:-(PGStatisticsAnnualActivityDuration - 1 - indexPath.item)]];
+    NSDate* date = [self getDateFrom:[NSDate new] offsetDays:-(PGStatisticsAnnualActivityDuration - 1 - indexPath.item)];
+    NSString* dateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:date];
     DLog(@"%@",dateStr);
+    UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
+    self.popVc.modalPresentationStyle = UIModalPresentationPopover;
+    self.popVc.popoverPresentationController.sourceView = cell;
+    self.popVc.popoverPresentationController.sourceRect = cell.bounds;
+    self.popVc.popoverPresentationController.backgroundColor = MAIN_COLOR;
+    self.popVc.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    self.popVc.popoverPresentationController.delegate = self;
+
+    PGTomatoRecordModel* model = self.recordMutableDic[dateStr];
+    [self.popVc setContentWithTomatCount:model.count andDateStr:[NSDate dateToCustomFormateString:@"yyyy-MM-dd" andDate:date]];
+    //3.显示弹出控制器
+    [TOPVC presentViewController:self.popVc animated:YES completion:nil];
 }
 
 //根据date获取偏移指定天数的date
@@ -95,10 +116,10 @@
 - (void)setRecordMutableDic:(NSMutableDictionary<NSString *,PGTomatoRecordModel *> *)recordMutableDic{
     _recordMutableDic = recordMutableDic;
     [self layoutIfNeeded];
-    [self performSelector:@selector(scroll) withObject:nil afterDelay:1];
+    [self performSelector:@selector(scrollToRight) withObject:nil afterDelay:1];
 }
 
-- (void)scroll{
+- (void)scrollToRight{
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:(PGStatisticsAnnualActivityDuration-1) inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 
@@ -115,6 +136,14 @@
     }else{
         return LINE_COLOR_GRAY_LIGHT;
     }
+}
+
+#pragma mark - PopoverDelegate
+//使得popoverController在iphone可以使用，不然弹出控制器会全屏显示
+-(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller
+{
+    // Return no adaptive presentation style, use default presentation behaviour
+    return  UIModalPresentationNone;
 }
 
 @end
