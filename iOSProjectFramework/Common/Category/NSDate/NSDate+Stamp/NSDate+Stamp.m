@@ -147,40 +147,9 @@
     return currentDateString;
 }
 
-/**
- *  聊天界面的时间显示
- *
- */
-+ (NSString *)transFormTimeStampForVoiceReplyWithHHMMStr:(NSDate *)date {
-    NSTimeInterval secondsPerSec = 24 * 60 * 60;
-    NSDate *today = [[NSDate alloc] init];
-    //转成当前时区的时间
-    NSDate *tomorrow, *yesterday;
-    
-    tomorrow = [today dateByAddingTimeInterval: secondsPerSec];
-    yesterday = [today dateByAddingTimeInterval: -secondsPerSec];
-    
-    NSString * todayString = [[today description] substringToIndex:10];
-    NSString * yesterdayString = [[yesterday description] substringToIndex:10];
-    
-    NSString * dateString = [[date description] substringToIndex:10];
-    
-    
-    NSCalendar *calendar1 = [NSCalendar currentCalendar];
-    NSInteger todayWeekNum = [calendar1 ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitYear forDate:today];
-    NSInteger dateWeekNum = [calendar1 ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitYear forDate:date];
-    
-    
-    if ([dateString isEqualToString:todayString]) {//今天
-        return [self dateToCustomFormateString:@"HH:mm" andDate:[NSDate timeStampToDateWithTimeStamp:@([date timeIntervalSince1970])]];
-    } else if ([dateString isEqualToString:yesterdayString]) {//昨天
-        return [self dateToCustomFormateString:@"昨天 HH:mm" andDate:[NSDate timeStampToDateWithTimeStamp:@([date timeIntervalSince1970])]];
-    } else if (todayWeekNum == dateWeekNum) {//本周
-        return [self dateToCustomFormateString:@"EEEE HH:mm" andDate:[NSDate timeStampToDateWithTimeStamp:@([date timeIntervalSince1970])]];
-    }else {//其他
-        return [self dateToCustomFormateString:@"yyyy年MM月dd日 HH:mm" andDate:[NSDate timeStampToDateWithTimeStamp:@([date timeIntervalSince1970])]];
-    }
-    
+//获取今天的日期（格式：yyyyMMdd）
++ (NSString *)getTodayDateStr{
+    return [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
 }
 
 

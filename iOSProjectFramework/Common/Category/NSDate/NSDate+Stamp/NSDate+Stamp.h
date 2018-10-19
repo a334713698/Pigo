@@ -27,7 +27,7 @@
 ///自定义格式，转换时间
 + (NSString *)dateToCustomFormateString:(NSString*)formate andDate:(NSDate *)date;
 
-///聊天界面的时间显示
-+ (NSString *)transFormTimeStampForVoiceReplyWithHHMMStr:(NSDate *)date;
+//获取今天的日期（格式：yyyyMMdd）
++ (NSString *)getTodayDateStr;
 
 @end

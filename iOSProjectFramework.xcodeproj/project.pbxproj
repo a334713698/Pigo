@@ -112,6 +112,9 @@
 		B6FFB0AD2175873A00076F44 /* PGCheckinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */; };
 		D6D9C2402177118B00EF9D91 /* PGCheckinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */; };
 		D6D9C249217731A400EF9D91 /* DJTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C247217731A400EF9D91 /* DJTools.m */; };
+		D6D9C24D2178352500EF9D91 /* PGStatisticsTodayDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C24C2178352500EF9D91 /* PGStatisticsTodayDataCell.m */; };
+		D6D9C2502178358600EF9D91 /* PGStatisticsChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C24F2178358600EF9D91 /* PGStatisticsChartCell.m */; };
+		D6D9C253217835B100EF9D91 /* PGStatisticsAnnualActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C252217835B100EF9D91 /* PGStatisticsAnnualActivityCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -371,6 +374,12 @@
 		D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCheckinModel.m; sourceTree = "<group>"; };
 		D6D9C247217731A400EF9D91 /* DJTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTools.m; sourceTree = "<group>"; };
 		D6D9C248217731A400EF9D91 /* DJTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJTools.h; sourceTree = "<group>"; };
+		D6D9C24B2178352500EF9D91 /* PGStatisticsTodayDataCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStatisticsTodayDataCell.h; sourceTree = "<group>"; };
+		D6D9C24C2178352500EF9D91 /* PGStatisticsTodayDataCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStatisticsTodayDataCell.m; sourceTree = "<group>"; };
+		D6D9C24E2178358600EF9D91 /* PGStatisticsChartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStatisticsChartCell.h; sourceTree = "<group>"; };
+		D6D9C24F2178358600EF9D91 /* PGStatisticsChartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStatisticsChartCell.m; sourceTree = "<group>"; };
+		D6D9C251217835B100EF9D91 /* PGStatisticsAnnualActivityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStatisticsAnnualActivityCell.h; sourceTree = "<group>"; };
+		D6D9C252217835B100EF9D91 /* PGStatisticsAnnualActivityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStatisticsAnnualActivityCell.m; sourceTree = "<group>"; };
 		D702A9089C56B6A20595648C /* Pods-iOSProjectFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProjectFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1482,6 +1491,7 @@
 		B6FFB0A221748EA800076F44 /* PGStatisticsView */ = {
 			isa = PBXGroup;
 			children = (
+				D6D9C24A217834B300EF9D91 /* Cells */,
 				B6FFB0A721748ECD00076F44 /* PGStatisticsView.h */,
 				B6FFB0A821748ECD00076F44 /* PGStatisticsView.m */,
 			);
@@ -1531,6 +1541,19 @@
 				D6D9C247217731A400EF9D91 /* DJTools.m */,
 			);
 			path = DJTools;
+			sourceTree = "<group>";
+		};
+		D6D9C24A217834B300EF9D91 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D6D9C24B2178352500EF9D91 /* PGStatisticsTodayDataCell.h */,
+				D6D9C24C2178352500EF9D91 /* PGStatisticsTodayDataCell.m */,
+				D6D9C24E2178358600EF9D91 /* PGStatisticsChartCell.h */,
+				D6D9C24F2178358600EF9D91 /* PGStatisticsChartCell.m */,
+				D6D9C251217835B100EF9D91 /* PGStatisticsAnnualActivityCell.h */,
+				D6D9C252217835B100EF9D91 /* PGStatisticsAnnualActivityCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FF0285D71F7433273CFC716F /* Pods */ = {
@@ -1784,11 +1807,13 @@
 				B6FFB09C21747D2900076F44 /* PGStatisticsAndCheckinViewController.m in Sources */,
 				B6A60F442141083E000A737D /* PGFocusContView.m in Sources */,
 				B6177EB32175C23A00BECE98 /* CalendarItemView.m in Sources */,
+				D6D9C253217835B100EF9D91 /* PGStatisticsAnnualActivityCell.m in Sources */,
 				B6CF217A2147B36700067470 /* BaseTableViewModel.m in Sources */,
 				B615E978214B4BD0008D0B6E /* PGTaskListModel.m in Sources */,
 				B6A60F292140F659000A737D /* UIView+QMLayer.m in Sources */,
 				B6A60E112140CECB000A737D /* PGFocusViewController.m in Sources */,
 				B6A60F4C21412142000A737D /* PGTaskCell.m in Sources */,
+				D6D9C24D2178352500EF9D91 /* PGStatisticsTodayDataCell.m in Sources */,
 				B6A60F352140F946000A737D /* PGCountdownTool.m in Sources */,
 				B6A60F392140F9A5000A737D /* PGCountdownLabel.m in Sources */,
 				B68B524D2154D9DD00C1254F /* Intents.intentdefinition in Sources */,
@@ -1807,6 +1832,7 @@
 				B6760E0F215B3AFC005E97A4 /* PGSettingDataModel.m in Sources */,
 				B6A60F592141299A000A737D /* QMSlideUpAlertView.m in Sources */,
 				B6A60F212140F659000A737D /* UILabel+Builder.m in Sources */,
+				D6D9C2502178358600EF9D91 /* PGStatisticsChartCell.m in Sources */,
 				B6A60F252140F659000A737D /* UIButton+ImageTitleSpacing.m in Sources */,
 				B6E26A9E201AF3F2006C7650 /* BaseView.m in Sources */,
 				B6FFB0AD2175873A00076F44 /* PGCheckinCell.m in Sources */,

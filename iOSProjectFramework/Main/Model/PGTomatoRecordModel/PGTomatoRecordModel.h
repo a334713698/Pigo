@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *add_date;
 @property (nonatomic, assign) long add_time;
 @property (nonatomic, assign) NSInteger count;
+@property (nonatomic, assign) long length;//分钟
+
 
 @end
 

@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PGStatisticsView : BaseView
 
+@property (nonatomic, assign) NSInteger task_id;
+
+- (instancetype)initWithTaskID:(NSInteger)task_id;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -55,13 +55,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGUserModel)
     
     if (tuple) {
         NSInteger count = [tuple[@"count"] integerValue];
-        [self.dbMgr updateDataIntoTableWithName:tomato_record_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(self.currentTask.task_id)] andNewModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"count" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(count+1)]];
+        long length = [tuple[@"length"] longValue];
+        NSArray* searchArr = @[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(self.currentTask.task_id)],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateToday)]];
+        NSArray* conditionArr = @[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"count" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(count+1)],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"length" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(length+PGConfigMgr.TomatoLength)]];
+        [self.dbMgr updateDataIntoTableWithName:tomato_record_table andSearchModelsArr:searchArr andNewModelsArr:conditionArr];
     }else{
         NSMutableDictionary* mutableDic = [NSMutableDictionary dictionaryWithCapacity:5];
         [mutableDic setValue:QMStringFromNSInteger(self.currentTask.task_id) forKey:@"task_id"];
         [mutableDic setValue:[[NSDate new] dateToTimeStamp] forKey:@"add_time"];
         [mutableDic setValue:TextFromNSString(dateToday) forKey:@"add_date"];
         [mutableDic setValue:@1 forKey:@"count"];
+        [mutableDic setValue:@(PGConfigMgr.TomatoLength) forKey:@"length"];
         [self.dbMgr insertDataIntoTableWithName:tomato_record_table andKeyValues:mutableDic.copy];
     }
     [self.dbMgr.database close];
@@ -87,6 +91,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGUserModel)
     NSArray* arr = [tuples valueForKeyPath:@"add_date"];
     [self.dbMgr.database close];
     return arr;
+}
+
+- (NSArray*)getTomatoRecordWithTaskID:(NSInteger)task_id{
+    [self.dbMgr.database open];
+    NSArray* tuples = [self.dbMgr getAllTuplesFromTabel:tomato_record_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(task_id)] withSortedMode:NSOrderedAscending andColumnName:@"add_date"];
+    [self.dbMgr.database close];
+    return tuples;
 }
 
 @end

@@ -23,11 +23,17 @@
 ///插入元素
 - (BOOL)insertDataIntoTableWithName:(NSString*)name andKeyValues:(NSDictionary*)key_values;
 
-///更新某一行中的某列
+///更新某一行中的某列（一个查找条件）
 - (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModel:(HDJDSQLSearchModel*)searchModel andNewModel:(HDJDSQLSearchModel*)newModel;
 
-///更新某一行中的若干列
+///更新某一行中的某列（多个查找条件）
+- (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModelsArr:(NSArray<HDJDSQLSearchModel*>*)searchModelArr andNewModel:(HDJDSQLSearchModel*)newModel;
+
+///更新某一行中的若干列（一个查找条件）
 - (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModel:(HDJDSQLSearchModel*)searchModel andNewModelArr:(NSArray<HDJDSQLSearchModel*>*)newModelArr;
+
+///更新某一行中的若干列（多个查找条件）
+- (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModelsArr:(NSArray<HDJDSQLSearchModel*>*)searchModelArr andNewModelsArr:(NSArray<HDJDSQLSearchModel*>*)newModelArr;
 
 
 ///删除某个元素

@@ -58,7 +58,6 @@ UIKIT_EXTERN BOOL      const PGConfigParaAutomaticRestDefault;      //自动休�
 UIKIT_EXTERN NSString *const PGConfigParaScreenBright;              //屏幕亮
 UIKIT_EXTERN BOOL      const PGConfigParaScreenBrightDefault;       //屏幕亮（默认值）
 
-
 //PGShortcutType
 UIKIT_EXTERN NSString *const PGShortcutTypeList;
 UIKIT_EXTERN NSString *const PGShortcutTypeSetting;
@@ -68,5 +67,9 @@ UIKIT_EXTERN const CGFloat PGSettingCellContentHeight;
 UIKIT_EXTERN const CGFloat PGSettingCellMoreHeight;
 UIKIT_EXTERN const CGFloat PGSettingCellAccessoryWidth;
 UIKIT_EXTERN const CGFloat PGSettingCellAccessoryHeight;
+
+//PGStatistics
+UIKIT_EXTERN const CGFloat PGStatisticsTodayDataCellHeight;
+UIKIT_EXTERN const CGFloat PGStatisticsAnnualActivityDuration;
 
 #endif /* PGConst_h */

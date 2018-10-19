@@ -52,7 +52,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
 //创建tomato_record_table，并插入数据
 - (void)init_tomato_record_table{
     
-    BOOL isCreated = [self createTableWithName:tomato_record_table andKeyValues:@{@"tomato_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long",@"count":@"integer"}];
+    BOOL isCreated = [self createTableWithName:tomato_record_table andKeyValues:@{@"tomato_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long",@"count":@"integer",@"length":@"long"}];
     
     if (isCreated) {
         DLog(@"番茄记录表创建成功");
@@ -131,6 +131,31 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     return isSuccess;
 }
 
+///更新某一行中的某列（多个查找条件）
+- (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModelsArr:(NSArray<HDJDSQLSearchModel*>*)searchModelArr andNewModel:(HDJDSQLSearchModel*)newModel{
+    
+    if (searchModelArr.count<2) {
+        return [self updateDataIntoTableWithName:name andSearchModel:searchModelArr.firstObject andNewModel:newModel];
+    }
+    
+    NSMutableArray* searchStrArr = [NSMutableArray arrayWithCapacity:searchModelArr.count];
+    for (HDJDSQLSearchModel* searchModel in searchModelArr) {
+        [searchStrArr addObject:[NSString stringWithFormat:@"%@%@%@",searchModel.attriName,searchModel.symbol,searchModel.specificValue]];
+    }
+
+    NSString* sqlStr = [NSString stringWithFormat:@"update %@ set %@%@%@ where %@",name,newModel.attriName,newModel.symbol,newModel.specificValue,[searchStrArr componentsJoinedByString:@" and "]];
+    
+    BOOL isSuccess = [self.database executeUpdate:sqlStr];
+    
+    if (isSuccess) {
+        DLog(@"%@ 数据更新成功",name);
+    }else{
+        DLog(@"%@ 数据更新失败",name);
+    }
+    return isSuccess;
+}
+
+
 ///更新某一行中的若干列
 - (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModel:(HDJDSQLSearchModel*)searchModel andNewModelArr:(NSArray<HDJDSQLSearchModel*>*)newModelArr{
     NSMutableArray* newSqlArr = [NSMutableArray new];
@@ -153,6 +178,40 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     
     return isSuccess;
 }
+
+///更新某一行中的若干列（多个查找条件）
+- (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModelsArr:(NSArray<HDJDSQLSearchModel*>*)searchModelArr andNewModelsArr:(NSArray<HDJDSQLSearchModel*>*)newModelArr{
+    if (searchModelArr.count<2) {
+        return [self updateDataIntoTableWithName:name andSearchModel:searchModelArr.firstObject andNewModelArr:newModelArr];
+    }
+    
+    NSMutableArray* searchStrArr = [NSMutableArray arrayWithCapacity:searchModelArr.count];
+    for (HDJDSQLSearchModel* searchModel in searchModelArr) {
+        [searchStrArr addObject:[NSString stringWithFormat:@"%@%@%@",searchModel.attriName,searchModel.symbol,searchModel.specificValue]];
+    }
+
+    NSMutableArray* newSqlArr = [NSMutableArray new];
+    
+    for (HDJDSQLSearchModel* newModel in newModelArr) {
+        [newSqlArr addObject:[NSString stringWithFormat:@"%@%@%@",newModel.attriName,newModel.symbol,newModel.specificValue]];
+    }
+    
+    NSString* updateStr = [newSqlArr componentsJoinedByString:@","];
+    NSString* conditionStr = [searchStrArr componentsJoinedByString:@" and "];
+
+    NSString* sqlStr = [NSString stringWithFormat:@"update %@ set %@ where %@",name,updateStr,conditionStr];
+    
+    BOOL isSuccess = [self.database executeUpdate:sqlStr];
+    
+    if (isSuccess) {
+        DLog(@"%@ 数据更新成功",name);
+    }else{
+        DLog(@"%@ 数据更新失败",name);
+    }
+    
+    return isSuccess;
+}
+
 
 ///删除某个元素
 - (BOOL)deleteDataFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel{

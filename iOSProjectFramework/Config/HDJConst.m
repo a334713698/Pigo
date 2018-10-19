@@ -56,3 +56,7 @@ const CGFloat PGSettingCellContentHeight = 40;
 const CGFloat PGSettingCellMoreHeight = 150;
 const CGFloat PGSettingCellAccessoryWidth = 7;
 const CGFloat PGSettingCellAccessoryHeight = 20;
+
+//PGStatistics
+const CGFloat PGStatisticsTodayDataCellHeight = 90;
+const CGFloat PGStatisticsAnnualActivityDuration = 365;
