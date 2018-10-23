@@ -77,7 +77,7 @@
     UICollectionViewCell* cell =  [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
     cell.layer.cornerRadius = 1.5;
     cell.backgroundColor = LINE_COLOR_GRAY_LIGHT;
-    NSString* dateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[self getDateFrom:[NSDate new] offsetDays:-(PGStatisticsAnnualActivityDuration - 1 - indexPath.item)]];
+    NSString* dateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate getDateFrom:[NSDate new] offsetDays:-(PGStatisticsAnnualActivityDuration - 1 - indexPath.item)]];
     PGTomatoRecordModel* model = self.recordMutableDic[dateStr];
     cell.backgroundColor = [self colorForTomatoCount:model.count];
 //    if (model) {
@@ -87,7 +87,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSDate* date = [self getDateFrom:[NSDate new] offsetDays:-(PGStatisticsAnnualActivityDuration - 1 - indexPath.item)];
+    NSDate* date = [NSDate getDateFrom:[NSDate new] offsetDays:-(PGStatisticsAnnualActivityDuration - 1 - indexPath.item)];
     NSString* dateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:date];
     DLog(@"%@",dateStr);
     UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
@@ -102,15 +102,6 @@
     [self.popVc setContentWithTomatCount:model.count andDateStr:[NSDate dateToCustomFormateString:@"yyyy-MM-dd" andDate:date]];
     //3.显示弹出控制器
     [TOPVC presentViewController:self.popVc animated:YES completion:nil];
-}
-
-//根据date获取偏移指定天数的date
-- (NSDate *)getDateFrom:(NSDate *)date offsetDays:(NSInteger)offsetDays {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *lastMonthComps = [[NSDateComponents alloc] init];
-    [lastMonthComps setDay:offsetDays];
-    NSDate *newdate = [calendar dateByAddingComponents:lastMonthComps toDate:date options:0];
-    return newdate;
 }
 
 - (void)setRecordMutableDic:(NSMutableDictionary<NSString *,PGTomatoRecordModel *> *)recordMutableDic{

@@ -12,6 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PGStatisticsChartCell : UITableViewCell
 
+/**
+ *  categoriesSet:x轴数据
+ *  seriesSet:y轴数据
+ */
+- (void)updateChartWithTitle:(NSString*)title categoriesSet:(NSArray*)categoriesSet seriesSet:(NSArray*)seriesSet;
+
+- (void)updateCharWithTaskID:(NSInteger)task_id periodType:(PGStatisticsPeriodType)periodType dataType:(PGStatisticsChartDataType)dataType;
+
 @end
 
 NS_ASSUME_NONNULL_END

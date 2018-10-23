@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class PGStatisticsTodayPeriodCell;
+@protocol PGStatisticsTodayPeriodCellDelegate<NSObject>
+
+- (void)periodCell:(PGStatisticsTodayPeriodCell*)cell andType:(PGStatisticsPeriodType)type;
+
+@end
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PGStatisticsTodayPeriodCell : UITableViewCell
 
+@property (nonatomic, weak) id<PGStatisticsTodayPeriodCellDelegate> delegate;
 
 @end
 

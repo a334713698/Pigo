@@ -10,15 +10,6 @@
 #import "PGFocusButton.h"
 #import "PGCountdownLabel.h"
 
-typedef enum : NSUInteger {
-    PGFocusStateWillFocus,//准备专注
-    PGFocusStateFocusing,//专注中
-    PGFocusStateWillShortBreak,//准备短时休息
-    PGFocusStateShortBreaking,//短时休息中
-    PGFocusStateWillLongBreak,//准备长时休息
-    PGFocusStateLongBreaking,//长时休息中
-} PGFocusState;
-
 typedef void(^UpdateTomatoCount)();
 
 @interface PGFocusViewModel : BaseViewModel

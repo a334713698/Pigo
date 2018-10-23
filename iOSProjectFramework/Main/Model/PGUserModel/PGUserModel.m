@@ -40,7 +40,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGUserModel)
     model.count = count;
     
     [self.dbMgr.database close];
-    self.currentTask = model;
+    if(model.task_name){
+        self.currentTask = model;
+    }
 }
 
 - (void)completeATomato{

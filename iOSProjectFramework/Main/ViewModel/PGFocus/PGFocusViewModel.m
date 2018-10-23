@@ -21,6 +21,8 @@
 
 
 - (void)setCurrentFocusState:(PGFocusState)currentFocusState{
+    PGUserModelInstance.currentFocusState = currentFocusState;
+    
     PGCountdownLabel* cdLabel = self.cdLabel;
     PGFocusButton* leftButton = self.leftButton;
     PGFocusButton* rightButton = self.rightButton;

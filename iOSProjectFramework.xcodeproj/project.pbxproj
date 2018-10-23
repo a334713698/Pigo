@@ -110,6 +110,8 @@
 		B6FFB0A621748EC700076F44 /* PGCheckinView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0A521748EC700076F44 /* PGCheckinView.m */; };
 		B6FFB0A921748ECD00076F44 /* PGStatisticsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0A821748ECD00076F44 /* PGStatisticsView.m */; };
 		B6FFB0AD2175873A00076F44 /* PGCheckinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */; };
+		D6D5D2A1217D986900FF34D0 /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */; };
+		D6D5D2A4217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A3217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m */; };
 		D6D9C2402177118B00EF9D91 /* PGCheckinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */; };
 		D6D9C249217731A400EF9D91 /* DJTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C247217731A400EF9D91 /* DJTools.m */; };
 		D6D9C24D2178352500EF9D91 /* PGStatisticsTodayDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C24C2178352500EF9D91 /* PGStatisticsTodayDataCell.m */; };
@@ -402,6 +404,10 @@
 		B6FFB0A821748ECD00076F44 /* PGStatisticsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStatisticsView.m; sourceTree = "<group>"; };
 		B6FFB0AB2175873A00076F44 /* PGCheckinCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCheckinCell.h; sourceTree = "<group>"; };
 		B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCheckinCell.m; sourceTree = "<group>"; };
+		D6D5D29F217D986900FF34D0 /* NSDate+Calendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calendar.h"; sourceTree = "<group>"; };
+		D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
+		D6D5D2A2217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStatisticsAndCheckinViewModel.h; sourceTree = "<group>"; };
+		D6D5D2A3217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStatisticsAndCheckinViewModel.m; sourceTree = "<group>"; };
 		D6D9C23E2177118B00EF9D91 /* PGCheckinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCheckinModel.h; sourceTree = "<group>"; };
 		D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCheckinModel.m; sourceTree = "<group>"; };
 		D6D9C247217731A400EF9D91 /* DJTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTools.m; sourceTree = "<group>"; };
@@ -1120,6 +1126,7 @@
 		B6A60F1A2140F659000A737D /* NSDate */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5D29E217D984D00FF34D0 /* NSDate+Calendar */,
 				B6A60F1B2140F659000A737D /* NSDate+Stamp */,
 			);
 			path = NSDate;
@@ -1616,6 +1623,15 @@
 			path = PGCheckinCell;
 			sourceTree = "<group>";
 		};
+		D6D5D29E217D984D00FF34D0 /* NSDate+Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5D29F217D986900FF34D0 /* NSDate+Calendar.h */,
+				D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */,
+			);
+			path = "NSDate+Calendar";
+			sourceTree = "<group>";
+		};
 		D6D9C23D2177116800EF9D91 /* PGCheckinModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1628,6 +1644,8 @@
 		D6D9C241217719AF00EF9D91 /* PGStatisticsAndCheckin */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5D2A2217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.h */,
+				D6D5D2A3217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m */,
 			);
 			path = PGStatisticsAndCheckin;
 			sourceTree = "<group>";
@@ -2067,6 +2085,7 @@
 				D6D9C2A92179B21000EF9D91 /* AAYAxis.m in Sources */,
 				B6A60E2B2140F19B000A737D /* MBProgressHUD+Add.m in Sources */,
 				B6A60F272140F659000A737D /* UIView+Features.m in Sources */,
+				D6D5D2A4217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m in Sources */,
 				B6A60F2D2140F659000A737D /* NSString+JSON.m in Sources */,
 				B6FFB094217432DE00076F44 /* PGUserModel.m in Sources */,
 				B6A60F602142591C000A737D /* PGTaskTableView.m in Sources */,
@@ -2082,6 +2101,7 @@
 				D6D9C2A72179B21000EF9D91 /* AATooltip.m in Sources */,
 				D6D9C2A42179B21000EF9D91 /* AAPlotOptions.m in Sources */,
 				B6A60E2A2140F19B000A737D /* UITextView+ZWPlaceHolder.m in Sources */,
+				D6D5D2A1217D986900FF34D0 /* NSDate+Calendar.m in Sources */,
 				B6E26A9F201AF3F2006C7650 /* BaseNetRequest.m in Sources */,
 				B6E26A9A201AF3F2006C7650 /* ViewController.m in Sources */,
 				B6A60F2E2140F659000A737D /* NSString+URLCode.m in Sources */,

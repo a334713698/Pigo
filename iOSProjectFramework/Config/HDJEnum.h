@@ -58,9 +58,25 @@ typedef enum : NSInteger {
     PGSettingContentTypeDataSync            //数据同步
 } PGSettingContentType;
 
+typedef enum : NSUInteger {
+    PGStatisticsPeriodTypeWeek,
+    PGStatisticsPeriodTypeMonth,
+    PGStatisticsPeriodTypeYear
+} PGStatisticsPeriodType;
 
+typedef enum : NSUInteger {
+    PGFocusStateWillFocus,//准备专注
+    PGFocusStateFocusing,//专注中
+    PGFocusStateWillShortBreak,//准备短时休息
+    PGFocusStateShortBreaking,//短时休息中
+    PGFocusStateWillLongBreak,//准备长时休息
+    PGFocusStateLongBreaking,//长时休息中
+} PGFocusState;
 
-
+typedef enum : NSUInteger {
+    PGStatisticsChartDataTypeCount,//完成次数
+    PGStatisticsChartDataTypeLength//专注时长
+} PGStatisticsChartDataType;
 
 //传输数据的类型
 typedef enum : NSInteger {

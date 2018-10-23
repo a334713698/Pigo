@@ -22,6 +22,8 @@ PROPERTY_SINGLETON_FOR_CLASS(PGUserModel)
 
 @property (nonatomic, strong) PGTaskListModel *currentTask;
 
+@property (nonatomic, assign) PGFocusState currentFocusState;
+
 - (void)setup;
 - (void)completeATomato;
 

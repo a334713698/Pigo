@@ -34,7 +34,7 @@ const CGFloat PGFocusContViewHeight = 30;
 
 - (UIButton *)labButton{
     if(!_labButton){
-        _labButton = [UIButton createButtonWithFontSize:adaptFont(15) andTitleColor:WHITE_COLOR andTitle:@"Label" andBackgroundColor:nil];
+        _labButton = [UIButton createButtonWithFontSize:adaptFont(15) andTitleColor:WHITE_COLOR andTitle:@"未知标签" andBackgroundColor:nil];
         [self addSubview:_labButton];
         [_labButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);

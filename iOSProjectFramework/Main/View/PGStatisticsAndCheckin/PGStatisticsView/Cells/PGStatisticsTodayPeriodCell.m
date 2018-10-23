@@ -34,23 +34,30 @@
     }];
     
     CGFloat space = 15;
-    UIButton* weekB = [UIButton createButtonWithFontSize:adaptFont(14) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:@"周" andBackgroundColor:nil];
+    UIButton* weekB = [UIButton createButtonWithFontSize:adaptFont(15) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:@"周" andBackgroundColor:nil];
     [self.contentView addSubview:weekB];
     [weekB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(monthB.mas_centerY);
+//        make.centerY.mas_equalTo(monthB.mas_centerY);
+        make.baseline.mas_equalTo(monthB.mas_baseline);
         make.right.mas_equalTo(monthB.mas_left).offset(-space);
     }];
 
     UIButton* yearB = [UIButton createButtonWithFontSize:adaptFont(13) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:@"年" andBackgroundColor:nil];
     [self.contentView addSubview:yearB];
     [yearB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(monthB.mas_centerY);
+//        make.centerY.mas_equalTo(monthB.mas_centerY);
+        make.baseline.mas_equalTo(monthB.mas_baseline);
         make.left.mas_equalTo(monthB.mas_right).offset(space);
     }];
     
     _weekButton = weekB;
     _monthButton = monthB;
     _yearButton = yearB;
+    
+    _weekButton.tag = PGStatisticsPeriodTypeWeek;
+    _monthButton.tag = PGStatisticsPeriodTypeMonth;
+    _yearButton.tag = PGStatisticsPeriodTypeYear;
+
     
     [_weekButton setTitleColor:MAIN_COLOR forState:UIControlStateSelected];
     [_monthButton setTitleColor:MAIN_COLOR forState:UIControlStateSelected];
@@ -68,6 +75,7 @@
         make.top.left.right.mas_equalTo(0);
         make.height.mas_equalTo(1);
     }];
+    topLine.hidden = YES;
     
     UIView* bottomLine = [UIView new];
     [self.contentView addSubview:bottomLine];
@@ -85,6 +93,14 @@
     _monthButton.selected = NO;
     _yearButton.selected = NO;
     sender.selected = YES;
+    _weekButton.titleLabel.font = [UIFont systemFontOfSize:adaptFont(13)];
+    _monthButton.titleLabel.font = [UIFont systemFontOfSize:adaptFont(13)];
+    _yearButton.titleLabel.font = [UIFont systemFontOfSize:adaptFont(13)];
+    sender.titleLabel.font = [UIFont systemFontOfSize:adaptFont(15)];
+    
+    if ([self.delegate respondsToSelector:@selector(periodCell:andType:)]) {
+        [self.delegate periodCell:self andType:sender.tag];
+    }
 }
 
 

@@ -186,7 +186,7 @@
     PGCheckinCell* cell = [[PGCheckinCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.task_id = self.task_id;
     cell.checkinRecordArr = self.checkinRecordArr;
-    cell.date = [self getDateFrom:self.date offsetMonths:-(_num-indexPath.section-1)];
+    cell.date = [NSDate getDateFrom:self.date offsetMonths:-(_num-indexPath.section-1)];
     return cell;
 }
 
@@ -196,11 +196,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [PGCheckinCell getTotalRowsInThisMonth:[self getDateFrom:self.date offsetMonths:-(_num-indexPath.section-1)]] * CalendarView_Content_Item_Height;
+    return [PGCheckinCell getTotalRowsInThisMonth:[NSDate getDateFrom:self.date offsetMonths:-(_num-indexPath.section-1)]] * CalendarView_Content_Item_Height;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSDate* date = [self getDateFrom:self.date offsetMonths:-(_num-section-1)];
+    NSDate* date = [NSDate getDateFrom:self.date offsetMonths:-(_num-section-1)];
     return [NSDate dateToCustomFormateString:@"yyyy年MM月" andDate:date];
 }
 
@@ -218,18 +218,6 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return nil;
-}
-
-//根据date获取偏移指定月数的date
-- (NSDate *)getDateFrom:(NSDate *)date offsetMonths:(NSInteger)offsetMonths {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM"];
-    
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *lastMonthComps = [[NSDateComponents alloc] init];
-    [lastMonthComps setMonth:offsetMonths];  //year = 1表示1年后的时间 year = -1为1年前的日期，month day 类推
-    NSDate *newdate = [calendar dateByAddingComponents:lastMonthComps toDate:date options:0];
-    return newdate;
 }
 
 - (void)checkin{

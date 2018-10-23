@@ -216,6 +216,18 @@
 
 #pragma mark - PGTaskCellDelegate
 - (void)taskCell:(PGTaskCell*)cell playButtonDidClick:(UIButton*)btn{
+    if (cell.taskModel.task_id == PGUserModelInstance.currentTask.task_id) {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    if ([self judgingState]) {
+        return;
+    }
+    [self.dbMgr.database open];
+    [self.dbMgr updateDataIntoTableWithName:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"1"] andNewModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"0"]];
+    [self.dbMgr updateDataIntoTableWithName:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(cell.taskModel.task_id)] andNewModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"1"]];
+    [self.dbMgr.database close];
+    
     PGUserModelInstance.currentTask = cell.taskModel;
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -242,7 +254,19 @@
     [addButton addTarget:self action:@selector(navAddPressed) forControlEvents:UIControlEventTouchUpInside];
 
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:settingButton],[[UIBarButtonItem alloc] initWithCustomView:addButton]];
+}
 
+- (BOOL)judgingState{
+    if (PGUserModelInstance.currentFocusState != PGFocusStateFocusing && PGUserModelInstance.currentFocusState != PGFocusStateShortBreaking && PGUserModelInstance.currentFocusState != PGFocusStateLongBreaking) {
+        return NO;
+    }
+    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n有任务正在进行，请先作废当前任务" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    
+    [self presentViewController:alertVC animated:YES completion:nil];
+
+    return YES;
 }
 
 - (void)watch_updateTaskList{

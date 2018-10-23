@@ -325,6 +325,33 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     return total;
 }
 
+- (double)sumFromTabel:(NSString *)name andColumnName:(NSString*)column_name andSearchModels:(NSArray<HDJDSQLSearchModel*>*)searchModelArr{
+    
+    if (searchModelArr.count<2) {
+        return [self sumFromTabel:name andColumnName:column_name andSearchModel:searchModelArr.firstObject];
+    }
+    
+    NSMutableArray* searchStrArr = [NSMutableArray arrayWithCapacity:searchModelArr.count];
+    for (HDJDSQLSearchModel* searchModel in searchModelArr) {
+        [searchStrArr addObject:[NSString stringWithFormat:@"%@%@%@",searchModel.attriName,searchModel.symbol,searchModel.specificValue]];
+    }
+
+    
+    NSString* sumResult = @"sumResult";
+    NSString* sqlStr = [NSString stringWithFormat:@"select sum(%@) as %@ from %@ where %@",column_name,sumResult,name,[searchStrArr componentsJoinedByString:@" and "]];
+    
+    FMResultSet *result = [self.database executeQuery:sqlStr];
+    
+    double total = 0.0;
+    while([result next] && ![result.resultDictionary[sumResult] isKindOfClass:[NSNull class]]) {
+        total = [result.resultDictionary[sumResult] doubleValue];
+        break;
+    }
+    
+    return total;
+
+}
+
 
 #pragma mark - method
 - (NSString*)getSortedModeStr:(NSComparisonResult)ordered andColumnName:(NSString*)column_name{

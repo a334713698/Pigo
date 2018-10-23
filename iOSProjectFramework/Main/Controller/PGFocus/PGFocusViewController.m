@@ -168,6 +168,7 @@
         self.taskModel = PGUserModelInstance.currentTask;
         self.contView.labText = self.taskModel.task_name;
         self.contView.tomatoCount = self.taskModel.count;
+        [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
     }
 }
 
