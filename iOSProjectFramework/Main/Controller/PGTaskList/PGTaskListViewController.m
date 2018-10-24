@@ -14,14 +14,16 @@
 #import "PGTaskListViewModel.h"
 #import "PGTomatoRecordModel.h"
 #import "PGStatisticsAndCheckinViewController.h"
+#import "PGTaskListAddView.h"
 
-@interface PGTaskListViewController ()<UITableViewDataSource,UITableViewDelegate,PGTaskCellDelegate>
+@interface PGTaskListViewController ()<UITableViewDataSource,UITableViewDelegate,PGTaskCellDelegate,PGTaskListAddViewDelegate>
 
 @property (nonatomic, strong) PGTaskTableView *tableView;
 @property (nonatomic, strong) PGTaskListViewModel *viewModel;
 
 @property (nonatomic, strong) NSMutableArray<PGTaskListModel*> *taskList;
 
+@property (nonatomic, strong) PGTaskListAddView *addView;
 
 @end
 
@@ -51,11 +53,19 @@
     return _tableView;
 }
 
+- (PGTaskListAddView *)addView{
+    if (!_addView) {
+        _addView = [[PGTaskListAddView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        _addView.delegate = self;
+    }
+    return _addView;
+}
+
 - (NSMutableArray<PGTaskListModel*> *)taskList{
     if (!_taskList) {
         _taskList = [NSMutableArray array];
         [self.dbMgr.database open];
-        NSArray* taskArr = [self.dbMgr getAllTuplesFromTabel:task_list_table withSortedMode:NSOrderedDescending andColumnName:@"task_id"];
+        NSArray* taskArr = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"0"] withSortedMode:NSOrderedDescending andColumnName:@"task_id"];
         if (taskArr.count) {
             NSString* dateToday = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
             NSArray* recordDicArr = [self.dbMgr getAllTuplesFromTabel:tomato_record_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateToday)]];
@@ -115,9 +125,9 @@
         cell = [[PGTaskCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PGTaskCell"];
         cell.delegate = self;
     }
-    NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",(indexPath.section+1)%5];
-    cell.bgImageView.image = IMAGE(imgName);
-//    cell.contView.backgroundColor = [UIColor redColor];
+//    NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",(indexPath.section+1)%3];
+//    cell.bgImageView.image = IMAGE(imgName);
+    cell.contView.backgroundColor = [UIColor colorWithHexStr:task.bg_color];
     [cell setLabelShadow:cell.qm_titleLabel content:task.task_name];
     [cell setLabelShadow:cell.qm_detailLabel content:QMStringFromNSInteger(task.count)];
     cell.taskModel = task;
@@ -167,9 +177,15 @@
         [weakSelf.taskList removeObjectAtIndex:indexPath.section];
         [weakSelf.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
         [self.dbMgr.database open];
-        [self.dbMgr deleteDataFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_name" andSymbol:@"=" andSpecificValue:[NSString stringWithFormat:@"\'%@\'",task.task_name]]];
+        
+        [self.dbMgr updateDataIntoTableWithName:task_list_table andSearchModelsArr:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(task.task_id)]] andNewModelsArr:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"1"],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"0"]]];
+
         [self.dbMgr.database close];
         [self watch_updateTaskList];
+        if (PGUserModelInstance.currentTask.task_id == task.task_id) {
+            PGTaskListModel *currentTask;
+            PGUserModelInstance.currentTask = currentTask;
+        }
     }];
     action.backgroundColor = BACKGROUND_COLOR;
     return @[action];
@@ -178,34 +194,7 @@
 #pragma mark - SEL
 - (void)navAddPressed{
     DLog(@"新增任务");
-    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"新任务" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"任务名称";
-    }];
-    
-    WS(weakSelf)
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSString* taskName = alertVC.textFields.firstObject.text;
-        if (NULLString(taskName)) {
-            [MBProgressHUD showError:@"啥也没输入"];
-        }else{
-            PGTaskListModel* model = [PGTaskListModel new];
-            model.task_name = taskName;
-            [weakSelf.taskList insertObject:model atIndex:0];
-            [weakSelf.tableView reloadData];
-            [self.dbMgr.database open];
-            NSString* now = [[NSDate date] dateToTimeStamp];
-            [self.dbMgr insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":[NSString stringWithFormat:@"\'%@\'",taskName],@"add_time":now}];
-            NSDictionary* tuples = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_time" andSymbol:@"=" andSpecificValue:now]].firstObject;
-            model.task_id = [tuples[@"task_id"] integerValue];
-            [self.dbMgr.database close];
-            [self watch_updateTaskList];
-        }
-    }]];
-    
-    [self presentViewController:alertVC animated:YES completion:nil];
+    [QMSlideUpAlertView showAlertWithContentView:self.addView withSlideType:QMAlertSlideUpTypeCenter canTouchDissmiss:NO];
 }
 
 - (void)navSetPressed{
@@ -230,6 +219,37 @@
     
     PGUserModelInstance.currentTask = cell.taskModel;
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - PGTaskListAddViewDelegate
+- (void)addView:(PGTaskListAddView *)addView sureButtonDidClick:(UIButton *)sender{
+    [QMSlideUpAlertView dismissWithCompletion:^(BOOL finished) {
+        NSString* taskName = addView.titleCont;
+        if (NULLString(taskName)) {
+            [MBProgressHUD showError:@"啥也没输入"];
+        }else{
+            PGTaskListModel* model = [PGTaskListModel new];
+            model.task_name = taskName;
+            model.bg_color = addView.hexStr;
+            [self.taskList insertObject:model atIndex:0];
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+            [self.dbMgr.database open];
+            NSString* now = [[NSDate date] dateToTimeStamp];
+            [self.dbMgr insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":[NSString stringWithFormat:@"\'%@\'",taskName],@"add_time":now,@"is_delete":@"0",@"bg_color":TextFromNSString(addView.hexStr)}];
+            
+            NSDictionary* tuples = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_time" andSymbol:@"=" andSpecificValue:now]].firstObject;
+            model.task_id = [tuples[@"task_id"] integerValue];
+            [self.dbMgr.database close];
+            [self watch_updateTaskList];
+            [addView clearTextField];
+        }
+    }];
+}
+
+-(void)addView:(PGTaskListAddView *)addView closeButtonDidClick:(UIButton *)sender{
+    [QMSlideUpAlertView dismissWithCompletion:^(BOOL finished) {
+        [addView clearTextField];
+    }];
 }
 
 #pragma mark - Method

@@ -121,6 +121,17 @@ static UIView *contentView = nil;
     }];
 }
 
++ (void)dismissWithCompletion:(void (^ __nullable)(BOOL finished))completion{
+    [UIView animateWithDuration:0.2 animations:^{
+        contentView.transform = CGAffineTransformIdentity;
+        instance.backgroundColor = RGBA(0, 0, 0, 0);
+    } completion:^(BOOL finished) {
+        [instance removeFromSuperview];
+        instance = nil;
+        completion(finished);
+    }];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     if (!_canTouchDissmiss) {
         return;

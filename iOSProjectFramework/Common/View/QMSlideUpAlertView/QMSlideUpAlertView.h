@@ -23,5 +23,8 @@ typedef enum {
 + (void)showClearBGColorAlertWithContentView: (UIView *)insideView withSlideType: (QMAlertSlideUpType)slideType;
 + (void)showAlertWithContentView: (UIView *)insideView withSlideType: (QMAlertSlideUpType)slideType canTouchDissmiss:(BOOL)canTouchDissmiss;
 + (void)showAlertWithContentView: (UIView *)insideView withSlideType: (QMAlertSlideUpType)slideType canTouchDissmiss:(BOOL)canTouchDissmiss superView:(UIView *)superView;
+
 + (void)dismiss;
++ (void)dismissWithCompletion:(void (^ __nullable)(BOOL finished))completion;
+
 @end

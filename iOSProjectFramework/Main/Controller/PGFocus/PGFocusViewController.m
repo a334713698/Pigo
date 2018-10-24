@@ -166,7 +166,7 @@
 - (void)updateTask{
     if (self.taskModel.task_id != PGUserModelInstance.currentTask.task_id) {
         self.taskModel = PGUserModelInstance.currentTask;
-        self.contView.labText = self.taskModel.task_name;
+        self.contView.labText = self.taskModel.task_name ? :@"未知标签";
         self.contView.tomatoCount = self.taskModel.count;
         [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
     }

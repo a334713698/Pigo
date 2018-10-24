@@ -20,6 +20,7 @@
 #import "HDJConst.h"
 #import "HDJEnum.h"
 #import "HDJGlobalVariables.h"
+#import "HDJNotification.h"
 #import "BaseModel.h"
 #import "BaseNavigationController.h"
 #import "BaseViewController.h"
@@ -42,6 +43,7 @@
 #import "DJDatabaseManager.h"
 #import "PGWatchTransTool.h"
 #import "DJTools.h"
+#import "QMSlideUpAlertView.h"
 
 //Common
 #import "PGUserModel.h"
@@ -66,6 +68,7 @@
 #import "NSString+URLCode.h"
 #import "NSString+Features.h"
 #import "NSString+JSON.h"
+#import "NSString+Convert.h"
 #import "NSData+ImageCompression.h"
 #import "NSData+Conversion.h"
 #import "NSString+Device.h"

@@ -152,5 +152,13 @@
     return [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
 }
 
+//时间转NSDate
++ (NSDate*)dateStrToDate:(NSString*)dateStr andFormateString:(NSString*)formate{
+    NSString *string = dateStr;
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat = formate;
+    NSDate *date = [format dateFromString:string];
+    return date;
+}
 
 @end

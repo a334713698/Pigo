@@ -95,7 +95,6 @@
 		B6E26A66201AF2A0006C7650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E26A65201AF2A0006C7650 /* Assets.xcassets */; };
 		B6E26A69201AF2A0006C7650 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E26A67201AF2A0006C7650 /* LaunchScreen.storyboard */; };
 		B6E26A6C201AF2A0006C7650 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A6B201AF2A0006C7650 /* main.m */; };
-		B6E26A9A201AF3F2006C7650 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A79201AF3F2006C7650 /* ViewController.m */; };
 		B6E26A9C201AF3F2006C7650 /* HDJEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A86201AF3F2006C7650 /* HDJEmptyView.m */; };
 		B6E26A9D201AF3F2006C7650 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A8C201AF3F2006C7650 /* BaseNavigationController.m */; };
 		B6E26A9E201AF3F2006C7650 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A8F201AF3F2006C7650 /* BaseView.m */; };
@@ -112,6 +111,10 @@
 		B6FFB0AD2175873A00076F44 /* PGCheckinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */; };
 		D6D5D2A1217D986900FF34D0 /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */; };
 		D6D5D2A4217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A3217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m */; };
+		D6D5D2A72180195A00FF34D0 /* PGTaskListAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A62180195A00FF34D0 /* PGTaskListAddView.m */; };
+		D6D5D2AA2180347200FF34D0 /* PGTaskListAddCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A92180347200FF34D0 /* PGTaskListAddCollectionViewCell.m */; };
+		D6D5D2AE218039C900FF34D0 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2AC218039C900FF34D0 /* NSString+Convert.m */; };
+		D6D5D2B321805B2D00FF34D0 /* HDJNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2B221805B2D00FF34D0 /* HDJNotification.m */; };
 		D6D9C2402177118B00EF9D91 /* PGCheckinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */; };
 		D6D9C249217731A400EF9D91 /* DJTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C247217731A400EF9D91 /* DJTools.m */; };
 		D6D9C24D2178352500EF9D91 /* PGStatisticsTodayDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C24C2178352500EF9D91 /* PGStatisticsTodayDataCell.m */; };
@@ -368,8 +371,6 @@
 		B6E26A68201AF2A0006C7650 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6E26A6A201AF2A0006C7650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6E26A6B201AF2A0006C7650 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B6E26A79201AF3F2006C7650 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B6E26A7A201AF3F2006C7650 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B6E26A86201AF3F2006C7650 /* HDJEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDJEmptyView.m; sourceTree = "<group>"; };
 		B6E26A87201AF3F2006C7650 /* HDJEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJEmptyView.h; sourceTree = "<group>"; };
 		B6E26A8C201AF3F2006C7650 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
@@ -383,7 +384,6 @@
 		B6E26A98201AF3F2006C7650 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		B6E26A99201AF3F2006C7650 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		B6E26AA5201AF46F006C7650 /* HDJEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJEnum.h; sourceTree = "<group>"; };
-		B6E26AA6201AF470006C7650 /* HDJNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJNotification.h; sourceTree = "<group>"; };
 		B6E26AA7201AF470006C7650 /* HDJConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJConfig.h; sourceTree = "<group>"; };
 		B6E26AA8201AF470006C7650 /* HDJGlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJGlobalVariables.h; sourceTree = "<group>"; };
 		B6E26AA9201AF4A1006C7650 /* ProjectPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectPrefix.pch; sourceTree = "<group>"; };
@@ -408,6 +408,14 @@
 		D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
 		D6D5D2A2217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStatisticsAndCheckinViewModel.h; sourceTree = "<group>"; };
 		D6D5D2A3217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStatisticsAndCheckinViewModel.m; sourceTree = "<group>"; };
+		D6D5D2A52180195A00FF34D0 /* PGTaskListAddView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListAddView.h; sourceTree = "<group>"; };
+		D6D5D2A62180195A00FF34D0 /* PGTaskListAddView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListAddView.m; sourceTree = "<group>"; };
+		D6D5D2A82180347200FF34D0 /* PGTaskListAddCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListAddCollectionViewCell.h; sourceTree = "<group>"; };
+		D6D5D2A92180347200FF34D0 /* PGTaskListAddCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListAddCollectionViewCell.m; sourceTree = "<group>"; };
+		D6D5D2AC218039C900FF34D0 /* NSString+Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convert.m"; sourceTree = "<group>"; };
+		D6D5D2AD218039C900FF34D0 /* NSString+Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
+		D6D5D2B221805B2D00FF34D0 /* HDJNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJNotification.m; sourceTree = "<group>"; };
+		D6D5D2B421805B3600FF34D0 /* HDJNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJNotification.h; sourceTree = "<group>"; };
 		D6D9C23E2177118B00EF9D91 /* PGCheckinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCheckinModel.h; sourceTree = "<group>"; };
 		D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCheckinModel.m; sourceTree = "<group>"; };
 		D6D9C247217731A400EF9D91 /* DJTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTools.m; sourceTree = "<group>"; };
@@ -1069,6 +1077,7 @@
 		B6A60F0A2140F659000A737D /* NSString */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5D2AB218039C900FF34D0 /* NSString+Convert */,
 				B6A60F0B2140F659000A737D /* NSString+sha1 */,
 				B6A60F0E2140F659000A737D /* NSString+Json */,
 				B6A60F112140F659000A737D /* NSString+URLCode */,
@@ -1186,6 +1195,10 @@
 				B6A60F4B21412142000A737D /* PGTaskCell.m */,
 				B6A60F5E2142591C000A737D /* PGTaskTableView.h */,
 				B6A60F5F2142591C000A737D /* PGTaskTableView.m */,
+				D6D5D2A52180195A00FF34D0 /* PGTaskListAddView.h */,
+				D6D5D2A62180195A00FF34D0 /* PGTaskListAddView.m */,
+				D6D5D2A82180347200FF34D0 /* PGTaskListAddCollectionViewCell.h */,
+				D6D5D2A92180347200FF34D0 /* PGTaskListAddCollectionViewCell.m */,
 			);
 			path = PGTaskList;
 			sourceTree = "<group>";
@@ -1383,8 +1396,6 @@
 				B6CF21702147B26800067470 /* PGSetting */,
 				B6A60F4521411545000A737D /* PGTaskList */,
 				B6A60E0E2140CB6E000A737D /* PGFocus */,
-				B6E26A7A201AF3F2006C7650 /* ViewController.h */,
-				B6E26A79201AF3F2006C7650 /* ViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1533,7 +1544,8 @@
 				B6A60E202140F0C1000A737D /* HDJConst.m */,
 				B6E26AA5201AF46F006C7650 /* HDJEnum.h */,
 				B6E26AA8201AF470006C7650 /* HDJGlobalVariables.h */,
-				B6E26AA6201AF470006C7650 /* HDJNotification.h */,
+				D6D5D2B421805B3600FF34D0 /* HDJNotification.h */,
+				D6D5D2B221805B2D00FF34D0 /* HDJNotification.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1630,6 +1642,15 @@
 				D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */,
 			);
 			path = "NSDate+Calendar";
+			sourceTree = "<group>";
+		};
+		D6D5D2AB218039C900FF34D0 /* NSString+Convert */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5D2AD218039C900FF34D0 /* NSString+Convert.h */,
+				D6D5D2AC218039C900FF34D0 /* NSString+Convert.m */,
+			);
+			path = "NSString+Convert";
 			sourceTree = "<group>";
 		};
 		D6D9C23D2177116800EF9D91 /* PGCheckinModel */ = {
@@ -2008,6 +2029,7 @@
 			files = (
 				B6FFB0A921748ECD00076F44 /* PGStatisticsView.m in Sources */,
 				B6CF21802147B41700067470 /* PGSettingViewModel.m in Sources */,
+				D6D5D2AA2180347200FF34D0 /* PGTaskListAddCollectionViewCell.m in Sources */,
 				D6D9C25E21798D7C00EF9D91 /* PGStatisticsTodayPeriodCell.m in Sources */,
 				B6A60F302140F659000A737D /* NSString+Features.m in Sources */,
 				B6A60F222140F659000A737D /* UILabel+TextAttribute.m in Sources */,
@@ -2090,6 +2112,7 @@
 				B6FFB094217432DE00076F44 /* PGUserModel.m in Sources */,
 				B6A60F602142591C000A737D /* PGTaskTableView.m in Sources */,
 				B6CC326A214A63D900E66D64 /* HDJDSQLSearchModel.m in Sources */,
+				D6D5D2A72180195A00FF34D0 /* PGTaskListAddView.m in Sources */,
 				D6D9C2A52179B21000EF9D91 /* AADataLabels.m in Sources */,
 				D6D9C2B12179B21000EF9D91 /* AAArea.m in Sources */,
 				D6D9C2A12179B21000EF9D91 /* AALabels.m in Sources */,
@@ -2103,13 +2126,14 @@
 				B6A60E2A2140F19B000A737D /* UITextView+ZWPlaceHolder.m in Sources */,
 				D6D5D2A1217D986900FF34D0 /* NSDate+Calendar.m in Sources */,
 				B6E26A9F201AF3F2006C7650 /* BaseNetRequest.m in Sources */,
-				B6E26A9A201AF3F2006C7650 /* ViewController.m in Sources */,
 				B6A60F2E2140F659000A737D /* NSString+URLCode.m in Sources */,
+				D6D5D2AE218039C900FF34D0 /* NSString+Convert.m in Sources */,
 				B6FFB0A621748EC700076F44 /* PGCheckinView.m in Sources */,
 				B6CC32622149F3E500E66D64 /* PGSettingCell.m in Sources */,
 				B6E26A5E201AF2A0006C7650 /* AppDelegate.m in Sources */,
 				B6A60F48214115ED000A737D /* PGTaskListViewController.m in Sources */,
 				B6CC3266214A635D00E66D64 /* DJDatabaseManager.m in Sources */,
+				D6D5D2B321805B2D00FF34D0 /* HDJNotification.m in Sources */,
 				B6CC32572149066900E66D64 /* PGFocusViewModel.m in Sources */,
 				B6A60F312140F659000A737D /* NSDate+Stamp.m in Sources */,
 				D6D9C2AD2179B21000EF9D91 /* AAOptions3d.m in Sources */,

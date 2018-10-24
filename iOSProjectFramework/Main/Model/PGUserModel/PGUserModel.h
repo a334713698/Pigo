@@ -30,7 +30,7 @@ PROPERTY_SINGLETON_FOR_CLASS(PGUserModel)
 - (NSArray*)getCheckinRecordWithTaskID:(NSInteger)task_id;
 - (NSArray*)getTomatoRecordWithTaskID:(NSInteger)task_id;
 
-- (void)taskCheckinWithID:(NSInteger)task_id andDateStr:(NSString*)dateStr;
+- (void)taskCheckinWithID:(NSInteger)task_id andDateStr:(NSString*)dateStr isAuto:(BOOL)isAuto;
 
 @end
 

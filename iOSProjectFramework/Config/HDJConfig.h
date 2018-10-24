@@ -107,7 +107,7 @@ NSLog(@"%@--dealloc", [self class]);\
 #define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:ext]]
 // 定义UIImage对象
 #define IMAGE(imageName) [UIImage imageNamed:imageName]
-#define IMAGEForThemeColor(imageName, color) [[UIImage imageNamed:@imageName] imageForThemeColor:color]
+#define IMAGEForThemeColor(imageName, color) [[UIImage imageNamed:imageName] imageForThemeColor:color]
 // 默认头像
 #define DefaultAvatarImage [UIImage imageNamed:@"defaultAvatar"]
 #define DefaultAvatarImg(identity) [UIImage getAvatarImageWithIdentity:identity]
@@ -125,7 +125,6 @@ NSLog(@"%@--dealloc", [self class]);\
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
 
-#define COLOR_Hex(s)  [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0green:(((s &0xFF00) >>8))/255.0blue:((s &0xFF))/255.0alpha:1.0]
 
 // 背景色
 #define BACKGROUND_COLOR [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0]

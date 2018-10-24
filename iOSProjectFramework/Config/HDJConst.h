@@ -35,6 +35,12 @@ UIKIT_EXTERN const CGFloat PGFocusBtnCenterXOffset;
 //PGTaskCell
 UIKIT_EXTERN const CGFloat PGTaskCellHeight;
 
+//PGTaskListAddCollectionViewCell
+UIKIT_EXTERN const CGFloat PGTaskListAddCollectionViewTitleHeight;
+UIKIT_EXTERN const CGFloat PGTaskListAddCollectionViewCellSize;
+UIKIT_EXTERN const CGFloat PGTaskListAddCollectionViewCellItemSpacing;
+UIKIT_EXTERN const CGFloat PGTaskListAddCollectionViewCellLineSpacing;
+
 //PGConfigManager
 UIKIT_EXTERN NSString *const PGConfigParas;
 UIKIT_EXTERN NSString *const PGConfigParaDataSync;                  //数据同步

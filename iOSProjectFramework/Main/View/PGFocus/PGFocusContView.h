@@ -13,7 +13,7 @@ UIKIT_EXTERN const CGFloat PGFocusContViewHeight;
 @interface PGFocusContView : BaseView
 
 @property (nonatomic, copy) NSString *labText;
-@property (nonatomic, strong) UIButton *tomatoButton;
+@property (nonatomic, strong) UILabel *countLab;
 @property (nonatomic, strong) UIButton *labButton;
 
 @property (nonatomic, assign) NSInteger tomatoCount;

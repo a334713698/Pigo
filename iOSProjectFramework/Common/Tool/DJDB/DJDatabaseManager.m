@@ -41,11 +41,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
 //创建task_list_table，并插入数据
 - (void)init_task_list_table{
     
-    BOOL isCreated = [self createTableWithName:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int",@"add_time":@"long"}];
+    BOOL isCreated = [self createTableWithName:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int",@"add_time":@"long",@"is_delete":@"int",@"bg_color":@"text"}];
     
     if (isCreated) {
         DLog(@"任务表创建成功");
-        [self insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":TextFromNSString(@"Swift学习"),@"is_default":@"1"}];
+//        [self insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":TextFromNSString(@"Swift学习"),@"is_default":@"1"}];
     }
 }
 
@@ -307,6 +307,19 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     return [result_arr copy];
 }
 
+///通过多个搜索条件，获取某张表所有的元组,并赋予排序属性
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModelArr:(NSArray<HDJDSQLSearchModel*>*)searchModelArr withSortedMode:(NSComparisonResult)ordered andColumnName:(NSString*)column_name{
+    NSMutableArray<NSDictionary*>* result_arr = [NSMutableArray array];
+    
+    NSString* sql = [NSString stringWithFormat:@"select * from %@ where %@ %@",name,[self conditionalConnection:searchModelArr],[self getSortedModeStr:ordered andColumnName:column_name]];
+    FMResultSet *result = [self.database executeQuery:sql];
+    while([result next]) {
+        [result_arr addObject:result.resultDictionary];
+    }
+    
+    return [result_arr copy];
+}
+
 
 //求和（有搜索要求）
 - (double)sumFromTabel:(NSString *)name andColumnName:(NSString*)column_name andSearchModel:(HDJDSQLSearchModel*)searchModel{
@@ -363,6 +376,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
         default:
             return @"";
     }
+}
+
+//查找条件的连接
+- (NSString*)conditionalConnection:(NSArray<HDJDSQLSearchModel*>*)searchModelArr{
+    if (searchModelArr.count<2) {
+        return [NSString stringWithFormat:@"%@%@%@",searchModelArr.firstObject.attriName,searchModelArr.firstObject.symbol,searchModelArr.firstObject.specificValue];
+    }
+    NSMutableArray* searchStrArr = [NSMutableArray arrayWithCapacity:searchModelArr.count];
+    for (HDJDSQLSearchModel* searchModel in searchModelArr) {
+        [searchStrArr addObject:[NSString stringWithFormat:@"%@%@%@",searchModel.attriName,searchModel.symbol,searchModel.specificValue]];
+    }
+    NSString* conditionStr = [searchStrArr componentsJoinedByString:@" and "];
+
+    return conditionStr;
 }
 
 @end

@@ -71,18 +71,25 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGUserModel)
         [self.dbMgr insertDataIntoTableWithName:tomato_record_table andKeyValues:mutableDic.copy];
     }
     [self.dbMgr.database close];
-    [self taskCheckinWithID:self.currentTask.task_id andDateStr:dateToday];
+    [self taskCheckinWithID:self.currentTask.task_id andDateStr:dateToday isAuto:YES];
 }
 
-- (void)taskCheckinWithID:(NSInteger)task_id andDateStr:(NSString*)dateStr{
+- (void)taskCheckinWithID:(NSInteger)task_id andDateStr:(NSString*)dateStr isAuto:(BOOL)isAuto{
     [self.dbMgr.database open];
     NSDictionary* tuple = [self.dbMgr getAllTuplesFromTabel:check_in_table andSearchModels:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(task_id)],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateStr)]]].firstObject;
     if (!tuple) {
         NSMutableDictionary* mutableDic = [NSMutableDictionary dictionaryWithCapacity:5];
         [mutableDic setValue:QMStringFromNSInteger(task_id) forKey:@"task_id"];
-        [mutableDic setValue:[[NSDate new] dateToTimeStamp] forKey:@"add_time"];
         [mutableDic setValue:TextFromNSString(dateStr) forKey:@"add_date"];
+        if (isAuto) {
+            [mutableDic setValue:[[NSDate new] dateToTimeStamp] forKey:@"add_time"];
+        }else{
+            NSDate* date = [NSDate dateStrToDate:dateStr andFormateString:@"yyyyMMdd"];
+            [mutableDic setValue:[date dateToTimeStamp] forKey:@"add_time"];
+        }
+
         [self.dbMgr insertDataIntoTableWithName:check_in_table andKeyValues:mutableDic.copy];
+        [NOTI_CENTER postNotificationName:PGCheckinCompleteNotification object:nil];
     }
     [self.dbMgr.database close];
 }

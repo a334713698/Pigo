@@ -2,7 +2,7 @@
 //  HDJNotification.h
 //  iOSProjectFramework
 //
-//  Created by 洪冬介 on 2018/1/26.
+//  Created by quanmai on 2018/10/24.
 //  Copyright © 2018年 洪冬介. All rights reserved.
 //
 
@@ -10,5 +10,8 @@
 #define HDJNotification_h
 
 /** 统一管理通知名称 */
+
+UIKIT_EXTERN NSString *const PGCheckinCompleteNotification;
+
 
 #endif /* HDJNotification_h */

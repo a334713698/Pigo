@@ -35,7 +35,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.01, 0.01)];
+        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.01, adaptHeight(10))];
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.01, adaptHeight(20))];
         if ([[[UIDevice currentDevice] systemVersion] doubleValue] > 11.0) {
             _tableView.estimatedSectionHeaderHeight = 10;
@@ -52,6 +52,11 @@
     return _date;
 }
 
+- (void)dealloc{
+    NSLog(@"%@--dealloc", [self class]);
+    [NOTI_CENTER removeObserver:self name:PGCheckinCompleteNotification object:nil];
+}
+
 - (instancetype)initWithTaskID:(NSInteger)task_id
 {
     self = [super init];
@@ -65,6 +70,7 @@
         _checkinRecordArr = [PGUserModelInstance getCheckinRecordWithTaskID:_task_id];
         self.backgroundColor = WHITE_COLOR;
         [self setupView];
+        [NOTI_CENTER addObserver:self selector:@selector(assignment) name:PGCheckinCompleteNotification object:nil];
     }
     return self;
 }
@@ -154,6 +160,7 @@
         make.bottom.mas_equalTo(0);
     }];
     
+    [self assignment];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
@@ -191,10 +198,6 @@
 }
 
 #pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DLog(@"cell：%ld-%ld",indexPath.section,indexPath.row);
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [PGCheckinCell getTotalRowsInThisMonth:[NSDate getDateFrom:self.date offsetMonths:-(_num-indexPath.section-1)]] * CalendarView_Content_Item_Height;
 }
@@ -226,9 +229,66 @@
     CAShapeLayer *borderLayer = _checkinButton.layer.sublayers.firstObject;
     borderLayer.strokeColor = [UIColor grayColor].CGColor;
     NSString* dateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
-    [PGUserModelInstance taskCheckinWithID:self.task_id andDateStr:dateStr];
+    [PGUserModelInstance taskCheckinWithID:self.task_id andDateStr:dateStr isAuto:YES];
     self.checkinRecordArr = [self.checkinRecordArr arrayByAddingObject:dateStr];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:_num - 1] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)assignment{
+
+    [PGUserModelInstance.dbMgr.database open];
+    
+    NSArray<NSDictionary*>* totalCheckinArr = [PGUserModelInstance.dbMgr getAllTuplesFromTabel:check_in_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(self.task_id)] withSortedMode:NSOrderedAscending andColumnName:@"add_date"];
+    
+    if (totalCheckinArr.count < 1) {
+        [PGUserModelInstance.dbMgr.database close];
+        return;
+    }
+    //加入天数
+    NSDictionary* firstDayDic = totalCheckinArr.firstObject;
+    NSInteger days = ceil(([[[NSDate new] dateToTimeStamp] integerValue] - [firstDayDic[@"add_time"] integerValue]) / 86400.0);
+    if (days < 1) {
+        days = 1;
+    }
+    self.joinDaysLab.text = [NSString stringWithFormat:@"%ld",days];
+    
+    //完成天数
+    self.completedDaysLab.text = QMStringFromNSInteger(totalCheckinArr.count);
+    
+    //连续天数
+    //历史最高
+    NSMutableArray* continuousArr = @[@1].mutableCopy;
+    for (NSInteger i = totalCheckinArr.count - 1; i > 0; i--) {
+        NSDate* nowDate = [NSDate timeStampToDateWithTimeStamp:totalCheckinArr[i][@"add_time"]];
+        NSDate* nowLastDate = [NSDate getDateFrom:nowDate offsetDays:-1];
+        NSDate* lastDate = [NSDate timeStampToDateWithTimeStamp:totalCheckinArr[i-1][@"add_time"]];
+        
+        NSString* nowLastStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:nowLastDate];
+        NSString* lastStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:lastDate];
+        if (!QMEqualToString(nowLastStr, lastStr)) {
+            [continuousArr addObject:@1];
+        }else{
+            NSInteger t = [continuousArr.lastObject integerValue];
+            t++;
+            [continuousArr removeLastObject];
+            [continuousArr addObject:@(t)];
+        }
+    }
+
+    self.continuousDaysLab.text = QMStringFromNSValue(continuousArr.firstObject);
+    
+    [continuousArr sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        if ([obj1 integerValue] > [obj2 integerValue]) {
+            return NSOrderedAscending;
+        }else if ([obj1 integerValue] < [obj2 integerValue]){
+            return NSOrderedDescending;
+        }else{
+            return NSOrderedSame;
+        }
+    }];
+    
+    self.highestDaysLab.text = QMStringFromNSValue(continuousArr.firstObject);
+    [PGUserModelInstance.dbMgr.database close];
 }
 
 @end

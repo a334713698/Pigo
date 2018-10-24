@@ -11,15 +11,11 @@
 
 @interface PGCheckinCell()
 
-//@property (nonatomic, strong) NSMutableArray<CalendarItem*>* itemsArr;
 @property (nonatomic, strong) NSMutableArray* itemsArr;
 
 @end
 
-@implementation PGCheckinCell{
-    NSInteger _selectStartIndex;
-    NSInteger _selectEndIndex;
-}
+@implementation PGCheckinCell
 
 - (NSMutableArray *)itemsArr{
     if (!_itemsArr) {
@@ -37,8 +33,6 @@
 
 - (void)setDate:(NSDate *)date{
     _date = date;
-    _selectStartIndex = unSelectedIndex;
-    _selectEndIndex = unSelectedIndex;
     [self initCalendarContentView];
 }
 
@@ -65,13 +59,15 @@
         CGFloat x = w * weekDayIndex;
         CGFloat y = h * colIndex;
         
-        NSString* dateYMDStr = [cellDateYearMonthStr stringByAppendingFormat:@"%02ld",i];
+        NSString* dateYMDStr = [cellDateYearMonthStr stringByAppendingFormat:@"%02ld",dateIndex];
         CalendarItemView *calendarItem = [[CalendarItemView alloc] initWithFrame:CGRectMake(x, y, w, h)];
         calendarItem.itemButton.tag = dateIndex;
         [self addSubview:calendarItem];
         [self.itemsArr addObject:calendarItem];
         [calendarItem.itemButton setTitle:[NSString stringWithFormat:@"%ld",dateIndex] forState:UIControlStateNormal];
         [calendarItem.itemButton addTarget:self action:@selector(calendarItemClick:) forControlEvents:UIControlEventTouchUpInside];
+        calendarItem.itemButton.selected = NO;
+
         if (QMEqualToString(todayDateYearMonthStr, cellDateYearMonthStr) && dateIndex > todayDayIndex) {
             calendarItem.itemButton.enabled = NO;
         }else if ([self.checkinRecordArr containsObject:dateYMDStr]){
@@ -130,7 +126,7 @@
     
     [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"打卡" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [PGUserModelInstance taskCheckinWithID:self.task_id andDateStr:[NSString stringWithFormat:@"%@%02ld",cellDateYearMonthStr,sender.tag]];
+        [PGUserModelInstance taskCheckinWithID:self.task_id andDateStr:[NSString stringWithFormat:@"%@%02ld",cellDateYearMonthStr,sender.tag] isAuto:NO];
         sender.selected = YES;
     }]];
     

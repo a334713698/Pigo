@@ -73,4 +73,9 @@
     return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:([MaxColor[3] intValue]/255.0f)];
 }
 
++ (UIColor*)colorWithHexStr:(NSString*)HexStr{
+    UIColor* color = QMColorFromRGB(strtol([HexStr UTF8String],NULL,16));
+    return color;
+}
+
 @end

@@ -23,6 +23,12 @@ const CGFloat PGFocusBtnCenterXOffset = 20;
 //PGTaskCell
 const CGFloat PGTaskCellHeight = 85;
 
+//PGTaskListAddCollectionViewCell
+const CGFloat PGTaskListAddCollectionViewTitleHeight = 40;
+const CGFloat PGTaskListAddCollectionViewCellSize = 35;
+const CGFloat PGTaskListAddCollectionViewCellItemSpacing = 5;
+const CGFloat PGTaskListAddCollectionViewCellLineSpacing = 5;
+
 //PGConfigManager
 NSString *const PGConfigParas = @"PGConfigParas";
 NSString *const PGConfigParaStatistics = @"PGConfigParaStatistics";                 //统计

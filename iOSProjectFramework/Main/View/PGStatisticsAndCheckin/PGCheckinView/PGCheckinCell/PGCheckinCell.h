@@ -16,8 +16,6 @@
 #define CalendarView_Content_Item_Height 45
 #define DayCountOfWeek 7
 
-#define unSelectedIndex -1
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PGCheckinCell : UITableViewCell

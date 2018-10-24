@@ -10,6 +10,8 @@
 
 @interface UIColor (mostColor)
 
-+(UIColor*)mostColor:(UIImage*)image;
++ (UIColor*)mostColor:(UIImage*)image;
+
++ (UIColor*)colorWithHexStr:(NSString*)HexStr;
 
 @end

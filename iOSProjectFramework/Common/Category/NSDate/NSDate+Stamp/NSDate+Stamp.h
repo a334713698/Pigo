@@ -30,4 +30,7 @@
 //获取今天的日期（格式：yyyyMMdd）
 + (NSString *)getTodayDateStr;
 
+//时间转NSDate
++ (NSDate*)dateStrToDate:(NSString*)dateStr andFormateString:(NSString*)formate;
+
 @end

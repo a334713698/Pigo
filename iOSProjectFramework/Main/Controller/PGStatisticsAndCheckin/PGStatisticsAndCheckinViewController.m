@@ -64,6 +64,7 @@
     [self initNav];
     
     self.scrollerView.hidden = NO;
+    
 }
 
 
@@ -82,12 +83,17 @@
     
     self.navigationItem.titleView = self.segmentedControl;
     
+    NSInteger lenght = ceil(adaptWidth(8));
+    NSString* title = self.taskModel.task_name;
+    DLog(@"lenght: %ld",lenght);
     [self.navButtonLeft setImage:nil forState:UIControlStateNormal];
-    [self.navButtonLeft setTitle:self.taskModel.task_name forState:UIControlStateNormal];
-    
+    if (self.taskModel.task_name.length > lenght) {
+        title = [NSString stringWithFormat:@"%@...",[self.taskModel.task_name substringToIndex:lenght]];
+    }
+    [self.navButtonLeft setTitle:title forState:UIControlStateNormal];
+
     self.navButtonRight.frame = CGRectMake(0, 0, 30, 30);
     [self.navButtonRight setImage:[UIImage imageNamed:@"icon_close"] forState:UIControlStateNormal];
-
 }
 
 - (void)navRightPressed:(id)sender{

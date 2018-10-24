@@ -18,20 +18,6 @@ const CGFloat PGFocusContViewHeight = 30;
 
 @implementation PGFocusContView
 
-- (UIButton *)tomatoButton{
-    if (!_tomatoButton) {
-        _tomatoButton = [UIButton createButtonWithFontSize:adaptFont(15) andTitleColor:WHITE_COLOR andTitle:@"0" andBackgroundColor:nil];
-        [self addSubview:_tomatoButton];
-        [_tomatoButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
-            make.top.mas_equalTo(0);
-        }];
-        [_tomatoButton setImage:IMAGE(@"icon_tomato") forState:UIControlStateNormal];
-        [_tomatoButton layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:5];
-    }
-    return _tomatoButton;
-}
-
 - (UIButton *)labButton{
     if(!_labButton){
         _labButton = [UIButton createButtonWithFontSize:adaptFont(15) andTitleColor:WHITE_COLOR andTitle:@"未知标签" andBackgroundColor:nil];
@@ -53,12 +39,27 @@ const CGFloat PGFocusContViewHeight = 30;
 }
 
 - (void)setupView{
-    self.tomatoButton.hidden = NO;
+    UIImageView* tomatoIV = [[UIImageView alloc] initWithImage:IMAGE(@"icon_tomato")];
+    [self addSubview:tomatoIV];
+    [tomatoIV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.centerY.mas_equalTo(0);
+        make.width.height.mas_equalTo(adaptWidth(20));
+    }];
+    
+    _countLab = [UILabel createLabelWithFontSize:adaptFont(17) andTextColor:WHITE_COLOR andText:@"0"];
+    [self addSubview:_countLab];
+    [_countLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(tomatoIV.mas_right).offset(5);
+        make.centerY.mas_equalTo(tomatoIV.mas_centerY);
+    }];
+
+    
     UIView* line = [UIView new];
     [self addSubview:line];
     line.backgroundColor = WHITE_COLOR;
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.tomatoButton.mas_right).offset(adaptWidth(20));
+        make.left.mas_equalTo(self.countLab.mas_right).offset(adaptWidth(20));
         make.centerY.mas_equalTo(0);
         make.width.mas_equalTo(1);
         make.height.mas_equalTo(adaptWidth(PGFocusContViewHeight) * 0.65);
@@ -66,6 +67,7 @@ const CGFloat PGFocusContViewHeight = 30;
     
     [self.labButton mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(line.mas_right).offset(adaptWidth(20));
+        make.width.mas_lessThanOrEqualTo(SCREEN_WIDTH/2.0);
     }];
     
     UIView* underline = [UIView new];
@@ -86,7 +88,7 @@ const CGFloat PGFocusContViewHeight = 30;
 
 - (void)setTomatoCount:(NSInteger)tomatoCount{
     _tomatoCount = tomatoCount;
-    [self.tomatoButton setTitle:QMStringFromNSInteger(tomatoCount) forState:UIControlStateNormal];
+    _countLab.text = QMStringFromNSInteger(tomatoCount);
 }
 
 @end

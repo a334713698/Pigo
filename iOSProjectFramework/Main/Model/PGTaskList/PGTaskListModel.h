@@ -15,6 +15,7 @@
 @property (nonatomic, assign) NSInteger task_id;
 
 @property (nonatomic, copy) NSString *task_name;
+@property (nonatomic, copy) NSString *bg_color;
 
 @property (nonatomic, assign) BOOL is_default;
 

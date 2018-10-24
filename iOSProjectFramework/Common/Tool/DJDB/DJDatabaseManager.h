@@ -64,6 +64,9 @@
 ///通过单个搜索条件，获取某张表所有的元组,并赋予排序属性
 - (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel withSortedMode:(NSComparisonResult)ordered andColumnName:(NSString*)column_name;
 
+///通过多个搜索条件，获取某张表所有的元组,并赋予排序属性
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModelArr:(NSArray<HDJDSQLSearchModel*>*)searchModelArr withSortedMode:(NSComparisonResult)ordered andColumnName:(NSString*)column_name;
+
 
 
 ///求和
