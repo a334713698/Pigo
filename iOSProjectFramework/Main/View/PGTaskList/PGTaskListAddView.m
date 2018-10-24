@@ -15,8 +15,6 @@
 
 @property (nonatomic, strong) NSArray *colorArr;
 
-@property (nonatomic, strong) UITextField *textField;
-
 @end
 
 @implementation PGTaskListAddView{

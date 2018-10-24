@@ -62,7 +62,6 @@
 #pragma mark - Method
 - (void)initNav{
     self.navTitle = @"设置";
-    
 }
 
 /**

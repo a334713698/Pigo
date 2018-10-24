@@ -67,7 +67,7 @@
 + (NSArray*)ShortBreakDataArr{
     NSMutableArray* mutableArr = [NSMutableArray array];
     NSInteger index = 0;
-    for (NSInteger i = 1; i <= 25; i++) {
+    for (NSInteger i = 1; i <= 30; i++) {
         PGSettingDataModel* model = [PGSettingDataModel new];
         model.indexNum = index++;
         model.valueStr = QMStringFromNSInteger(i);
@@ -80,7 +80,7 @@
 + (NSArray*)LongBreakDataArr{
     NSMutableArray* mutableArr = [NSMutableArray array];
     NSInteger index = 0;
-    for (NSInteger i = 25; i <= 60; i++) {
+    for (NSInteger i = 10; i <= 60; i++) {
         PGSettingDataModel* model = [PGSettingDataModel new];
         model.indexNum = index++;
         model.valueStr = QMStringFromNSInteger(i);

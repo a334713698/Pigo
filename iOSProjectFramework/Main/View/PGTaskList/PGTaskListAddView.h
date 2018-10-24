@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *hexStr;
 @property (nonatomic, copy) NSString *titleCont;
+@property (nonatomic, strong) UITextField *textField;
 
 @property (nonatomic, weak) id<PGTaskListAddViewDelegate> delegate;
 

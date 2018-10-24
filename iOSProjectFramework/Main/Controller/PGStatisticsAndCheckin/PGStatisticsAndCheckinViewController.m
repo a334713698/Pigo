@@ -83,7 +83,7 @@
     
     self.navigationItem.titleView = self.segmentedControl;
     
-    NSInteger lenght = ceil(adaptWidth(8));
+    NSInteger lenght = ceil(adaptWidth(6));
     NSString* title = self.taskModel.task_name;
     DLog(@"lenght: %ld",lenght);
     [self.navButtonLeft setImage:nil forState:UIControlStateNormal];

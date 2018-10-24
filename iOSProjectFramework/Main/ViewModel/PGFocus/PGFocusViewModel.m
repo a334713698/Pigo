@@ -110,13 +110,46 @@
         case PGFocusStateWillLongBreak:
             //准备长时休息
         {
+            cdLabel.text= [NSString stringWithFormat:@"%ld:00",PGConfigMgr.LongBreak];
+            leftButton.pg_state = PGFocusButtonStateStartRest;
+            rightButton.pg_state = PGFocusButtonStateNext;
             
+            centerButton.pg_state = PGFocusButtonStateHidden;
+            
+            leftButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+                NSLog(@"%@",leftButton.currentTitle);
+                weakSelf.currentFocusState = PGFocusStateLongBreaking;
+                return [RACSignal empty];
+            }];
+            
+            rightButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+                NSLog(@"%@",rightButton.currentTitle);
+                weakSelf.currentFocusState = PGFocusStateFocusing;
+                return [RACSignal empty];
+            }];
         }
             break;
         case PGFocusStateLongBreaking:
             //长时休息中
         {
+            leftButton.pg_state = PGFocusButtonStateStopRest;
+            rightButton.pg_state = PGFocusButtonStateNext;
+            centerButton.pg_state = PGFocusButtonStateHidden;
             
+            leftButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+                NSLog(@"%@",leftButton.currentTitle);
+                [weakSelf timerInvalidate];
+                weakSelf.currentFocusState = PGFocusStateWillFocus;
+                return [RACSignal empty];
+            }];
+            
+            rightButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+                NSLog(@"%@",rightButton.currentTitle);
+                weakSelf.currentFocusState = PGFocusStateFocusing;
+                return [RACSignal empty];
+            }];
+            
+            [self startRest:PGFocusStateWillLongBreak];
         }
             break;
         default:
@@ -138,11 +171,7 @@
     if (self.updateCount) {
         self.updateCount();
     }
-    if (PGConfigMgr.AutomaticRest) {
-        self.currentFocusState = PGFocusStateShortBreaking;
-    }else{
-        self.currentFocusState = PGFocusStateWillShortBreak;
-    }
+    [self chooseRestMode];
 }
 
 //休息结束
@@ -171,7 +200,6 @@
     NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
     [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"专注结束，休息一下吧"];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-//        DLog(@"倒计时");
         int interval = [endTime timeIntervalSinceNow];
         if(interval<=0){
             DLog(@"专注结束");
@@ -187,20 +215,24 @@
 
 //开始休息
 - (void)startRest:(PGFocusState)state{
-    if (state != PGFocusStateWillShortBreak && state != PGFocusStateWillLongBreak) {
+    NSInteger timeLength;
+    if (state == PGFocusStateWillShortBreak) {
+        timeLength = PGConfigMgr.ShortBreak;
+    }else if (state == PGFocusStateWillLongBreak){
+        timeLength = PGConfigMgr.LongBreak;
+    }else{
         NSLog(@"状态不对");
         return;
     }
     [self timerInvalidate];
     WS(weakSelf)
     //开始计时
-    self.cdLabel.text= [NSString stringWithFormat:@"%ld:00",PGConfigMgr.ShortBreak];
-    __block NSInteger seconds = PGConfigMgr.ShortBreak * 60;
+    self.cdLabel.text= [NSString stringWithFormat:@"%ld:00",timeLength];
+    __block NSInteger seconds = timeLength * 60;
     seconds = 3;
     NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
     [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"休息结束，开始下一个番茄"];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-//        DLog(@"倒计时");
         int interval = [endTime timeIntervalSinceNow];
         if(interval<=0){
             DLog(@"休息结束");
@@ -241,6 +273,22 @@
     [[UIApplication sharedApplication] scheduleLocalNotification:ln];
 }
 
-
+- (void)chooseRestMode{
+    if (PGUserModelInstance.currentTask.count > 0 && (PGUserModelInstance.currentTask.count%PGConfigMgr.LongBreakInterval == 0)) {
+        //长时休息
+        if (PGConfigMgr.AutomaticRest) {
+            self.currentFocusState = PGFocusStateLongBreaking;
+        }else{
+            self.currentFocusState = PGFocusStateWillLongBreak;
+        }
+    }else{
+        //短时休息
+        if (PGConfigMgr.AutomaticRest) {
+            self.currentFocusState = PGFocusStateShortBreaking;
+        }else{
+            self.currentFocusState = PGFocusStateWillShortBreak;
+        }
+    }
+}
 
 @end

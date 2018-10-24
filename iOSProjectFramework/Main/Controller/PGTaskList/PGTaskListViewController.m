@@ -195,6 +195,7 @@
 - (void)navAddPressed{
     DLog(@"新增任务");
     [QMSlideUpAlertView showAlertWithContentView:self.addView withSlideType:QMAlertSlideUpTypeCenter canTouchDissmiss:NO];
+    [self.addView.textField becomeFirstResponder];
 }
 
 - (void)navSetPressed{
