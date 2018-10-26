@@ -76,7 +76,12 @@ UIKIT_EXTERN const CGFloat PGSettingCellAccessoryHeight;
 
 //PGStatistics
 UIKIT_EXTERN const CGFloat PGStatisticsTodayDataCellHeight;
+UIKIT_EXTERN const CGFloat PGStatisticsTodayPeriodCellHeight;
 UIKIT_EXTERN const CGFloat PGStatisticsAnnualActivityDuration;
 UIKIT_EXTERN const CGFloat PGStatisticsChartCellHeight;
+
+//PGTotalStatisticsViewController
+UIKIT_EXTERN const CGFloat PGTotalStatisticsChartCellHeight;
+UIKIT_EXTERN const CGFloat PGTotalStatisticsTaskItemCellHeight;
 
 #endif /* PGConst_h */

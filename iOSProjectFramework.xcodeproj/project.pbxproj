@@ -115,6 +115,15 @@
 		D6D5D2AA2180347200FF34D0 /* PGTaskListAddCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A92180347200FF34D0 /* PGTaskListAddCollectionViewCell.m */; };
 		D6D5D2AE218039C900FF34D0 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2AC218039C900FF34D0 /* NSString+Convert.m */; };
 		D6D5D2B321805B2D00FF34D0 /* HDJNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2B221805B2D00FF34D0 /* HDJNotification.m */; };
+		D6D5D2C22181A1B000FF34D0 /* UIView+MFFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2B82181A1AF00FF34D0 /* UIView+MFFrame.m */; };
+		D6D5D2C32181A1B000FF34D0 /* NSTimer+MFWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2B92181A1AF00FF34D0 /* NSTimer+MFWeakTimer.m */; };
+		D6D5D2C42181A1B000FF34D0 /* MFNotificationHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2C02181A1AF00FF34D0 /* MFNotificationHUD.m */; };
+		D6D5D2C52181A1B000FF34D0 /* MFHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2C12181A1AF00FF34D0 /* MFHUDManager.m */; };
+		D6D5D2C92181B01C00FF34D0 /* PGTotalStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2C82181B01C00FF34D0 /* PGTotalStatisticsViewController.m */; };
+		D6D5D2CD2181B1C400FF34D0 /* PGTotalStatisticsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2CC2181B1C400FF34D0 /* PGTotalStatisticsViewModel.m */; };
+		D6D5D2D42182AE7300FF34D0 /* PGTotalStatisticsChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2D32182AE7300FF34D0 /* PGTotalStatisticsChartCell.m */; };
+		D6D5D2DA2182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2D92182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m */; };
+		D6D5D2DD2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2DC2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m */; };
 		D6D9C2402177118B00EF9D91 /* PGCheckinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */; };
 		D6D9C249217731A400EF9D91 /* DJTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C247217731A400EF9D91 /* DJTools.m */; };
 		D6D9C24D2178352500EF9D91 /* PGStatisticsTodayDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C24C2178352500EF9D91 /* PGStatisticsTodayDataCell.m */; };
@@ -416,6 +425,25 @@
 		D6D5D2AD218039C900FF34D0 /* NSString+Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
 		D6D5D2B221805B2D00FF34D0 /* HDJNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJNotification.m; sourceTree = "<group>"; };
 		D6D5D2B421805B3600FF34D0 /* HDJNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJNotification.h; sourceTree = "<group>"; };
+		D6D5D2B72181A1AF00FF34D0 /* NSTimer+MFWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+MFWeakTimer.h"; sourceTree = "<group>"; };
+		D6D5D2B82181A1AF00FF34D0 /* UIView+MFFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MFFrame.m"; sourceTree = "<group>"; };
+		D6D5D2B92181A1AF00FF34D0 /* NSTimer+MFWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+MFWeakTimer.m"; sourceTree = "<group>"; };
+		D6D5D2BA2181A1AF00FF34D0 /* UIView+MFFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MFFrame.h"; sourceTree = "<group>"; };
+		D6D5D2BC2181A1AF00FF34D0 /* MFMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFMacro.h; sourceTree = "<group>"; };
+		D6D5D2BE2181A1AF00FF34D0 /* MFNotificationHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFNotificationHUD.h; sourceTree = "<group>"; };
+		D6D5D2BF2181A1AF00FF34D0 /* MFHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFHUDManager.h; sourceTree = "<group>"; };
+		D6D5D2C02181A1AF00FF34D0 /* MFNotificationHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFNotificationHUD.m; sourceTree = "<group>"; };
+		D6D5D2C12181A1AF00FF34D0 /* MFHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFHUDManager.m; sourceTree = "<group>"; };
+		D6D5D2C72181B01C00FF34D0 /* PGTotalStatisticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsViewController.h; sourceTree = "<group>"; };
+		D6D5D2C82181B01C00FF34D0 /* PGTotalStatisticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsViewController.m; sourceTree = "<group>"; };
+		D6D5D2CB2181B1C400FF34D0 /* PGTotalStatisticsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsViewModel.h; sourceTree = "<group>"; };
+		D6D5D2CC2181B1C400FF34D0 /* PGTotalStatisticsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsViewModel.m; sourceTree = "<group>"; };
+		D6D5D2D22182AE7300FF34D0 /* PGTotalStatisticsChartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsChartCell.h; sourceTree = "<group>"; };
+		D6D5D2D32182AE7300FF34D0 /* PGTotalStatisticsChartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsChartCell.m; sourceTree = "<group>"; };
+		D6D5D2D82182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsPeriodCell.h; sourceTree = "<group>"; };
+		D6D5D2D92182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsPeriodCell.m; sourceTree = "<group>"; };
+		D6D5D2DB2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsTaskItemCell.h; sourceTree = "<group>"; };
+		D6D5D2DC2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsTaskItemCell.m; sourceTree = "<group>"; };
 		D6D9C23E2177118B00EF9D91 /* PGCheckinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCheckinModel.h; sourceTree = "<group>"; };
 		D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCheckinModel.m; sourceTree = "<group>"; };
 		D6D9C247217731A400EF9D91 /* DJTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTools.m; sourceTree = "<group>"; };
@@ -495,6 +523,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		762BC76CA56D530A21D3A6BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B615E9D1214B6050008D0B6E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -844,6 +879,7 @@
 		B6A60E222140F19B000A737D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5D2B52181A1AF00FF34D0 /* MFHUDManager */,
 				D6D9C25F2179B20F00EF9D91 /* AAChartKitLib */,
 				B6A60E232140F19B000A737D /* ZWPlaceHolder */,
 				B6A60E262140F19B000A737D /* MBProgressHUD+ADD */,
@@ -1307,6 +1343,7 @@
 		B6CF217C2147B3F100067470 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5D2CA2181B18000FF34D0 /* PGTotalStatistics */,
 				D6D9C241217719AF00EF9D91 /* PGStatisticsAndCheckin */,
 				B60D501521524414008CE149 /* PGTaskList */,
 				B6CC32542149065A00E66D64 /* PGFocus */,
@@ -1392,6 +1429,7 @@
 		B6E26A78201AF3F2006C7650 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5D2C62181AFF300FF34D0 /* PGTotalStatistics */,
 				B6FFB09921747CD400076F44 /* PGStatisticsAndCheckin */,
 				B6CF21702147B26800067470 /* PGSetting */,
 				B6A60F4521411545000A737D /* PGTaskList */,
@@ -1403,8 +1441,8 @@
 		B6E26A7B201AF3F2006C7650 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D6D9C23D2177116800EF9D91 /* PGCheckinModel */,
 				B6FFB091217432CA00076F44 /* PGUserModel */,
+				D6D9C23D2177116800EF9D91 /* PGCheckinModel */,
 				B6760E0C215B3AE7005E97A4 /* PGSetting */,
 				B6FFB09521743DA900076F44 /* PGTomatoRecordModel */,
 				B615E975214B4BBE008D0B6E /* PGTaskList */,
@@ -1415,6 +1453,7 @@
 		B6E26A7C201AF3F2006C7650 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5D2CE2181B24B00FF34D0 /* PGTotalStatistics */,
 				B6FFB09D217483D100076F44 /* PGStatisticsAndCheckin */,
 				B6CC325F2149F3B200E66D64 /* PGSetting */,
 				B6A60F4921412116000A737D /* PGTaskList */,
@@ -1653,6 +1692,77 @@
 			path = "NSString+Convert";
 			sourceTree = "<group>";
 		};
+		D6D5D2B52181A1AF00FF34D0 /* MFHUDManager */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5D2B62181A1AF00FF34D0 /* Category */,
+				D6D5D2BB2181A1AF00FF34D0 /* Macro */,
+				D6D5D2BD2181A1AF00FF34D0 /* HUD */,
+			);
+			path = MFHUDManager;
+			sourceTree = "<group>";
+		};
+		D6D5D2B62181A1AF00FF34D0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5D2B72181A1AF00FF34D0 /* NSTimer+MFWeakTimer.h */,
+				D6D5D2B92181A1AF00FF34D0 /* NSTimer+MFWeakTimer.m */,
+				D6D5D2BA2181A1AF00FF34D0 /* UIView+MFFrame.h */,
+				D6D5D2B82181A1AF00FF34D0 /* UIView+MFFrame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D6D5D2BB2181A1AF00FF34D0 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5D2BC2181A1AF00FF34D0 /* MFMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		D6D5D2BD2181A1AF00FF34D0 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5D2BE2181A1AF00FF34D0 /* MFNotificationHUD.h */,
+				D6D5D2C02181A1AF00FF34D0 /* MFNotificationHUD.m */,
+				D6D5D2BF2181A1AF00FF34D0 /* MFHUDManager.h */,
+				D6D5D2C12181A1AF00FF34D0 /* MFHUDManager.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		D6D5D2C62181AFF300FF34D0 /* PGTotalStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5D2C72181B01C00FF34D0 /* PGTotalStatisticsViewController.h */,
+				D6D5D2C82181B01C00FF34D0 /* PGTotalStatisticsViewController.m */,
+			);
+			path = PGTotalStatistics;
+			sourceTree = "<group>";
+		};
+		D6D5D2CA2181B18000FF34D0 /* PGTotalStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5D2CB2181B1C400FF34D0 /* PGTotalStatisticsViewModel.h */,
+				D6D5D2CC2181B1C400FF34D0 /* PGTotalStatisticsViewModel.m */,
+			);
+			path = PGTotalStatistics;
+			sourceTree = "<group>";
+		};
+		D6D5D2CE2181B24B00FF34D0 /* PGTotalStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5D2D22182AE7300FF34D0 /* PGTotalStatisticsChartCell.h */,
+				D6D5D2D32182AE7300FF34D0 /* PGTotalStatisticsChartCell.m */,
+				D6D5D2D82182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.h */,
+				D6D5D2D92182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m */,
+				D6D5D2DB2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.h */,
+				D6D5D2DC2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m */,
+			);
+			path = PGTotalStatistics;
+			sourceTree = "<group>";
+		};
 		D6D9C23D2177116800EF9D91 /* PGCheckinModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1807,6 +1917,7 @@
 			buildPhases = (
 				B615E9C6214B604F008D0B6E /* Resources */,
 				B615E9EC214B6050008D0B6E /* Embed App Extensions */,
+				762BC76CA56D530A21D3A6BC /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1970,6 +2081,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2050,6 +2163,8 @@
 				B6A60F442141083E000A737D /* PGFocusContView.m in Sources */,
 				D6D9C2BB2179B21000EF9D91 /* AAOptions.m in Sources */,
 				B6177EB32175C23A00BECE98 /* CalendarItemView.m in Sources */,
+				D6D5D2D42182AE7300FF34D0 /* PGTotalStatisticsChartCell.m in Sources */,
+				D6D5D2DD2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m in Sources */,
 				D6D9C253217835B100EF9D91 /* PGStatisticsAnnualActivityCell.m in Sources */,
 				B6CF217A2147B36700067470 /* BaseTableViewModel.m in Sources */,
 				B615E978214B4BD0008D0B6E /* PGTaskListModel.m in Sources */,
@@ -2071,10 +2186,12 @@
 				B6E26AA0201AF3F2006C7650 /* BaseViewController.m in Sources */,
 				B6A60F232140F659000A737D /* UITableViewCell+Features.m in Sources */,
 				B6E26A9D201AF3F2006C7650 /* BaseNavigationController.m in Sources */,
+				D6D5D2DA2182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m in Sources */,
 				B6CC325B2149109700E66D64 /* PGConfigManager.m in Sources */,
 				B6E26AA1201AF3F2006C7650 /* BaseModel.m in Sources */,
 				D6D9C2A02179B21000EF9D91 /* AAAreaspline.m in Sources */,
 				B6A60F5C2141299A000A737D /* QMTableViewCell.m in Sources */,
+				D6D5D2C52181A1B000FF34D0 /* MFHUDManager.m in Sources */,
 				B6A60F262140F659000A737D /* UIColor+mostColor.m in Sources */,
 				B60D50182152444B008CE149 /* PGTaskListViewModel.m in Sources */,
 				B6FFB0A12174841100076F44 /* PGStatisticsAndCheckinScrollerView.m in Sources */,
@@ -2086,6 +2203,7 @@
 				D6D9C2AE2179B21000EF9D91 /* AAStyle.m in Sources */,
 				D6D9C2A62179B21000EF9D91 /* AALine.m in Sources */,
 				D6D9C2AC2179B21000EF9D91 /* AAPlotLinesElement.m in Sources */,
+				D6D5D2C42181A1B000FF34D0 /* MFNotificationHUD.m in Sources */,
 				B6A60F212140F659000A737D /* UILabel+Builder.m in Sources */,
 				D6D9C2502178358600EF9D91 /* PGStatisticsChartCell.m in Sources */,
 				B6A60F252140F659000A737D /* UIButton+ImageTitleSpacing.m in Sources */,
@@ -2112,10 +2230,13 @@
 				B6FFB094217432DE00076F44 /* PGUserModel.m in Sources */,
 				B6A60F602142591C000A737D /* PGTaskTableView.m in Sources */,
 				B6CC326A214A63D900E66D64 /* HDJDSQLSearchModel.m in Sources */,
+				D6D5D2C22181A1B000FF34D0 /* UIView+MFFrame.m in Sources */,
 				D6D5D2A72180195A00FF34D0 /* PGTaskListAddView.m in Sources */,
 				D6D9C2A52179B21000EF9D91 /* AADataLabels.m in Sources */,
 				D6D9C2B12179B21000EF9D91 /* AAArea.m in Sources */,
+				D6D5D2C32181A1B000FF34D0 /* NSTimer+MFWeakTimer.m in Sources */,
 				D6D9C2A12179B21000EF9D91 /* AALabels.m in Sources */,
+				D6D5D2CD2181B1C400FF34D0 /* PGTotalStatisticsViewModel.m in Sources */,
 				D6D9C2BC2179B21000EF9D91 /* AASeriesElement.m in Sources */,
 				B6A60F412141003D000A737D /* PGFocusButton.m in Sources */,
 				B6A60F2F2140F659000A737D /* NSString+Device.m in Sources */,
@@ -2128,6 +2249,7 @@
 				B6E26A9F201AF3F2006C7650 /* BaseNetRequest.m in Sources */,
 				B6A60F2E2140F659000A737D /* NSString+URLCode.m in Sources */,
 				D6D5D2AE218039C900FF34D0 /* NSString+Convert.m in Sources */,
+				D6D5D2C92181B01C00FF34D0 /* PGTotalStatisticsViewController.m in Sources */,
 				B6FFB0A621748EC700076F44 /* PGCheckinView.m in Sources */,
 				B6CC32622149F3E500E66D64 /* PGSettingCell.m in Sources */,
 				B6E26A5E201AF2A0006C7650 /* AppDelegate.m in Sources */,

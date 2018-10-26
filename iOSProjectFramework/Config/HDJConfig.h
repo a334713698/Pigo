@@ -130,7 +130,6 @@ NSLog(@"%@--dealloc", [self class]);\
 #define BACKGROUND_COLOR [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0]
 
 #define MAIN_COLOR [UIColor colorWithRed:31/255.0 green:31/255.0 blue:31/255.0 alpha:1.0]
-//#define MAIN_COLOR [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:1.0]
 
 // 清除背景色
 #define CLEARCOLOR [UIColor clearColor]

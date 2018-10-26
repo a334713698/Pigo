@@ -36,6 +36,7 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <YYWebImage/YYWebImage.h>
 #import "MBProgressHUD+Add.h"
+#import "MFHUDManager.h"
 #import "AAGlobalMacro.h"
 
 //Common-Tool
@@ -47,6 +48,10 @@
 
 //Common
 #import "PGUserModel.h"
+#import "PGSettingDataModel.h"
+#import "PGCheckinModel.h"
+#import "PGTomatoRecordModel.h"
+#import "PGTaskListModel.h"
 
 
 //Category

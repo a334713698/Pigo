@@ -153,9 +153,9 @@
     }else{
         //图表
         if (indexPath.row != 1) {
-            return adaptHeight(PGStatisticsChartCellHeight);
+            return adaptWidth(PGStatisticsChartCellHeight);
         }else{
-            return 35;
+            return adaptWidth(PGStatisticsTodayPeriodCellHeight);
         }
     }
 }

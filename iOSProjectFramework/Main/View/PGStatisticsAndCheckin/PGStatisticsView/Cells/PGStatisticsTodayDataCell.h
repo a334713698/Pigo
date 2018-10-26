@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UILabel *countLab;
 @property (nonatomic, strong) UILabel *durationLab;
+@property (nonatomic, strong) UILabel *titleLab;
 
 
 @end

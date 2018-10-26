@@ -113,7 +113,9 @@
     if (contentType == PGSettingContentTypeDataSync) {
         [self DataSync];
     }else if (contentType == PGSettingContentTypeStatistics){
-        
+        if (self.didSelectItemBlock) {
+            self.didSelectItemBlock(indexPath, cellDic);
+        }
     }else if ((eventType & PGSettingEventTypeClick) == PGSettingEventTypeClick){
         NSMutableArray<NSIndexPath*>* indexArr = [NSMutableArray arrayWithCapacity:2];
         [indexArr addObject:indexPath];

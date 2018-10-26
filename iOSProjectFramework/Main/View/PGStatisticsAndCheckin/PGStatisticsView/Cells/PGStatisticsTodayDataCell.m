@@ -57,9 +57,6 @@
         make.bottom.mas_equalTo(durationDesc.mas_top).offset(-8);
     }];
     
-    _countLab = countLab;
-    _durationLab = durationLab;
-    
     UILabel* jinLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:BLACK_COLOR andText:@"今\n日"];
     jinLab.numberOfLines = 0;
     [self.contentView addSubview:jinLab];
@@ -67,6 +64,10 @@
         make.left.mas_equalTo(15);
         make.centerY.mas_equalTo(0);
     }];
+    
+    _countLab = countLab;
+    _durationLab = durationLab;
+    _titleLab = jinLab;
 }
 
 @end

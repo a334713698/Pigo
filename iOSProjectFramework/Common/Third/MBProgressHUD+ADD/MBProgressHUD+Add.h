@@ -1,6 +1,5 @@
 //
 //  MBProgressHUD+Add.h
-//  视频客户端
 //
 //  Created by mj on 13-4-18.
 //  Copyright (c) 2013年 itcast. All rights reserved.

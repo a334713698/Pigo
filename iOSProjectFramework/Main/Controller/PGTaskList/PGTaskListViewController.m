@@ -10,7 +10,6 @@
 #import "PGTaskCell.h"
 #import "PGTaskTableView.h"
 #import "PGSettingViewController.h"
-#import "PGTaskListModel.h"
 #import "PGTaskListViewModel.h"
 #import "PGTomatoRecordModel.h"
 #import "PGStatisticsAndCheckinViewController.h"
@@ -125,8 +124,6 @@
         cell = [[PGTaskCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PGTaskCell"];
         cell.delegate = self;
     }
-//    NSString* imgName = [NSString stringWithFormat:@"pic_scene_%ld",(indexPath.section+1)%3];
-//    cell.bgImageView.image = IMAGE(imgName);
     cell.contView.backgroundColor = [UIColor colorWithHexStr:task.bg_color];
     [cell setLabelShadow:cell.qm_titleLabel content:task.task_name];
     [cell setLabelShadow:cell.qm_detailLabel content:QMStringFromNSInteger(task.count)];
@@ -224,11 +221,11 @@
 
 #pragma mark - PGTaskListAddViewDelegate
 - (void)addView:(PGTaskListAddView *)addView sureButtonDidClick:(UIButton *)sender{
-    [QMSlideUpAlertView dismissWithCompletion:^(BOOL finished) {
-        NSString* taskName = addView.titleCont;
-        if (NULLString(taskName)) {
-            [MBProgressHUD showError:@"啥也没输入"];
-        }else{
+    NSString* taskName = addView.titleCont;
+    if (NULLString(taskName)) {
+        [MFHUDManager showError:@"啥也没输入"];
+    }else{
+        [QMSlideUpAlertView dismissWithCompletion:^(BOOL finished) {
             PGTaskListModel* model = [PGTaskListModel new];
             model.task_name = taskName;
             model.bg_color = addView.hexStr;
@@ -243,8 +240,8 @@
             [self.dbMgr.database close];
             [self watch_updateTaskList];
             [addView clearTextField];
-        }
-    }];
+        }];
+    }
 }
 
 -(void)addView:(PGTaskListAddView *)addView closeButtonDidClick:(UIButton *)sender{

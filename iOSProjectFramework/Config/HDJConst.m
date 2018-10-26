@@ -17,7 +17,7 @@ const CGFloat PGTableViewHeaderSectionHeight = 12;
 const CGFloat PGFocusCenterBtnWidth = 160;
 const CGFloat PGFocusSideBtnWidth = 120;
 const CGFloat PGFocusBtnHeight = 40;
-const CGFloat PGFocusBtnBottomLayout = 100;
+const CGFloat PGFocusBtnBottomLayout = 150;
 const CGFloat PGFocusBtnCenterXOffset = 20;
 
 //PGTaskCell
@@ -65,5 +65,10 @@ const CGFloat PGSettingCellAccessoryHeight = 20;
 
 //PGStatistics
 const CGFloat PGStatisticsTodayDataCellHeight = 90;
+const CGFloat PGStatisticsTodayPeriodCellHeight = 35;
 const CGFloat PGStatisticsAnnualActivityDuration = 365;
 const CGFloat PGStatisticsChartCellHeight = 200;
+
+//PGTotalStatisticsViewController
+const CGFloat PGTotalStatisticsChartCellHeight = 266;
+const CGFloat PGTotalStatisticsTaskItemCellHeight = 70;

@@ -12,7 +12,6 @@
 #import "PGFocusContView.h"
 #import "PGTaskListViewController.h"
 #import "PGFocusViewModel.h"
-#import "PGTaskListModel.h"
 
 @interface PGFocusViewController ()
 

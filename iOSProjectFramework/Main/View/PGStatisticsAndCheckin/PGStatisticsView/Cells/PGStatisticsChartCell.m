@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) AAChartView *aaChartView;
 
-
 @end
 
 @implementation PGStatisticsChartCell{
@@ -26,7 +25,7 @@
         CGFloat leftMargin = 10;
         CGFloat topMargin = 0;
         CGFloat chartViewWidth  = SCREEN_WIDTH - leftMargin * 2;
-        CGFloat chartViewHeight = adaptHeight(PGStatisticsChartCellHeight) - topMargin;
+        CGFloat chartViewHeight = adaptWidth(PGStatisticsChartCellHeight) - topMargin;
         _aaChartView = [[AAChartView alloc]init];
         _aaChartView.frame = CGRectMake(leftMargin, topMargin, chartViewWidth, chartViewHeight);
         self.aaChartView.scrollEnabled = NO;
@@ -48,29 +47,6 @@
  *  categoriesSet:x轴数据
  *  seriesSet:y轴数据
  */
-- (void)updateChartWithTitle:(NSString*)title categoriesSet:(NSArray*)categoriesSet seriesSet:(NSArray*)seriesSet{
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
-    .chartTypeSet(AAChartTypeColumn)//设置图表的类型(这里以设置的为柱状图为例)
-    .titleSet(@"")//设置图表标题
-    .subtitleSet(title)//设置图表副标题
-    .subtitleFontSizeSet(@12)
-    .yAxisVisibleSet(NO)//是否显示y轴
-    .legendEnabledSet(NO)//是否显示图例(图表下方可点击的带有文字的小圆点)
-    .tooltipEnabledSet(YES)
-    .tooltipValueSuffixSet(@"个番茄")
-    .colorsThemeSet(@[@"#1F1F1F"])
-    .categoriesSet(categoriesSet)//图表横轴的内容
-    .seriesSet(@[
-                 AAObject(AASeriesElement)
-                 .nameSet(@"番茄")
-                 .dataSet(seriesSet)
-                 ])
-    ;
-    
-    [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
-}
-
-
 - (void)updateCharWithTaskID:(NSInteger)task_id periodType:(PGStatisticsPeriodType)periodType dataType:(PGStatisticsChartDataType)dataType{
     NSArray* cateArr = [PGStatisticsAndCheckinViewModel getCategoriesSetWithType:periodType];
     NSArray* seriesArr = [PGStatisticsAndCheckinViewModel getSeriesSetWithType:periodType andDataType:dataType andTaskID:task_id];
@@ -118,6 +94,5 @@
         [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
     }
 }
-
 
 @end

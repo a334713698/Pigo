@@ -27,6 +27,8 @@
 }
 
 - (void)setupView{
+    CGFloat lineH = 0.75;
+    
     UIButton* monthB = [UIButton createButtonWithFontSize:adaptFont(13) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:@"月" andBackgroundColor:nil];
     [self.contentView addSubview:monthB];
     [monthB mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,7 +75,7 @@
     [self.contentView addSubview:topLine];
     [topLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(1);
+        make.height.mas_equalTo(lineH);
     }];
     topLine.hidden = YES;
     
@@ -81,11 +83,11 @@
     [self.contentView addSubview:bottomLine];
     [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(1);
+        make.height.mas_equalTo(lineH);
     }];
 
-    topLine.backgroundColor = LINE_COLOR_GRAY_LIGHT;
-    bottomLine.backgroundColor = LINE_COLOR_GRAY_LIGHT;
+    topLine.backgroundColor = LINE_COLOR_GRAY_DARK;
+    bottomLine.backgroundColor = LINE_COLOR_GRAY_DARK;
 }
 
 - (void)btnClick:(UIButton*)sender{

@@ -6,8 +6,6 @@
 //  Copyright © 2018年 洪冬介. All rights reserved.
 //
 
-#import "PGSettingDataModel.h"
-
 @class PGSettingCell;
 @protocol PGSettingCellDelegate<NSObject>
 

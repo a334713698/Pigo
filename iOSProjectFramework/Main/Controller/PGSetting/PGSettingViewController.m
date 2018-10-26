@@ -8,6 +8,7 @@
 
 #import "PGSettingViewController.h"
 #import "PGSettingTableViewModel.h"
+#import "PGTotalStatisticsViewController.h"
 
 @interface PGSettingViewController ()
 
@@ -68,7 +69,12 @@
  *  tableView的一些初始化工作
  */
 - (void)setupTableView{
+    WS(weakSelf)
     [self.tableViewModel handleWithTable:self.tableView];
+    self.tableViewModel.didSelectItemBlock = ^(NSIndexPath *indexPath, NSDictionary* cellDic) {
+        PGTotalStatisticsViewController* next = [PGTotalStatisticsViewController new];
+        [weakSelf.navigationController pushViewController:next animated:YES];
+    };
 }
 
 @end
