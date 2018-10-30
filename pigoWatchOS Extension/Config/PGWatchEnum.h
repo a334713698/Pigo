@@ -28,7 +28,7 @@ typedef enum : NSUInteger {
 typedef enum : NSUInteger {
     PGFocusButtonStateHidden,//隐藏
     PGFocusButtonStateStartFocus,//开始专注
-    PGFocusButtonStateObsolete,//作废
+    PGFocusButtonStateObsolete,//中止
     PGFocusButtonStateNext,//下一个番茄
     PGFocusButtonStateStartRest,//开始休息
     PGFocusButtonStateStopRest,//停止休息

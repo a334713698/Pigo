@@ -7,11 +7,38 @@
 //
 
 #import "PGTotalStatisticsViewModel.h"
+#import "PGStatisticsAndCheckinViewModel.h"
 
 @implementation PGTotalStatisticsViewModel
 
-+ (NSArray*)getItemsArr{
-    return @[@"",@"",@"",@"",@"",@"",@"",@"",@"",@""];
++ (NSArray<PGTotalStatisticsItemModel*>*)getItemsArrWithType:(PGStatisticsPeriodType)periodType{
+    NSArray<PGTotalStatisticsChartModel*>* seriesCountArr = [PGTotalStatisticsViewModel getSeriesSetWithType:periodType andDataType:PGStatisticsChartDataTypeCount];
+    NSArray<PGTotalStatisticsChartModel*>* seriesLengthArr = [PGTotalStatisticsViewModel getSeriesSetWithType:periodType andDataType:PGStatisticsChartDataTypeLength];
+    
+    NSUInteger itemCount = seriesCountArr.count;
+    
+    NSInteger totalCount = [[[seriesCountArr valueForKeyPath:@"total"] valueForKeyPath:@"@sum.intValue"] integerValue];
+    NSInteger totalLength = [[[seriesLengthArr valueForKeyPath:@"total"] valueForKeyPath:@"@sum.intValue"] integerValue];
+
+    if (!totalCount){
+        return nil;
+    }
+    
+    NSMutableArray* elementsArr = [NSMutableArray array];
+    for (NSInteger i = 0; i < itemCount; i++) {
+        PGTotalStatisticsChartModel* countModel = seriesCountArr[i];
+        PGTotalStatisticsChartModel* lengthModel = seriesLengthArr[i];
+
+        PGTotalStatisticsItemModel* model = [PGTotalStatisticsItemModel new];
+        model.taskModel = countModel.taskModel;
+        model.totalCount = [[countModel.dataArr valueForKeyPath:@"@sum.intValue"] integerValue];
+        model.totalLength = [[lengthModel.dataArr valueForKeyPath:@"@sum.intValue"] integerValue];
+        model.countPercent = 1.0 * model.totalCount / totalCount;
+        model.lengthPercent = 1.0 * model.totalLength / totalLength;
+        [elementsArr addObject:model];
+    }
+
+    return elementsArr.copy;
 }
 
 + (NSArray<NSArray*>*)getCellNameArr{
@@ -22,38 +49,32 @@
              ];
 }
 
-+ (NSArray<PGTomatoRecordModel*>*)getAllEnableRecordTomato{
++ (NSArray<PGTaskListModel*>*)getAllEnableTask{
     [PGUserModelInstance.dbMgr.database open];
     //获取所有可用任务
     NSArray<PGTaskListModel*>* taskLists = [PGTaskListModel mj_objectArrayWithKeyValuesArray:[PGUserModelInstance.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"0"]]];
+    [PGUserModelInstance.dbMgr.database close];
     if (!taskLists.count) {
         return nil;
+    }else{
+        return taskLists;
     }
-    //收集所有任务的task_id
-    NSMutableArray<HDJDSQLSearchModel*>* termsArr = [NSMutableArray array];
-    for (PGTaskListModel* task in taskLists) {
-        [termsArr addObject:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(task.task_id)]];
-    }
-
-    //
-    NSArray* tuples = [PGUserModelInstance.dbMgr getAllTuplesFromTabel:tomato_record_table];
-    if (!tuples.count) {
-        return nil;
-    }
-    NSArray* models = [PGTomatoRecordModel mj_objectArrayWithKeyValuesArray:tuples];
-
-    [PGUserModelInstance.dbMgr.database close];
-    return nil;
 }
 
 + (NSArray*)getCategoriesSetWithType:(PGStatisticsPeriodType)type{
-    
-    return nil;
+    return [PGStatisticsAndCheckinViewModel getCategoriesSetWithType:type];
 }
 
-+ (NSArray*)getSeriesSetWithType:(PGStatisticsPeriodType)type{
-    
-    return nil;
++ (NSArray<PGTotalStatisticsChartModel*>*)getSeriesSetWithType:(PGStatisticsPeriodType)type andDataType:(PGStatisticsChartDataType)dataType{
+    NSArray* taskList = [self getAllEnableTask];
+    NSMutableArray* tmpArr = [NSMutableArray array];
+    for (PGTaskListModel* task in taskList) {
+        PGTotalStatisticsChartModel* chartModel = [PGTotalStatisticsChartModel new];
+        chartModel.taskModel = task;
+        chartModel.dataArr = [PGStatisticsAndCheckinViewModel getSeriesSetWithType:type andDataType:dataType andTaskID:task.task_id];
+        [tmpArr addObject:chartModel];
+    }
+    return tmpArr.copy;
 }
 
 @end

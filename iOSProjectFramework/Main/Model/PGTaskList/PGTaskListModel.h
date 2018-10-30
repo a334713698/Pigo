@@ -22,5 +22,6 @@
 
 
 @property (nonatomic, assign) NSInteger count;
+@property (nonatomic, assign) NSInteger length;
 
 @end

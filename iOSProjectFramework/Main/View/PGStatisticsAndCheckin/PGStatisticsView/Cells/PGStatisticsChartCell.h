@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateCharWithTaskID:(NSInteger)task_id periodType:(PGStatisticsPeriodType)periodType dataType:(PGStatisticsChartDataType)dataType;
 
+- (void)updateTotalStatistcsCharWithPeriodType:(PGStatisticsPeriodType)periodType dataType:(PGStatisticsChartDataType)dataType;
+
 @end
 
 NS_ASSUME_NONNULL_END

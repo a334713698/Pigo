@@ -218,7 +218,7 @@
             [button setTitle:@"开始专注"];
             break;
         case PGFocusButtonStateObsolete:
-            [button setTitle:@"作废"];
+            [button setTitle:@"中止"];
             break;
         case PGFocusButtonStateNext:
             [button setTitle:@"下一个番茄"];
@@ -248,7 +248,7 @@
         case PGFocusButtonStateStartFocus://开始专注
             self.currentFocusState = PGFocusStateFocusing;
             return;
-        case PGFocusButtonStateObsolete://作废
+        case PGFocusButtonStateObsolete://中止
         {
             [self timerInvalidate];
             self.currentFocusState = PGFocusStateWillFocus;

@@ -18,12 +18,14 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray<NSArray*> *cellNames;
-@property (nonatomic, strong) NSArray *itemsArr;
+@property (nonatomic, strong) NSArray<PGTotalStatisticsItemModel*> *itemsArr;
 
 @end
 
 @implementation PGTotalStatisticsViewController{
     PGStatisticsPeriodType _periodType;
+    NSInteger _chartCellSectionIndex;
+    NSInteger _pieChartCellSectionIndex;
 }
 
 #pragma mark - lazy load
@@ -62,9 +64,9 @@
     return _cellNames;
 }
 
-- (NSArray*)itemsArr{
+- (NSArray<PGTotalStatisticsItemModel*>*)itemsArr{
     if (!_itemsArr) {
-        _itemsArr = [PGTotalStatisticsViewModel getItemsArr];
+        _itemsArr = [PGTotalStatisticsViewModel getItemsArrWithType:PGStatisticsPeriodTypeWeek];
     }
     return _itemsArr;
 }
@@ -94,6 +96,7 @@
     
     if (indexPath.section == self.cellNames.count) {
         PGTotalStatisticsTaskItemCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGTotalStatisticsTaskItemCell"];
+        cell.itemModel = self.itemsArr[indexPath.row];
         return cell;
     }
     NSString* cellName = self.cellNames[indexPath.section][indexPath.row];
@@ -105,12 +108,20 @@
         cell.delegate = self;
         return cell;
     }else if(QMEqualToString(cellName, @"PGTotalStatisticsChartCell")){
+        _pieChartCellSectionIndex = indexPath.section;
         PGTotalStatisticsChartCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGTotalStatisticsChartCell"];
+        if (self.itemsArr.count) {
+            cell.nodataLab.hidden = YES;
+            [cell updatePieCharWithPeriodType:_periodType dataType:PGStatisticsChartDataTypeCount];
+        }else{
+            cell.nodataLab.hidden = NO;
+        }
         return cell;
     }else if (QMEqualToString(cellName, @"PGStatisticsChartCell")){
+        _chartCellSectionIndex = indexPath.section;
         PGStatisticsChartCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGStatisticsChartCell"];
-//        PGStatisticsChartDataType chartDataType = (indexPath.row == 0) ? PGStatisticsChartDataTypeCount:PGStatisticsChartDataTypeLength;
-//        [cell updateCharWithTaskID:self.task_id periodType:_periodType dataType:chartDataType];
+        PGStatisticsChartDataType chartDataType = (indexPath.row == 0) ? PGStatisticsChartDataTypeCount:PGStatisticsChartDataTypeLength;
+        [cell updateTotalStatistcsCharWithPeriodType:_periodType dataType:chartDataType];
         return cell;
     }
     UITableViewCell* cell = [UITableViewCell new];
@@ -167,6 +178,22 @@
         cell.layoutMargins = UIEdgeInsetsMake(0, SCREEN_WIDTH/2.0, 0, SCREEN_WIDTH/2.0);
     }
     cell.preservesSuperviewLayoutMargins = NO;
+}
+
+#pragma mark - PGStatisticsTodayPeriodCellDelegate
+- (void)periodCell:(PGStatisticsTodayPeriodCell*)cell andType:(PGStatisticsPeriodType)type{
+    _periodType = type;
+    PGStatisticsChartCell* countCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_chartCellSectionIndex]];
+    PGStatisticsChartCell* durationCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:_chartCellSectionIndex]];
+    [countCell updateTotalStatistcsCharWithPeriodType:_periodType dataType:PGStatisticsChartDataTypeCount];
+    [durationCell updateTotalStatistcsCharWithPeriodType:_periodType dataType:PGStatisticsChartDataTypeLength];
+    
+    PGTotalStatisticsChartCell* pieChartCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:_pieChartCellSectionIndex]];
+    [pieChartCell updatePieCharWithPeriodType:_periodType dataType:PGStatisticsChartDataTypeLength];
+
+    
+    _itemsArr = [PGTotalStatisticsViewModel getItemsArrWithType:_periodType];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:(_pieChartCellSectionIndex+1)] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark - SEL

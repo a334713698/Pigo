@@ -8,6 +8,7 @@
 
 #import "PGTotalStatisticsChartCell.h"
 #import "AAChartKit.h"
+#import "PGTotalStatisticsViewModel.h"
 
 @interface PGTotalStatisticsChartCell ()
 
@@ -16,7 +17,23 @@
 @end
 
 
-@implementation PGTotalStatisticsChartCell
+@implementation PGTotalStatisticsChartCell{
+    BOOL _hasDraw;
+}
+
+- (UILabel *)nodataLab{
+    if (!_nodataLab) {
+        _nodataLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:@"暂无数据"];
+        [self.contentView addSubview:_nodataLab];
+        _nodataLab.textAlignment = NSTextAlignmentCenter;
+        _nodataLab.backgroundColor = WHITE_COLOR;
+        [_nodataLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
+    }
+    [self.contentView bringSubviewToFront:_nodataLab];
+    return _nodataLab;
+}
 
 - (AAChartView *)aaChartView{
     if (!_aaChartView) {
@@ -35,26 +52,20 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        [self setupView];
+
     }
     return self;
 }
 
-- (void)setupView{
-    NSArray* colorSet = @[@"#1F1F1F",@"#606D80",@"#2B4C7E",@"#567EBB",@"#4E7DA6",@"#52B5F3",@"#599A96",@"#00927C",@"#D25529",@"#F35A4A",@"#E4736D",@"#EAAF13",@"#BB780D",@"#5B4847"];
-    NSArray* seriesArr = @[
-                           @[@"Java"  , @67],
-                           @[@"Swift" , @44],
-                           @[@"Python", @83],
-                           @[@"OC"    , @11],
-                           @[@"Ruby"  , @42],
-                           @[@"PHP"   , @31],
-                           @[@"Go"    , @63],
-                           @[@"C"     , @24],
-                           @[@"C#"    , @88],
-                           @[@"C++"   , @66],
-                           ];
-    
+- (void)updatePieCharWithPeriodType:(PGStatisticsPeriodType)periodType dataType:(PGStatisticsChartDataType)dataType{
+    NSArray<PGTotalStatisticsChartModel*>* seriesArr = [PGTotalStatisticsViewModel getSeriesSetWithType:periodType andDataType:dataType];
+
+    NSMutableArray* colorsThemeArr = [NSMutableArray array];
+    NSMutableArray* elementsArr = [NSMutableArray array];
+    for (PGTotalStatisticsChartModel* chartModel in seriesArr) {
+        [colorsThemeArr addObject:[@"#" stringByAppendingString:chartModel.taskModel.bg_color]];
+        [elementsArr addObject:@[chartModel.taskModel.task_name,chartModel.total]];
+    }
     
     
     AAChartModel *aaChartModel= AAObject(AAChartModel)
@@ -64,15 +75,20 @@
     .dataLabelEnabledSet(true)//是否直接显示扇形图数据
     .legendEnabledSet(NO)//是否显示图例(图表下方可点击的带有文字的小圆点)
     .tooltipEnabledSet(NO)//是否显示浮动提示框
-    .colorsThemeSet(colorSet)//每个扇面的颜色
+    .colorsThemeSet(colorsThemeArr)//每个扇面的颜色
     .seriesSet(
                @[AAObject(AASeriesElement)
-                 .nameSet(@"语言热度占比")
-                 .dataSet(seriesArr),
+                 .nameSet(@"番茄热度占比")
+                 .dataSet(elementsArr.copy),
                  ]
                )
     ;
     
-    [self.aaChartView aa_drawChartWithChartModel:aaChartModel];
+    if (!_hasDraw) {
+        [self.aaChartView aa_drawChartWithChartModel:aaChartModel];
+        _hasDraw = YES;
+    }else{
+        [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
+    }
 }
 @end

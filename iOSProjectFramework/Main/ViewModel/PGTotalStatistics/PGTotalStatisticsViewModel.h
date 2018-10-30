@@ -7,20 +7,20 @@
 //
 
 #import "BaseViewModel.h"
+#import "PGTotalStatisticsChartModel.h"
+#import "PGTotalStatisticsItemModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PGTotalStatisticsViewModel : BaseViewModel
 
-+ (NSArray*)getItemsArr;
++ (NSArray<PGTotalStatisticsItemModel*>*)getItemsArrWithType:(PGStatisticsPeriodType)periodType;
 
 + (NSArray<NSArray*>*)getCellNameArr;
 
-+ (NSArray<PGTomatoRecordModel*>*)getAllEnableRecordTomato;
-
 + (NSArray*)getCategoriesSetWithType:(PGStatisticsPeriodType)type;
 
-+ (NSArray*)getSeriesSetWithType:(PGStatisticsPeriodType)type;
++ (NSArray<PGTotalStatisticsChartModel*>*)getSeriesSetWithType:(PGStatisticsPeriodType)type andDataType:(PGStatisticsChartDataType)dataType;
 
 @end
 

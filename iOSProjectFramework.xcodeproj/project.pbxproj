@@ -122,7 +122,6 @@
 		D6D5D2C92181B01C00FF34D0 /* PGTotalStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2C82181B01C00FF34D0 /* PGTotalStatisticsViewController.m */; };
 		D6D5D2CD2181B1C400FF34D0 /* PGTotalStatisticsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2CC2181B1C400FF34D0 /* PGTotalStatisticsViewModel.m */; };
 		D6D5D2D42182AE7300FF34D0 /* PGTotalStatisticsChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2D32182AE7300FF34D0 /* PGTotalStatisticsChartCell.m */; };
-		D6D5D2DA2182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2D92182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m */; };
 		D6D5D2DD2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2DC2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m */; };
 		D6D9C2402177118B00EF9D91 /* PGCheckinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C23F2177118B00EF9D91 /* PGCheckinModel.m */; };
 		D6D9C249217731A400EF9D91 /* DJTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C247217731A400EF9D91 /* DJTools.m */; };
@@ -161,6 +160,8 @@
 		D6D9C2BA2179B21000EF9D91 /* AAChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C2992179B20F00EF9D91 /* AAChartModel.m */; };
 		D6D9C2BB2179B21000EF9D91 /* AAOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C29B2179B20F00EF9D91 /* AAOptions.m */; };
 		D6D9C2BC2179B21000EF9D91 /* AASeriesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C29C2179B20F00EF9D91 /* AASeriesElement.m */; };
+		D6E33C172187F04600C43875 /* PGTotalStatisticsChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E33C162187F04600C43875 /* PGTotalStatisticsChartModel.m */; };
+		D6E33C1E218800AD00C43875 /* PGTotalStatisticsItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E33C1D218800AD00C43875 /* PGTotalStatisticsItemModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -440,8 +441,6 @@
 		D6D5D2CC2181B1C400FF34D0 /* PGTotalStatisticsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsViewModel.m; sourceTree = "<group>"; };
 		D6D5D2D22182AE7300FF34D0 /* PGTotalStatisticsChartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsChartCell.h; sourceTree = "<group>"; };
 		D6D5D2D32182AE7300FF34D0 /* PGTotalStatisticsChartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsChartCell.m; sourceTree = "<group>"; };
-		D6D5D2D82182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsPeriodCell.h; sourceTree = "<group>"; };
-		D6D5D2D92182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsPeriodCell.m; sourceTree = "<group>"; };
 		D6D5D2DB2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsTaskItemCell.h; sourceTree = "<group>"; };
 		D6D5D2DC2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsTaskItemCell.m; sourceTree = "<group>"; };
 		D6D9C23E2177118B00EF9D91 /* PGCheckinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCheckinModel.h; sourceTree = "<group>"; };
@@ -519,6 +518,10 @@
 		D6D9C29C2179B20F00EF9D91 /* AASeriesElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASeriesElement.m; sourceTree = "<group>"; };
 		D6D9C29D2179B20F00EF9D91 /* AAChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartView.h; sourceTree = "<group>"; };
 		D6D9C29E2179B20F00EF9D91 /* AAChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartModel.h; sourceTree = "<group>"; };
+		D6E33C152187F04600C43875 /* PGTotalStatisticsChartModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsChartModel.h; sourceTree = "<group>"; };
+		D6E33C162187F04600C43875 /* PGTotalStatisticsChartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsChartModel.m; sourceTree = "<group>"; };
+		D6E33C1C218800AD00C43875 /* PGTotalStatisticsItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsItemModel.h; sourceTree = "<group>"; };
+		D6E33C1D218800AD00C43875 /* PGTotalStatisticsItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsItemModel.m; sourceTree = "<group>"; };
 		D702A9089C56B6A20595648C /* Pods-iOSProjectFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProjectFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1446,6 +1449,7 @@
 				B6760E0C215B3AE7005E97A4 /* PGSetting */,
 				B6FFB09521743DA900076F44 /* PGTomatoRecordModel */,
 				B615E975214B4BBE008D0B6E /* PGTaskList */,
+				D6E33C142187F01E00C43875 /* PGTotalStatistics */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1755,8 +1759,6 @@
 			children = (
 				D6D5D2D22182AE7300FF34D0 /* PGTotalStatisticsChartCell.h */,
 				D6D5D2D32182AE7300FF34D0 /* PGTotalStatisticsChartCell.m */,
-				D6D5D2D82182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.h */,
-				D6D5D2D92182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m */,
 				D6D5D2DB2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.h */,
 				D6D5D2DC2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m */,
 			);
@@ -1897,6 +1899,17 @@
 				D6D9C29E2179B20F00EF9D91 /* AAChartModel.h */,
 			);
 			path = AAChartConfiger;
+			sourceTree = "<group>";
+		};
+		D6E33C142187F01E00C43875 /* PGTotalStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				D6E33C152187F04600C43875 /* PGTotalStatisticsChartModel.h */,
+				D6E33C162187F04600C43875 /* PGTotalStatisticsChartModel.m */,
+				D6E33C1C218800AD00C43875 /* PGTotalStatisticsItemModel.h */,
+				D6E33C1D218800AD00C43875 /* PGTotalStatisticsItemModel.m */,
+			);
+			path = PGTotalStatistics;
 			sourceTree = "<group>";
 		};
 		FF0285D71F7433273CFC716F /* Pods */ = {
@@ -2186,7 +2199,6 @@
 				B6E26AA0201AF3F2006C7650 /* BaseViewController.m in Sources */,
 				B6A60F232140F659000A737D /* UITableViewCell+Features.m in Sources */,
 				B6E26A9D201AF3F2006C7650 /* BaseNavigationController.m in Sources */,
-				D6D5D2DA2182B74B00FF34D0 /* PGTotalStatisticsPeriodCell.m in Sources */,
 				B6CC325B2149109700E66D64 /* PGConfigManager.m in Sources */,
 				B6E26AA1201AF3F2006C7650 /* BaseModel.m in Sources */,
 				D6D9C2A02179B21000EF9D91 /* AAAreaspline.m in Sources */,
@@ -2194,6 +2206,7 @@
 				D6D5D2C52181A1B000FF34D0 /* MFHUDManager.m in Sources */,
 				B6A60F262140F659000A737D /* UIColor+mostColor.m in Sources */,
 				B60D50182152444B008CE149 /* PGTaskListViewModel.m in Sources */,
+				D6E33C1E218800AD00C43875 /* PGTotalStatisticsItemModel.m in Sources */,
 				B6FFB0A12174841100076F44 /* PGStatisticsAndCheckinScrollerView.m in Sources */,
 				B6A60F1E2140F659000A737D /* UIImage+QRCode.m in Sources */,
 				D6D9C2B02179B21000EF9D91 /* AATitle.m in Sources */,
@@ -2245,6 +2258,7 @@
 				D6D9C2A72179B21000EF9D91 /* AATooltip.m in Sources */,
 				D6D9C2A42179B21000EF9D91 /* AAPlotOptions.m in Sources */,
 				B6A60E2A2140F19B000A737D /* UITextView+ZWPlaceHolder.m in Sources */,
+				D6E33C172187F04600C43875 /* PGTotalStatisticsChartModel.m in Sources */,
 				D6D5D2A1217D986900FF34D0 /* NSDate+Calendar.m in Sources */,
 				B6E26A9F201AF3F2006C7650 /* BaseNetRequest.m in Sources */,
 				B6A60F2E2140F659000A737D /* NSString+URLCode.m in Sources */,

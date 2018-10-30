@@ -196,7 +196,7 @@
     //开始计时
     self.cdLabel.text= [NSString stringWithFormat:@"%ld:00",PGConfigMgr.TomatoLength];
     __block NSInteger seconds = PGConfigMgr.TomatoLength * 60;
-    seconds = 5;
+//    seconds = 5;
     NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
     [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"专注结束，休息一下吧"];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
@@ -229,7 +229,7 @@
     //开始计时
     self.cdLabel.text= [NSString stringWithFormat:@"%ld:00",timeLength];
     __block NSInteger seconds = timeLength * 60;
-    seconds = 3;
+//    seconds = 3;
     NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
     [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"休息结束，开始下一个番茄"];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {

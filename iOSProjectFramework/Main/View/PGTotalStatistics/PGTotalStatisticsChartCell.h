@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PGTotalStatisticsChartCell : UITableViewCell
 
+@property (nonatomic, strong) UILabel *nodataLab;
+
+- (void)updatePieCharWithPeriodType:(PGStatisticsPeriodType)periodType dataType:(PGStatisticsChartDataType)dataType;
+
 @end
 
 NS_ASSUME_NONNULL_END

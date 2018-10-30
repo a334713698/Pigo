@@ -278,7 +278,7 @@
     if (PGUserModelInstance.currentFocusState != PGFocusStateFocusing && PGUserModelInstance.currentFocusState != PGFocusStateShortBreaking && PGUserModelInstance.currentFocusState != PGFocusStateLongBreaking) {
         return NO;
     }
-    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n有任务正在进行，请先作废当前任务" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n有任务正在进行，请先中止当前任务" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
     

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PGTotalStatisticsItemModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PGTotalStatisticsTaskItemCell : UITableViewCell
@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIView *perView;
 @property (nonatomic, strong) UILabel *perLab;
 @property (nonatomic, assign) CGFloat perNum;
+
+@property (nonatomic, strong) PGTotalStatisticsItemModel *itemModel;
 
 @end
 

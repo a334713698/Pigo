@@ -45,7 +45,7 @@
             self.pg_title = @"开始专注";
             break;
         case PGFocusButtonStateObsolete:
-            self.pg_title = @"作废";
+            self.pg_title = @"中止";
             break;
         case PGFocusButtonStateNext:
             self.pg_title = @"下一个番茄";

@@ -9,7 +9,7 @@
 #import "PGTotalStatisticsTaskItemCell.h"
 
 #define leftMargin 12
-#define perLabWidth 45
+#define perLabWidth 60
 #define perBGViewWidth (SCREEN_WIDTH - leftMargin * 3 - perLabWidth)
 
 @implementation PGTotalStatisticsTaskItemCell
@@ -33,7 +33,7 @@
         make.left.mas_equalTo(leftMargin);
     }];
     
-    _perLab = [UILabel createLabelWithFontSize:adaptFont(14) andTextColor:MAIN_COLOR andText:@"100%"];
+    _perLab = [UILabel createLabelWithFontSize:adaptFont(14) andTextColor:MAIN_COLOR andText:@"0.0%"];
     _perLab.textAlignment = NSTextAlignmentRight;
     [self.contentView addSubview:_perLab];
     [_perLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,12 +57,11 @@
     
     _perView = [UIView new];
     [perBGView addSubview:_perView];
-    _perView.backgroundColor = [UIColor redColor];
     [_perView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.mas_equalTo(0);
     }];
     [_perView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(perBGViewWidth*0.66);
+        make.width.mas_equalTo(perBGViewWidth*1);
     }];
     
     _lenLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:@"0小时"];
@@ -94,6 +93,17 @@
         make.right.mas_equalTo(self.countLab.mas_left).offset(-5);
         make.width.height.mas_equalTo(18);
     }];
+}
 
+- (void)setItemModel:(PGTotalStatisticsItemModel *)itemModel{
+    _itemModel = itemModel;
+    _titleLab.text = itemModel.taskModel.task_name;
+    _perView.backgroundColor = [UIColor colorWithHexStr:itemModel.taskModel.bg_color];
+    [_perView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(perBGViewWidth*itemModel.countPercent);
+    }];
+    _countLab.text = [NSString stringWithFormat:@"%ld个",itemModel.totalCount];
+    _lenLab.text = [NSString stringWithFormat:@"%ld分钟",itemModel.totalLength];
+    _perLab.text = [NSString stringWithFormat:@"%.1lf%%",itemModel.countPercent*100];
 }
 @end
