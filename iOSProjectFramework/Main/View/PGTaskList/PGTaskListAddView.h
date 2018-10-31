@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *hexStr;
 @property (nonatomic, copy) NSString *titleCont;
 @property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, assign) NSInteger colorIndex;
+@property (nonatomic, strong) NSArray *colorArr;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic, weak) id<PGTaskListAddViewDelegate> delegate;
 

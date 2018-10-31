@@ -11,15 +11,9 @@
 
 @interface PGTaskListAddView ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
-
-@property (nonatomic, strong) NSArray *colorArr;
-
 @end
 
-@implementation PGTaskListAddView{
-    NSInteger _colorIndex;
-}
+@implementation PGTaskListAddView
 
 - (UICollectionView *)collectionView{
     if (!_collectionView) {
