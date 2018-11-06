@@ -21,5 +21,6 @@
 #define tomato_record_table               @"tomato_record_table"
 #define check_in_table                    @"check_in_table"
 
+#define Focuse_EndTimeStamp                    @"Focuse_EndTimeStamp"
 
 #endif /* HDJGlobalVariables_h */

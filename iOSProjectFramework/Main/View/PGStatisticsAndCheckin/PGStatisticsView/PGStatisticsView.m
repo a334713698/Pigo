@@ -71,11 +71,12 @@
     return _recordMutableDic;
 }
 
-- (instancetype)initWithTaskID:(NSInteger)task_id
+- (instancetype)initWithTaskID:(NSInteger)task_id andThemeColor:(NSString*)bg_color
 {
     self = [super init];
     if (self) {
         _task_id = task_id;
+        _bg_color = bg_color;
         [self setupView];
     }
     return self;
@@ -131,6 +132,7 @@
         //图表
         if (indexPath.row != 1) {
             PGStatisticsChartCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGStatisticsChartCell"];
+            cell.bg_color = self.bg_color;
             PGStatisticsChartDataType chartDataType = (indexPath.row == 0) ? PGStatisticsChartDataTypeCount:PGStatisticsChartDataTypeLength;
             [cell updateCharWithTaskID:self.task_id periodType:_periodType dataType:chartDataType];
             return cell;

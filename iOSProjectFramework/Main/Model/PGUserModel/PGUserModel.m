@@ -109,4 +109,29 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGUserModel)
     return tuples;
 }
 
+- (BOOL)checkeMissingTomato{
+    NSInteger stamp = [USER_DEFAULT integerForKey:Focuse_EndTimeStamp];
+    if ([NSDate nowStamp] > stamp) {
+        [self completeATomato];
+        [USER_DEFAULT setInteger:0 forKey:Focuse_EndTimeStamp];
+        [USER_DEFAULT synchronize];
+        [self updateTomato];
+        return NO;
+    }else{
+        return YES;
+    }
+}
+
+- (void)updateTomato{
+    if(self.currentTask.task_id){
+        [self.dbMgr.database open];
+        NSString* dateToday = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
+        NSDictionary* tuple = [self.dbMgr getAllTuplesFromTabel:tomato_record_table andSearchModels:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(PGUserModelInstance.currentTask.task_id)],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateToday)]]].firstObject;
+        NSInteger count = [tuple[@"count"] integerValue];
+        self.currentTask.count = count;
+        [NOTI_CENTER postNotificationName:PGFocusUpdateCountNotification object:nil];
+        [self.dbMgr.database close];
+    }
+}
+
 @end

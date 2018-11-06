@@ -10,3 +10,8 @@
 
 
 NSString *const PGCheckinCompleteNotification = @"PGCheckinCompleteNotification";
+NSString *const PGFocusUpdateCountNotification = @"PGFocusUpdateCountNotification";
+
+NSString *const PGSettingUpdateNotification = @"PGSettingUpdateNotification";
+
+NSString *const PGFocusStateUpdateNotification = @"PGFocusStateUpdateNotification";

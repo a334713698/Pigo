@@ -192,8 +192,6 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    PGSettingDataModel* model = self.pickArr[row];
-    _selectModel = model;
     NSString* keyName;
     switch (self.contentType) {
         case PGSettingContentTypeTomatoLength:
@@ -212,8 +210,11 @@
             DLog(@"无匹配");
             break;
     }
-    if (!NULLString(keyName)) {
+    if (!NULLString(keyName) && [self stateMonitor]) {
+        PGSettingDataModel* model = self.pickArr[row];
+        _selectModel = model;
         [PGConfigMgr setValue:model.valueStr forKey:keyName];
+        [self stateMonitor];
         NSString* unit = self.cellDic[@"unit"] ? :@"";
         self.qm_detailLabel.text = [NSString stringWithFormat:@"%@%@",model.valueStr,unit];
     }
@@ -222,5 +223,33 @@
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
     return 35;
 }
+
+- (BOOL)stateMonitor{
+    PGSettingContentType contType = self.contentType;
+    
+    if (contType == PGSettingContentTypeTomatoLength && PGUserModelInstance.currentFocusState == PGFocusStateFocusing){
+        WS(weakSelf)
+        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n有任务正在进行，请先中止当前任务" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSInteger index =  [weakSelf.pickArr indexOfObject:weakSelf.selectModel];
+            [weakSelf.pickerView selectRow:index inComponent:0 animated:YES];
+        }]];
+        
+        [TOPVC presentViewController:alertVC animated:YES completion:nil];
+        return NO;
+    }
+    
+    if (contType == PGSettingContentTypeTomatoLength && PGUserModelInstance.currentFocusState == PGFocusStateWillFocus) {
+        [NOTI_CENTER postNotificationName:PGSettingUpdateNotification object:@(PGSettingContentTypeTomatoLength)];
+    }else if (contType == PGSettingContentTypeShortBreak && PGUserModelInstance.currentFocusState == PGFocusStateWillShortBreak){
+        [NOTI_CENTER postNotificationName:PGSettingUpdateNotification object:@(PGSettingContentTypeShortBreak)];
+    }else if (contType == PGSettingContentTypeLongBreak && PGUserModelInstance.currentFocusState == PGFocusStateWillLongBreak){
+        [NOTI_CENTER postNotificationName:PGSettingUpdateNotification object:@(PGSettingContentTypeLongBreak)];
+    }
+    return YES;
+}
+
+
 
 @end

@@ -64,7 +64,7 @@ typedef enum : NSUInteger {
     PGStatisticsPeriodTypeYear
 } PGStatisticsPeriodType;
 
-typedef enum : NSUInteger {
+typedef enum : NSInteger {
     PGFocusStateWillFocus,//准备专注
     PGFocusStateFocusing,//专注中
     PGFocusStateWillShortBreak,//准备短时休息

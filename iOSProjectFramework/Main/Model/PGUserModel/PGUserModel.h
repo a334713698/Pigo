@@ -32,6 +32,9 @@ PROPERTY_SINGLETON_FOR_CLASS(PGUserModel)
 
 - (void)taskCheckinWithID:(NSInteger)task_id andDateStr:(NSString*)dateStr isAuto:(BOOL)isAuto;
 
+- (BOOL)checkeMissingTomato;
+
+- (void)updateTomato;
 @end
 
 NS_ASSUME_NONNULL_END

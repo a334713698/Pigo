@@ -84,4 +84,13 @@ UIKIT_EXTERN const CGFloat PGStatisticsChartCellHeight;
 UIKIT_EXTERN const CGFloat PGTotalStatisticsChartCellHeight;
 UIKIT_EXTERN const CGFloat PGTotalStatisticsTaskItemCellHeight;
 
+
+//PGLocalNotiTool
+UIKIT_EXTERN NSString *const PGLocalNotiCateIDCompleteTomato;
+UIKIT_EXTERN NSString *const PGLocalNotiCateIDCompleteRest;
+UIKIT_EXTERN NSString *const PGLocalNotiActionIDStart;
+UIKIT_EXTERN NSString *const PGLocalNotiActionIDNext;
+UIKIT_EXTERN NSString *const PGLocalNotiActionIDRest;
+
+
 #endif /* PGConst_h */

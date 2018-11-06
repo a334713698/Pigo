@@ -97,7 +97,7 @@
     .legendEnabledSet(NO)//是否显示图例(图表下方可点击的带有文字的小圆点)
     .tooltipEnabledSet(YES)
     .tooltipValueSuffixSet(unit)
-    .colorsThemeSet(@[@"#1F1F1F"])
+    .colorsThemeSet(@[[@"#" stringByAppendingString:self.bg_color]])
     .categoriesSet(cateArr)//图表横轴的内容
     .seriesSet(@[
                  AAObject(AASeriesElement)

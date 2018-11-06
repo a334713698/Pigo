@@ -26,7 +26,7 @@
 
     [[PGConfigManager sharedPGConfigManager] setup];
     [PGUserModelInstance setup];
-    [self registerUserNotiSettings];
+    [PGLocalNotiTool registerUserNotiSettings];
     
     LaunchViewController *launchScreen = [[LaunchViewController alloc] init];
 
@@ -70,13 +70,6 @@
 }
 
 
-- (void)registerUserNotiSettings{
-    UIUserNotificationSettings* setting  = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
-    
-    
-    [[UIApplication sharedApplication] registerUserNotificationSettings:setting];
-}
-
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -97,8 +90,14 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     application.applicationIconBadgeNumber = 0;
+    [PGUserModelInstance updateTomato];
 }
 
+-(void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler  {
+    NSLog(@"按下的是%@",identifier);
+    [PGLocalNotiTool handleUserNotiWithIdentifier:identifier];
+    completionHandler();
+}
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

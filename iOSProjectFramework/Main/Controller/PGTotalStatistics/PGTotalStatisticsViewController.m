@@ -102,6 +102,25 @@
     NSString* cellName = self.cellNames[indexPath.section][indexPath.row];
     if (QMEqualToString(cellName, @"PGStatisticsTodayDataCell")) {
         PGStatisticsTodayDataCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGStatisticsTodayDataCell"];
+        NSInteger ttCount = [self todayDataWithType:PGStatisticsChartDataTypeCount];
+        NSInteger ttLength = [self todayDataWithType:PGStatisticsChartDataTypeLength];
+        if (ttCount) {
+            cell.countLab.text = QMStringFromNSInteger(ttCount);
+            NSString* length;
+            NSString* unit;
+            if (ttLength>=60) {
+                length = [NSString stringWithFormat:@"%.1lf",ttLength/60.0];
+                unit = @"小时";
+            }else{
+                length = [NSString stringWithFormat:@"%ld",ttLength];
+                unit = @"分钟";
+            }
+            NSString* text = [length stringByAppendingString:unit];
+            [cell.durationLab setLabelText:text Font:[UIFont systemFontOfSize:adaptFont(12)] Range:NSMakeRange(length.length, unit.length)];
+        }else{
+            cell.countLab.text = @"0";
+            cell.durationLab.text = @"0";
+        }
         return cell;
     }else if (QMEqualToString(cellName, @"PGStatisticsTodayPeriodCell")) {
         PGStatisticsTodayPeriodCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGStatisticsTodayPeriodCell"];
@@ -188,7 +207,7 @@
     [countCell updateTotalStatistcsCharWithPeriodType:_periodType dataType:PGStatisticsChartDataTypeCount];
     [durationCell updateTotalStatistcsCharWithPeriodType:_periodType dataType:PGStatisticsChartDataTypeLength];
     
-    PGTotalStatisticsChartCell* pieChartCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:_pieChartCellSectionIndex]];
+    PGTotalStatisticsChartCell* pieChartCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_pieChartCellSectionIndex]];
     [pieChartCell updatePieCharWithPeriodType:_periodType dataType:PGStatisticsChartDataTypeLength];
 
     
@@ -205,6 +224,14 @@
     
 }
 
+- (NSInteger)todayDataWithType:(PGStatisticsChartDataType)type{
+    [self.dbMgr.database open];
+    
+    NSInteger t = [self.dbMgr sumFromTabel:tomato_record_table andColumnName:((type==PGStatisticsChartDataTypeCount)?@"count":@"length") andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString([NSDate getTodayDateStr])]];
+    
+    [self.dbMgr.database close];
+    return t;
+}
 
 
 #pragma mark - NetRequest

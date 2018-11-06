@@ -12,9 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PGStatisticsView : BaseView
 
+@property (nonatomic, copy) NSString *bg_color;
+
 @property (nonatomic, assign) NSInteger task_id;
 
-- (instancetype)initWithTaskID:(NSInteger)task_id;
+- (instancetype)initWithTaskID:(NSInteger)task_id andThemeColor:(NSString*)bg_color;
 
 @end
 

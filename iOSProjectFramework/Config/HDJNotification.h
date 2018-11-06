@@ -12,6 +12,11 @@
 /** 统一管理通知名称 */
 
 UIKIT_EXTERN NSString *const PGCheckinCompleteNotification;
+UIKIT_EXTERN NSString *const PGFocusUpdateCountNotification;
 
+
+UIKIT_EXTERN NSString *const PGSettingUpdateNotification;
+
+UIKIT_EXTERN NSString *const PGFocusStateUpdateNotification;
 
 #endif /* HDJNotification_h */

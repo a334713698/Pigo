@@ -33,7 +33,7 @@
         case PGFocusStateWillFocus:
             //准备专注
         {
-            cdLabel.text= [NSString stringWithFormat:@"%ld:00",PGConfigMgr.TomatoLength];
+            cdLabel.text= [NSString stringWithFormat:@"%02ld:00",PGConfigMgr.TomatoLength];
             leftButton.pg_state = PGFocusButtonStateHidden;
             rightButton.pg_state = PGFocusButtonStateHidden;
             
@@ -54,6 +54,7 @@
             centerButton.pg_state = PGFocusButtonStateObsolete;
             centerButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
                 NSLog(@"%@",centerButton.currentTitle);
+                [weakSelf settingFocuseEndTime:0];
                 [weakSelf timerInvalidate];
                 weakSelf.currentFocusState = PGFocusStateWillFocus;
                 return [RACSignal empty];
@@ -65,7 +66,7 @@
         case PGFocusStateWillShortBreak:
             //准备短时休息
         {
-            cdLabel.text= [NSString stringWithFormat:@"%ld:00",PGConfigMgr.ShortBreak];
+            cdLabel.text= [NSString stringWithFormat:@"%02ld:00",PGConfigMgr.ShortBreak];
             leftButton.pg_state = PGFocusButtonStateStartRest;
             rightButton.pg_state = PGFocusButtonStateNext;
             
@@ -110,7 +111,7 @@
         case PGFocusStateWillLongBreak:
             //准备长时休息
         {
-            cdLabel.text= [NSString stringWithFormat:@"%ld:00",PGConfigMgr.LongBreak];
+            cdLabel.text= [NSString stringWithFormat:@"%02ld:00",PGConfigMgr.LongBreak];
             leftButton.pg_state = PGFocusButtonStateStartRest;
             rightButton.pg_state = PGFocusButtonStateNext;
             
@@ -153,6 +154,7 @@
         }
             break;
         default:
+            DLog(@"无匹配");
             break;
     }
 }
@@ -168,6 +170,7 @@
 - (void)finishATomato{
     [self vibrating];
     [PGUserModelInstance completeATomato];
+    [self settingFocuseEndTime:0];
     if (self.updateCount) {
         self.updateCount();
     }
@@ -194,11 +197,21 @@
     WS(weakSelf)
 
     //开始计时
-    self.cdLabel.text= [NSString stringWithFormat:@"%ld:00",PGConfigMgr.TomatoLength];
     __block NSInteger seconds = PGConfigMgr.TomatoLength * 60;
-//    seconds = 5;
-    NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
-    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"专注结束，休息一下吧"];
+//    seconds = 3;
+    NSDate *endTime;// 最后期限
+    if (_endTimeStamp > [NSDate nowStamp]) {
+        //继续进行
+        seconds = _endTimeStamp - [NSDate nowStamp];
+        endTime = [NSDate dateWithTimeIntervalSinceNow:seconds];
+        self.cdLabel.text = [NSDate pg_secondsToHMS:[endTime timeIntervalSinceNow]];
+    }else{
+        //从头开始
+        endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1];
+        [self settingFocuseEndTime:[[endTime dateToTimeStamp] integerValue]];
+        self.cdLabel.text= [NSDate pg_secondsToHMS:[endTime timeIntervalSinceNow]];
+    }
+    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"专注结束，休息一下吧" cate:PGLocalNotiCateIDCompleteTomato];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
         int interval = [endTime timeIntervalSinceNow];
         if(interval<=0){
@@ -227,11 +240,11 @@
     [self timerInvalidate];
     WS(weakSelf)
     //开始计时
-    self.cdLabel.text= [NSString stringWithFormat:@"%ld:00",timeLength];
+    self.cdLabel.text= [NSString stringWithFormat:@"%02ld:00",timeLength];
     __block NSInteger seconds = timeLength * 60;
-//    seconds = 3;
+//    seconds = 1;
     NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
-    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"休息结束，开始下一个番茄"];
+    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"休息结束，开始专注" cate:PGLocalNotiCateIDCompleteRest];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
         int interval = [endTime timeIntervalSinceNow];
         if(interval<=0){
@@ -254,10 +267,11 @@
 }
 
 //本地通知
-- (void)localNotiWithTimeIntervalSinceNow:(NSTimeInterval)seconds alertBody:(NSString*)alertBody{
+- (void)localNotiWithTimeIntervalSinceNow:(NSTimeInterval)seconds alertBody:(NSString*)alertBody cate:(NSString*)cate{
     if(!PGConfigMgr.NotifyAlert){
         return;
     }
+    
     //1.创建本地通知对象
     UILocalNotification* ln = [UILocalNotification new];
     
@@ -267,9 +281,11 @@
     //2.2 设置通知内容
     ln.alertBody = alertBody;
     //2.3 设置图标右上角的角标通知信息数量
-    ln.applicationIconBadgeNumber = 1;
+    ln.applicationIconBadgeNumber++;
+    ln.category = cate;
     
     //4.调度通知
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     [[UIApplication sharedApplication] scheduleLocalNotification:ln];
 }
 
@@ -288,6 +304,14 @@
         }else{
             self.currentFocusState = PGFocusStateWillShortBreak;
         }
+    }
+}
+
+- (void)settingFocuseEndTime:(NSInteger)t{
+    [USER_DEFAULT setInteger:t forKey:Focuse_EndTimeStamp];
+    [USER_DEFAULT synchronize];
+    if (!t) {
+        _endTimeStamp = 0;
     }
 }
 

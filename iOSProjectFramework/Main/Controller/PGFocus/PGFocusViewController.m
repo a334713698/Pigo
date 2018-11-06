@@ -31,7 +31,6 @@
 
 @implementation PGFocusViewController
 
-
 #pragma mark - lazy load
 - (PGCountdownLabel *)cdLabel{
     if (!_cdLabel) {
@@ -138,6 +137,10 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
+- (void)dealloc {
+    NSLog(@"%@--dealloc", [self class]);
+    [self removeNotiObserver];
+}
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -146,7 +149,7 @@
     self.view.backgroundColor = MAIN_COLOR;
     self.contView.hidden = NO;
     [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
-    
+    [self addNotiObserver];
 }
 
 
@@ -169,6 +172,52 @@
         self.contView.tomatoCount = self.taskModel.count;
         [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
     }
+    
+    NSInteger stamp = [USER_DEFAULT integerForKey:Focuse_EndTimeStamp];
+    if (stamp > 0 && [PGUserModelInstance checkeMissingTomato]) {
+        self.viewModel.endTimeStamp = stamp;
+        [self.viewModel setCurrentFocusState:PGFocusStateFocusing];
+    }
+}
+
+- (void)updateCount{
+    self.taskModel = PGUserModelInstance.currentTask;
+    self.contView.tomatoCount = self.taskModel.count;
+}
+
+- (void)updateSettingConfig:(NSNotification*)noti{
+    DLog(@"%s",__func__);
+    DLog(@"%@",noti.object);
+    PGSettingContentType contType = [noti.object integerValue];
+    switch (contType) {
+        case PGSettingContentTypeTomatoLength:
+            [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
+            break;
+        case PGSettingContentTypeShortBreak:
+            [self.viewModel setCurrentFocusState:PGFocusStateWillShortBreak];
+            break;
+        case PGSettingContentTypeLongBreak:
+            [self.viewModel setCurrentFocusState:PGFocusStateWillLongBreak];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)updateFocuseState:(NSNotification*)noti{
+    self.viewModel.currentFocusState = [noti.object integerValue];
+}
+
+- (void)addNotiObserver{
+    [NOTI_CENTER addObserver:self selector:@selector(updateCount) name:PGFocusUpdateCountNotification object:nil];
+    [NOTI_CENTER addObserver:self selector:@selector(updateSettingConfig:) name:PGSettingUpdateNotification object:nil];
+    [NOTI_CENTER addObserver:self selector:@selector(updateFocuseState:) name:PGFocusStateUpdateNotification object:nil];
+}
+
+- (void)removeNotiObserver{
+    [NOTI_CENTER removeObserver:self name:PGFocusUpdateCountNotification object:nil];
+    [NOTI_CENTER removeObserver:self name:PGSettingUpdateNotification object:nil];
+    [NOTI_CENTER removeObserver:self name:PGFocusStateUpdateNotification object:nil];
 }
 
 #pragma mark - NetRequest

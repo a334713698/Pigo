@@ -45,6 +45,7 @@
 #import "PGWatchTransTool.h"
 #import "DJTools.h"
 #import "QMSlideUpAlertView.h"
+#import "PGLocalNotiTool.h"
 
 //Common
 #import "PGUserModel.h"

@@ -52,7 +52,7 @@
 
 - (PGStatisticsView *)statisticsView{
     if (!_statisticsView) {
-        _statisticsView = [[PGStatisticsView alloc] initWithTaskID:self.taskModel.task_id];
+        _statisticsView = [[PGStatisticsView alloc] initWithTaskID:self.taskModel.task_id andThemeColor:self.taskModel.bg_color];
     }
     return _statisticsView;
 }

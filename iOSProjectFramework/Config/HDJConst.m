@@ -72,3 +72,10 @@ const CGFloat PGStatisticsChartCellHeight = 200;
 //PGTotalStatisticsViewController
 const CGFloat PGTotalStatisticsChartCellHeight = 266;
 const CGFloat PGTotalStatisticsTaskItemCellHeight = 70;
+
+//PGLocalNotiTool
+NSString *const PGLocalNotiCateIDCompleteTomato = @"PGLocalNotiCateIDCompleteTomato";
+NSString *const PGLocalNotiCateIDCompleteRest = @"PGLocalNotiCateIDCompleteRest";
+NSString *const PGLocalNotiActionIDStart = @"PGLocalNotiActionIDStart";
+NSString *const PGLocalNotiActionIDNext = @"PGLocalNotiActionIDNext";
+NSString *const PGLocalNotiActionIDRest = @"PGLocalNotiActionIDRest";

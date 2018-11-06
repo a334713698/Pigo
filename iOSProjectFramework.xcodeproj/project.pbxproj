@@ -109,6 +109,7 @@
 		B6FFB0A621748EC700076F44 /* PGCheckinView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0A521748EC700076F44 /* PGCheckinView.m */; };
 		B6FFB0A921748ECD00076F44 /* PGStatisticsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0A821748ECD00076F44 /* PGStatisticsView.m */; };
 		B6FFB0AD2175873A00076F44 /* PGCheckinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */; };
+		D650B1B6219161AF003084D4 /* PGLocalNotiTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D650B1B5219161AF003084D4 /* PGLocalNotiTool.m */; };
 		D6D5D2A1217D986900FF34D0 /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */; };
 		D6D5D2A4217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A3217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m */; };
 		D6D5D2A72180195A00FF34D0 /* PGTaskListAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A62180195A00FF34D0 /* PGTaskListAddView.m */; };
@@ -414,6 +415,8 @@
 		B6FFB0A821748ECD00076F44 /* PGStatisticsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStatisticsView.m; sourceTree = "<group>"; };
 		B6FFB0AB2175873A00076F44 /* PGCheckinCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCheckinCell.h; sourceTree = "<group>"; };
 		B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCheckinCell.m; sourceTree = "<group>"; };
+		D650B1B4219161AF003084D4 /* PGLocalNotiTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGLocalNotiTool.h; sourceTree = "<group>"; };
+		D650B1B5219161AF003084D4 /* PGLocalNotiTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGLocalNotiTool.m; sourceTree = "<group>"; };
 		D6D5D29F217D986900FF34D0 /* NSDate+Calendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calendar.h"; sourceTree = "<group>"; };
 		D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
 		D6D5D2A2217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStatisticsAndCheckinViewModel.h; sourceTree = "<group>"; };
@@ -1501,6 +1504,7 @@
 		B6E26A88201AF3F2006C7650 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				D650B1B321916189003084D4 /* PGLocalNotiTool */,
 				D6D9C246217731A400EF9D91 /* DJTools */,
 				B68B522F21539F9600C1254F /* PGWatchTransTool */,
 				B6CC3263214A635D00E66D64 /* DJDB */,
@@ -1676,6 +1680,15 @@
 				B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */,
 			);
 			path = PGCheckinCell;
+			sourceTree = "<group>";
+		};
+		D650B1B321916189003084D4 /* PGLocalNotiTool */ = {
+			isa = PBXGroup;
+			children = (
+				D650B1B4219161AF003084D4 /* PGLocalNotiTool.h */,
+				D650B1B5219161AF003084D4 /* PGLocalNotiTool.m */,
+			);
+			path = PGLocalNotiTool;
 			sourceTree = "<group>";
 		};
 		D6D5D29E217D984D00FF34D0 /* NSDate+Calendar */ = {
@@ -2254,6 +2267,7 @@
 				B6A60F412141003D000A737D /* PGFocusButton.m in Sources */,
 				B6A60F2F2140F659000A737D /* NSString+Device.m in Sources */,
 				B6CC326D214A676B00E66D64 /* LaunchViewController.m in Sources */,
+				D650B1B6219161AF003084D4 /* PGLocalNotiTool.m in Sources */,
 				B6A60F2A2140F659000A737D /* NSData+ImageCompression.m in Sources */,
 				D6D9C2A72179B21000EF9D91 /* AATooltip.m in Sources */,
 				D6D9C2A42179B21000EF9D91 /* AAPlotOptions.m in Sources */,

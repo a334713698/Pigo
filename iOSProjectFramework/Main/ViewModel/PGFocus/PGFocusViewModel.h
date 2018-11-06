@@ -24,6 +24,7 @@ typedef void(^UpdateTomatoCount)();
 
 @property (nonatomic, copy) UpdateTomatoCount updateCount;
 
+@property (nonatomic, assign) NSTimeInterval endTimeStamp;
 
 //- (void)setCurrentFocusState:(PGFocusState)currentFocusState timeLabel:(UILabel*)timeLabel leftButton:(PGFocusButton*)leftButton centerButton:(PGFocusButton*)centerButton rightButton:(PGFocusButton*)rightButton;
 

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (Stamp)
++ (NSTimeInterval)nowStamp;
+
 ///时间转换成时间戳
 - (NSString *)dateToTimeStamp;
 ///时间戳转换成时间

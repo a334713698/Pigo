@@ -9,6 +9,10 @@
 #import "NSDate+Stamp.h"
 
 @implementation NSDate (Stamp)
++ (NSTimeInterval)nowStamp{
+    return [[NSDate new] timeIntervalSince1970];
+}
+
 
 /**
  *  时间转换成时间戳
