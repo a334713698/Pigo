@@ -163,6 +163,7 @@
     if (_timer.isValid) {
         [_timer invalidate];
         _timer = nil;
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
     }
 }
 
