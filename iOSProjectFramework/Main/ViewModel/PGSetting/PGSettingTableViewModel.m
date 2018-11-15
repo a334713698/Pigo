@@ -112,7 +112,7 @@
     
     if (contentType == PGSettingContentTypeDataSync) {
         [self DataSync];
-    }else if (contentType == PGSettingContentTypeStatistics){
+    }else if (contentType == PGSettingContentTypeStatistics || contentType == PGSettingContentTypeRecycleBin){
         if (self.didSelectItemBlock) {
             self.didSelectItemBlock(indexPath, cellDic);
         }

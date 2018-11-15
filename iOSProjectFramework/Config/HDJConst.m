@@ -23,6 +23,9 @@ const CGFloat PGFocusBtnCenterXOffset = 20;
 //PGTaskCell
 const CGFloat PGTaskCellHeight = 85;
 
+//PGRecycleBinTaskCell
+const CGFloat PGRecycleBinTaskCellHeight = 85;
+
 //PGTaskListAddCollectionViewCell
 const CGFloat PGTaskListAddCollectionViewTitleHeight = 40;
 const CGFloat PGTaskListAddCollectionViewCellSize = 35;

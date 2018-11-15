@@ -9,6 +9,7 @@
 #import "PGSettingViewController.h"
 #import "PGSettingTableViewModel.h"
 #import "PGTotalStatisticsViewController.h"
+#import "PGRecycleBinViewController.h"
 
 @interface PGSettingViewController ()
 
@@ -72,9 +73,19 @@
     WS(weakSelf)
     [self.tableViewModel handleWithTable:self.tableView];
     self.tableViewModel.didSelectItemBlock = ^(NSIndexPath *indexPath, NSDictionary* cellDic) {
-        PGTotalStatisticsViewController* next = [PGTotalStatisticsViewController new];
-        [weakSelf.navigationController pushViewController:next animated:YES];
+        PGSettingContentType contentType = [cellDic[@"contentType"] integerValue];
+        [weakSelf jumpPageWithContType:contentType];
     };
+}
+
+- (void)jumpPageWithContType:(PGSettingContentType)contentType{
+    if (contentType == PGSettingContentTypeStatistics) {
+        PGTotalStatisticsViewController* next = [PGTotalStatisticsViewController new];
+        [self.navigationController pushViewController:next animated:YES];
+    }else if (contentType == PGSettingContentTypeRecycleBin){
+        PGRecycleBinViewController* next = [PGRecycleBinViewController new];
+        [self.navigationController pushViewController:next animated:YES];
+    }
 }
 
 @end

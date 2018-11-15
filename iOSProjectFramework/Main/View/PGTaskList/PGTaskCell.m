@@ -67,14 +67,14 @@
     }];
     _bgImageView.clipsToBounds = YES;
     
-    UIButton* playButton = [UIButton new];
-    [_contView addSubview:playButton];
-    [playButton setImage:IMAGE(@"icon_play") forState:UIControlStateNormal];
-    [playButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    _playButton = [UIButton new];
+    [_contView addSubview:_playButton];
+    [_playButton setImage:IMAGE(@"icon_play") forState:UIControlStateNormal];
+    [_playButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
         make.right.mas_equalTo(-20);
     }];
-    [playButton addTarget:self action:@selector(playButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_playButton addTarget:self action:@selector(playButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UIImageView* tomatoIV = [[UIImageView alloc] initWithImage:IMAGE(@"icon_tomato")];
     [_contView addSubview:tomatoIV];
@@ -83,6 +83,7 @@
         make.top.mas_equalTo(self.contView.mas_centerY).offset(5);
         make.width.height.mas_equalTo(adaptWidth(20));
     }];
+    _tomatoIV = tomatoIV;
 
     [self.qm_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(tomatoIV.mas_right).offset(5);

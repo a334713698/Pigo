@@ -29,7 +29,8 @@
 
     return @[
              @{@"sectionTitle":@"",@"data":@[
-                       @{@"title":@"统计",@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeStatistics)}
+                       @{@"title":@"统计",@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeStatistics)},
+                       @{@"title":@"番茄回收站",@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeRecycleBin)}
              ]},
             
              @{@"sectionTitle":@"专注设置",@"data":@[

@@ -18,6 +18,8 @@
 @property (nonatomic, copy) NSString *bg_color;
 
 @property (nonatomic, assign) BOOL is_default;
+//0：未被删除，1：已删除，2：彻底删除
+@property (nonatomic, assign) BOOL is_delete;
 
 
 

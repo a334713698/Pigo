@@ -35,6 +35,9 @@ UIKIT_EXTERN const CGFloat PGFocusBtnCenterXOffset;
 //PGTaskCell
 UIKIT_EXTERN const CGFloat PGTaskCellHeight;
 
+//PGRecycleBinTaskCell
+UIKIT_EXTERN const CGFloat PGRecycleBinTaskCellHeight;
+
 //PGTaskListAddCollectionViewCell
 UIKIT_EXTERN const CGFloat PGTaskListAddCollectionViewTitleHeight;
 UIKIT_EXTERN const CGFloat PGTaskListAddCollectionViewCellSize;

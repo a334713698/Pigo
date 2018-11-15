@@ -110,6 +110,8 @@
 		B6FFB0A921748ECD00076F44 /* PGStatisticsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0A821748ECD00076F44 /* PGStatisticsView.m */; };
 		B6FFB0AD2175873A00076F44 /* PGCheckinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */; };
 		D650B1B6219161AF003084D4 /* PGLocalNotiTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D650B1B5219161AF003084D4 /* PGLocalNotiTool.m */; };
+		D681CC4F219D3C4E00D8B3B9 /* PGRecycleBinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D681CC4E219D3C4E00D8B3B9 /* PGRecycleBinViewController.m */; };
+		D681CC54219D474E00D8B3B9 /* PGRecycleBinTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D681CC53219D474E00D8B3B9 /* PGRecycleBinTaskCell.m */; };
 		D6D5D2A1217D986900FF34D0 /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */; };
 		D6D5D2A4217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A3217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m */; };
 		D6D5D2A72180195A00FF34D0 /* PGTaskListAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A62180195A00FF34D0 /* PGTaskListAddView.m */; };
@@ -417,6 +419,10 @@
 		B6FFB0AC2175873A00076F44 /* PGCheckinCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCheckinCell.m; sourceTree = "<group>"; };
 		D650B1B4219161AF003084D4 /* PGLocalNotiTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGLocalNotiTool.h; sourceTree = "<group>"; };
 		D650B1B5219161AF003084D4 /* PGLocalNotiTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGLocalNotiTool.m; sourceTree = "<group>"; };
+		D681CC4D219D3C4E00D8B3B9 /* PGRecycleBinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGRecycleBinViewController.h; sourceTree = "<group>"; };
+		D681CC4E219D3C4E00D8B3B9 /* PGRecycleBinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGRecycleBinViewController.m; sourceTree = "<group>"; };
+		D681CC52219D474E00D8B3B9 /* PGRecycleBinTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGRecycleBinTaskCell.h; sourceTree = "<group>"; };
+		D681CC53219D474E00D8B3B9 /* PGRecycleBinTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGRecycleBinTaskCell.m; sourceTree = "<group>"; };
 		D6D5D29F217D986900FF34D0 /* NSDate+Calendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calendar.h"; sourceTree = "<group>"; };
 		D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
 		D6D5D2A2217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStatisticsAndCheckinViewModel.h; sourceTree = "<group>"; };
@@ -1435,6 +1441,7 @@
 		B6E26A78201AF3F2006C7650 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D681CC4C219D3C2C00D8B3B9 /* PGRecycleBin */,
 				D6D5D2C62181AFF300FF34D0 /* PGTotalStatistics */,
 				B6FFB09921747CD400076F44 /* PGStatisticsAndCheckin */,
 				B6CF21702147B26800067470 /* PGSetting */,
@@ -1460,6 +1467,7 @@
 		B6E26A7C201AF3F2006C7650 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D681CC51219D473C00D8B3B9 /* PGRecycleBin */,
 				D6D5D2CE2181B24B00FF34D0 /* PGTotalStatistics */,
 				B6FFB09D217483D100076F44 /* PGStatisticsAndCheckin */,
 				B6CC325F2149F3B200E66D64 /* PGSetting */,
@@ -1689,6 +1697,24 @@
 				D650B1B5219161AF003084D4 /* PGLocalNotiTool.m */,
 			);
 			path = PGLocalNotiTool;
+			sourceTree = "<group>";
+		};
+		D681CC4C219D3C2C00D8B3B9 /* PGRecycleBin */ = {
+			isa = PBXGroup;
+			children = (
+				D681CC4D219D3C4E00D8B3B9 /* PGRecycleBinViewController.h */,
+				D681CC4E219D3C4E00D8B3B9 /* PGRecycleBinViewController.m */,
+			);
+			path = PGRecycleBin;
+			sourceTree = "<group>";
+		};
+		D681CC51219D473C00D8B3B9 /* PGRecycleBin */ = {
+			isa = PBXGroup;
+			children = (
+				D681CC52219D474E00D8B3B9 /* PGRecycleBinTaskCell.h */,
+				D681CC53219D474E00D8B3B9 /* PGRecycleBinTaskCell.m */,
+			);
+			path = PGRecycleBin;
 			sourceTree = "<group>";
 		};
 		D6D5D29E217D984D00FF34D0 /* NSDate+Calendar */ = {
@@ -2167,6 +2193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6FFB0A921748ECD00076F44 /* PGStatisticsView.m in Sources */,
+				D681CC4F219D3C4E00D8B3B9 /* PGRecycleBinViewController.m in Sources */,
 				B6CF21802147B41700067470 /* PGSettingViewModel.m in Sources */,
 				D6D5D2AA2180347200FF34D0 /* PGTaskListAddCollectionViewCell.m in Sources */,
 				D6D9C25E21798D7C00EF9D91 /* PGStatisticsTodayPeriodCell.m in Sources */,
@@ -2175,6 +2202,7 @@
 				D6D9C2AB2179B21000EF9D91 /* AAColumn.m in Sources */,
 				D6D9C2BA2179B21000EF9D91 /* AAChartModel.m in Sources */,
 				B6A60E212140F0C1000A737D /* HDJConst.m in Sources */,
+				D681CC54219D474E00D8B3B9 /* PGRecycleBinTaskCell.m in Sources */,
 				B60D501D21524A54008CE149 /* NSData+Conversion.m in Sources */,
 				B6CF21832147B43300067470 /* PGSettingTableViewModel.m in Sources */,
 				B6A60F282140F659000A737D /* UIView+Extension.m in Sources */,
