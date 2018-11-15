@@ -54,9 +54,15 @@
             centerButton.pg_state = PGFocusButtonStateObsolete;
             centerButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
                 NSLog(@"%@",centerButton.currentTitle);
-                [weakSelf settingFocuseEndTime:0];
-                [weakSelf timerInvalidate];
-                weakSelf.currentFocusState = PGFocusStateWillFocus;
+                UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n确定中止任务吗？" preferredStyle:UIAlertControllerStyleAlert];
+                
+                [alertVC addAction:[UIAlertAction actionWithTitle:@"确定中止" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                    [weakSelf settingFocuseEndTime:0];
+                    [weakSelf timerInvalidate];
+                    weakSelf.currentFocusState = PGFocusStateWillFocus;
+                }]];
+                [alertVC addAction:[UIAlertAction actionWithTitle:@"手抖了" style:UIAlertActionStyleDefault handler:nil]];
+                [TOPVC presentViewController:alertVC animated:YES completion:nil];
                 return [RACSignal empty];
             }];
             
