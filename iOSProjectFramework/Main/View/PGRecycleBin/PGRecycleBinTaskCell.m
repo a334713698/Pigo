@@ -20,8 +20,8 @@
         [_qm_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
             make.width.mas_lessThanOrEqualTo(SCREEN_WIDTH*0.75);
-            make.centerY.mas_equalTo(0);
-//            make.bottom.mas_equalTo(self.contView.mas_centerY).offset(-1);
+//            make.centerY.mas_equalTo(0);
+            make.bottom.mas_equalTo(self.contView.mas_centerY).offset(-1);
         }];
     }
     return _qm_titleLabel;
@@ -36,7 +36,7 @@
         [_contView addSubview:_qm_detailLabel];
         [_qm_detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.qm_titleLabel.mas_left);
-            make.top.mas_equalTo(self.contView.mas_centerY).offset(5);
+            make.top.mas_equalTo(self.contView.mas_centerY).offset(8);
         }];
     }
     return _qm_detailLabel;
@@ -100,7 +100,6 @@
     if ([self.delegate respondsToSelector:@selector(taskCell:restoreButtonDidClick:)]) {
         [self.delegate taskCell:self restoreButtonDidClick:sender];
     }
-    
 }
 
 

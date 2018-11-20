@@ -11,6 +11,7 @@
 @interface PGTaskListModel : BaseModel
 
 @property (nonatomic, assign) long add_time;
+@property (nonatomic, assign) long delete_time;
 
 @property (nonatomic, assign) NSInteger task_id;
 

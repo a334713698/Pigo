@@ -282,7 +282,7 @@
 - (void)deleteTask:(PGTaskListModel*)task{
     [self.dbMgr.database open];
     
-    [self.dbMgr updateDataIntoTableWithName:task_list_table andSearchModelsArr:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(task.task_id)]] andNewModelsArr:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"1"],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"0"]]];
+    [self.dbMgr updateDataIntoTableWithName:task_list_table andSearchModelsArr:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(task.task_id)]] andNewModelsArr:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"1"],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"delete_time" andSymbol:@"=" andSpecificValue:[[NSDate new] dateToTimeStamp]],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"0"],]];
     
     [self.dbMgr.database close];
     [self watch_updateTaskList];

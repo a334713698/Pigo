@@ -48,7 +48,7 @@
     if (!_taskList) {
         _taskList = [NSMutableArray array];
         [self.dbMgr.database open];
-        NSArray* taskArr = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"1"] withSortedMode:NSOrderedDescending andColumnName:@"task_id"];
+        NSArray* taskArr = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"1"] withSortedMode:NSOrderedDescending andColumnName:@"delete_time"];
         if (taskArr.count) {
             [_taskList addObjectsFromArray:[PGTaskListModel mj_objectArrayWithKeyValuesArray:taskArr]];
         }
@@ -87,7 +87,7 @@
     }
     cell.contView.backgroundColor = [UIColor colorWithHexStr:task.bg_color];
     [cell setLabelShadow:cell.qm_titleLabel content:task.task_name];
-//    [cell setLabelShadow:cell.qm_detailLabel content:[NSDate dateToCustomFormateString:@"yyyy-MM-dd hh:mm" andTimeStamp:@(task.add_time)]];
+    [cell setLabelShadow:cell.qm_detailLabel content:[[NSDate dateToCustomFormateString:@"yyyy-MM-dd hh:mm:ss" andTimeStamp:@(task.delete_time)] stringByAppendingString:@" 删除"]];
     cell.taskModel = task;
     return cell;
 }
@@ -100,8 +100,14 @@
     WS(weakSelf)
     
     UITableViewRowAction *abandonAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"彻底\n删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        [weakSelf removeAndReloadWithIndexPath:indexPath];
-        [weakSelf abandonTask:task];
+        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n彻底删除就真没了，确定吗？" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"彻底删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [weakSelf removeAndReloadWithIndexPath:indexPath];
+            [weakSelf abandonTask:task];
+        }]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"手抖了" style:UIAlertActionStyleDefault handler:nil]];
+        [weakSelf presentViewController:alertVC animated:YES completion:nil];
     }];
     abandonAction.backgroundColor = [UIColor redColor];
     return @[abandonAction];

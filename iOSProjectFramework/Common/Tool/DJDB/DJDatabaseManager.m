@@ -38,22 +38,28 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     [self.database close];
 }
 
+//初始化数据库列
+- (void)initializeCategory{
+    [self alterIntoTable:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int",@"add_time":@"long",@"delete_time":@"long",@"is_delete":@"int",@"bg_color":@"text"}];
+    [self alterIntoTable:tomato_record_table andKeyValues:@{@"tomato_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long",@"count":@"integer",@"length":@"long"}];
+    [self alterIntoTable:check_in_table andKeyValues:@{@"checkin_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long"}];
+}
+
 //创建task_list_table，并插入数据
 - (void)init_task_list_table{
     
-    BOOL isCreated = [self createTableWithName:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int",@"add_time":@"long",@"is_delete":@"int",@"bg_color":@"text"}];
-    
+    BOOL isCreated = [self createTableWithName:task_list_table andKeyValues:@{@"task_id":@"integer primary key"}];
+
     if (isCreated) {
         DLog(@"任务表创建成功");
-//        [self insertDataIntoTableWithName:task_list_table andKeyValues:@{@"task_name":TextFromNSString(@"Swift学习"),@"is_default":@"1"}];
     }
 }
 
 //创建tomato_record_table，并插入数据
 - (void)init_tomato_record_table{
     
-    BOOL isCreated = [self createTableWithName:tomato_record_table andKeyValues:@{@"tomato_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long",@"count":@"integer",@"length":@"long"}];
-    
+    BOOL isCreated = [self createTableWithName:tomato_record_table andKeyValues:@{@"tomato_id":@"integer primary key"}];
+
     if (isCreated) {
         DLog(@"番茄记录表创建成功");
     }
@@ -62,8 +68,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
 //创建check_in_table，并插入数据
 - (void)init_check_in_table{
     
-    BOOL isCreated = [self createTableWithName:check_in_table andKeyValues:@{@"checkin_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long"}];
-    
+    BOOL isCreated = [self createTableWithName:check_in_table andKeyValues:@{@"checkin_id":@"integer primary key"}];
+
     if (isCreated) {
         DLog(@"番茄记录表创建成功");
     }
@@ -80,6 +86,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     }
     NSString* tupleStr = [tupleArr componentsJoinedByString:@","];
     NSString* sqlStr = [NSString stringWithFormat:@"create table if not exists %@ (%@)",name,tupleStr];
+    if (!tupleArr.count) {
+        sqlStr = [NSString stringWithFormat:@"create table if not exists %@",name];
+    }
     
     BOOL isSuccess = [self.database executeUpdate:sqlStr];
     
@@ -362,7 +371,28 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     }
     
     return total;
+}
 
+///插入新的字段
+- (void)alterIntoTable:(NSString*)table andKeyValues:(NSDictionary*)key_values{
+    NSArray<NSString*>* allKeys = key_values.allKeys;
+    if (!allKeys.count) {
+        return;
+    }
+    [self.database open];
+    for (NSString* cate in allKeys) {
+        if (![self.database columnExists:cate inTableWithName:table]){
+            NSString* data_type = key_values[cate];
+            NSString *alertStr = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ %@",table,cate,data_type];
+            BOOL isSuccess = [self.database executeUpdate:alertStr];
+            if(isSuccess){
+                NSLog(@"字段插入成功");
+            }else{
+                NSLog(@"字段插入失败");
+            }
+        }
+    }
+    [self.database close];
 }
 
 

@@ -80,13 +80,13 @@
     [_contView addSubview:tomatoIV];
     [tomatoIV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.qm_titleLabel.mas_left);
-        make.top.mas_equalTo(self.contView.mas_centerY).offset(5);
+        make.top.mas_equalTo(self.contView.mas_centerY).offset(8);
         make.width.height.mas_equalTo(adaptWidth(20));
     }];
     _tomatoIV = tomatoIV;
 
     [self.qm_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(tomatoIV.mas_right).offset(5);
+        make.left.mas_equalTo(tomatoIV.mas_right).offset(8);
 //        make.centerY.mas_equalTo(tomatoIV.mas_centerY);
         make.bottom.mas_equalTo(tomatoIV.mas_bottom);
     }];

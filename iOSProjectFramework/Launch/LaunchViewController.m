@@ -54,6 +54,8 @@
 }
 
 - (void)enterMain {
+    [[DJDatabaseManager sharedDJDatabaseManager] initializeDB];
+    [[DJDatabaseManager sharedDJDatabaseManager] initializeCategory];
     PGFocusViewController* focusVC = [PGFocusViewController new];
     BaseNavigationController *navi = [[BaseNavigationController alloc] initWithRootViewController:focusVC];
     [UIApplication sharedApplication].keyWindow.rootViewController = navi;
@@ -125,7 +127,7 @@
 - (void)enterButtonClickAction:(UIButton *)sender {
     [USER_DEFAULT setObject:@1 forKey:IS_FIRSTOPEN];
     [USER_DEFAULT synchronize];
-    [[DJDatabaseManager sharedDJDatabaseManager] initializeDB];
+//    [[DJDatabaseManager sharedDJDatabaseManager] initializeDB];
     // 进入应用主界面
     [self enterMain];
 }

@@ -16,6 +16,7 @@
 
 + (instancetype)sharedDJDatabaseManager;
 - (void)initializeDB;
+- (void)initializeCategory;
 
 ///创建表格
 - (BOOL)createTableWithName:(NSString*)name andKeyValues:(NSDictionary*)key_values;
