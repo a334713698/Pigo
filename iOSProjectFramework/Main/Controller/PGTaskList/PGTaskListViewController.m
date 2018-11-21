@@ -51,6 +51,10 @@
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
         }];
+        
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
+        [_tableView addGestureRecognizer:longPress];
+
     }
     return _tableView;
 }
@@ -67,7 +71,7 @@
     if (!_taskList) {
         _taskList = [NSMutableArray array];
         [self.dbMgr.database open];
-        NSArray* taskArr = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"0"] withSortedMode:NSOrderedDescending andColumnName:@"task_id"];
+        NSArray* taskArr = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"0"] withSortedMode:NSOrderedAscending andColumnName:@"priority"];
         if (taskArr.count) {
             NSString* dateToday = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
             NSArray* recordDicArr = [self.dbMgr getAllTuplesFromTabel:tomato_record_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateToday)]];
@@ -103,11 +107,17 @@
 }
 
 #pragma mark - view func
+- (void)dealloc {
+    NSLog(@"%@--dealloc", [self class]);
+    [self removeNotiObserver];
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = BACKGROUND_COLOR;
     self.tableView.hidden = NO;
     [self initNav];
+    [self addNotiObserver];
 }
 
 #pragma mark - UITableViewDataSource
@@ -136,7 +146,6 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DLog(@"cell：%ld-%ld",indexPath.section,indexPath.row);
     
     PGStatisticsAndCheckinViewController* next = [PGStatisticsAndCheckinViewController new];
     BaseNavigationController* nav = [[BaseNavigationController alloc] initWithRootViewController:next];
@@ -266,6 +275,19 @@
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:settingButton],[[UIBarButtonItem alloc] initWithCustomView:addButton]];
 }
 
+- (void)addNotiObserver{
+    [NOTI_CENTER addObserver:self selector:@selector(recycleBinRestore) name:PGRecycleBinRestoreNotification object:nil];
+}
+
+- (void)removeNotiObserver{
+    [NOTI_CENTER removeObserver:self name:PGRecycleBinRestoreNotification object:nil];
+}
+
+- (void)recycleBinRestore{
+    _taskList = nil;
+    [self.tableView reloadData];
+}
+
 - (BOOL)judgingState{
     if (PGUserModelInstance.currentFocusState != PGFocusStateFocusing && PGUserModelInstance.currentFocusState != PGFocusStateShortBreaking && PGUserModelInstance.currentFocusState != PGFocusStateLongBreaking) {
         return NO;
@@ -316,6 +338,8 @@
     NSDictionary* tuples = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_time" andSymbol:@"=" andSpecificValue:now]].firstObject;
     model.task_id = [tuples[@"task_id"] integerValue];
     [self.dbMgr.database close];
+
+    [self priorityRedistribution];
     [self watch_updateTaskList];
     [self.addView clearTextField];
 }
@@ -339,9 +363,139 @@
     self.editTaskIndex = -1;
 }
 
+- (void)priorityRedistribution{
+    [self.dbMgr.database open];
+    for (NSInteger i = 0; i < self.taskList.count; i++) {
+        PGTaskListModel* model = self.taskList[i];
+        [self.dbMgr updateDataIntoTableWithName:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(model.task_id)] andNewModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"priority" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(i)]];
+    }
+    [self.dbMgr.database close];
+}
+
 - (void)watch_updateTaskList{
     [self.viewModel watch_updateTaskList:self.taskList.copy];
 }
 
+#pragma mark - UITableView Drag methods
+- (void)longPressGestureRecognized:(id)sender {
+    
+    UILongPressGestureRecognizer *longPress = (UILongPressGestureRecognizer *)sender;
+    UIGestureRecognizerState state = longPress.state;
+    
+    CGPoint location = [longPress locationInView:_tableView];
+    NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:location];
+    
+    static UIView       *snapshot = nil;        ///< A snapshot of the row user is moving.
+    static NSIndexPath  *sourceIndexPath = nil; ///< Initial index path, where gesture begins.
+    
+    switch (state) {
+        case UIGestureRecognizerStateBegan: {
+            if (indexPath) {
+                sourceIndexPath = indexPath;
+                
+                UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+                
+                // Take a snapshot of the selected row using helper method.
+                snapshot = [self customSnapshoFromView:cell];
+                
+                // Add the snapshot as subview, centered at cell's center...
+                __block CGPoint center = cell.center;
+                snapshot.center = center;
+                snapshot.alpha = 0.0;
+                [_tableView addSubview:snapshot];
+                [UIView animateWithDuration:0.25 animations:^{
+                    
+                    // Offset for gesture location.
+                    center.y = location.y;
+                    snapshot.center = center;
+                    snapshot.transform = CGAffineTransformMakeScale(1.05, 1.05);
+                    snapshot.alpha = 0.98;
+                    
+                    cell.alpha = 0.0f;
+                } completion:^(BOOL finished) {
+                    cell.hidden = YES;
+                }];
+            }
+            break;
+        }
+            
+        case UIGestureRecognizerStateChanged: {
+            CGPoint center = snapshot.center;
+            center.y = location.y;
+            snapshot.center = center;
+            
+            // Is destination valid and is it different from source?
+            if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
+                
+                // ... update data source.
+                [self.taskList exchangeObjectAtIndex:indexPath.section withObjectAtIndex:sourceIndexPath.section];
+                
+                // ... move the rows.
+                //                [_tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];
+                // ... move the section.
+                [_tableView moveSection:sourceIndexPath.section toSection:indexPath.section];
+                // ... and update source so it is in sync with UI changes.
+                sourceIndexPath = indexPath;
+            }
+            break;
+        }
+            
+        default: {
+            // Clean up.
+            WS(weakSelf)
+            UITableViewCell *cell = [_tableView cellForRowAtIndexPath:sourceIndexPath];
+            [UIView animateWithDuration:0.25 animations:^{
+                
+                snapshot.center = cell.center;
+                snapshot.transform = CGAffineTransformIdentity;
+                snapshot.alpha = 0.0;
+                
+                cell.alpha = 1.0f;
+            } completion:^(BOOL finished) {
+                cell.hidden = NO;
+                [snapshot removeFromSuperview];
+                snapshot = nil;
+                [weakSelf priorityRedistribution];
+            }];
+            sourceIndexPath = nil;
+            break;
+        }
+    }
+}
+
+#pragma mark - Helper methods
+/** @brief Returns a customized snapshot of a given view. */
+- (UIView *)customSnapshoFromView:(UIView *)inputView {
+    UIView* snapshot = nil;
+    
+    if ([[[UIDevice currentDevice] systemVersion] doubleValue] < 7.0) {
+        //ios7.0 以下通过截图形式保存快照
+        snapshot = [self customSnapShortFromViewEx:inputView];
+    }else{
+        //ios7.0 系统的快照方法
+        snapshot = [inputView snapshotViewAfterScreenUpdates:YES];
+    }
+    
+    snapshot.layer.masksToBounds = NO;
+    snapshot.layer.cornerRadius = 0.0;
+    snapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0);
+    snapshot.layer.shadowRadius = 5.0;
+    snapshot.layer.shadowOpacity = 0.4;
+    
+    return snapshot;
+}
+
+- (UIView *)customSnapShortFromViewEx:(UIView *)inputView
+{
+    CGSize inSize = inputView.bounds.size;
+    // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了
+    UIGraphicsBeginImageContextWithOptions(inSize, NO, [UIScreen mainScreen].scale);
+    [inputView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image= UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageView* snapshot = [[UIImageView alloc] initWithImage:image];
+    
+    return snapshot;
+}
 
 @end

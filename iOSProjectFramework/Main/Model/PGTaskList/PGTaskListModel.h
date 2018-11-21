@@ -22,6 +22,8 @@
 //0：未被删除，1：已删除，2：彻底删除
 @property (nonatomic, assign) BOOL is_delete;
 
+@property (nonatomic, assign) NSInteger priority;
+
 
 
 @property (nonatomic, assign) NSInteger count;

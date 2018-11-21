@@ -15,3 +15,5 @@ NSString *const PGFocusUpdateCountNotification = @"PGFocusUpdateCountNotificatio
 NSString *const PGSettingUpdateNotification = @"PGSettingUpdateNotification";
 
 NSString *const PGFocusStateUpdateNotification = @"PGFocusStateUpdateNotification";
+
+NSString *const PGRecycleBinRestoreNotification = @"PGRecycleBinRestoreNotification";

@@ -40,7 +40,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
 
 //初始化数据库列
 - (void)initializeCategory{
-    [self alterIntoTable:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int",@"add_time":@"long",@"delete_time":@"long",@"is_delete":@"int",@"bg_color":@"text"}];
+    [self alterIntoTable:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int",@"add_time":@"long",@"delete_time":@"long",@"is_delete":@"int",@"bg_color":@"text",@"priority":@"integer"}];
     [self alterIntoTable:tomato_record_table andKeyValues:@{@"tomato_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long",@"count":@"integer",@"length":@"long"}];
     [self alterIntoTable:check_in_table andKeyValues:@{@"checkin_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long"}];
 }

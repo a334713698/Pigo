@@ -19,4 +19,6 @@ UIKIT_EXTERN NSString *const PGSettingUpdateNotification;
 
 UIKIT_EXTERN NSString *const PGFocusStateUpdateNotification;
 
+UIKIT_EXTERN NSString *const PGRecycleBinRestoreNotification;
+
 #endif /* HDJNotification_h */

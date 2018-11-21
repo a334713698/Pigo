@@ -153,6 +153,7 @@
 
 - (void)restoreAction:(PGTaskListModel*)task{
     [self delTask:task withDelTag:0];
+    [NOTI_CENTER postNotificationName:PGRecycleBinRestoreNotification object:nil];
 }
 
 - (void)abandonTask:(PGTaskListModel*)task{
