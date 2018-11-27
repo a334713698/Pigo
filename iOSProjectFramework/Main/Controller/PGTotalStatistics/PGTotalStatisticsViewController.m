@@ -26,6 +26,7 @@
     PGStatisticsPeriodType _periodType;
     NSInteger _chartCellSectionIndex;
     NSInteger _pieChartCellSectionIndex;
+    BOOL _showHour;
 }
 
 #pragma mark - lazy load
@@ -96,6 +97,7 @@
     
     if (indexPath.section == self.cellNames.count) {
         PGTotalStatisticsTaskItemCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PGTotalStatisticsTaskItemCell"];
+        cell.showHour = _showHour;
         cell.itemModel = self.itemsArr[indexPath.row];
         return cell;
     }
@@ -150,6 +152,10 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DLog(@"cell：%ld-%ld",indexPath.section,indexPath.row);
+    if (indexPath.section == self.cellNames.count) {
+        _showHour = !_showHour;
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

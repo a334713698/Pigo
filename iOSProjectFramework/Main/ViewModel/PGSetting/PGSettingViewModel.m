@@ -29,8 +29,7 @@
 
     return @[
              @{@"sectionTitle":@"",@"data":@[
-                       @{@"title":@"统计",@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeStatistics)},
-                       @{@"title":@"番茄回收站",@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeRecycleBin)}
+                       @{@"title":@"统计",@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeStatistics)}
              ]},
             
              @{@"sectionTitle":@"专注设置",@"data":@[
@@ -45,8 +44,9 @@
                        @{@"title":@"屏幕常亮",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeScreenBright),@"detail":@(PGConfigMgr.ScreenBright),@"paraName":PGConfigParaScreenBright},
              ]},
 
-             @{@"sectionTitle":@"数据同步",@"data":@[
-                       @{@"title":@"最近同步时间",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeDataSync),@"detail":@"未同步",@"paraName":PGConfigParaDataSync}
+             @{@"sectionTitle":@"烂番茄",@"data":@[
+//                       @{@"title":@"最近同步时间",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeDataSync),@"detail":@"未同步",@"paraName":PGConfigParaDataSync}
+                       @{@"title":@"番茄回收站",@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeRecycleBin)}
                        ]}
              ];
 }

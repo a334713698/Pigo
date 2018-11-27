@@ -103,7 +103,13 @@
         make.width.mas_equalTo(perBGViewWidth*itemModel.countPercent);
     }];
     _countLab.text = [NSString stringWithFormat:@"%ld个",itemModel.totalCount];
-    _lenLab.text = [NSString stringWithFormat:@"%ld分钟",itemModel.totalLength];
     _perLab.text = [NSString stringWithFormat:@"%.1lf%%",itemModel.countPercent*100];
+    
+    if (_showHour) {
+        _lenLab.text = [NSString stringWithFormat:@"%.1lf小时",itemModel.totalLength / 60.0];
+    }else{
+        _lenLab.text = [NSString stringWithFormat:@"%ld分钟",itemModel.totalLength];
+    }
+
 }
 @end

@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) PGTotalStatisticsItemModel *itemModel;
 
+@property (nonatomic, assign) BOOL showHour;
+
 @end
 
 NS_ASSUME_NONNULL_END

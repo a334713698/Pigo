@@ -26,6 +26,7 @@ PROPERTY_SINGLETON_FOR_CLASS(PGUserModel)
 
 - (void)setup;
 - (void)completeATomato;
+- (void)completeATomatoAt:(NSDate*)date;
 
 - (NSArray*)getCheckinRecordWithTaskID:(NSInteger)task_id;
 - (NSArray*)getTomatoRecordWithTaskID:(NSInteger)task_id;

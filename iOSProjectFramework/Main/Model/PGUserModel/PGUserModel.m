@@ -10,17 +10,11 @@
 
 @interface PGUserModel ()
 
-@property (nonatomic, copy) NSString *dateNowStr;
-
 @end
 
 @implementation PGUserModel
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(PGUserModel)
-
-- (NSString *)dateNowStr{
-    return  _dateNowStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
-}
 
 - (DJDatabaseManager *)dbMgr{
     if (!_dbMgr) {
@@ -46,12 +40,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGUserModel)
 }
 
 - (void)completeATomato{
+    [self completeATomatoAt:[NSDate new]];
+}
+
+- (void)completeATomatoAt:(NSDate*)date{
     DLog(@"完成一个番茄");
     if (!self.currentTask.task_id) {
         return;
     }
     [self.dbMgr.database open];
-    NSString* dateToday = self.dateNowStr;
+    NSString* dateToday = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:date];
     
     NSDictionary* tuple = [self.dbMgr getAllTuplesFromTabel:tomato_record_table andSearchModels:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(self.currentTask.task_id)],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateToday)]]].firstObject;
     
@@ -112,7 +110,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGUserModel)
 - (BOOL)checkeMissingTomato{
     NSInteger stamp = [USER_DEFAULT integerForKey:Focuse_EndTimeStamp];
     if ([NSDate nowStamp] > stamp) {
-        [self completeATomato];
+        [self completeATomatoAt:[NSDate timeStampToDateWithTimeStamp:@(stamp)]];
         [USER_DEFAULT setInteger:0 forKey:Focuse_EndTimeStamp];
         [USER_DEFAULT synchronize];
         [self updateTomato];
