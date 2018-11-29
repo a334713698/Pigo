@@ -394,11 +394,8 @@
                 sourceIndexPath = indexPath;
                 
                 UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-                
-                // Take a snapshot of the selected row using helper method.
                 snapshot = [self customSnapshoFromView:cell];
                 
-                // Add the snapshot as subview, centered at cell's center...
                 __block CGPoint center = cell.center;
                 snapshot.center = center;
                 snapshot.alpha = 0.0;
@@ -423,15 +420,10 @@
             center.y = location.y;
             snapshot.center = center;
             
-            // Is destination valid and is it different from source?
             if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
                 
-                // ... update data source.
                 [self.taskList exchangeObjectAtIndex:indexPath.section withObjectAtIndex:sourceIndexPath.section];
-                
-                // ... move the section.
                 [_tableView moveSection:sourceIndexPath.section toSection:indexPath.section];
-                // ... and update source so it is in sync with UI changes.
                 sourceIndexPath = indexPath;
             }
             break;
