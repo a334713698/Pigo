@@ -403,12 +403,11 @@
                 snapshot.center = center;
                 snapshot.alpha = 0.0;
                 [_tableView addSubview:snapshot];
-                [UIView animateWithDuration:0.25 animations:^{
+                [UIView animateWithDuration:0.3 animations:^{
                     
                     // Offset for gesture location.
                     center.y = location.y;
                     snapshot.center = center;
-                    snapshot.transform = CGAffineTransformMakeScale(1.05, 1.05);
                     snapshot.alpha = 0.98;
                     
                     cell.alpha = 0.0f;
@@ -430,8 +429,6 @@
                 // ... update data source.
                 [self.taskList exchangeObjectAtIndex:indexPath.section withObjectAtIndex:sourceIndexPath.section];
                 
-                // ... move the rows.
-                //                [_tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];
                 // ... move the section.
                 [_tableView moveSection:sourceIndexPath.section toSection:indexPath.section];
                 // ... and update source so it is in sync with UI changes.
@@ -444,12 +441,12 @@
             // Clean up.
             WS(weakSelf)
             UITableViewCell *cell = [_tableView cellForRowAtIndexPath:sourceIndexPath];
-            [UIView animateWithDuration:0.25 animations:^{
+            [UIView animateWithDuration:0.3 animations:^{
                 
                 snapshot.center = cell.center;
-                snapshot.transform = CGAffineTransformIdentity;
-                snapshot.alpha = 0.0;
-                
+                snapshot.layer.shadowOpacity = 0.01;
+                snapshot.layer.shadowRadius = 0.01;
+
                 cell.alpha = 1.0f;
             } completion:^(BOOL finished) {
                 cell.hidden = NO;
@@ -464,37 +461,12 @@
 }
 
 #pragma mark - Helper methods
-/** @brief Returns a customized snapshot of a given view. */
 - (UIView *)customSnapshoFromView:(UIView *)inputView {
-    UIView* snapshot = nil;
-    
-    if ([[[UIDevice currentDevice] systemVersion] doubleValue] < 7.0) {
-        //ios7.0 以下通过截图形式保存快照
-        snapshot = [self customSnapShortFromViewEx:inputView];
-    }else{
-        //ios7.0 系统的快照方法
-        snapshot = [inputView snapshotViewAfterScreenUpdates:YES];
-    }
-    
-    snapshot.layer.masksToBounds = NO;
-    snapshot.layer.cornerRadius = 0.0;
-    snapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0);
-    snapshot.layer.shadowRadius = 5.0;
+    //ios7.0+ 的快照方法
+    UIView* snapshot = [inputView snapshotViewAfterScreenUpdates:YES];
+    snapshot.layer.shadowOffset = CGSizeMake(-3, 3);
+    snapshot.layer.shadowRadius = 3;
     snapshot.layer.shadowOpacity = 0.4;
-    
-    return snapshot;
-}
-
-- (UIView *)customSnapShortFromViewEx:(UIView *)inputView
-{
-    CGSize inSize = inputView.bounds.size;
-    // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了
-    UIGraphicsBeginImageContextWithOptions(inSize, NO, [UIScreen mainScreen].scale);
-    [inputView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image= UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    UIImageView* snapshot = [[UIImageView alloc] initWithImage:image];
-    
     return snapshot;
 }
 
