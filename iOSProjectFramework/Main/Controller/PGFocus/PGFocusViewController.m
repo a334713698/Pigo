@@ -150,7 +150,17 @@
     self.contView.hidden = NO;
     [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
     [self addNotiObserver];
+    
+//    UIButton* comButton = [UIButton createButtonWithFontSize:adaptFont(17) andTitleColor:BLACK_COLOR andTitle:@"测试-完成" andBackgroundColor:WHITE_COLOR];
+//    [self.view addSubview:comButton];
+//    comButton.frame = CGRectMake(0, 50, 100, 50);
+//    [comButton addTarget:self action:@selector(comButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+- (void)comButtonClick:(UIButton*)sender{
+    [PGUserModelInstance completeATomato];
+}
+
 
 
 #pragma mark - SEL
