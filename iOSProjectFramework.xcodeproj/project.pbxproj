@@ -112,6 +112,9 @@
 		D650B1B6219161AF003084D4 /* PGLocalNotiTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D650B1B5219161AF003084D4 /* PGLocalNotiTool.m */; };
 		D681CC4F219D3C4E00D8B3B9 /* PGRecycleBinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D681CC4E219D3C4E00D8B3B9 /* PGRecycleBinViewController.m */; };
 		D681CC54219D474E00D8B3B9 /* PGRecycleBinTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D681CC53219D474E00D8B3B9 /* PGRecycleBinTaskCell.m */; };
+		D6C0CD7521D328580050F180 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C0CD7421D328580050F180 /* NotificationCenter.framework */; };
+		D6C0CD7921D328580050F180 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0CD7821D328580050F180 /* TodayViewController.m */; };
+		D6C0CD8021D328580050F180 /* pigoWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D6C0CD7321D328580050F180 /* pigoWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D6D5D2A1217D986900FF34D0 /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */; };
 		D6D5D2A4217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A3217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m */; };
 		D6D5D2A72180195A00FF34D0 /* PGTaskListAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A62180195A00FF34D0 /* PGTaskListAddView.m */; };
@@ -182,6 +185,13 @@
 			remoteGlobalIDString = B615E9C7214B604F008D0B6E;
 			remoteInfo = pigoWatchOS;
 		};
+		D6C0CD7E21D328580050F180 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6E26A51201AF2A0006C7650 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6C0CD7221D328580050F180;
+			remoteInfo = pigoWidget;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -205,6 +215,17 @@
 				B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6C0CD8421D328580050F180 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D6C0CD8021D328580050F180 /* pigoWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -423,6 +444,12 @@
 		D681CC4E219D3C4E00D8B3B9 /* PGRecycleBinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGRecycleBinViewController.m; sourceTree = "<group>"; };
 		D681CC52219D474E00D8B3B9 /* PGRecycleBinTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGRecycleBinTaskCell.h; sourceTree = "<group>"; };
 		D681CC53219D474E00D8B3B9 /* PGRecycleBinTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGRecycleBinTaskCell.m; sourceTree = "<group>"; };
+		D6C0CD7321D328580050F180 /* pigoWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pigoWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6C0CD7421D328580050F180 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D6C0CD7721D328580050F180 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		D6C0CD7821D328580050F180 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		D6C0CD7D21D328580050F180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6C0CD8521D329C70050F180 /* pigoWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pigoWidget.entitlements; sourceTree = "<group>"; };
 		D6D5D29F217D986900FF34D0 /* NSDate+Calendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calendar.h"; sourceTree = "<group>"; };
 		D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
 		D6D5D2A2217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStatisticsAndCheckinViewModel.h; sourceTree = "<group>"; };
@@ -557,6 +584,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6C0CD7021D328580050F180 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6C0CD7521D328580050F180 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -564,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */,
+				D6C0CD7421D328580050F180 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1381,6 +1417,7 @@
 				B6E26A5B201AF2A0006C7650 /* iOSProjectFramework */,
 				B615E9C9214B604F008D0B6E /* pigoWatchOS */,
 				B615E9D8214B6050008D0B6E /* pigoWatchOS Extension */,
+				D6C0CD7621D328580050F180 /* pigoWidget */,
 				B6E26A5A201AF2A0006C7650 /* Products */,
 				FF0285D71F7433273CFC716F /* Pods */,
 				56F6681CD3364E96184F2DEC /* Frameworks */,
@@ -1393,6 +1430,7 @@
 				B6E26A59201AF2A0006C7650 /* iOSProjectFramework.app */,
 				B615E9C8214B604F008D0B6E /* pigoWatchOS.app */,
 				B615E9D4214B6050008D0B6E /* pigoWatchOS Extension.appex */,
+				D6C0CD7321D328580050F180 /* pigoWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1717,6 +1755,17 @@
 			path = PGRecycleBin;
 			sourceTree = "<group>";
 		};
+		D6C0CD7621D328580050F180 /* pigoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0CD8521D329C70050F180 /* pigoWidget.entitlements */,
+				D6C0CD7721D328580050F180 /* TodayViewController.h */,
+				D6C0CD7821D328580050F180 /* TodayViewController.m */,
+				D6C0CD7D21D328580050F180 /* Info.plist */,
+			);
+			path = pigoWidget;
+			sourceTree = "<group>";
+		};
 		D6D5D29E217D984D00FF34D0 /* NSDate+Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -2009,16 +2058,35 @@
 				D672B9A184CB576C344A1140 /* [CP] Embed Pods Frameworks */,
 				C08B852EF9AD26DD8A1FBAC2 /* [CP] Copy Pods Resources */,
 				B615E9F0214B6050008D0B6E /* Embed Watch Content */,
+				D6C0CD8421D328580050F180 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B615E9E7214B6050008D0B6E /* PBXTargetDependency */,
+				D6C0CD7F21D328580050F180 /* PBXTargetDependency */,
 			);
 			name = iOSProjectFramework;
 			productName = iOSProjectFramework;
 			productReference = B6E26A59201AF2A0006C7650 /* iOSProjectFramework.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D6C0CD7221D328580050F180 /* pigoWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6C0CD8321D328580050F180 /* Build configuration list for PBXNativeTarget "pigoWidget" */;
+			buildPhases = (
+				D6C0CD6F21D328580050F180 /* Sources */,
+				D6C0CD7021D328580050F180 /* Frameworks */,
+				D6C0CD7121D328580050F180 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pigoWidget;
+			productName = pigoWidget;
+			productReference = D6C0CD7321D328580050F180 /* pigoWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -2046,6 +2114,15 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					D6C0CD7221D328580050F180 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = B6E26A54201AF2A0006C7650 /* Build configuration list for PBXProject "iOSProjectFramework" */;
@@ -2064,6 +2141,7 @@
 				B6E26A58201AF2A0006C7650 /* iOSProjectFramework */,
 				B615E9C7214B604F008D0B6E /* pigoWatchOS */,
 				B615E9D3214B6050008D0B6E /* pigoWatchOS Extension */,
+				D6C0CD7221D328580050F180 /* pigoWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -2097,6 +2175,13 @@
 				D6D9C29F2179B21000EF9D91 /* AAJSFiles.bundle in Resources */,
 				B6E26A66201AF2A0006C7650 /* Assets.xcassets in Resources */,
 				B6E26A64201AF2A0006C7650 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6C0CD7121D328580050F180 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2318,6 +2403,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6C0CD6F21D328580050F180 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6C0CD7921D328580050F180 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2330,6 +2423,11 @@
 			isa = PBXTargetDependency;
 			target = B615E9C7214B604F008D0B6E /* pigoWatchOS */;
 			targetProxy = B615E9E6214B6050008D0B6E /* PBXContainerItemProxy */;
+		};
+		D6C0CD7F21D328580050F180 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6C0CD7221D328580050F180 /* pigoWidget */;
+			targetProxy = D6C0CD7E21D328580050F180 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2581,6 +2679,47 @@
 			};
 			name = Release;
 		};
+		D6C0CD8121D328580050F180 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HHW6X6T397;
+				INFOPLIST_FILE = pigoWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.pigoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D6C0CD8221D328580050F180 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HHW6X6T397;
+				INFOPLIST_FILE = pigoWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.pigoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2616,6 +2755,15 @@
 			buildConfigurations = (
 				B6E26A70201AF2A0006C7650 /* Debug */,
 				B6E26A71201AF2A0006C7650 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6C0CD8321D328580050F180 /* Build configuration list for PBXNativeTarget "pigoWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6C0CD8121D328580050F180 /* Debug */,
+				D6C0CD8221D328580050F180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
