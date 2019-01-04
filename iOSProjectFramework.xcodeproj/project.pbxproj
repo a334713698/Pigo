@@ -91,7 +91,6 @@
 		B6CF21802147B41700067470 /* PGSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF217F2147B41700067470 /* PGSettingViewModel.m */; };
 		B6CF21832147B43300067470 /* PGSettingTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF21822147B43300067470 /* PGSettingTableViewModel.m */; };
 		B6E26A5E201AF2A0006C7650 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A5D201AF2A0006C7650 /* AppDelegate.m */; };
-		B6E26A64201AF2A0006C7650 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E26A62201AF2A0006C7650 /* Main.storyboard */; };
 		B6E26A66201AF2A0006C7650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E26A65201AF2A0006C7650 /* Assets.xcassets */; };
 		B6E26A69201AF2A0006C7650 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E26A67201AF2A0006C7650 /* LaunchScreen.storyboard */; };
 		B6E26A6C201AF2A0006C7650 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A6B201AF2A0006C7650 /* main.m */; };
@@ -168,6 +167,18 @@
 		D6D9C2BC2179B21000EF9D91 /* AASeriesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D9C29C2179B20F00EF9D91 /* AASeriesElement.m */; };
 		D6E33C172187F04600C43875 /* PGTotalStatisticsChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E33C162187F04600C43875 /* PGTotalStatisticsChartModel.m */; };
 		D6E33C1E218800AD00C43875 /* PGTotalStatisticsItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E33C1D218800AD00C43875 /* PGTotalStatisticsItemModel.m */; };
+		D6FD8DD121DF0992002F4244 /* PGTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8DCF21DF0992002F4244 /* PGTaskListModel.m */; };
+		D6FD8E0E21DF0E7C002F4244 /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8DFC21DF0E7C002F4244 /* MJPropertyType.m */; };
+		D6FD8E0F21DF0E7C002F4244 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8DFF21DF0E7C002F4244 /* NSObject+MJKeyValue.m */; };
+		D6FD8E1021DF0E7C002F4244 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8E0021DF0E7C002F4244 /* MJProperty.m */; };
+		D6FD8E1121DF0E7C002F4244 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8E0221DF0E7C002F4244 /* NSObject+MJCoding.m */; };
+		D6FD8E1221DF0E7C002F4244 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8E0421DF0E7C002F4244 /* MJExtensionConst.m */; };
+		D6FD8E1321DF0E7C002F4244 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8E0521DF0E7C002F4244 /* NSObject+MJProperty.m */; };
+		D6FD8E1421DF0E7C002F4244 /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8E0721DF0E7C002F4244 /* NSObject+MJClass.m */; };
+		D6FD8E1521DF0E7C002F4244 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8E0821DF0E7C002F4244 /* NSString+MJExtension.m */; };
+		D6FD8E1621DF0E7C002F4244 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8E0921DF0E7C002F4244 /* MJPropertyKey.m */; };
+		D6FD8E1721DF0E7C002F4244 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8E0D21DF0E7C002F4244 /* MJFoundation.m */; };
+		D6FD8E1C21DF1366002F4244 /* PGTaskListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FD8E1B21DF1366002F4244 /* PGTaskListCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -400,7 +411,6 @@
 		B6E26A59201AF2A0006C7650 /* iOSProjectFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProjectFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E26A5C201AF2A0006C7650 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B6E26A5D201AF2A0006C7650 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B6E26A63201AF2A0006C7650 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6E26A65201AF2A0006C7650 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6E26A68201AF2A0006C7650 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6E26A6A201AF2A0006C7650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -558,6 +568,38 @@
 		D6E33C162187F04600C43875 /* PGTotalStatisticsChartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsChartModel.m; sourceTree = "<group>"; };
 		D6E33C1C218800AD00C43875 /* PGTotalStatisticsItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTotalStatisticsItemModel.h; sourceTree = "<group>"; };
 		D6E33C1D218800AD00C43875 /* PGTotalStatisticsItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTotalStatisticsItemModel.m; sourceTree = "<group>"; };
+		D6FD8DBF21DE08F9002F4244 /* HDJGlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJGlobalVariables.h; sourceTree = "<group>"; };
+		D6FD8DC321DE08F9002F4244 /* HDJConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJConfig.h; sourceTree = "<group>"; };
+		D6FD8DC821DE0AA7002F4244 /* ProjectPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectPrefix.pch; sourceTree = "<group>"; };
+		D6FD8DC921DE0CC5002F4244 /* iOSProjectFramework.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSProjectFramework.entitlements; sourceTree = "<group>"; };
+		D6FD8DCF21DF0992002F4244 /* PGTaskListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTaskListModel.m; sourceTree = "<group>"; };
+		D6FD8DD021DF0992002F4244 /* PGTaskListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTaskListModel.h; sourceTree = "<group>"; };
+		D6FD8DF321DF0C9E002F4244 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D6FD8DF521DF0CA8002F4244 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D6FD8DF721DF0DE8002F4244 /* pigoWatchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pigoWatchOS.entitlements; sourceTree = "<group>"; };
+		D6FD8DF921DF0E7C002F4244 /* MJPropertyKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyKey.h; sourceTree = "<group>"; };
+		D6FD8DFA21DF0E7C002F4244 /* NSObject+MJClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJClass.h"; sourceTree = "<group>"; };
+		D6FD8DFB21DF0E7C002F4244 /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
+		D6FD8DFC21DF0E7C002F4244 /* MJPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyType.m; sourceTree = "<group>"; };
+		D6FD8DFD21DF0E7C002F4244 /* NSObject+MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJProperty.h"; sourceTree = "<group>"; };
+		D6FD8DFE21DF0E7C002F4244 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
+		D6FD8DFF21DF0E7C002F4244 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		D6FD8E0021DF0E7C002F4244 /* MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJProperty.m; sourceTree = "<group>"; };
+		D6FD8E0121DF0E7C002F4244 /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
+		D6FD8E0221DF0E7C002F4244 /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
+		D6FD8E0321DF0E7C002F4244 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
+		D6FD8E0421DF0E7C002F4244 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
+		D6FD8E0521DF0E7C002F4244 /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
+		D6FD8E0621DF0E7C002F4244 /* MJPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyType.h; sourceTree = "<group>"; };
+		D6FD8E0721DF0E7C002F4244 /* NSObject+MJClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJClass.m"; sourceTree = "<group>"; };
+		D6FD8E0821DF0E7C002F4244 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		D6FD8E0921DF0E7C002F4244 /* MJPropertyKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyKey.m; sourceTree = "<group>"; };
+		D6FD8E0A21DF0E7C002F4244 /* MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJProperty.h; sourceTree = "<group>"; };
+		D6FD8E0B21DF0E7C002F4244 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
+		D6FD8E0C21DF0E7C002F4244 /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
+		D6FD8E0D21DF0E7C002F4244 /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		D6FD8E1A21DF1366002F4244 /* PGTaskListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListCollectionViewCell.h; sourceTree = "<group>"; };
+		D6FD8E1B21DF1366002F4244 /* PGTaskListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListCollectionViewCell.m; sourceTree = "<group>"; };
 		D702A9089C56B6A20595648C /* Pods-iOSProjectFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProjectFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -598,6 +640,8 @@
 		56F6681CD3364E96184F2DEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6FD8DF521DF0CA8002F4244 /* Foundation.framework */,
+				D6FD8DF321DF0C9E002F4244 /* UIKit.framework */,
 				4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */,
 				D6C0CD7421D328580050F180 /* NotificationCenter.framework */,
 			);
@@ -674,6 +718,7 @@
 		B615E9C9214B604F008D0B6E /* pigoWatchOS */ = {
 			isa = PBXGroup;
 			children = (
+				D6FD8DF721DF0DE8002F4244 /* pigoWatchOS.entitlements */,
 				B615E9CA214B604F008D0B6E /* Interface.storyboard */,
 				B615E9CD214B604F008D0B6E /* Assets.xcassets */,
 				B615E9CF214B604F008D0B6E /* Info.plist */,
@@ -1438,6 +1483,7 @@
 		B6E26A5B201AF2A0006C7650 /* iOSProjectFramework */ = {
 			isa = PBXGroup;
 			children = (
+				D6FD8DC921DE0CC5002F4244 /* iOSProjectFramework.entitlements */,
 				B6E26A8A201AF3F2006C7650 /* BaseClass */,
 				B6E26A7E201AF3F2006C7650 /* Common */,
 				B6E26A89201AF3F2006C7650 /* Launch */,
@@ -1456,7 +1502,6 @@
 				B68B524C2154D9DD00C1254F /* Intents.intentdefinition */,
 				B6E26AA9201AF4A1006C7650 /* ProjectPrefix.pch */,
 				B6E26AA4201AF457006C7650 /* Config */,
-				B6E26A62201AF2A0006C7650 /* Main.storyboard */,
 				B6E26A67201AF2A0006C7650 /* LaunchScreen.storyboard */,
 				B6E26A6A201AF2A0006C7650 /* Info.plist */,
 				B6CC325D2149EE2C00E66D64 /* PGConfigDefault.plist */,
@@ -1758,7 +1803,12 @@
 		D6C0CD7621D328580050F180 /* pigoWidget */ = {
 			isa = PBXGroup;
 			children = (
+				D6FD8DD221DF0C36002F4244 /* Common */,
+				D6FD8E1821DF1344002F4244 /* View */,
+				D6FD8DCA21DF05F0002F4244 /* Model */,
+				D6FD8DBE21DE08F9002F4244 /* Config */,
 				D6C0CD8521D329C70050F180 /* pigoWidget.entitlements */,
+				D6FD8DC821DE0AA7002F4244 /* ProjectPrefix.pch */,
 				D6C0CD7721D328580050F180 /* TodayViewController.h */,
 				D6C0CD7821D328580050F180 /* TodayViewController.m */,
 				D6C0CD7D21D328580050F180 /* Info.plist */,
@@ -2000,6 +2050,85 @@
 			path = PGTotalStatistics;
 			sourceTree = "<group>";
 		};
+		D6FD8DBE21DE08F9002F4244 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD8DC321DE08F9002F4244 /* HDJConfig.h */,
+				D6FD8DBF21DE08F9002F4244 /* HDJGlobalVariables.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		D6FD8DCA21DF05F0002F4244 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD8DCB21DF05FD002F4244 /* PGTaskList */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6FD8DCB21DF05FD002F4244 /* PGTaskList */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD8DD021DF0992002F4244 /* PGTaskListModel.h */,
+				D6FD8DCF21DF0992002F4244 /* PGTaskListModel.m */,
+			);
+			path = PGTaskList;
+			sourceTree = "<group>";
+		};
+		D6FD8DD221DF0C36002F4244 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD8DF821DF0E7C002F4244 /* MJExtension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D6FD8DF821DF0E7C002F4244 /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD8DF921DF0E7C002F4244 /* MJPropertyKey.h */,
+				D6FD8DFA21DF0E7C002F4244 /* NSObject+MJClass.h */,
+				D6FD8DFB21DF0E7C002F4244 /* NSString+MJExtension.h */,
+				D6FD8DFC21DF0E7C002F4244 /* MJPropertyType.m */,
+				D6FD8DFD21DF0E7C002F4244 /* NSObject+MJProperty.h */,
+				D6FD8DFE21DF0E7C002F4244 /* MJExtensionConst.h */,
+				D6FD8DFF21DF0E7C002F4244 /* NSObject+MJKeyValue.m */,
+				D6FD8E0021DF0E7C002F4244 /* MJProperty.m */,
+				D6FD8E0121DF0E7C002F4244 /* MJFoundation.h */,
+				D6FD8E0221DF0E7C002F4244 /* NSObject+MJCoding.m */,
+				D6FD8E0321DF0E7C002F4244 /* MJExtension.h */,
+				D6FD8E0421DF0E7C002F4244 /* MJExtensionConst.m */,
+				D6FD8E0521DF0E7C002F4244 /* NSObject+MJProperty.m */,
+				D6FD8E0621DF0E7C002F4244 /* MJPropertyType.h */,
+				D6FD8E0721DF0E7C002F4244 /* NSObject+MJClass.m */,
+				D6FD8E0821DF0E7C002F4244 /* NSString+MJExtension.m */,
+				D6FD8E0921DF0E7C002F4244 /* MJPropertyKey.m */,
+				D6FD8E0A21DF0E7C002F4244 /* MJProperty.h */,
+				D6FD8E0B21DF0E7C002F4244 /* NSObject+MJKeyValue.h */,
+				D6FD8E0C21DF0E7C002F4244 /* NSObject+MJCoding.h */,
+				D6FD8E0D21DF0E7C002F4244 /* MJFoundation.m */,
+			);
+			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		D6FD8E1821DF1344002F4244 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD8E1921DF134F002F4244 /* PGTaskListCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6FD8E1921DF134F002F4244 /* PGTaskListCell */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD8E1A21DF1366002F4244 /* PGTaskListCollectionViewCell.h */,
+				D6FD8E1B21DF1366002F4244 /* PGTaskListCollectionViewCell.m */,
+			);
+			path = PGTaskListCell;
+			sourceTree = "<group>";
+		};
 		FF0285D71F7433273CFC716F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2100,19 +2229,29 @@
 					B615E9C7214B604F008D0B6E = {
 						CreatedOnToolsVersion = 9.4.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B615E9D3214B6050008D0B6E = {
 						CreatedOnToolsVersion = 9.4.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
 					B6E26A58201AF2A0006C7650 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					D6C0CD7221D328580050F180 = {
 						CreatedOnToolsVersion = 10.1;
@@ -2174,7 +2313,6 @@
 				B6CC325E2149EE2C00E66D64 /* PGConfigDefault.plist in Resources */,
 				D6D9C29F2179B21000EF9D91 /* AAJSFiles.bundle in Resources */,
 				B6E26A66201AF2A0006C7650 /* Assets.xcassets in Resources */,
-				B6E26A64201AF2A0006C7650 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2407,7 +2545,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6FD8E1421DF0E7C002F4244 /* NSObject+MJClass.m in Sources */,
+				D6FD8E1621DF0E7C002F4244 /* MJPropertyKey.m in Sources */,
+				D6FD8E0F21DF0E7C002F4244 /* NSObject+MJKeyValue.m in Sources */,
+				D6FD8E1721DF0E7C002F4244 /* MJFoundation.m in Sources */,
+				D6FD8E0E21DF0E7C002F4244 /* MJPropertyType.m in Sources */,
+				D6FD8E1221DF0E7C002F4244 /* MJExtensionConst.m in Sources */,
+				D6FD8E1121DF0E7C002F4244 /* NSObject+MJCoding.m in Sources */,
 				D6C0CD7921D328580050F180 /* TodayViewController.m in Sources */,
+				D6FD8E1021DF0E7C002F4244 /* MJProperty.m in Sources */,
+				D6FD8DD121DF0992002F4244 /* PGTaskListModel.m in Sources */,
+				D6FD8E1C21DF1366002F4244 /* PGTaskListCollectionViewCell.m in Sources */,
+				D6FD8E1521DF0E7C002F4244 /* NSString+MJExtension.m in Sources */,
+				D6FD8E1321DF0E7C002F4244 /* NSObject+MJProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2440,14 +2590,6 @@
 			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
-		B6E26A62201AF2A0006C7650 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B6E26A63201AF2A0006C7650 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B6E26A67201AF2A0006C7650 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2466,6 +2608,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "pigoWatchOS Extension/pigoWatchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
@@ -2487,6 +2630,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "pigoWatchOS Extension/pigoWatchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
@@ -2508,6 +2652,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = pigoWatchOS/pigoWatchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				IBSC_MODULE = pigoWatchOS_Extension;
@@ -2528,6 +2673,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = pigoWatchOS/pigoWatchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				IBSC_MODULE = pigoWatchOS_Extension;
@@ -2650,6 +2796,7 @@
 			baseConfigurationReference = 2412AEA92032584BCA54A4D1 /* Pods-iOSProjectFramework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFramework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
@@ -2667,6 +2814,7 @@
 			baseConfigurationReference = D702A9089C56B6A20595648C /* Pods-iOSProjectFramework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFramework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
@@ -2688,6 +2836,7 @@
 				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWidget/ProjectPrefix.pch";
 				INFOPLIST_FILE = pigoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -2709,6 +2858,7 @@
 				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWidget/ProjectPrefix.pch";
 				INFOPLIST_FILE = pigoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";

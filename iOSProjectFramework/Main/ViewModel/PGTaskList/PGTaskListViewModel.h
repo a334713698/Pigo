@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PGTaskListViewModel : BaseViewModel
 
+- (void)saveListData:(NSArray<PGTaskListModel*>*)taskModels;
 - (void)watch_updateTaskList:(NSArray<PGTaskListModel*>*)list;
 
 @end

@@ -14,6 +14,17 @@
 
 @implementation PGTaskListViewModel
 
+- (void)saveListData:(NSArray<PGTaskListModel*>*)taskModels{
+    NSMutableArray* kvArr = [NSMutableArray array];
+    for (PGTaskListModel *model in taskModels) {
+        [kvArr addObject:[model mj_keyValues]];
+    }
+    NSUserDefaults *sharedUD = [[NSUserDefaults alloc] initWithSuiteName:@"group.hdj.pigo"];
+    [sharedUD setValue:[kvArr mj_JSONData] forKey:TaskListData];
+    [sharedUD synchronize];
+}
+
+
 - (void)watch_updateTaskList:(NSArray<PGTaskListModel*>*)list{
     NSArray* arr = [PGTaskListModel mj_keyValuesArrayWithObjectArray:list];
     if ([PGWatchTransTool canSendMsgToWatch]){

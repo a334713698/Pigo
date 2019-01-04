@@ -23,4 +23,6 @@
 
 #define Focuse_EndTimeStamp                    @"Focuse_EndTimeStamp"
 
+#define TaskListData                    @"TaskListData"
+
 #endif /* HDJGlobalVariables_h */

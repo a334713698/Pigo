@@ -91,7 +91,7 @@
             }else{
                 [_taskList addObjectsFromArray:[PGTaskListModel mj_objectArrayWithKeyValuesArray:taskArr]];
             }
-            
+            [self saveListData];
             [self.viewModel watch_updateTaskList:_taskList.copy];
         }
         [self.dbMgr.database close];
@@ -203,7 +203,7 @@
     DLog(@"新增任务");
     _isEdit = NO;
     [QMSlideUpAlertView showAlertWithContentView:self.addView withSlideType:QMAlertSlideUpTypeCenter canTouchDissmiss:NO];
-    [self.addView.textField becomeFirstResponder];
+//    [self.addView.textField becomeFirstResponder];
 }
 
 - (void)navSetPressed{
@@ -288,6 +288,10 @@
     [self.tableView reloadData];
 }
 
+- (void)saveListData{
+    [self.viewModel saveListData:self.taskList];
+}
+
 - (BOOL)judgingState{
     if (PGUserModelInstance.currentFocusState != PGFocusStateFocusing && PGUserModelInstance.currentFocusState != PGFocusStateShortBreaking && PGUserModelInstance.currentFocusState != PGFocusStateLongBreaking) {
         return NO;
@@ -308,6 +312,7 @@
     
     [self.dbMgr.database close];
     [self watch_updateTaskList];
+    [self saveListData];
     if (PGUserModelInstance.currentTask.task_id == task.task_id) {
         PGTaskListModel *currentTask;
         PGUserModelInstance.currentTask = currentTask;
@@ -321,7 +326,8 @@
     self.addView.colorIndex = [self.addView.colorArr indexOfObject:task.bg_color];
     self.addView.hexStr = self.addView.colorArr[self.addView.colorIndex];
     [self.addView.collectionView reloadData];
-    [self.addView.textField becomeFirstResponder];
+    [self saveListData];
+//    [self.addView.textField becomeFirstResponder];
 }
 
 - (void)addTask{
@@ -341,6 +347,7 @@
 
     [self priorityRedistribution];
     [self watch_updateTaskList];
+    [self saveListData];
     [self.addView clearTextField];
 }
 
@@ -357,6 +364,7 @@
     
     [self.dbMgr.database close];
     [self watch_updateTaskList];
+    [self saveListData];
     [self.addView clearTextField];
 
     _isEdit = NO;

@@ -1,0 +1,23 @@
+
+//
+//  ProjectPrefix.pch
+//  iOSProjectFramework
+//
+//  Created by quanmai on 2019/1/3.
+//  Copyright © 2019 洪冬介. All rights reserved.
+//
+
+#ifndef ProjectPrefix_pch
+#define ProjectPrefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "HDJConfig.h"
+#import "HDJGlobalVariables.h"
+#import <Foundation/Foundation.h>
+#import "Common/MJExtension/MJExtension.h"
+#import "UIView+QMLayer.h"
+
+
+#endif /* ProjectPrefix_pch */
