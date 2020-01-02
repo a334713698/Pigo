@@ -19,6 +19,8 @@
     [super viewDidLoad];
     // 取消导航栏的透明效果
     self.navigationBar.translucent = NO;
+    
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {

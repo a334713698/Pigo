@@ -63,6 +63,8 @@
     
     // 设置导航栏
     [self initNavView];
+    
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
 }
 
 - (void)initNavView {
