@@ -44,13 +44,16 @@
 
 #pragma mark - init Method
 - (void)initSubviews {
-    if (![[USER_DEFAULT objectForKey:IS_FIRSTOPEN] boolValue]) {
-        // 是第一次进入
-        [self appActiveByFirst];
-    } else {
-        // 不是第一次进入
-        [self appActiveByNotFirst];
-    }
+//    if (![[USER_DEFAULT objectForKey:IS_FIRSTOPEN] boolValue]) {
+//        // 是第一次进入
+//        [self appActiveByFirst];
+//    } else {
+//        // 不是第一次进入
+//        [self appActiveByNotFirst];
+//    }
+    
+    [self appActiveByNotFirst];
+
 }
 
 - (void)enterMain {

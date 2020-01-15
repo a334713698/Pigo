@@ -24,6 +24,7 @@
 		B6177EB32175C23A00BECE98 /* CalendarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6177EB22175C23A00BECE98 /* CalendarItemView.m */; };
 		B66110832045504700D648E9 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110822045504700D648E9 /* BaseTabBarController.m */; };
 		B6760E0F215B3AFC005E97A4 /* PGSettingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6760E0E215B3AFC005E97A4 /* PGSettingDataModel.m */; };
+		B67D5F2223CEF085008A13B7 /* PGExConfigDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = B67D5F2123CEF085008A13B7 /* PGExConfigDefault.plist */; };
 		B68887AF2150A42B0013874D /* PGFocusInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */; };
 		B68B51F721538F5500C1254F /* PGTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B51F521538F5500C1254F /* PGTaskListModel.m */; };
 		B68B52112153912A00C1254F /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B51FE2153912A00C1254F /* MJPropertyType.m */; };
@@ -113,7 +114,7 @@
 		D681CC54219D474E00D8B3B9 /* PGRecycleBinTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D681CC53219D474E00D8B3B9 /* PGRecycleBinTaskCell.m */; };
 		D6C0CD7521D328580050F180 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C0CD7421D328580050F180 /* NotificationCenter.framework */; };
 		D6C0CD7921D328580050F180 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0CD7821D328580050F180 /* TodayViewController.m */; };
-		D6C0CD8021D328580050F180 /* pigoWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D6C0CD7321D328580050F180 /* pigoWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D6C0CD8021D328580050F180 /* Pigo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D6C0CD7321D328580050F180 /* Pigo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D6D5D2A1217D986900FF34D0 /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A0217D986900FF34D0 /* NSDate+Calendar.m */; };
 		D6D5D2A4217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A3217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m */; };
 		D6D5D2A72180195A00FF34D0 /* PGTaskListAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A62180195A00FF34D0 /* PGTaskListAddView.m */; };
@@ -234,7 +235,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D6C0CD8021D328580050F180 /* pigoWidget.appex in Embed App Extensions */,
+				D6C0CD8021D328580050F180 /* Pigo.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +277,7 @@
 		B66110822045504700D648E9 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		B6760E0D215B3AFC005E97A4 /* PGSettingDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGSettingDataModel.h; sourceTree = "<group>"; };
 		B6760E0E215B3AFC005E97A4 /* PGSettingDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGSettingDataModel.m; sourceTree = "<group>"; };
+		B67D5F2123CEF085008A13B7 /* PGExConfigDefault.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGExConfigDefault.plist; sourceTree = "<group>"; };
 		B68887AD2150A42B0013874D /* PGFocusInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusInterfaceController.h; sourceTree = "<group>"; };
 		B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusInterfaceController.m; sourceTree = "<group>"; };
 		B68B51F521538F5500C1254F /* PGTaskListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTaskListModel.m; sourceTree = "<group>"; };
@@ -454,7 +456,7 @@
 		D681CC4E219D3C4E00D8B3B9 /* PGRecycleBinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGRecycleBinViewController.m; sourceTree = "<group>"; };
 		D681CC52219D474E00D8B3B9 /* PGRecycleBinTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGRecycleBinTaskCell.h; sourceTree = "<group>"; };
 		D681CC53219D474E00D8B3B9 /* PGRecycleBinTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGRecycleBinTaskCell.m; sourceTree = "<group>"; };
-		D6C0CD7321D328580050F180 /* pigoWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pigoWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6C0CD7321D328580050F180 /* Pigo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Pigo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C0CD7421D328580050F180 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		D6C0CD7721D328580050F180 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		D6C0CD7821D328580050F180 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 		B60D501E21525586008CE149 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				B67D5F2123CEF085008A13B7 /* PGExConfigDefault.plist */,
 				B60D502021525652008CE149 /* watchExtensionPrefix.pch */,
 				B68B521D215391A400C1254F /* PGConfig.h */,
 				B60D501F215255A7008CE149 /* PGWatchEnum.h */,
@@ -1475,7 +1478,7 @@
 				B6E26A59201AF2A0006C7650 /* iOSProjectFramework.app */,
 				B615E9C8214B604F008D0B6E /* pigoWatchOS.app */,
 				B615E9D4214B6050008D0B6E /* pigoWatchOS Extension.appex */,
-				D6C0CD7321D328580050F180 /* pigoWidget.appex */,
+				D6C0CD7321D328580050F180 /* Pigo.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2214,7 +2217,7 @@
 			);
 			name = pigoWidget;
 			productName = pigoWidget;
-			productReference = D6C0CD7321D328580050F180 /* pigoWidget.appex */;
+			productReference = D6C0CD7321D328580050F180 /* Pigo.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -2299,6 +2302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67D5F2223CEF085008A13B7 /* PGExConfigDefault.plist in Resources */,
 				B615E9E3214B6050008D0B6E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2843,7 +2847,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.pigoWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pigo;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2864,7 +2868,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.pigoWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pigo;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
