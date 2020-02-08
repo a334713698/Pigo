@@ -26,7 +26,9 @@
 #pragma mark - lazy load
 - (UISegmentedControl *)segmentedControl{
     if (!_segmentedControl) {
-        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"  统计  ",@"  打卡  "]];
+        NSString* seg1 = [NSString stringWithFormat:@"  %@  ",NSLocalizedString(@"Statistics", nil)];
+        NSString* seg2 = [NSString stringWithFormat:@"  %@  ",NSLocalizedString(@"Checkin", nil)];
+        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[seg1,seg2]];
         _segmentedControl.tintColor = WHITE_COLOR;
         _segmentedControl.selectedSegmentIndex = 0;
         [_segmentedControl addTarget:self action:@selector(segmentedControlValueChange:) forControlEvents:UIControlEventValueChanged];

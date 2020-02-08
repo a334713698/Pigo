@@ -39,7 +39,7 @@
     [super awakeWithContext:context];
     NSLog(@"awakeWithContext");
 //    [self addMenuItemWithItemIcon:WKMenuItemIconAdd title:@"添加" action:@selector(addTask)];
-    [self addMenuItemWithItemIcon:WKMenuItemIconResume title:@"刷新" action:@selector(refreshTaskList)];
+    [self addMenuItemWithItemIcon:WKMenuItemIconResume title:NSLocalizedString(@"Refresh", nil) action:@selector(refreshTaskList)];
     [self reloadData];
     
     [NOTI_CENTER addObserver:self selector:@selector(refreshTaskList) name:TaskLiskUpdateNotification object:nil];
@@ -63,21 +63,21 @@
     [self presentControllerWithName:@"PGFocusInterfaceController" context:model];
 }
 
-- (void)addTask{
-    NSLog(@"添加新任务");
-
-    WS(weakSelf)
-    [self presentTextInputControllerWithSuggestions:@[@"工作",@"学习"] allowedInputMode:WKTextInputModePlain completion:^(NSArray * _Nullable results) {
-        DLog(@"%@",results);
-        PGTaskListModel* model = [PGTaskListModel new];
-        model.task_name = results.firstObject;
-        [weakSelf.dataArr insertObject:model atIndex:0];
-        [weakSelf reloadData];
-        
-        //告诉手机，我添加了新的任务，并同步数据
-    }];
-    
-}
+//- (void)addTask{
+//    NSLog(@"添加新任务");
+//
+//    WS(weakSelf)
+//    [self presentTextInputControllerWithSuggestions:@[@"工作",@"学习"] allowedInputMode:WKTextInputModePlain completion:^(NSArray * _Nullable results) {
+//        DLog(@"%@",results);
+//        PGTaskListModel* model = [PGTaskListModel new];
+//        model.task_name = results.firstObject;
+//        [weakSelf.dataArr insertObject:model atIndex:0];
+//        [weakSelf reloadData];
+//        
+//        //告诉手机，我添加了新的任务，并同步数据
+//    }];
+//    
+//}
 
 - (void)refreshTaskList{
     _dataArr = nil;

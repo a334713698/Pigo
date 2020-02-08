@@ -38,7 +38,7 @@
     [super awakeWithContext:context];
     
     // Configure interface objects here.
-    [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"删除这个番茄" action:@selector(deleteTask)];
+    [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:NSLocalizedString(@"Delete Pigo", nil) action:@selector(deleteTask)];
 
     self.taskModel = context;
     [self.taskNameLab setText:self.taskModel.task_name];

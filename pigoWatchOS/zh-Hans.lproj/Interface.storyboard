@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14313.18" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14238.10"/>
+    </dependencies>
+    <scenes>
+        <!--番茄列表-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="InterfaceController" title="番茄列表" id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <table alignment="left" id="kLJ-go-6ru">
+                            <items>
+                                <tableRow identifier="taskCell" id="gxE-1w-Qjt" customClass="PGTaskListCell">
+                                    <group key="rootItem" width="1" alignment="left" id="cwA-sX-ohI">
+                                        <items>
+                                            <label width="0.65000000000000002" height="1" alignment="left" text="Label" textAlignment="left" numberOfLines="2" id="JBn-bA-Saj">
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="font" type="system" pointSize="15"/>
+                                            </label>
+                                            <imageView width="25" height="25" alignment="right" verticalAlignment="center" image="icon_tomato" contentMode="scaleAspectFit" id="ooA-Wf-yP1"/>
+                                            <label alignment="right" verticalAlignment="center" text="0" id="U32-Sd-2az"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="countLabel" destination="U32-Sd-2az" id="SH7-5e-yd8"/>
+                                        <outlet property="itemLabel" destination="JBn-bA-Saj" id="1YO-c0-I5d"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="kLJ-go-6ru" id="uGx-aI-Ukv"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="218.78260869565216" y="343.79464285714289"/>
+        </scene>
+        <!--专注-->
+        <scene sceneID="mFs-Qj-d2F">
+            <objects>
+                <controller identifier="PGFocusInterfaceController" title="专注" id="PhE-CP-vsO" customClass="PGFocusInterfaceController">
+                    <items>
+                        <label width="1" height="75" alignment="center" text="25:00" textAlignment="center" id="LtD-G7-RwL">
+                            <fontDescription key="font" type="system" pointSize="55"/>
+                        </label>
+                        <group width="1" height="30" alignment="left" id="F9u-GL-ccp">
+                            <items>
+                                <group width="0.48999999999999999" height="1" alignment="left" id="Oe9-Pq-ZdD">
+                                    <items>
+                                        <imageView width="25" height="25" alignment="center" verticalAlignment="center" image="icon_tomato" contentMode="scaleAspectFit" id="fAJ-tx-Ld2"/>
+                                        <label alignment="center" verticalAlignment="center" text="0" id="fwa-Ds-hrV"/>
+                                    </items>
+                                </group>
+                                <imageView width="2" height="0.59999999999999998" alignment="center" verticalAlignment="center" image="bg_white" id="63Z-po-2Zw"/>
+                                <group width="0.48999999999999999" alignment="right" id="Aw0-tN-dbW">
+                                    <items>
+                                        <label width="1" height="1" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="2BY-51-Wt9"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Button" id="hJi-W0-LWa">
+                            <connections>
+                                <action selector="topBtnClick" destination="PhE-CP-vsO" id="zLK-I2-77p"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Button" id="uvC-Rh-xiM">
+                            <connections>
+                                <action selector="bottomBtnClick" destination="PhE-CP-vsO" id="vnX-tq-GoK"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="bottomBtn" destination="uvC-Rh-xiM" id="RC2-OJ-fWg"/>
+                        <outlet property="taskNameLab" destination="2BY-51-Wt9" id="NII-Ei-ZOz"/>
+                        <outlet property="timeLab" destination="LtD-G7-RwL" id="p11-JW-M6U"/>
+                        <outlet property="topBtn" destination="hJi-W0-LWa" id="nac-cb-LPJ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="467.86956521739125" y="343.79464285714289"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

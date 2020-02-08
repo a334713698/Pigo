@@ -76,7 +76,11 @@
 }
 
 - (void)setupView{
-    NSArray<NSString*>* titleArr = @[@"加入天数",@"完成天数",@"连续天数",@"历史最高"];
+    NSArray<NSString*>* titleArr = @[
+        NSLocalizedString(@"Join days",nil),
+        NSLocalizedString(@"Complete days", nil),
+        NSLocalizedString(@"Consecutive days", nil),
+        NSLocalizedString(@"History highest", nil)];
     NSArray<UILabel*>* labArr = @[self.joinDaysLab,self.completedDaysLab,self.continuousDaysLab,self.highestDaysLab];
     
 
@@ -87,6 +91,8 @@
         [self addSubview:view];
         UILabel* titleLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:BLACK_COLOR andText:titleArr[i]];
         [view addSubview:titleLab];
+        titleLab.numberOfLines = 2;
+        titleLab.textAlignment = NSTextAlignmentCenter;
         [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(-adaptWidth(8));
             make.centerX.mas_equalTo(0);
@@ -102,7 +108,7 @@
     }
     
     CGFloat btnH = adaptWidth(40);
-    _checkinButton = [UIButton createButtonWithFontSize:adaptFont(16) andTitleColor:MAIN_COLOR andTitle:@"今日打卡" andBackgroundColor:CLEARCOLOR];
+    _checkinButton = [UIButton createButtonWithFontSize:adaptFont(16) andTitleColor:MAIN_COLOR andTitle:NSLocalizedString(@"Punch", nil) andBackgroundColor:CLEARCOLOR];
     [self addSubview:_checkinButton];
     [_checkinButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(20);
@@ -110,7 +116,7 @@
         make.height.mas_equalTo(btnH);
         make.top.mas_equalTo(titleItemWidth + 12);
     }];
-    [_checkinButton setTitle:@"今日已打卡" forState:UIControlStateDisabled];
+    [_checkinButton setTitle:NSLocalizedString(@"Punched", nil) forState:UIControlStateDisabled];
     [_checkinButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [_checkinButton addRoundMaskWithRoundedRect:CGRectMake(0, 0, SCREEN_WIDTH - leftMargin * 2, btnH) CornerRadius:PGCornerRadius andBorderWidth:1 andBorderColor:MAIN_COLOR];
     NSString* todayDateStr = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
@@ -132,6 +138,9 @@
     }];
 
     NSArray* dayOfWeekArr = @[@"日",@"一",@"二",@"三",@"四",@"五",@"六"];
+    if (!is_zh_Hans){
+        dayOfWeekArr = @[@"Sun",@"Mon",@"Tues",@"Wed",@"Thurs",@"Fri",@"Sat"];
+    }
     for (int i = 0; i < DayCountOfWeek; i++) {
         CGFloat w = (SCREEN_WIDTH - leftMargin * 2) / DayCountOfWeek;
         CGFloat h = weekViewH;
@@ -204,7 +213,11 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     NSDate* date = [NSDate getDateFrom:self.date offsetMonths:-(_num-section-1)];
-    return [NSDate dateToCustomFormateString:@"yyyy年MM月" andDate:date];
+    NSString *format = @"yyyy年MM月";
+    if (!is_zh_Hans){
+        format = @"yyyy-MM";
+    }
+    return [NSDate dateToCustomFormateString:format andDate:date];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

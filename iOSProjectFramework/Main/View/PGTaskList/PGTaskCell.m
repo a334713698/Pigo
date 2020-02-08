@@ -30,7 +30,7 @@
     if (!_qm_detailLabel) {
         _qm_detailLabel = [UILabel new];
         _qm_detailLabel.font = [UIFont systemFontOfSize:adaptFont(17)];
-        _qm_detailLabel.text  = @"25分钟";
+        _qm_detailLabel.text  = [NSString stringWithFormat:@"25%@",NSLocalizedString(@"minutes", nil)];
         _qm_detailLabel.textColor = WHITE_COLOR;
         [_contView addSubview:_qm_detailLabel];
     }

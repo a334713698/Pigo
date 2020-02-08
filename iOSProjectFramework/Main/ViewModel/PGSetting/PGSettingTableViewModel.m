@@ -75,7 +75,7 @@
     if ((eventType & PGSettingEventTypeDetail) == PGSettingEventTypeDetail) {
         cell.qm_accessoryImageview.hidden = NO;
         NSString* unit = cellDic[@"unit"] ? :@"";
-        cell.qm_detailLabel.text = [NSString stringWithFormat:@"%@%@",[PGConfigMgr valueForKey:paraName],unit];
+        cell.qm_detailLabel.text = [NSString stringWithFormat:@"%@ %@",[PGConfigMgr valueForKey:paraName],unit];
         
         if (indexPath.section == _selectIndexPath.section && indexPath.row == _selectIndexPath.row) {
             NSArray* pickArr = cellDic[@"pickArr"];

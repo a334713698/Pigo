@@ -187,13 +187,27 @@ static BOOL _showing;
 }
 
 + (void)p_hideStautsBar {
-    UIView *statusBar = [[UIApplication sharedApplication] valueForKey:@"statusBar"];
-    statusBar.alpha = 0;
+    UIView* _statusBar;
+    if (@available(iOS 13.0,*)) {
+        UIWindow *keyWindow = [UIApplication sharedApplication].windows[0];
+        _statusBar = [[UIView alloc] initWithFrame:keyWindow.windowScene.statusBarManager.statusBarFrame];
+        [keyWindow addSubview:_statusBar];
+    }else{
+        _statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    }
+    _statusBar.alpha = 0;
 }
 
 + (void)p_showStatusBar {
-    UIView *statusBar = [[UIApplication sharedApplication] valueForKey:@"statusBar"];
-    statusBar.alpha = 1;
+    UIView* _statusBar;
+    if (@available(iOS 13.0,*)) {
+        UIWindow *keyWindow = [UIApplication sharedApplication].windows[0];
+        _statusBar = [[UIView alloc] initWithFrame:keyWindow.windowScene.statusBarManager.statusBarFrame];
+        [keyWindow addSubview:_statusBar];
+    }else{
+        _statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    }
+    _statusBar.alpha = 1;
 }
 
 + (void)p_delayDismissAnimate {

@@ -69,13 +69,14 @@
     bgView.backgroundColor = WHITE_COLOR;
     [bgView addRoundMaskWithRoundedRect:CGRectMake(0, 0, bgW, bgH) cornerRadius:PGCornerRadius];
     
-    UILabel* titleLab = [UILabel createLabelWithFontSize:adaptFont(15) andTextColor:MAIN_COLOR andText:@"新增番茄"];
+    UILabel* titleLab = [UILabel createLabelWithFontSize:adaptFont(15) andTextColor:MAIN_COLOR andText:NSLocalizedString(@"Add Pigo", nil)];
     titleLab.textAlignment = NSTextAlignmentCenter;
     [bgView addSubview:titleLab];
     [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_equalTo(0);
         make.height.mas_equalTo(adaptHeight(PGTaskListAddCollectionViewTitleHeight));
     }];
+    _titleLab = titleLab;
     
     UIButton* closeBtn = [UIButton new];
     [bgView addSubview:closeBtn];
@@ -114,7 +115,7 @@
     
     UITextField* textField = [UITextField new];
     textField.textAlignment = NSTextAlignmentCenter;
-    textField.placeholder = @"请输入...";
+    textField.placeholder = NSLocalizedString(@"Please enter", nil);
     textField.font = [UIFont systemFontOfSize:adaptFont(15)];
     [bgView addSubview:textField];
     [textField mas_makeConstraints:^(MASConstraintMaker *make) {

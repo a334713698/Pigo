@@ -42,19 +42,19 @@
             self.hidden = YES;
             break;
         case PGFocusButtonStateStartFocus:
-            self.pg_title = @"开始专注";
+            self.pg_title = NSLocalizedString(@"Start focusing", nil);
             break;
         case PGFocusButtonStateObsolete:
-            self.pg_title = @"中止";
+            self.pg_title = NSLocalizedString(@"Abort", nil);
             break;
         case PGFocusButtonStateNext:
-            self.pg_title = @"下一个番茄";
+            self.pg_title = NSLocalizedString(@"Next Pigo", nil);
             break;
         case PGFocusButtonStateStartRest:
-            self.pg_title = @"开始休息";
+            self.pg_title = NSLocalizedString(@"Take a break", nil);
             break;
         case PGFocusButtonStateStopRest:
-            self.pg_title = @"停止休息";
+            self.pg_title = NSLocalizedString(@"Stop break", nil);
             break;
         default:
             break;

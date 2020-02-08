@@ -87,7 +87,7 @@
     }
     cell.contView.backgroundColor = [UIColor colorWithHexStr:task.bg_color];
     [cell setLabelShadow:cell.qm_titleLabel content:task.task_name];
-    [cell setLabelShadow:cell.qm_detailLabel content:[[NSDate dateToCustomFormateString:@"yyyy-MM-dd hh:mm:ss" andTimeStamp:@(task.delete_time)] stringByAppendingString:@" 删除"]];
+    [cell setLabelShadow:cell.qm_detailLabel content:[NSString stringWithFormat:@"%@ %@",[NSDate dateToCustomFormateString:@"yyyy-MM-dd hh:mm:ss" andTimeStamp:@(task.delete_time)],NSLocalizedString(@"Delete on", nil)]];
     cell.taskModel = task;
     return cell;
 }
@@ -99,14 +99,14 @@
     
     WS(weakSelf)
     
-    UITableViewRowAction *abandonAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"彻底\n删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n彻底删除就真没了，确定吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UITableViewRowAction *abandonAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:NSLocalizedString(@"Destroy", nil) handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[NSString stringWithFormat:@"\n%@？",NSLocalizedString(@"Destroy Tips", nil)] preferredStyle:UIAlertControllerStyleAlert];
         
-        [alertVC addAction:[UIAlertAction actionWithTitle:@"彻底删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Destroy Action", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             [weakSelf removeAndReloadWithIndexPath:indexPath];
             [weakSelf abandonTask:task];
         }]];
-        [alertVC addAction:[UIAlertAction actionWithTitle:@"手抖了" style:UIAlertActionStyleDefault handler:nil]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Shaking hands", nil) style:UIAlertActionStyleDefault handler:nil]];
         [weakSelf presentViewController:alertVC animated:YES completion:nil];
     }];
     abandonAction.backgroundColor = [UIColor redColor];
@@ -142,7 +142,7 @@
 
 #pragma mark - Method
 - (void)initNav{
-    self.navTitle = @"番茄回收站";
+    self.navTitle = NSLocalizedString(@"Pigo Recycle Bin", nil);
 }
 
 - (void)removeAndReloadWithIndexPath:(NSIndexPath*)indexPath{

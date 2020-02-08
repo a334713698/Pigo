@@ -12,7 +12,13 @@
 
 + (NSArray*)getCategoriesSetWithType:(PGStatisticsPeriodType)type{
     if (type == PGStatisticsPeriodTypeWeek) {
-        return @[@"周一",@"周二",@"周三",@"周四", @"周五",@"周六",@"周日"];
+        return @[NSLocalizedString(@"Mon", nil),
+                 NSLocalizedString(@"Tues", nil),
+                 NSLocalizedString(@"Wed", nil),
+                 NSLocalizedString(@"Thurs", nil),
+                 NSLocalizedString(@"Fri", nil),
+                 NSLocalizedString(@"Sat", nil),
+                 NSLocalizedString(@"Sun", nil)];
     }else if (type == PGStatisticsPeriodTypeMonth){
         NSMutableArray *arr = [NSMutableArray array];
         for (NSInteger i = 1; i <= [NSDate convertDateToTotalDays:[NSDate new]]; i++) {
@@ -20,7 +26,18 @@
         }
         return arr;
     }else{
-        return @[@"一月",@"二月",@"三月",@"四月",@"五月",@"六月",@"七月",@"八月",@"九月",@"十月",@"十一月",@"十二月"];
+        return @[NSLocalizedString(@"Jan", nil),
+                 NSLocalizedString(@"Fab", nil),
+                 NSLocalizedString(@"Mar", nil),
+                 NSLocalizedString(@"Apr", nil),
+                 NSLocalizedString(@"May", nil),
+                 NSLocalizedString(@"June", nil),
+                 NSLocalizedString(@"July", nil),
+                 NSLocalizedString(@"Aug", nil),
+                 NSLocalizedString(@"Sept", nil),
+                 NSLocalizedString(@"Oct", nil),
+                 NSLocalizedString(@"Nov", nil),
+                 NSLocalizedString(@"Dec", nil)];
     }
 }
 

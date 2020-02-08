@@ -1,0 +1,104 @@
+/* 
+  Localizable.strings
+  iOSProjectFramework
+
+  Created by 洪冬介 on 2020/2/7.
+  Copyright © 2020 洪冬介. All rights reserved.
+*/
+
+//Common
+"Tips" = "提示";
+"Cancel" = "取消";
+"Sure" = "确定";
+"OK" = "好的";
+"Refresh" = "刷新";
+
+"Mon" = "周一";
+"Tues" = "周二";
+"Wed" = "周三";
+"Thurs" = "周四";
+"Fri" = "周五";
+"Sat" = "周六";
+"Sun" = "周日";
+
+"Jan" = "一月";
+"Fab" = "二月";
+"Mar" = "三月";
+"Apr" = "四月";
+"May" = "五月";
+"June" = "六月";
+"July" = "七月";
+"Aug" = "八月";
+"Sept" = "九月";
+"Oct" = "十月";
+"Nov" = "十一月";
+"Dec" = "十二月";
+
+"Week" = "周";
+"Month" = "月";
+"Year" = "年";
+
+//PigoList
+"Pigo List" = "番茄列表";
+"Delete task" = "删除";
+"Delete Pigo" = "删除这个番茄";
+"Edit" = "编辑";
+"Add Pigo" = "新增番茄";
+"Edit Pigo" = "编辑番茄";
+"Please enter" = "请输入";
+"No input" = "未输入";
+
+//Focus
+"Unknown Tag" = "未知标签";
+"Sure you abort the task" = "确定中止任务吗";
+"OK to abort" = "确认中止";
+"Shaking hands" = "手抖了";
+"Focusing is over, take a break" = "专注结束，休息一下吧";
+"After the break, start focusing" = "休息结束，开始专注";
+"Abort current task reminder" = "有任务正在进行，请先中止当前任务";
+
+"Start focusing" = "开始专注";
+"Abort" = "中止";
+"Next Pigo" = "下一个番茄";
+"Take a break" = "开始休息";
+"Stop break" = "停止休息";
+
+//TotalStatistics
+"No data" = "暂无数据";
+"Today" = "今\n日";
+"Complete Times" = "完成次数";
+"Focus Duration" = "专注时长";
+"Checkin" = "打卡";
+"Punch" = "今日打卡";
+"Punched" = "今日已打卡";
+"Join days" = "加入天数";
+"Complete days" = "完成天数";
+"Consecutive days" = "连续天数";
+"History highest" = "历史最高";
+"Proportion of pigo" = "番茄热度占比";
+
+//Setting
+"Settings" = "设置";
+"Statistics" = "统计";
+"Focus Settings" = "专注设置";
+"Vibration Alert" = "震动提示";
+"Notification Alert" = "通知提示";
+"Pigo duration" = "番茄时长";
+"Short break" = "短时休息";
+"Long break" = "长时休息";
+"Long break interval" = "长时休息间隔";
+"Enter next Pigo automatically" = "自动进入下个番茄";
+"Enter break time automatically" = "自动进入休息时间";
+"Screen is always on" = "屏幕常亮";
+"Rotten Pigo" = "烂番茄";
+"Pigo Recycle Bin" = "番茄回收站";
+"minutes" = "分钟";
+"hour" = "小时";
+"Pigos" = "个番茄";
+
+//RecycleBin
+"Delete on" = "删除";
+"Restore" = "恢复";
+"Destroy" = "永久\n删除";
+"Destroy Action" = "永久删除";
+"Destroy Tips" = "彻底删除就真没了，确定吗";

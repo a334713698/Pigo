@@ -24,7 +24,7 @@
 
 - (UILabel *)nodataLab{
     if (!_nodataLab) {
-        _nodataLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:@"暂无数据"];
+        _nodataLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:NSLocalizedString(@"No data", nil)];
         [self.contentView addSubview:_nodataLab];
         _nodataLab.textAlignment = NSTextAlignmentCenter;
         _nodataLab.backgroundColor = WHITE_COLOR;
@@ -74,13 +74,13 @@
     NSString* title;
     switch (dataType) {
         case PGStatisticsChartDataTypeCount:{
-            title = @"完成次数";
-            unit = @"个番茄";
+            title = NSLocalizedString(@"Focus Duration", nil);
+            unit = NSLocalizedString(@"Pigos", nil);
         }
             break;
         case PGStatisticsChartDataTypeLength:{
-            title = @"专注时长";
-            unit = @"分钟";
+            title = NSLocalizedString(@"Complete Times", nil);
+            unit = NSLocalizedString(@"minutes", nil);
         }
             break;
         default:
@@ -124,13 +124,13 @@
     NSString* title;
     switch (dataType) {
         case PGStatisticsChartDataTypeCount:{
-            title = @"完成次数";
-            unit = @"个番茄";
+            title = NSLocalizedString(@"Focus Duration", nil);
+            unit = NSLocalizedString(@"Pigos", nil);
         }
             break;
         case PGStatisticsChartDataTypeLength:{
-            title = @"专注时长";
-            unit = @"分钟";
+            title = NSLocalizedString(@"Complete Times", nil);
+            unit = NSLocalizedString(@"minutes", nil);
         }
             break;
         default:

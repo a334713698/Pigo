@@ -36,8 +36,8 @@
 + (void)showAlertWithController:(UIViewController*_Nullable)vc title:(NSString*_Nullable)title message:(NSString*_Nullable)msg cancelHandler:(void (^ __nullable)(UIAlertAction * _Nonnull action))cancelHandler doneHandler:(void (^ __nullable)(UIAlertAction * _Nonnull action))doneHandler{
     UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
     
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:cancelHandler]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:doneHandler]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:cancelHandler]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Sure", nil) style:UIAlertActionStyleDefault handler:doneHandler]];
     [vc presentViewController:alertVC animated:YES completion:nil];
 }
 

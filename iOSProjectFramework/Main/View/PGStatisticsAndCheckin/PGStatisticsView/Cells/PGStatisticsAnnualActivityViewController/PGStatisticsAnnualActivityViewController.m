@@ -37,7 +37,7 @@
 }
 
 - (void)setContentWithTomatCount:(NSInteger)count andDateStr:(NSString*)dateStr{
-    NSString* countStr = [NSString stringWithFormat:@"%ld个番茄",count];
+    NSString* countStr = [NSString stringWithFormat:@"%ld%@",count,NSLocalizedString(@"Pigos", nil)];
     NSString* text = [NSString stringWithFormat:@"%@ on %@",countStr,dateStr];
     
     CGFloat w = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.contLab.font} context:NULL].size.width;

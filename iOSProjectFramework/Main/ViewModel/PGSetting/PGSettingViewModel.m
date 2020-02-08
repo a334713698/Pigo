@@ -29,24 +29,24 @@
 
     return @[
              @{@"sectionTitle":@"",@"data":@[
-                       @{@"title":@"统计",@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeStatistics)}
+                       @{@"title":NSLocalizedString(@"Statistics", nil),@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeStatistics)}
              ]},
             
-             @{@"sectionTitle":@"专注设置",@"data":@[
-                       @{@"title":@"震动提示",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeVibratingAlert),@"detail":@(PGConfigMgr.VibratingAlert),@"paraName":PGConfigParaVibratingAlert},
-                       @{@"title":@"通知提示",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeNotifyAlert),@"detail":@(PGConfigMgr.NotifyAlert),@"paraName":PGConfigParaNotifyAlert},
-                       @{@"title":@"番茄时长",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeTomatoLength),@"detail":@(PGConfigMgr.TomatoLength),@"unit":@"分钟",@"paraName":PGConfigParaTomatoLength,@"pickArr":[self TomatoLengthDataArr]},
-                       @{@"title":@"短时休息",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeShortBreak),@"detail":@(PGConfigMgr.ShortBreak),@"unit":@"分钟",@"paraName":PGConfigParaShortBreak,@"pickArr":[self ShortBreakDataArr]},
-                       @{@"title":@"长时休息",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeLongBreak),@"detail":@(PGConfigMgr.LongBreak),@"unit":@"分钟",@"paraName":PGConfigParaLongBreak,@"pickArr":[self LongBreakDataArr]},
-                       @{@"title":@"长时休息间隔",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeLongBreakInterval),@"detail":@(PGConfigMgr.LongBreakInterval),@"unit":@"个番茄",@"paraName":PGConfigParaLongBreakInterval,@"pickArr":[self LongBreakIntervalDataArr]},
-                       @{@"title":@"自动进入下个番茄",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeAutomaticNext),@"detail":@(PGConfigMgr.AutomaticNext),@"paraName":PGConfigParaAutomaticNext},
-                       @{@"title":@"自动进入休息时间",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeAutomaticRest),@"detail":@(PGConfigMgr.AutomaticRest),@"paraName":PGConfigParaAutomaticRest},
-                       @{@"title":@"屏幕常亮",@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeScreenBright),@"detail":@(PGConfigMgr.ScreenBright),@"paraName":PGConfigParaScreenBright},
+             @{@"sectionTitle":NSLocalizedString(@"Focus Settings", nil),@"data":@[
+                       @{@"title":NSLocalizedString(@"Vibration Alert", nil),@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeVibratingAlert),@"detail":@(PGConfigMgr.VibratingAlert),@"paraName":PGConfigParaVibratingAlert},
+                       @{@"title":NSLocalizedString(@"Notification Alert", nil),@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeNotifyAlert),@"detail":@(PGConfigMgr.NotifyAlert),@"paraName":PGConfigParaNotifyAlert},
+                       @{@"title":NSLocalizedString(@"Pigo duration", nil),@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeTomatoLength),@"detail":@(PGConfigMgr.TomatoLength),@"unit":NSLocalizedString(@"minutes", nil),@"paraName":PGConfigParaTomatoLength,@"pickArr":[self TomatoLengthDataArr]},
+                       @{@"title":NSLocalizedString(@"Short break", nil),@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeShortBreak),@"detail":@(PGConfigMgr.ShortBreak),@"unit":NSLocalizedString(@"minutes", nil),@"paraName":PGConfigParaShortBreak,@"pickArr":[self ShortBreakDataArr]},
+                       @{@"title":NSLocalizedString(@"Long break", nil),@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeLongBreak),@"detail":@(PGConfigMgr.LongBreak),@"unit":NSLocalizedString(@"minutes", nil),@"paraName":PGConfigParaLongBreak,@"pickArr":[self LongBreakDataArr]},
+                       @{@"title":NSLocalizedString(@"Long break interval", nil),@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeLongBreakInterval),@"detail":@(PGConfigMgr.LongBreakInterval),@"unit":NSLocalizedString(@"Pigos", nil),@"paraName":PGConfigParaLongBreakInterval,@"pickArr":[self LongBreakIntervalDataArr]},
+                       @{@"title":NSLocalizedString(@"Long break interval", nil),@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeAutomaticNext),@"detail":@(PGConfigMgr.AutomaticNext),@"paraName":PGConfigParaAutomaticNext},
+                       @{@"title":NSLocalizedString(@"Enter break time automatically", nil),@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeAutomaticRest),@"detail":@(PGConfigMgr.AutomaticRest),@"paraName":PGConfigParaAutomaticRest},
+                       @{@"title":NSLocalizedString(@"Screen is always on", nil),@"eventType":@(PGSettingEventTypeSwicher),@"contentType":@(PGSettingContentTypeScreenBright),@"detail":@(PGConfigMgr.ScreenBright),@"paraName":PGConfigParaScreenBright},
              ]},
 
-             @{@"sectionTitle":@"烂番茄",@"data":@[
+             @{@"sectionTitle":NSLocalizedString(@"Rotten Pigo", nil),@"data":@[
 //                       @{@"title":@"最近同步时间",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeDataSync),@"detail":@"未同步",@"paraName":PGConfigParaDataSync}
-                       @{@"title":@"番茄回收站",@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeRecycleBin)}
+                       @{@"title":NSLocalizedString(@"Pigo Recycle Bin", nil),@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeRecycleBin)}
                        ]}
              ];
 }

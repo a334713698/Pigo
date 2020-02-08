@@ -20,7 +20,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
@@ -50,10 +49,10 @@
     if (@available(iOS 9.0, *)) {
 
         UIApplicationShortcutIcon *listIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_3dtouch_list"];
-        UIApplicationShortcutItem *listItem = [[UIApplicationShortcutItem alloc] initWithType:PGShortcutTypeList localizedTitle:@"番茄列表" localizedSubtitle:nil icon:listIcon userInfo:nil];
+        UIApplicationShortcutItem *listItem = [[UIApplicationShortcutItem alloc] initWithType:PGShortcutTypeList localizedTitle:NSLocalizedString(@"Pigo List", nil) localizedSubtitle:nil icon:listIcon userInfo:nil];
 
         UIApplicationShortcutIcon *settingIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_3dtouch_set"];
-        UIApplicationShortcutItem *settingItem = [[UIApplicationShortcutItem alloc] initWithType:PGShortcutTypeSetting localizedTitle:@"设置" localizedSubtitle:nil icon:settingIcon userInfo:nil];
+        UIApplicationShortcutItem *settingItem = [[UIApplicationShortcutItem alloc] initWithType:PGShortcutTypeSetting localizedTitle:NSLocalizedString(@"Settings", nil) localizedSubtitle:nil icon:settingIcon userInfo:nil];
 
         /** 将items 添加到app图标 */
         [UIApplication sharedApplication].shortcutItems = @[listItem,settingItem];

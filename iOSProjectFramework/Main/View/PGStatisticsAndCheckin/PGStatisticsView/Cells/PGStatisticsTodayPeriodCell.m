@@ -29,14 +29,14 @@
 - (void)setupView{
     CGFloat lineH = 0.75;
     
-    UIButton* monthB = [UIButton createButtonWithFontSize:adaptFont(13) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:@"月" andBackgroundColor:nil];
+    UIButton* monthB = [UIButton createButtonWithFontSize:adaptFont(13) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:NSLocalizedString(@"Month", nil) andBackgroundColor:nil];
     [self.contentView addSubview:monthB];
     [monthB mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(0);
     }];
     
     CGFloat space = 15;
-    UIButton* weekB = [UIButton createButtonWithFontSize:adaptFont(15) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:@"周" andBackgroundColor:nil];
+    UIButton* weekB = [UIButton createButtonWithFontSize:adaptFont(15) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:NSLocalizedString(@"Week", nil) andBackgroundColor:nil];
     [self.contentView addSubview:weekB];
     [weekB mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.centerY.mas_equalTo(monthB.mas_centerY);
@@ -44,7 +44,7 @@
         make.right.mas_equalTo(monthB.mas_left).offset(-space);
     }];
 
-    UIButton* yearB = [UIButton createButtonWithFontSize:adaptFont(13) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:@"年" andBackgroundColor:nil];
+    UIButton* yearB = [UIButton createButtonWithFontSize:adaptFont(13) andTitleColor:TEXT_BACKGROUND_COLOR_LIGHT andTitle:NSLocalizedString(@"Year", nil) andBackgroundColor:nil];
     [self.contentView addSubview:yearB];
     [yearB mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.centerY.mas_equalTo(monthB.mas_centerY);

@@ -229,9 +229,9 @@
     
     if (contType == PGSettingContentTypeTomatoLength && PGUserModelInstance.currentFocusState == PGFocusStateFocusing){
         WS(weakSelf)
-        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n有任务正在进行，请先中止当前任务" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[@"\n" stringByAppendingString:NSLocalizedString(@"Abort current task reminder", nil)] preferredStyle:UIAlertControllerStyleAlert];
         
-        [alertVC addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSInteger index =  [weakSelf.pickArr indexOfObject:weakSelf.selectModel];
             [weakSelf.pickerView selectRow:index inComponent:0 animated:YES];
         }]];

@@ -21,7 +21,7 @@
 + (UIMutableUserNotificationCategory*)completeTomatoCategory{
     UIMutableUserNotificationAction *restAction = [[UIMutableUserNotificationAction alloc] init];
     restAction.identifier = PGLocalNotiActionIDRest;
-    restAction.title = @"开始休息";
+    restAction.title = NSLocalizedString(@"Take a break", nil);
     //是否取消提醒
     restAction.destructive = NO;
     //是否需要权限，例如锁屏的时候，执行操作是否需要解锁再执行
@@ -31,7 +31,7 @@
     
     UIMutableUserNotificationAction *nextAction = [[UIMutableUserNotificationAction alloc] init];
     nextAction.identifier = PGLocalNotiActionIDNext;
-    nextAction.title = @"下一个番茄";
+    nextAction.title = NSLocalizedString(@"Next Pigo", nil);
     nextAction.destructive = NO;
     nextAction.authenticationRequired = NO;
     nextAction.activationMode = UIUserNotificationActivationModeForeground;
@@ -49,7 +49,7 @@
 + (UIMutableUserNotificationCategory*)completeRestCategory{
     UIMutableUserNotificationAction *startAction = [[UIMutableUserNotificationAction alloc] init];
     startAction.identifier = PGLocalNotiActionIDStart;
-    startAction.title = @"开始专注";
+    startAction.title = NSLocalizedString(@"Start focusing", nil);
     //是否取消提醒
     startAction.destructive = NO;
     //是否需要权限，例如锁屏的时候，执行操作是否需要解锁再执行

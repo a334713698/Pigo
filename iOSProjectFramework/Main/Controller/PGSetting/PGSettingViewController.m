@@ -63,7 +63,7 @@
 
 #pragma mark - Method
 - (void)initNav{
-    self.navTitle = @"设置";
+    self.navTitle = NSLocalizedString(@"Settings", nil);
 }
 
 /**

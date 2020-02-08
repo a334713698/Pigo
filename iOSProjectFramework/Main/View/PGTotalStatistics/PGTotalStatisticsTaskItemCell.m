@@ -64,7 +64,7 @@
         make.width.mas_equalTo(perBGViewWidth*1);
     }];
     
-    _lenLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:@"0小时"];
+    _lenLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:[NSString stringWithFormat:@"0%@",NSLocalizedString(@"hour", nil)]];
     [self.contentView addSubview:_lenLab];
     [_lenLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-leftMargin);
@@ -79,7 +79,7 @@
         make.width.height.mas_equalTo(16);
     }];
 
-    _countLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:@"0个"];
+    _countLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:@"0"];
     [self.contentView addSubview:_countLab];
     [_countLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(lenIV.mas_left).offset(-leftMargin);
@@ -102,13 +102,13 @@
     [_perView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(perBGViewWidth*itemModel.countPercent);
     }];
-    _countLab.text = [NSString stringWithFormat:@"%ld个",itemModel.totalCount];
+    _countLab.text = [NSString stringWithFormat:@"%ld",itemModel.totalCount];
     _perLab.text = [NSString stringWithFormat:@"%.1lf%%",itemModel.countPercent*100];
     
     if (_showHour) {
-        _lenLab.text = [NSString stringWithFormat:@"%.1lf小时",itemModel.totalLength / 60.0];
+        _lenLab.text = [NSString stringWithFormat:@"%.1lf%@",itemModel.totalLength / 60.0,NSLocalizedString(@"hour", nil)];
     }else{
-        _lenLab.text = [NSString stringWithFormat:@"%ld分钟",itemModel.totalLength];
+        _lenLab.text = [NSString stringWithFormat:@"%ld%@",itemModel.totalLength,NSLocalizedString(@"minutes", nil)];
     }
 
 }

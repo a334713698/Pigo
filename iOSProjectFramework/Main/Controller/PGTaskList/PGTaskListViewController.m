@@ -183,13 +183,13 @@
 
     WS(weakSelf)
     
-    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"编辑" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:NSLocalizedString(@"Edit", nil) handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         weakSelf.editTaskIndex = indexPath.section;
         [weakSelf editTask:task];
     }];
     editAction.backgroundColor = [UIColor grayColor];
 
-    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:NSLocalizedString(@"Delete task", nil) handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         [weakSelf.taskList removeObjectAtIndex:indexPath.section];
         [weakSelf.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
         [weakSelf deleteTask:task];
@@ -202,6 +202,7 @@
 - (void)navAddPressed{
     DLog(@"新增任务");
     _isEdit = NO;
+    self.addView.titleLab.text = NSLocalizedString(@"Add Pigo", nil);
     [QMSlideUpAlertView showAlertWithContentView:self.addView withSlideType:QMAlertSlideUpTypeCenter canTouchDissmiss:NO];
 //    [self.addView.textField becomeFirstResponder];
 }
@@ -233,7 +234,7 @@
 #pragma mark - PGTaskListAddViewDelegate
 - (void)addView:(PGTaskListAddView *)addView sureButtonDidClick:(UIButton *)sender{
     if (NULLString(addView.titleCont)) {
-        [MFHUDManager showError:@"啥也没输入"];
+        [MFHUDManager showError:NSLocalizedString(@"No input", nil)];
     }else if (_isEdit){
         [QMSlideUpAlertView dismissWithCompletion:^(BOOL finished) {
             [self updateTask];
@@ -253,7 +254,7 @@
 
 #pragma mark - Method
 - (void)initNav{
-    self.navTitle = @"番茄列表";
+    self.navTitle = NSLocalizedString(@"Pigo List", nil);
     
     // 导航栏右侧按钮
     UIButton* settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -296,9 +297,9 @@
     if (PGUserModelInstance.currentFocusState != PGFocusStateFocusing && PGUserModelInstance.currentFocusState != PGFocusStateShortBreaking && PGUserModelInstance.currentFocusState != PGFocusStateLongBreaking) {
         return NO;
     }
-    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n有任务正在进行，请先中止当前任务" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[@"\n" stringByAppendingString:NSLocalizedString(@"Abort current task reminder", nil)] preferredStyle:UIAlertControllerStyleAlert];
     
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
     
     [self presentViewController:alertVC animated:YES completion:nil];
 
@@ -321,6 +322,7 @@
 
 - (void)editTask:(PGTaskListModel*)task{
     _isEdit = YES;
+    self.addView.titleLab.text = NSLocalizedString(@"Edit Pigo", nil);
     [QMSlideUpAlertView showAlertWithContentView:self.addView withSlideType:QMAlertSlideUpTypeCenter canTouchDissmiss:NO];
     self.addView.textField.text = task.task_name;
     self.addView.colorIndex = [self.addView.colorArr indexOfObject:task.bg_color];

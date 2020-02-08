@@ -23,7 +23,7 @@
 
 - (UILabel *)nodataLab{
     if (!_nodataLab) {
-        _nodataLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:@"暂无数据"];
+        _nodataLab = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:MAIN_COLOR andText:NSLocalizedString(@"No data", nil)];
         [self.contentView addSubview:_nodataLab];
         _nodataLab.textAlignment = NSTextAlignmentCenter;
         _nodataLab.backgroundColor = WHITE_COLOR;
@@ -78,7 +78,7 @@
     .colorsThemeSet(colorsThemeArr)//每个扇面的颜色
     .seriesSet(
                @[AAObject(AASeriesElement)
-                 .nameSet(@"番茄热度占比")
+                 .nameSet(NSLocalizedString(@"Proportion of pigo", nil))
                  .dataSet(elementsArr.copy),
                  ]
                )

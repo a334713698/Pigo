@@ -153,7 +153,7 @@
     __block NSInteger seconds = WKConfigMgr.TomatoLength * 60;
 //    seconds = 10;
     NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
-//    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"专注结束，休息一下吧"];
+//    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:NSLocalizedString(@"Focusing is over,take a break", nil)];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
         //        DLog(@"倒计时");
         int interval = [endTime timeIntervalSinceNow];
@@ -215,19 +215,19 @@
             [button setHidden:YES];
             break;
         case PGFocusButtonStateStartFocus:
-            [button setTitle:@"开始专注"];
+            [button setTitle:NSLocalizedString(@"Start focusing", nil)];
             break;
         case PGFocusButtonStateObsolete:
-            [button setTitle:@"中止"];
+            [button setTitle:NSLocalizedString(@"Abort", nil)];
             break;
         case PGFocusButtonStateNext:
-            [button setTitle:@"下一个番茄"];
+            [button setTitle:NSLocalizedString(@"Next Pigo", nil)];
             break;
         case PGFocusButtonStateStartRest:
-            [button setTitle:@"开始休息"];
+            [button setTitle:NSLocalizedString(@"Take a break", nil)];
             break;
         case PGFocusButtonStateStopRest:
-            [button setTitle:@"停止休息"];
+            [button setTitle:NSLocalizedString(@"Stop break", nil)];
             break;
         default:
             break;

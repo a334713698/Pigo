@@ -54,14 +54,14 @@
             centerButton.pg_state = PGFocusButtonStateObsolete;
             centerButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
                 NSLog(@"%@",centerButton.currentTitle);
-                UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n确定中止任务吗？" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[NSString stringWithFormat:@"\n%@？",NSLocalizedString(@"Sure you abort the task", nil)] preferredStyle:UIAlertControllerStyleAlert];
                 
-                [alertVC addAction:[UIAlertAction actionWithTitle:@"确定中止" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK to abort", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                     [weakSelf settingFocuseEndTime:0];
                     [weakSelf timerInvalidate];
                     weakSelf.currentFocusState = PGFocusStateWillFocus;
                 }]];
-                [alertVC addAction:[UIAlertAction actionWithTitle:@"手抖了" style:UIAlertActionStyleDefault handler:nil]];
+                [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Shaking hands", nil) style:UIAlertActionStyleDefault handler:nil]];
                 [TOPVC presentViewController:alertVC animated:YES completion:nil];
                 return [RACSignal empty];
             }];
@@ -218,7 +218,7 @@
         [self settingFocuseEndTime:[[endTime dateToTimeStamp] integerValue]];
         self.cdLabel.text= [NSDate pg_secondsToHMS:[endTime timeIntervalSinceNow]];
     }
-    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"专注结束，休息一下吧" cate:PGLocalNotiCateIDCompleteTomato];
+    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:NSLocalizedString(@"Focusing is over, take a break", nil) cate:PGLocalNotiCateIDCompleteTomato];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
         int interval = [endTime timeIntervalSinceNow];
         if(interval<=0){
@@ -251,7 +251,7 @@
     __block NSInteger seconds = timeLength * 60;
 //    seconds = 1;
     NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
-    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"休息结束，开始专注" cate:PGLocalNotiCateIDCompleteRest];
+    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:NSLocalizedString(@"After the break, start focusing", nil) cate:PGLocalNotiCateIDCompleteRest];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
         int interval = [endTime timeIntervalSinceNow];
         if(interval<=0){

@@ -91,6 +91,11 @@
 		B6CF217B2147B36700067470 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF21782147B36700067470 /* BaseViewModel.m */; };
 		B6CF21802147B41700067470 /* PGSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF217F2147B41700067470 /* PGSettingViewModel.m */; };
 		B6CF21832147B43300067470 /* PGSettingTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF21822147B43300067470 /* PGSettingTableViewModel.m */; };
+		B6D133A423EDBA6400D453C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6D133A323EDBA6400D453C7 /* InfoPlist.strings */; };
+		B6D133A923EDBABE00D453C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6D133AB23EDBABE00D453C7 /* Localizable.strings */; };
+		B6D133AD23EDBACB00D453C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6D133AB23EDBABE00D453C7 /* Localizable.strings */; };
+		B6D133AE23EDBACB00D453C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6D133AB23EDBABE00D453C7 /* Localizable.strings */; };
+		B6D133AF23EDBACC00D453C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6D133AB23EDBABE00D453C7 /* Localizable.strings */; };
 		B6E26A5E201AF2A0006C7650 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A5D201AF2A0006C7650 /* AppDelegate.m */; };
 		B6E26A66201AF2A0006C7650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E26A65201AF2A0006C7650 /* Assets.xcassets */; };
 		B6E26A69201AF2A0006C7650 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E26A67201AF2A0006C7650 /* LaunchScreen.storyboard */; };
@@ -258,7 +263,6 @@
 		B615E976214B4BD0008D0B6E /* PGTaskListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListModel.h; sourceTree = "<group>"; };
 		B615E977214B4BD0008D0B6E /* PGTaskListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListModel.m; sourceTree = "<group>"; };
 		B615E9C8214B604F008D0B6E /* pigoWatchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pigoWatchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B615E9CB214B604F008D0B6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		B615E9CD214B604F008D0B6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B615E9CF214B604F008D0B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B615E9D4214B6050008D0B6E /* pigoWatchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "pigoWatchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -410,11 +414,17 @@
 		B6CF217F2147B41700067470 /* PGSettingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGSettingViewModel.m; sourceTree = "<group>"; };
 		B6CF21812147B43300067470 /* PGSettingTableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGSettingTableViewModel.h; sourceTree = "<group>"; };
 		B6CF21822147B43300067470 /* PGSettingTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGSettingTableViewModel.m; sourceTree = "<group>"; };
+		B6D1339E23EDB9B600D453C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B6D1339F23EDB9B600D453C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B6D133A023EDB9D400D453C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		B6D133A123EDB9D400D453C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.storyboard"; sourceTree = "<group>"; };
+		B6D133A323EDBA6400D453C7 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		B6D133AA23EDBABE00D453C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B6D133AC23EDBAC300D453C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B6E26A59201AF2A0006C7650 /* iOSProjectFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProjectFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E26A5C201AF2A0006C7650 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B6E26A5D201AF2A0006C7650 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B6E26A65201AF2A0006C7650 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B6E26A68201AF2A0006C7650 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6E26A6A201AF2A0006C7650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6E26A6B201AF2A0006C7650 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6E26A86201AF3F2006C7650 /* HDJEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDJEmptyView.m; sourceTree = "<group>"; };
@@ -1459,6 +1469,15 @@
 			path = PGSetting;
 			sourceTree = "<group>";
 		};
+		B6D133A223EDBA0500D453C7 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				B6D133A323EDBA6400D453C7 /* InfoPlist.strings */,
+				B6D133AB23EDBABE00D453C7 /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
 		B6E26A50201AF2A0006C7650 = {
 			isa = PBXGroup;
 			children = (
@@ -1502,6 +1521,7 @@
 		B6E26A76201AF3D1006C7650 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6D133A223EDBA0500D453C7 /* Localizable */,
 				B68B524C2154D9DD00C1254F /* Intents.intentdefinition */,
 				B6E26AA9201AF4A1006C7650 /* ProjectPrefix.pch */,
 				B6E26AA4201AF457006C7650 /* Config */,
@@ -2273,7 +2293,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				"zh-Hans",
 			);
 			mainGroup = B6E26A50201AF2A0006C7650;
 			productRefGroup = B6E26A5A201AF2A0006C7650 /* Products */;
@@ -2294,6 +2314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B615E9CE214B604F008D0B6E /* Assets.xcassets in Resources */,
+				B6D133AD23EDBACB00D453C7 /* Localizable.strings in Resources */,
 				B615E9CC214B604F008D0B6E /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2303,6 +2324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B67D5F2223CEF085008A13B7 /* PGExConfigDefault.plist in Resources */,
+				B6D133AE23EDBACB00D453C7 /* Localizable.strings in Resources */,
 				B615E9E3214B6050008D0B6E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2312,9 +2334,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6A60E172140D8E2000A737D /* pic_loading.gif in Resources */,
+				B6D133A423EDBA6400D453C7 /* InfoPlist.strings in Resources */,
 				B6E26A69201AF2A0006C7650 /* LaunchScreen.storyboard in Resources */,
 				B6A60E2C2140F19B000A737D /* MBProgressHUD.bundle in Resources */,
 				B6CC325E2149EE2C00E66D64 /* PGConfigDefault.plist in Resources */,
+				B6D133A923EDBABE00D453C7 /* Localizable.strings in Resources */,
 				D6D9C29F2179B21000EF9D91 /* AAJSFiles.bundle in Resources */,
 				B6E26A66201AF2A0006C7650 /* Assets.xcassets in Resources */,
 			);
@@ -2324,6 +2348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D133AF23EDBACC00D453C7 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2589,15 +2614,26 @@
 		B615E9CA214B604F008D0B6E /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B615E9CB214B604F008D0B6E /* Base */,
+				B6D1339F23EDB9B600D453C7 /* en */,
+				B6D133A123EDB9D400D453C7 /* zh-Hans */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		B6D133AB23EDBABE00D453C7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6D133AA23EDBABE00D453C7 /* en */,
+				B6D133AC23EDBAC300D453C7 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		B6E26A67201AF2A0006C7650 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B6E26A68201AF2A0006C7650 /* Base */,
+				B6D1339E23EDB9B600D453C7 /* en */,
+				B6D133A023EDB9D400D453C7 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2614,11 +2650,12 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = "pigoWatchOS Extension/pigoWatchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
 				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -2637,11 +2674,12 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = "pigoWatchOS Extension/pigoWatchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
 				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -2660,10 +2698,11 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWatchOS/pigoWatchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				IBSC_MODULE = pigoWatchOS_Extension;
 				INFOPLIST_FILE = pigoWatchOS/Info.plist;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -2682,10 +2721,11 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWatchOS/pigoWatchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				IBSC_MODULE = pigoWatchOS_Extension;
 				INFOPLIST_FILE = pigoWatchOS/Info.plist;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -2699,6 +2739,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2754,6 +2795,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2806,12 +2848,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFramework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2825,12 +2868,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFramework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2845,12 +2889,13 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWidget/ProjectPrefix.pch";
 				INFOPLIST_FILE = pigoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.pigoWidget;
@@ -2868,12 +2913,13 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWidget/ProjectPrefix.pch";
 				INFOPLIST_FILE = pigoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.1;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.pigoWidget;
 				PRODUCT_NAME = Pigo;

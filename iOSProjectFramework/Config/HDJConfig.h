@@ -45,6 +45,9 @@
 #define WS(weakSelf)   __weak typeof(self) weakSelf = self;
 #define WSObj(obj,weakObj)   __weak typeof(obj) weakObj = obj;
 
+//当前系统语言
+#define CURRENT_SYS_Langauge [[[NSBundle mainBundle] preferredLocalizations] firstObject]
+#define is_zh_Hans QMEqualToString(CURRENT_SYS_Langauge, @"zh-Hans")
 
 // dealloc宏
 #define deallocPrint \

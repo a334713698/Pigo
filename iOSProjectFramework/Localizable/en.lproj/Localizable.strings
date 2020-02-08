@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  iOSProjectFramework
+
+  Created by 洪冬介 on 2020/2/7.
+  Copyright © 2020 洪冬介. All rights reserved.
+*/
+
+"OK to abort" = "Sure";
+"Shaking hands" = "No,thanks";
+"Destroy Action" = "Destroy";
+"Destroy Tips" = "Sure you destroy the task";
+"Proportion of pigo" = "Proportion";
+
+"minutes" = "min";
+"hour" = "h";
+"Delete task" = "Delete";
+"Delete on" = "Delete";
+"Punched" = "Have checked in";
+"Punch" = "Check in";
+
+"Join days" = "Join\ndays";
+"Complete days" = "Complete\ndays";
+"Consecutive days" = "Consecutive\ndays";
+"History highest" = "History\nhighest";
+"Abort current task reminder" = "There is a task in progress, please abort the current task";

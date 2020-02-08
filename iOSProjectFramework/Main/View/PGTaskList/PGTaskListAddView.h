@@ -11,8 +11,8 @@
 @class PGTaskListAddView;
 @protocol PGTaskListAddViewDelegate<NSObject>
 
-- (void)addView:(PGTaskListAddView*)addView closeButtonDidClick:(UIButton*)sender;
-- (void)addView:(PGTaskListAddView*)addView sureButtonDidClick:(UIButton*)sender;
+- (void)addView:(PGTaskListAddView *)addView closeButtonDidClick:(UIButton*)sender;
+- (void)addView:(PGTaskListAddView *)addView sureButtonDidClick:(UIButton*)sender;
 
 @end
 
@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *hexStr;
 @property (nonatomic, copy) NSString *titleCont;
+@property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, assign) NSInteger colorIndex;
 @property (nonatomic, strong) NSArray *colorArr;

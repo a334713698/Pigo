@@ -112,10 +112,10 @@
             NSString* unit;
             if (ttLength>=60) {
                 length = [NSString stringWithFormat:@"%.1lf",ttLength/60.0];
-                unit = @"小时";
+                unit = NSLocalizedString(@"hour", nil);
             }else{
                 length = [NSString stringWithFormat:@"%ld",ttLength];
-                unit = @"分钟";
+                unit = NSLocalizedString(@"minutes", nil);
             }
             NSString* text = [length stringByAppendingString:unit];
             [cell.durationLab setLabelText:text Font:[UIFont systemFontOfSize:adaptFont(12)] Range:NSMakeRange(length.length, unit.length)];
@@ -226,7 +226,7 @@
 
 #pragma mark - Method
 - (void)initNav{
-    self.navTitle = @"统计";
+    self.navTitle = NSLocalizedString(@"Statistics", nil);
     
 }
 

@@ -15,8 +15,11 @@ static QMSlideUpAlertView *instance = nil;
 static UIView *contentView = nil;
 @implementation QMSlideUpAlertView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self == [super initWithFrame:frame]) {
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
         self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
         self.backgroundColor = RGBA(0, 0, 0, 0);
     }

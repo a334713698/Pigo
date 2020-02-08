@@ -10,7 +10,7 @@
 #import "PGFocusButton.h"
 #import "PGCountdownLabel.h"
 
-typedef void(^UpdateTomatoCount)();
+typedef void(^UpdateTomatoCount)(void);
 
 @interface PGFocusViewModel : BaseViewModel
 
