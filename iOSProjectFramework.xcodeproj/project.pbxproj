@@ -2663,7 +2663,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = "pigoWatchOS Extension/pigoWatchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
 				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
@@ -2687,7 +2687,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = "pigoWatchOS Extension/pigoWatchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
 				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
@@ -2711,7 +2711,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWatchOS/pigoWatchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				IBSC_MODULE = pigoWatchOS_Extension;
 				INFOPLIST_FILE = pigoWatchOS/Info.plist;
@@ -2734,7 +2734,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWatchOS/pigoWatchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				IBSC_MODULE = pigoWatchOS_Extension;
 				INFOPLIST_FILE = pigoWatchOS/Info.plist;
@@ -2861,7 +2861,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFramework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
@@ -2881,7 +2881,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFramework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
@@ -2902,7 +2902,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWidget/ProjectPrefix.pch";
 				INFOPLIST_FILE = pigoWidget/Info.plist;
@@ -2926,7 +2926,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWidget/ProjectPrefix.pch";
 				INFOPLIST_FILE = pigoWidget/Info.plist;
