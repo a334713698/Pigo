@@ -1,0 +1,30 @@
+
+/* Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "2BY-51-Wt9"; */
+"2BY-51-Wt9.text" = "Label";
+
+/* Class = "WKInterfaceController"; title = "Pigo"; ObjectID = "AgC-eL-Hgc"; */
+"AgC-eL-Hgc.title" = "Pigo";
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "JBn-bA-Saj"; */
+"JBn-bA-Saj.text" = "Label";
+
+/* Class = "WKInterfaceLabel"; text = "25:00"; ObjectID = "LtD-G7-RwL"; */
+"LtD-G7-RwL.text" = "25:00";
+
+/* Class = "WKInterfaceController"; title = "Focus"; ObjectID = "PhE-CP-vsO"; */
+"PhE-CP-vsO.title" = "Focus";
+
+/* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "U32-Sd-2az"; */
+"U32-Sd-2az.text" = "0";
+
+/* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "fwa-Ds-hrV"; */
+"fwa-Ds-hrV.text" = "0";
+
+/* Class = "WKInterfaceButton"; title = "Button"; ObjectID = "hJi-W0-LWa"; */
+"hJi-W0-LWa.title" = "Button";
+
+/* Class = "WKInterfaceButton"; title = "Button"; ObjectID = "uvC-Rh-xiM"; */
+"uvC-Rh-xiM.title" = "Button";

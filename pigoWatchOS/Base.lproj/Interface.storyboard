@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14313.18" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch42" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42"/>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14238.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
     </dependencies>
     <scenes>
-        <!--番茄列表-->
+        <!--AgC-eL-Hgc.title-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="InterfaceController" title="番茄列表" id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller identifier="InterfaceController" title="AgC-eL-Hgc.title" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <table alignment="left" id="kLJ-go-6ru">
                             <items>
@@ -42,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="218.78260869565216" y="343.79464285714289"/>
         </scene>
-        <!--专注-->
+        <!--PhE-CP-vsO.title-->
         <scene sceneID="mFs-Qj-d2F">
             <objects>
-                <controller identifier="PGFocusInterfaceController" title="专注" id="PhE-CP-vsO" customClass="PGFocusInterfaceController">
+                <controller identifier="PGFocusInterfaceController" title="PhE-CP-vsO.title" id="PhE-CP-vsO" customClass="PGFocusInterfaceController">
                     <items>
                         <label width="1" height="75" alignment="center" text="25:00" textAlignment="center" id="LtD-G7-RwL">
                             <fontDescription key="font" type="system" pointSize="55"/>
@@ -111,4 +109,8 @@
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg_white" width="3" height="3"/>
+        <image name="icon_tomato" width="28" height="28"/>
+    </resources>
 </document>
