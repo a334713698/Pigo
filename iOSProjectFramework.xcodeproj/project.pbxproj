@@ -22,6 +22,7 @@
 		B615E9E3214B6050008D0B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B615E9E2214B6050008D0B6E /* Assets.xcassets */; };
 		B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */; };
 		B6177EB32175C23A00BECE98 /* CalendarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6177EB22175C23A00BECE98 /* CalendarItemView.m */; };
+		B636AE0E23F0F5CF006A6A85 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B636AE1023F0F5CF006A6A85 /* Intents.intentdefinition */; };
 		B66110832045504700D648E9 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110822045504700D648E9 /* BaseTabBarController.m */; };
 		B6760E0F215B3AFC005E97A4 /* PGSettingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6760E0E215B3AFC005E97A4 /* PGSettingDataModel.m */; };
 		B67D5F2223CEF085008A13B7 /* PGExConfigDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = B67D5F2123CEF085008A13B7 /* PGExConfigDefault.plist */; };
@@ -42,7 +43,6 @@
 		B68B523F2153A21200C1254F /* NSDate+Stamp.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B523D2153A21200C1254F /* NSDate+Stamp.m */; };
 		B68B52422153A26200C1254F /* WKConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52412153A26200C1254F /* WKConfigManager.m */; };
 		B68B524A215480DA00C1254F /* WKWatchTransTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B5249215480DA00C1254F /* WKWatchTransTool.m */; };
-		B68B524D2154D9DD00C1254F /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B68B524C2154D9DD00C1254F /* Intents.intentdefinition */; };
 		B6A60E112140CECB000A737D /* PGFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E102140CECB000A737D /* PGFocusViewController.m */; };
 		B6A60E162140D8E2000A737D /* QMLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60E132140D8E2000A737D /* QMLoadView.m */; };
 		B6A60E172140D8E2000A737D /* pic_loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = B6A60E142140D8E2000A737D /* pic_loading.gif */; };
@@ -277,6 +277,9 @@
 		B615E9E5214B6050008D0B6E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B6177EB12175C23A00BECE98 /* CalendarItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarItemView.h; sourceTree = "<group>"; };
 		B6177EB22175C23A00BECE98 /* CalendarItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarItemView.m; sourceTree = "<group>"; };
+		B636AE0F23F0F5CF006A6A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/Intents.intentdefinition; sourceTree = "<group>"; };
+		B636AE1223F0F5D7006A6A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intents.strings; sourceTree = "<group>"; };
+		B636AE1423F0F5D8006A6A85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
 		B66110812045504700D648E9 /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
 		B66110822045504700D648E9 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		B673BD0923EE99880077E466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -322,7 +325,6 @@
 		B68B5248215480DA00C1254F /* WKWatchTransTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWatchTransTool.h; sourceTree = "<group>"; };
 		B68B5249215480DA00C1254F /* WKWatchTransTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWatchTransTool.m; sourceTree = "<group>"; };
 		B68B524B21548FF400C1254F /* PGNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGNotification.h; sourceTree = "<group>"; };
-		B68B524C2154D9DD00C1254F /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		B6A60E0F2140CECB000A737D /* PGFocusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusViewController.h; sourceTree = "<group>"; };
 		B6A60E102140CECB000A737D /* PGFocusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusViewController.m; sourceTree = "<group>"; };
 		B6A60E132140D8E2000A737D /* QMLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMLoadView.m; sourceTree = "<group>"; };
@@ -1522,7 +1524,7 @@
 			isa = PBXGroup;
 			children = (
 				B6D133A223EDBA0500D453C7 /* Localizable */,
-				B68B524C2154D9DD00C1254F /* Intents.intentdefinition */,
+				B636AE1023F0F5CF006A6A85 /* Intents.intentdefinition */,
 				B6E26AA9201AF4A1006C7650 /* ProjectPrefix.pch */,
 				B6E26AA4201AF457006C7650 /* Config */,
 				B6E26A67201AF2A0006C7650 /* LaunchScreen.storyboard */,
@@ -2487,7 +2489,7 @@
 				D6D9C2B72179B21000EF9D91 /* AAPie.m in Sources */,
 				B6A60F352140F946000A737D /* PGCountdownTool.m in Sources */,
 				B6A60F392140F9A5000A737D /* PGCountdownLabel.m in Sources */,
-				B68B524D2154D9DD00C1254F /* Intents.intentdefinition in Sources */,
+				B636AE0E23F0F5CF006A6A85 /* Intents.intentdefinition in Sources */,
 				B6FFB09821743DC000076F44 /* PGTomatoRecordModel.m in Sources */,
 				D6D9C2B52179B21000EF9D91 /* AASpline.m in Sources */,
 				B6E26AA0201AF3F2006C7650 /* BaseViewController.m in Sources */,
@@ -2619,6 +2621,16 @@
 				B673BD0A23EE99880077E466 /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		B636AE1023F0F5CF006A6A85 /* Intents.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B636AE0F23F0F5CF006A6A85 /* Base */,
+				B636AE1223F0F5D7006A6A85 /* en */,
+				B636AE1423F0F5D8006A6A85 /* zh-Hans */,
+			);
+			name = Intents.intentdefinition;
 			sourceTree = "<group>";
 		};
 		B6D133AB23EDBABE00D453C7 /* Localizable.strings */ = {
