@@ -12,6 +12,7 @@
 "Sure" = "确定";
 "OK" = "好的";
 "Refresh" = "刷新";
+"Test" = "测试";
 
 "Mon" = "周一";
 "Tues" = "周二";
@@ -49,6 +50,7 @@
 "No input" = "未输入";
 
 //Focus
+"Focus" = "专注";
 "Unknown Tag" = "未知标签";
 "Sure you abort the task" = "确定中止任务吗";
 "OK to abort" = "确认中止";

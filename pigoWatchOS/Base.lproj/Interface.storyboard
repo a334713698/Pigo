@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch42"/>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PhE-CP-vsO">
+    <device id="watch44"/>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -21,7 +21,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="font" type="system" pointSize="15"/>
                                             </label>
-                                            <imageView width="25" height="25" alignment="right" verticalAlignment="center" image="icon_tomato" contentMode="scaleAspectFit" id="ooA-Wf-yP1"/>
+                                            <imageView width="20" height="20" alignment="right" verticalAlignment="center" image="icon_tomato" contentMode="scaleAspectFit" id="ooA-Wf-yP1"/>
                                             <label alignment="right" verticalAlignment="center" text="0" id="U32-Sd-2az"/>
                                         </items>
                                     </group>
@@ -38,38 +38,34 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="218.78260869565216" y="343.79464285714289"/>
+            <point key="canvasLocation" x="478" y="358"/>
         </scene>
         <!--PhE-CP-vsO.title-->
         <scene sceneID="mFs-Qj-d2F">
             <objects>
                 <controller identifier="PGFocusInterfaceController" title="PhE-CP-vsO.title" id="PhE-CP-vsO" customClass="PGFocusInterfaceController">
                     <items>
-                        <label width="1" height="75" alignment="center" text="25:00" textAlignment="center" id="LtD-G7-RwL">
+                        <label width="1" height="65" alignment="center" text="25:00" textAlignment="center" id="LtD-G7-RwL">
                             <fontDescription key="font" type="system" pointSize="55"/>
                         </label>
-                        <group width="1" height="30" alignment="left" id="F9u-GL-ccp">
-                            <items>
-                                <group width="0.48999999999999999" height="1" alignment="left" id="Oe9-Pq-ZdD">
-                                    <items>
-                                        <imageView width="25" height="25" alignment="center" verticalAlignment="center" image="icon_tomato" contentMode="scaleAspectFit" id="fAJ-tx-Ld2"/>
-                                        <label alignment="center" verticalAlignment="center" text="0" id="fwa-Ds-hrV"/>
-                                    </items>
-                                </group>
-                                <imageView width="2" height="0.59999999999999998" alignment="center" verticalAlignment="center" image="bg_white" id="63Z-po-2Zw"/>
-                                <group width="0.48999999999999999" alignment="right" id="Aw0-tN-dbW">
-                                    <items>
-                                        <label width="1" height="1" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="2BY-51-Wt9"/>
-                                    </items>
-                                </group>
-                            </items>
-                        </group>
-                        <button width="1" alignment="left" title="Button" id="hJi-W0-LWa">
+                        <button alignment="left" id="X4z-fc-iaf">
+                            <group key="contentGroup" width="1" height="30" alignment="left" id="2FS-di-PVI">
+                                <items>
+                                    <label width="1" alignment="center" text="Label" textAlignment="center" id="roY-tx-0az">
+                                        <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                                    </label>
+                                </items>
+                            </group>
+                            <connections>
+                                <action selector="pigoList" destination="PhE-CP-vsO" id="5jx-pG-InG"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="center" title="Button" id="hJi-W0-LWa">
                             <connections>
                                 <action selector="topBtnClick" destination="PhE-CP-vsO" id="zLK-I2-77p"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="left" title="Button" id="uvC-Rh-xiM">
+                        <button width="1" alignment="center" title="Button" id="uvC-Rh-xiM">
                             <connections>
                                 <action selector="bottomBtnClick" destination="PhE-CP-vsO" id="vnX-tq-GoK"/>
                             </connections>
@@ -77,13 +73,13 @@
                     </items>
                     <connections>
                         <outlet property="bottomBtn" destination="uvC-Rh-xiM" id="RC2-OJ-fWg"/>
-                        <outlet property="taskNameLab" destination="2BY-51-Wt9" id="NII-Ei-ZOz"/>
+                        <outlet property="taskNameLab" destination="roY-tx-0az" id="dvo-AY-nAO"/>
                         <outlet property="timeLab" destination="LtD-G7-RwL" id="p11-JW-M6U"/>
                         <outlet property="topBtn" destination="hJi-W0-LWa" id="nac-cb-LPJ"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="467.86956521739125" y="343.79464285714289"/>
+            <point key="canvasLocation" x="219.69230769230771" y="357.43589743589746"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -110,7 +106,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg_white" width="3" height="3"/>
         <image name="icon_tomato" width="28" height="28"/>
     </resources>
 </document>

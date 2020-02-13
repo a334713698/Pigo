@@ -3,7 +3,7 @@
 "2BY-51-Wt9.text" = "Label";
 
 /* Class = "WKInterfaceController"; title = "Pigo"; ObjectID = "AgC-eL-Hgc"; */
-"AgC-eL-Hgc.title" = "Pigo";
+"AgC-eL-Hgc.title" = "Pigo List";
 
 /* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
 "IdU-wH-bcW.text" = "Alert Label";

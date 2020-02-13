@@ -37,8 +37,8 @@
 - (void)awakeWithContext:(id)context {
     // Configure interface objects here.
     [super awakeWithContext:context];
-    NSLog(@"awakeWithContext");
-//    [self addMenuItemWithItemIcon:WKMenuItemIconAdd title:@"添加" action:@selector(addTask)];
+    NSLog(@"awakeWithContext-%@",NSStringFromClass([self class]));
+
     [self addMenuItemWithItemIcon:WKMenuItemIconResume title:NSLocalizedString(@"Refresh", nil) action:@selector(refreshTaskList)];
     [self reloadData];
     
@@ -48,19 +48,20 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
-    NSLog(@"willActivate");
+    NSLog(@"willActivate-%@",NSStringFromClass([self class]));
 }
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
-    NSLog(@"didDeactivate");
+    NSLog(@"didDeactivate-%@",NSStringFromClass([self class]));
 }
+
 
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex{
     [super table:table didSelectRowAtIndex:rowIndex];
     PGTaskListModel* model = self.dataArr[rowIndex];
-    [self presentControllerWithName:@"PGFocusInterfaceController" context:model];
+
 }
 
 //- (void)addTask{
@@ -90,7 +91,7 @@
         PGTaskListModel* model = self.dataArr[i];
         PGTaskListCell* cell = [self.table rowControllerAtIndex:i];
         [cell.itemLabel setText:model.task_name];
-        [cell.countLabel setText:@"0"];
+        [cell.countLabel setText:QMStringFromNSInteger(model.count)];
     }
 }
 

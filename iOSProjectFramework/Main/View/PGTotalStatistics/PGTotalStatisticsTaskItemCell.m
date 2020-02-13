@@ -108,7 +108,7 @@
     if (_showHour) {
         _lenLab.text = [NSString stringWithFormat:@"%.1lf%@",itemModel.totalLength / 60.0,NSLocalizedString(@"hour", nil)];
     }else{
-        _lenLab.text = [NSString stringWithFormat:@"%ld%@",itemModel.totalLength,NSLocalizedString(@"minutes", nil)];
+        _lenLab.text = [NSString stringWithFormat:@"%ld %@",itemModel.totalLength,NSLocalizedString(@"minutes", nil)];
     }
 
 }

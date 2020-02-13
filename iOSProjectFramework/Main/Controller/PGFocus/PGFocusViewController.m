@@ -151,22 +151,23 @@
     [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
     [self addNotiObserver];
     
-//    UIButton* comButton = [UIButton createButtonWithFontSize:adaptFont(17) andTitleColor:BLACK_COLOR andTitle:@"测试-完成" andBackgroundColor:WHITE_COLOR];
+#ifdef DEBUG
+//    UIButton* comButton = [UIButton createButtonWithFontSize:adaptFont(17) andTitleColor:BLACK_COLOR andTitle:NSLocalizedString(@"Test", nilΩ) andBackgroundColor:WHITE_COLOR];
 //    [self.view addSubview:comButton];
-//    comButton.frame = CGRectMake(0, 50, 100, 50);
+//    comButton.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT + STATUSBAR_HEIGHT + 50, 100, 50);
 //    [comButton addTarget:self action:@selector(comButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+#endif
 }
-
-- (void)comButtonClick:(UIButton*)sender{
-    [PGUserModelInstance completeATomato];
-}
-
-
 
 #pragma mark - SEL
 - (void)toList{
     PGTaskListViewController* next = [PGTaskListViewController new];
     [self.navigationController pushViewController:next animated:YES];
+}
+
+- (void)comButtonClick:(UIButton*)sender{
+    //完成一个番茄
+    //[PGUserModelInstance completeATomato];
 }
 
 
@@ -229,10 +230,5 @@
     [NOTI_CENTER removeObserver:self name:PGSettingUpdateNotification object:nil];
     [NOTI_CENTER removeObserver:self name:PGFocusStateUpdateNotification object:nil];
 }
-
-#pragma mark - NetRequest
-
-
-
 
 @end

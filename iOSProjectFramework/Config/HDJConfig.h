@@ -36,11 +36,13 @@
 #define NAVIGATIONBAR_WIDTH 24 //不确定
 #define NAVIGATIONBAR_HEIGHT 44
 #define NavigationBarIcon 20
-#define TABBAR_HEIGHT (isPhoneX ? 83 : 49)
+#define TABBAR_HEIGHT 49
+#define ToolBAR_HEIGHT 44
 #define TabBarIcon 30
 #define SAFEAREA_BOTTOM_HEIGHT (isPhoneX ? 34 : 0)
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
 
 #define WS(weakSelf)   __weak typeof(self) weakSelf = self;
 #define WSObj(obj,weakObj)   __weak typeof(obj) weakObj = obj;

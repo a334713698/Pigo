@@ -15,4 +15,7 @@
 
 @property (nonatomic, assign) BOOL is_default;
 
+@property (nonatomic, assign) NSInteger count;
+@property (nonatomic, assign) NSInteger length;
+
 @end

@@ -9,6 +9,7 @@
 #import "PGFocusInterfaceController.h"
 #import "PGFocusingViewModel.h"
 #import "PGTaskListModel.h"
+#import "InterfaceController.h"
 
 @interface PGFocusInterfaceController ()
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceButton *topBtn;
@@ -38,10 +39,15 @@
     [super awakeWithContext:context];
     
     // Configure interface objects here.
-    [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:NSLocalizedString(@"Delete Pigo", nil) action:@selector(deleteTask)];
+
+    [self addMenuItemWithItemIcon:WKMenuItemIconMore title:NSLocalizedString(@"Pigo List", nil) action:@selector(pigoList)];
 
     self.taskModel = context;
-    [self.taskNameLab setText:self.taskModel.task_name];
+    if (self.taskModel.task_name) {
+        [self.taskNameLab setText:self.taskModel.task_name];
+    }else{
+        [self.taskNameLab setText:NSLocalizedString(@"Unknown Tag", nil)];
+    }
     [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
 
 }
@@ -49,17 +55,20 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    NSLog(@"willActivate-%@",NSStringFromClass([self class]));
 }
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+    NSLog(@"didDeactivate-%@",NSStringFromClass([self class]));
 }
 
-- (void)deleteTask{
-    NSLog(@"删除这个番茄");
-    [self dismissController];
+- (IBAction)pigoList{
+    NSLog(@"番茄列表");
+    [self presentControllerWithName:@"InterfaceController" context:nil];
 }
+
 - (IBAction)topBtnClick {
     [self.viewModel topBtnClick];
 }
