@@ -23,6 +23,9 @@
 		B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */; };
 		B6177EB32175C23A00BECE98 /* CalendarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6177EB22175C23A00BECE98 /* CalendarItemView.m */; };
 		B636AE0E23F0F5CF006A6A85 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B636AE1023F0F5CF006A6A85 /* Intents.intentdefinition */; };
+		B636AEBD23F4FCD4006A6A85 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B636AEBC23F4FCC6006A6A85 /* libsqlite3.0.tbd */; };
+		B636AEC523F512C4006A6A85 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC023F512C4006A6A85 /* DJDatabaseManager.m */; };
+		B636AEC623F512C4006A6A85 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */; };
 		B66110832045504700D648E9 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110822045504700D648E9 /* BaseTabBarController.m */; };
 		B6760E0F215B3AFC005E97A4 /* PGSettingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6760E0E215B3AFC005E97A4 /* PGSettingDataModel.m */; };
 		B67D5F2223CEF085008A13B7 /* PGExConfigDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = B67D5F2123CEF085008A13B7 /* PGExConfigDefault.plist */; };
@@ -83,8 +86,6 @@
 		B6CC325B2149109700E66D64 /* PGConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC325A2149109700E66D64 /* PGConfigManager.m */; };
 		B6CC325E2149EE2C00E66D64 /* PGConfigDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6CC325D2149EE2C00E66D64 /* PGConfigDefault.plist */; };
 		B6CC32622149F3E500E66D64 /* PGSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC32612149F3E500E66D64 /* PGSettingCell.m */; };
-		B6CC3266214A635D00E66D64 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC3264214A635D00E66D64 /* DJDatabaseManager.m */; };
-		B6CC326A214A63D900E66D64 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC3268214A63D900E66D64 /* HDJDSQLSearchModel.m */; };
 		B6CC326D214A676B00E66D64 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC326C214A676B00E66D64 /* LaunchViewController.m */; };
 		B6CF21732147B28400067470 /* PGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF21722147B28400067470 /* PGSettingViewController.m */; };
 		B6CF217A2147B36700067470 /* BaseTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF21752147B36700067470 /* BaseTableViewModel.m */; };
@@ -282,6 +283,12 @@
 		B636AE1423F0F5D8006A6A85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
 		B636AE1923F10480006A6A85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
 		B636AE1B23F10483006A6A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Interface.strings; sourceTree = "<group>"; };
+		B636AEBA23F4FBE0006A6A85 /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B636AEBC23F4FCC6006A6A85 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/usr/lib/libsqlite3.0.tbd; sourceTree = DEVELOPER_DIR; };
+		B636AEC023F512C4006A6A85 /* DJDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJDatabaseManager.m; sourceTree = "<group>"; };
+		B636AEC123F512C4006A6A85 /* DJDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJDatabaseManager.h; sourceTree = "<group>"; };
+		B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDJDSQLSearchModel.m; sourceTree = "<group>"; };
+		B636AEC423F512C4006A6A85 /* HDJDSQLSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJDSQLSearchModel.h; sourceTree = "<group>"; };
 		B66110812045504700D648E9 /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
 		B66110822045504700D648E9 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		B673BD0923EE99880077E466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -404,10 +411,6 @@
 		B6CC325D2149EE2C00E66D64 /* PGConfigDefault.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PGConfigDefault.plist; sourceTree = "<group>"; };
 		B6CC32602149F3E500E66D64 /* PGSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGSettingCell.h; sourceTree = "<group>"; };
 		B6CC32612149F3E500E66D64 /* PGSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGSettingCell.m; sourceTree = "<group>"; };
-		B6CC3264214A635D00E66D64 /* DJDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJDatabaseManager.m; sourceTree = "<group>"; };
-		B6CC3265214A635D00E66D64 /* DJDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJDatabaseManager.h; sourceTree = "<group>"; };
-		B6CC3268214A63D900E66D64 /* HDJDSQLSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDJDSQLSearchModel.m; sourceTree = "<group>"; };
-		B6CC3269214A63D900E66D64 /* HDJDSQLSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJDSQLSearchModel.h; sourceTree = "<group>"; };
 		B6CC326B214A676B00E66D64 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		B6CC326C214A676B00E66D64 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		B6CF21712147B28400067470 /* PGSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGSettingViewController.h; sourceTree = "<group>"; };
@@ -630,6 +633,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B636AEBD23F4FCD4006A6A85 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +659,8 @@
 		56F6681CD3364E96184F2DEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B636AEBC23F4FCC6006A6A85 /* libsqlite3.0.tbd */,
+				B636AEBA23F4FBE0006A6A85 /* libFMDB.a */,
 				D6FD8DF521DF0CA8002F4244 /* Foundation.framework */,
 				D6FD8DF321DF0C9E002F4244 /* UIKit.framework */,
 				4FF64C99AC489725090F26D7 /* libPods-iOSProjectFramework.a */,
@@ -773,6 +779,32 @@
 			path = CalendarItemView;
 			sourceTree = "<group>";
 		};
+		B636AEBE23F50B23006A6A85 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B636AEBF23F512C4006A6A85 /* DJDB */ = {
+			isa = PBXGroup;
+			children = (
+				B636AEC223F512C4006A6A85 /* HDJDSQLSearchModel */,
+				B636AEC123F512C4006A6A85 /* DJDatabaseManager.h */,
+				B636AEC023F512C4006A6A85 /* DJDatabaseManager.m */,
+			);
+			path = DJDB;
+			sourceTree = "<group>";
+		};
+		B636AEC223F512C4006A6A85 /* HDJDSQLSearchModel */ = {
+			isa = PBXGroup;
+			children = (
+				B636AEC423F512C4006A6A85 /* HDJDSQLSearchModel.h */,
+				B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */,
+			);
+			path = HDJDSQLSearchModel;
+			sourceTree = "<group>";
+		};
 		B661108020454CBA00D648E9 /* BaseTabBarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,8 +835,8 @@
 		B68887B02150A4640013874D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B68887B32150A5500013874D /* PGTaskList */,
 				B68887AC2150A4120013874D /* PGFocus */,
+				B68887B32150A5500013874D /* PGTaskList */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1403,25 +1435,6 @@
 			path = PGSetting;
 			sourceTree = "<group>";
 		};
-		B6CC3263214A635D00E66D64 /* DJDB */ = {
-			isa = PBXGroup;
-			children = (
-				B6CC3267214A63D900E66D64 /* HDJDSQLSearchModel */,
-				B6CC3265214A635D00E66D64 /* DJDatabaseManager.h */,
-				B6CC3264214A635D00E66D64 /* DJDatabaseManager.m */,
-			);
-			path = DJDB;
-			sourceTree = "<group>";
-		};
-		B6CC3267214A63D900E66D64 /* HDJDSQLSearchModel */ = {
-			isa = PBXGroup;
-			children = (
-				B6CC3269214A63D900E66D64 /* HDJDSQLSearchModel.h */,
-				B6CC3268214A63D900E66D64 /* HDJDSQLSearchModel.m */,
-			);
-			path = HDJDSQLSearchModel;
-			sourceTree = "<group>";
-		};
 		B6CF21702147B26800067470 /* PGSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -1621,10 +1634,11 @@
 		B6E26A88201AF3F2006C7650 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B636AEBF23F512C4006A6A85 /* DJDB */,
 				D650B1B321916189003084D4 /* PGLocalNotiTool */,
 				D6D9C246217731A400EF9D91 /* DJTools */,
 				B68B522F21539F9600C1254F /* PGWatchTransTool */,
-				B6CC3263214A635D00E66D64 /* DJDB */,
+				B636AEBE23F50B23006A6A85 /* New Group */,
 				B6CC32582149107D00E66D64 /* PGConfigManager */,
 				B6A60F322140F919000A737D /* PGCountdownTool */,
 			);
@@ -2210,7 +2224,6 @@
 				B6E26A55201AF2A0006C7650 /* Sources */,
 				B6E26A56201AF2A0006C7650 /* Frameworks */,
 				B6E26A57201AF2A0006C7650 /* Resources */,
-				D672B9A184CB576C344A1140 /* [CP] Embed Pods Frameworks */,
 				C08B852EF9AD26DD8A1FBAC2 /* [CP] Copy Pods Resources */,
 				B615E9F0214B6050008D0B6E /* Embed Watch Content */,
 				D6C0CD8421D328580050F180 /* Embed App Extensions */,
@@ -2383,7 +2396,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
@@ -2394,22 +2407,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D672B9A184CB576C344A1140 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSProjectFramework/Pods-iOSProjectFramework-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2528,6 +2526,7 @@
 				D6D9C2B62179B21000EF9D91 /* AAItemStyle.m in Sources */,
 				B6E26A6C201AF2A0006C7650 /* main.m in Sources */,
 				B6CF217B2147B36700067470 /* BaseViewModel.m in Sources */,
+				B636AEC523F512C4006A6A85 /* DJDatabaseManager.m in Sources */,
 				B68B523521539FD000C1254F /* PGWatchTransTool.m in Sources */,
 				B6E26A9C201AF3F2006C7650 /* HDJEmptyView.m in Sources */,
 				D6D9C249217731A400EF9D91 /* DJTools.m in Sources */,
@@ -2538,8 +2537,8 @@
 				D6D5D2A4217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m in Sources */,
 				B6A60F2D2140F659000A737D /* NSString+JSON.m in Sources */,
 				B6FFB094217432DE00076F44 /* PGUserModel.m in Sources */,
+				B636AEC623F512C4006A6A85 /* HDJDSQLSearchModel.m in Sources */,
 				B6A60F602142591C000A737D /* PGTaskTableView.m in Sources */,
-				B6CC326A214A63D900E66D64 /* HDJDSQLSearchModel.m in Sources */,
 				D6D5D2C22181A1B000FF34D0 /* UIView+MFFrame.m in Sources */,
 				D6D5D2A72180195A00FF34D0 /* PGTaskListAddView.m in Sources */,
 				D6D9C2A52179B21000EF9D91 /* AADataLabels.m in Sources */,
@@ -2566,7 +2565,6 @@
 				B6CC32622149F3E500E66D64 /* PGSettingCell.m in Sources */,
 				B6E26A5E201AF2A0006C7650 /* AppDelegate.m in Sources */,
 				B6A60F48214115ED000A737D /* PGTaskListViewController.m in Sources */,
-				B6CC3266214A635D00E66D64 /* DJDatabaseManager.m in Sources */,
 				D6D5D2B321805B2D00FF34D0 /* HDJNotification.m in Sources */,
 				B6CC32572149066900E66D64 /* PGFocusViewModel.m in Sources */,
 				B6A60F312140F659000A737D /* NSDate+Stamp.m in Sources */,

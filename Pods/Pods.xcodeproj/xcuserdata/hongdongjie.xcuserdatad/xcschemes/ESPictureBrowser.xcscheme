@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'FF318F3A9A78BF17A91763507DD56808'
-               BlueprintName = 'ESPictureBrowser'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libESPictureBrowser.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7F0A4A61C147B7B07720FAFECCCD7066"
+               BuildableName = "libESPictureBrowser.a"
+               BlueprintName = "ESPictureBrowser"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

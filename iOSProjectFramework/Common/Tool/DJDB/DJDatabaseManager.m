@@ -15,9 +15,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
 
 - (FMDatabase *)database{
     if (!_database) {
-        NSString* dbPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:DATABASE_NAME];
-        _database = [FMDatabase databaseWithPath:dbPath];
-        DLog(@"%@",dbPath);
+//        NSString* dbPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:DATABASE_NAME];
+//        _database = [FMDatabase databaseWithPath:dbPath];
+//        DLog(@"%@",dbPath);
+
+        //获取App Group的共享目录
+        NSURL *groupURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.hdj.pigo"];
+        NSURL *fileURL = [groupURL URLByAppendingPathComponent:DATABASE_NAME];
+        _database = [FMDatabase databaseWithURL:fileURL];
+        DLog(@"%@",[fileURL absoluteString]);
     }
     return _database;
 }

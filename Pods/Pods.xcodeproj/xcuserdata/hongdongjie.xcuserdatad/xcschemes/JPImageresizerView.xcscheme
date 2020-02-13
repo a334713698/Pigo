@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1732A9EF398FCBF4EB5925E24FD1EE8F'
-               BlueprintName = 'JPImageresizerView'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libJPImageresizerView.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "153D6B62063BA917EC8DB4092EFA615E"
+               BuildableName = "libJPImageresizerView.a"
+               BlueprintName = "JPImageresizerView"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
