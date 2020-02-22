@@ -23,14 +23,27 @@
 		B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */; };
 		B6177EB32175C23A00BECE98 /* CalendarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6177EB22175C23A00BECE98 /* CalendarItemView.m */; };
 		B636AE0E23F0F5CF006A6A85 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B636AE1023F0F5CF006A6A85 /* Intents.intentdefinition */; };
-		B636AEBD23F4FCD4006A6A85 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B636AEBC23F4FCC6006A6A85 /* libsqlite3.0.tbd */; };
 		B636AEC523F512C4006A6A85 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC023F512C4006A6A85 /* DJDatabaseManager.m */; };
 		B636AEC623F512C4006A6A85 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */; };
+		B636AEC723F516A6006A6A85 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */; };
+		B636AEC923F516CE006A6A85 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A98201AF3F2006C7650 /* BaseModel.m */; };
+		B636AED823F51BF6006A6A85 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AECD23F51BF6006A6A85 /* FMDatabaseQueue.m */; };
+		B636AED923F51BF6006A6A85 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AED023F51BF6006A6A85 /* FMDatabaseAdditions.m */; };
+		B636AEDA23F51BF6006A6A85 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AED123F51BF6006A6A85 /* FMDatabase.m */; };
+		B636AEDB23F51BF6006A6A85 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AED523F51BF6006A6A85 /* FMDatabasePool.m */; };
+		B636AEDC23F51BF6006A6A85 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AED623F51BF6006A6A85 /* FMResultSet.m */; };
+		B636AEDF23F51F55006A6A85 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AED123F51BF6006A6A85 /* FMDatabase.m */; };
+		B636AEE023F51F58006A6A85 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AED623F51BF6006A6A85 /* FMResultSet.m */; };
+		B636AEE123F51F5D006A6A85 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AED523F51BF6006A6A85 /* FMDatabasePool.m */; };
+		B636AEE223F51F5F006A6A85 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AED023F51BF6006A6A85 /* FMDatabaseAdditions.m */; };
+		B636AEE323F51F61006A6A85 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AECD23F51BF6006A6A85 /* FMDatabaseQueue.m */; };
+		B636AEE423F52907006A6A85 /* PGTomatoRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB09721743DC000076F44 /* PGTomatoRecordModel.m */; };
+		B636AEE523F5294D006A6A85 /* PGTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B615E977214B4BD0008D0B6E /* PGTaskListModel.m */; };
+		B636AEEC23F5426F006A6A85 /* DJDatabaseMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEEB23F5426F006A6A85 /* DJDatabaseMgr.m */; };
 		B66110832045504700D648E9 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110822045504700D648E9 /* BaseTabBarController.m */; };
 		B6760E0F215B3AFC005E97A4 /* PGSettingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6760E0E215B3AFC005E97A4 /* PGSettingDataModel.m */; };
 		B67D5F2223CEF085008A13B7 /* PGExConfigDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = B67D5F2123CEF085008A13B7 /* PGExConfigDefault.plist */; };
 		B68887AF2150A42B0013874D /* PGFocusInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */; };
-		B68B51F721538F5500C1254F /* PGTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B51F521538F5500C1254F /* PGTaskListModel.m */; };
 		B68B52112153912A00C1254F /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B51FE2153912A00C1254F /* MJPropertyType.m */; };
 		B68B52122153912A00C1254F /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52012153912A00C1254F /* NSObject+MJKeyValue.m */; };
 		B68B52132153912A00C1254F /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B68B52022153912A00C1254F /* MJProperty.m */; };
@@ -108,6 +121,9 @@
 		B6E26AA0201AF3F2006C7650 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A95201AF3F2006C7650 /* BaseViewController.m */; };
 		B6E26AA1201AF3F2006C7650 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E26A98201AF3F2006C7650 /* BaseModel.m */; };
 		B6E5DB68214F544600227D1D /* PGTaskListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E5DB67214F544600227D1D /* PGTaskListCell.m */; };
+		B6F72F42240018BC004EBA1C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F72F41240018BC004EBA1C /* CloudKit.framework */; };
+		B6F72F4B24001997004EBA1C /* ZZRDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F72F4824001996004EBA1C /* ZZRDocument.m */; };
+		B6F72F4C24001997004EBA1C /* iCloudHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F72F4A24001997004EBA1C /* iCloudHandle.m */; };
 		B6FFB094217432DE00076F44 /* PGUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB093217432DE00076F44 /* PGUserModel.m */; };
 		B6FFB09821743DC000076F44 /* PGTomatoRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB09721743DC000076F44 /* PGTomatoRecordModel.m */; };
 		B6FFB09C21747D2900076F44 /* PGStatisticsAndCheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFB09B21747D2900076F44 /* PGStatisticsAndCheckinViewController.m */; };
@@ -289,6 +305,19 @@
 		B636AEC123F512C4006A6A85 /* DJDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJDatabaseManager.h; sourceTree = "<group>"; };
 		B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDJDSQLSearchModel.m; sourceTree = "<group>"; };
 		B636AEC423F512C4006A6A85 /* HDJDSQLSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJDSQLSearchModel.h; sourceTree = "<group>"; };
+		B636AECC23F51BF6006A6A85 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		B636AECD23F51BF6006A6A85 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		B636AECE23F51BF6006A6A85 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		B636AECF23F51BF6006A6A85 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		B636AED023F51BF6006A6A85 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		B636AED123F51BF6006A6A85 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		B636AED223F51BF6006A6A85 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		B636AED323F51BF6006A6A85 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		B636AED423F51BF6006A6A85 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		B636AED523F51BF6006A6A85 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		B636AED623F51BF6006A6A85 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		B636AEEA23F5426F006A6A85 /* DJDatabaseMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDatabaseMgr.h; sourceTree = "<group>"; };
+		B636AEEB23F5426F006A6A85 /* DJDatabaseMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJDatabaseMgr.m; sourceTree = "<group>"; };
 		B66110812045504700D648E9 /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
 		B66110822045504700D648E9 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		B673BD0923EE99880077E466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -298,8 +327,6 @@
 		B67D5F2123CEF085008A13B7 /* PGExConfigDefault.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGExConfigDefault.plist; sourceTree = "<group>"; };
 		B68887AD2150A42B0013874D /* PGFocusInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFocusInterfaceController.h; sourceTree = "<group>"; };
 		B68887AE2150A42B0013874D /* PGFocusInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFocusInterfaceController.m; sourceTree = "<group>"; };
-		B68B51F521538F5500C1254F /* PGTaskListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTaskListModel.m; sourceTree = "<group>"; };
-		B68B51F621538F5500C1254F /* PGTaskListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTaskListModel.h; sourceTree = "<group>"; };
 		B68B51FB2153912A00C1254F /* MJPropertyKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyKey.h; sourceTree = "<group>"; };
 		B68B51FC2153912A00C1254F /* NSObject+MJClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJClass.h"; sourceTree = "<group>"; };
 		B68B51FD2153912A00C1254F /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
@@ -451,6 +478,11 @@
 		B6E26AA9201AF4A1006C7650 /* ProjectPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectPrefix.pch; sourceTree = "<group>"; };
 		B6E5DB66214F544600227D1D /* PGTaskListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGTaskListCell.h; sourceTree = "<group>"; };
 		B6E5DB67214F544600227D1D /* PGTaskListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListCell.m; sourceTree = "<group>"; };
+		B6F72F41240018BC004EBA1C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		B6F72F4724001996004EBA1C /* ZZRDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZRDocument.h; sourceTree = "<group>"; };
+		B6F72F4824001996004EBA1C /* ZZRDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZRDocument.m; sourceTree = "<group>"; };
+		B6F72F4924001996004EBA1C /* iCloudHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudHandle.h; sourceTree = "<group>"; };
+		B6F72F4A24001997004EBA1C /* iCloudHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudHandle.m; sourceTree = "<group>"; };
 		B6FDA4172150F5D9006717BB /* pigoWatchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pigoWatchOS Extension.entitlements"; sourceTree = "<group>"; };
 		B6FFB092217432DE00076F44 /* PGUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGUserModel.h; sourceTree = "<group>"; };
 		B6FFB093217432DE00076F44 /* PGUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGUserModel.m; sourceTree = "<group>"; };
@@ -633,7 +665,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B636AEBD23F4FCD4006A6A85 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8866D02DE46EFF43DDDAFE99 /* libPods-iOSProjectFramework.a in Frameworks */,
+				B6F72F42240018BC004EBA1C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +691,7 @@
 		56F6681CD3364E96184F2DEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6F72F41240018BC004EBA1C /* CloudKit.framework */,
 				B636AEBC23F4FCC6006A6A85 /* libsqlite3.0.tbd */,
 				B636AEBA23F4FBE0006A6A85 /* libFMDB.a */,
 				D6FD8DF521DF0CA8002F4244 /* Foundation.framework */,
@@ -681,6 +714,7 @@
 		B60D50102151F279008CE149 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B636AEE623F5418F006A6A85 /* DJDatabaseManager */,
 				B68B524321547EF200C1254F /* WKWatchTransTool */,
 				B68B52362153A13F00C1254F /* WKConfigManager */,
 				B60D50112151F282008CE149 /* PGTool */,
@@ -779,13 +813,6 @@
 			path = CalendarItemView;
 			sourceTree = "<group>";
 		};
-		B636AEBE23F50B23006A6A85 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		B636AEBF23F512C4006A6A85 /* DJDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,6 +830,34 @@
 				B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */,
 			);
 			path = HDJDSQLSearchModel;
+			sourceTree = "<group>";
+		};
+		B636AECB23F51BF6006A6A85 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				B636AED323F51BF6006A6A85 /* FMDB.h */,
+				B636AECC23F51BF6006A6A85 /* FMDatabase.h */,
+				B636AED123F51BF6006A6A85 /* FMDatabase.m */,
+				B636AECE23F51BF6006A6A85 /* FMResultSet.h */,
+				B636AED623F51BF6006A6A85 /* FMResultSet.m */,
+				B636AECF23F51BF6006A6A85 /* FMDatabasePool.h */,
+				B636AED523F51BF6006A6A85 /* FMDatabasePool.m */,
+				B636AED423F51BF6006A6A85 /* FMDatabaseAdditions.h */,
+				B636AED023F51BF6006A6A85 /* FMDatabaseAdditions.m */,
+				B636AED223F51BF6006A6A85 /* FMDatabaseQueue.h */,
+				B636AECD23F51BF6006A6A85 /* FMDatabaseQueue.m */,
+			);
+			name = fmdb;
+			path = src/fmdb;
+			sourceTree = "<group>";
+		};
+		B636AEE623F5418F006A6A85 /* DJDatabaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				B636AEEA23F5426F006A6A85 /* DJDatabaseMgr.h */,
+				B636AEEB23F5426F006A6A85 /* DJDatabaseMgr.m */,
+			);
+			path = DJDatabaseManager;
 			sourceTree = "<group>";
 		};
 		B661108020454CBA00D648E9 /* BaseTabBarController */ = {
@@ -869,18 +924,8 @@
 		B68B51F321538F3200C1254F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B68B51F421538F5500C1254F /* PGTaskList */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B68B51F421538F5500C1254F /* PGTaskList */ = {
-			isa = PBXGroup;
-			children = (
-				B68B51F621538F5500C1254F /* PGTaskListModel.h */,
-				B68B51F521538F5500C1254F /* PGTaskListModel.m */,
-			);
-			path = PGTaskList;
 			sourceTree = "<group>";
 		};
 		B68B51F82153907000C1254F /* Commom */ = {
@@ -1020,6 +1065,8 @@
 		B6A60E222140F19B000A737D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				B6F72F43240018D8004EBA1C /* iCloudHandle */,
+				B636AECB23F51BF6006A6A85 /* fmdb */,
 				D6D5D2B52181A1AF00FF34D0 /* MFHUDManager */,
 				D6D9C25F2179B20F00EF9D91 /* AAChartKitLib */,
 				B6A60E232140F19B000A737D /* ZWPlaceHolder */,
@@ -1638,7 +1685,6 @@
 				D650B1B321916189003084D4 /* PGLocalNotiTool */,
 				D6D9C246217731A400EF9D91 /* DJTools */,
 				B68B522F21539F9600C1254F /* PGWatchTransTool */,
-				B636AEBE23F50B23006A6A85 /* New Group */,
 				B6CC32582149107D00E66D64 /* PGConfigManager */,
 				B6A60F322140F919000A737D /* PGCountdownTool */,
 			);
@@ -1735,6 +1781,17 @@
 				B6E5DB67214F544600227D1D /* PGTaskListCell.m */,
 			);
 			path = PGTaskList;
+			sourceTree = "<group>";
+		};
+		B6F72F43240018D8004EBA1C /* iCloudHandle */ = {
+			isa = PBXGroup;
+			children = (
+				B6F72F4924001996004EBA1C /* iCloudHandle.h */,
+				B6F72F4A24001997004EBA1C /* iCloudHandle.m */,
+				B6F72F4724001996004EBA1C /* ZZRDocument.h */,
+				B6F72F4824001996004EBA1C /* ZZRDocument.m */,
+			);
+			path = iCloudHandle;
 			sourceTree = "<group>";
 		};
 		B6FFB091217432CA00076F44 /* PGUserModel */ = {
@@ -2422,21 +2479,30 @@
 				B68B52152153912A00C1254F /* MJExtensionConst.m in Sources */,
 				B60D50142151F29C008CE149 /* PGTool.m in Sources */,
 				B68B521B2153912A00C1254F /* MJFoundation.m in Sources */,
+				B636AEE323F51F61006A6A85 /* FMDatabaseQueue.m in Sources */,
 				B68B52172153912A00C1254F /* NSObject+MJClass.m in Sources */,
 				B60D500F2151E587008CE149 /* BaseInterfaceController.m in Sources */,
 				B615E9DE214B6050008D0B6E /* ExtensionDelegate.m in Sources */,
 				B68B52192153912A00C1254F /* MJPropertyKey.m in Sources */,
-				B68B51F721538F5500C1254F /* PGTaskListModel.m in Sources */,
 				B68887AF2150A42B0013874D /* PGFocusInterfaceController.m in Sources */,
 				B68B52182153912A00C1254F /* NSString+MJExtension.m in Sources */,
 				B6E5DB68214F544600227D1D /* PGTaskListCell.m in Sources */,
+				B636AEE423F52907006A6A85 /* PGTomatoRecordModel.m in Sources */,
 				B615E9DB214B6050008D0B6E /* InterfaceController.m in Sources */,
 				B68B52162153912A00C1254F /* NSObject+MJProperty.m in Sources */,
+				B636AEE023F51F58006A6A85 /* FMResultSet.m in Sources */,
+				B636AEE523F5294D006A6A85 /* PGTaskListModel.m in Sources */,
+				B636AEEC23F5426F006A6A85 /* DJDatabaseMgr.m in Sources */,
+				B636AEDF23F51F55006A6A85 /* FMDatabase.m in Sources */,
 				B68B52142153912A00C1254F /* NSObject+MJCoding.m in Sources */,
 				B68B52122153912A00C1254F /* NSObject+MJKeyValue.m in Sources */,
 				B68B522A21539A0F00C1254F /* PGFocusingViewModel.m in Sources */,
+				B636AEC923F516CE006A6A85 /* BaseModel.m in Sources */,
+				B636AEE223F51F5F006A6A85 /* FMDatabaseAdditions.m in Sources */,
 				B68B524A215480DA00C1254F /* WKWatchTransTool.m in Sources */,
 				B615E9E1214B6050008D0B6E /* NotificationController.m in Sources */,
+				B636AEC723F516A6006A6A85 /* HDJDSQLSearchModel.m in Sources */,
+				B636AEE123F51F5D006A6A85 /* FMDatabasePool.m in Sources */,
 				B68B52132153912A00C1254F /* MJProperty.m in Sources */,
 				B68B52422153A26200C1254F /* WKConfigManager.m in Sources */,
 			);
@@ -2449,10 +2515,12 @@
 				B6FFB0A921748ECD00076F44 /* PGStatisticsView.m in Sources */,
 				D681CC4F219D3C4E00D8B3B9 /* PGRecycleBinViewController.m in Sources */,
 				B6CF21802147B41700067470 /* PGSettingViewModel.m in Sources */,
+				B636AEDA23F51BF6006A6A85 /* FMDatabase.m in Sources */,
 				D6D5D2AA2180347200FF34D0 /* PGTaskListAddCollectionViewCell.m in Sources */,
 				D6D9C25E21798D7C00EF9D91 /* PGStatisticsTodayPeriodCell.m in Sources */,
 				B6A60F302140F659000A737D /* NSString+Features.m in Sources */,
 				B6A60F222140F659000A737D /* UILabel+TextAttribute.m in Sources */,
+				B636AEDB23F51BF6006A6A85 /* FMDatabasePool.m in Sources */,
 				D6D9C2AB2179B21000EF9D91 /* AAColumn.m in Sources */,
 				D6D9C2BA2179B21000EF9D91 /* AAChartModel.m in Sources */,
 				B6A60E212140F0C1000A737D /* HDJConst.m in Sources */,
@@ -2475,6 +2543,7 @@
 				D6D5D2DD2182C92B00FF34D0 /* PGTotalStatisticsTaskItemCell.m in Sources */,
 				D6D9C253217835B100EF9D91 /* PGStatisticsAnnualActivityCell.m in Sources */,
 				B6CF217A2147B36700067470 /* BaseTableViewModel.m in Sources */,
+				B636AED923F51BF6006A6A85 /* FMDatabaseAdditions.m in Sources */,
 				B615E978214B4BD0008D0B6E /* PGTaskListModel.m in Sources */,
 				B6A60F292140F659000A737D /* UIView+QMLayer.m in Sources */,
 				D6D9C2A82179B21000EF9D91 /* AASubtitle.m in Sources */,
@@ -2498,11 +2567,13 @@
 				B6E26AA1201AF3F2006C7650 /* BaseModel.m in Sources */,
 				D6D9C2A02179B21000EF9D91 /* AAAreaspline.m in Sources */,
 				B6A60F5C2141299A000A737D /* QMTableViewCell.m in Sources */,
+				B6F72F4C24001997004EBA1C /* iCloudHandle.m in Sources */,
 				D6D5D2C52181A1B000FF34D0 /* MFHUDManager.m in Sources */,
 				B6A60F262140F659000A737D /* UIColor+mostColor.m in Sources */,
 				B60D50182152444B008CE149 /* PGTaskListViewModel.m in Sources */,
 				D6E33C1E218800AD00C43875 /* PGTotalStatisticsItemModel.m in Sources */,
 				B6FFB0A12174841100076F44 /* PGStatisticsAndCheckinScrollerView.m in Sources */,
+				B6F72F4B24001997004EBA1C /* ZZRDocument.m in Sources */,
 				B6A60F1E2140F659000A737D /* UIImage+QRCode.m in Sources */,
 				D6D9C2B02179B21000EF9D91 /* AATitle.m in Sources */,
 				B66110832045504700D648E9 /* BaseTabBarController.m in Sources */,
@@ -2535,6 +2606,7 @@
 				B6A60E2B2140F19B000A737D /* MBProgressHUD+Add.m in Sources */,
 				B6A60F272140F659000A737D /* UIView+Features.m in Sources */,
 				D6D5D2A4217D9FE900FF34D0 /* PGStatisticsAndCheckinViewModel.m in Sources */,
+				B636AED823F51BF6006A6A85 /* FMDatabaseQueue.m in Sources */,
 				B6A60F2D2140F659000A737D /* NSString+JSON.m in Sources */,
 				B6FFB094217432DE00076F44 /* PGUserModel.m in Sources */,
 				B636AEC623F512C4006A6A85 /* HDJDSQLSearchModel.m in Sources */,
@@ -2544,6 +2616,7 @@
 				D6D9C2A52179B21000EF9D91 /* AADataLabels.m in Sources */,
 				D6D9C2B12179B21000EF9D91 /* AAArea.m in Sources */,
 				D6D5D2C32181A1B000FF34D0 /* NSTimer+MFWeakTimer.m in Sources */,
+				B636AEDC23F51BF6006A6A85 /* FMResultSet.m in Sources */,
 				D6D9C2A12179B21000EF9D91 /* AALabels.m in Sources */,
 				D6D5D2CD2181B1C400FF34D0 /* PGTotalStatisticsViewModel.m in Sources */,
 				D6D9C2BC2179B21000EF9D91 /* AASeriesElement.m in Sources */,

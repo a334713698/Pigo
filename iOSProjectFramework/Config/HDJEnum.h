@@ -56,7 +56,9 @@ typedef enum : NSInteger {
     PGSettingContentTypeAutomaticNext,      //自动下一个
     PGSettingContentTypeAutomaticRest,      //自动休息
     PGSettingContentTypeScreenBright,       //屏幕亮
-    PGSettingContentTypeDataSync            //数据同步
+    PGSettingContentTypeDataSync,            //数据同步
+    PGSettingContentTypeDataBackup,            //数据备份
+    PGSettingContentTypeDataRecover,            //数据恢复
 } PGSettingContentType;
 
 typedef enum : NSUInteger {

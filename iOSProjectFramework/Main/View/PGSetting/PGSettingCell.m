@@ -216,7 +216,7 @@
         [PGConfigMgr setValue:model.valueStr forKey:keyName];
         [self stateMonitor];
         NSString* unit = self.cellDic[@"unit"] ? :@"";
-        self.qm_detailLabel.text = [NSString stringWithFormat:@"%@%@",model.valueStr,unit];
+        self.qm_detailLabel.text = [NSString stringWithFormat:@"%@ %@",model.valueStr,unit];
     }
 }
 

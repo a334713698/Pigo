@@ -9,8 +9,8 @@
 #import "PGConfigManager.h"
 
 #define PGConfigDefaultPath [[NSBundle mainBundle] pathForResource:@"PGConfigDefault" ofType:@"plist"]
-//#define PGConfigPath ([NSString stringWithFormat:@"%@/PGConfig.plist",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject])
-#define PGConfigFilePath ([[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.hdj.pigo"] URLByAppendingPathComponent:@"PGConfigDefault.plist"].absoluteString)
+#define PGConfigSBPath ([NSString stringWithFormat:@"%@/PGConfig.plist",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject])
+//#define PGConfigFilePath ([[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.hdj.pigo"] URLByAppendingPathComponent:@"PGConfigDefault.plist"].absoluteString)
 
 @implementation PGConfigManager
 
@@ -24,11 +24,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGConfigManager)
     
     NSMutableDictionary* configDic;
 
-    if ([[NSFileManager defaultManager] fileExistsAtPath:PGConfigFilePath]) {
-        configDic = [NSMutableDictionary dictionaryWithContentsOfFile:PGConfigFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:PGConfigSBPath]) {
+        configDic = [NSMutableDictionary dictionaryWithContentsOfFile:PGConfigSBPath];
     }else{
         configDic = [NSMutableDictionary dictionaryWithContentsOfFile:PGConfigDefaultPath];
-        if ([[NSFileManager defaultManager] createFileAtPath:PGConfigFilePath contents:[NSData new] attributes:nil]) {
+        if ([[NSFileManager defaultManager] createFileAtPath:PGConfigSBPath contents:[NSData new] attributes:nil]) {
             DLog(@"创建成功");
         }else{
             DLog(@"创建失败");
@@ -46,7 +46,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGConfigManager)
     
     NSMutableDictionary* config = [self mj_keyValues];
     DLog(@"%@",config);
-    if ([config writeToFile:PGConfigFilePath atomically:YES]) {
+    if ([config writeToFile:PGConfigSBPath atomically:YES]) {
         DLog(@"写入成功");
     }else{
         DLog(@"写入失败");

@@ -45,9 +45,16 @@
              ]},
 
              @{@"sectionTitle":NSLocalizedString(@"Rotten Pigo", nil),@"data":@[
-//                       @{@"title":@"最近同步时间",@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeDataSync),@"detail":@"未同步",@"paraName":PGConfigParaDataSync}
                        @{@"title":NSLocalizedString(@"Pigo Recycle Bin", nil),@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeRecycleBin)}
-                       ]}
+                    ]},
+             @{@"sectionTitle":NSLocalizedString(@"Sync", nil),@"data":@[
+                        @{@"title":NSLocalizedString(@"Backup", nil),@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeDataBackup)},
+                        @{@"title":NSLocalizedString(@"Recover", nil),@"eventType":@(PGSettingEventTypeClick),@"contentType":@(PGSettingContentTypeDataRecover)}
+                         ]},
+
+//             @{@"sectionTitle":NSLocalizedString(@"Sync", nil),@"data":@[
+//                        @{@"title":NSLocalizedString(@"Last sync time", nil),@"eventType":@(PGSettingEventTypeClick | PGSettingEventTypeDetail),@"contentType":@(PGSettingContentTypeDataSync),@"detail":@"未同步",@"paraName":PGConfigParaDataSync}
+//                         ]},
              ];
 }
 

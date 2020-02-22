@@ -1,36 +1,36 @@
 //
-//  DJDatabaseManager.h
-//  Accounting
+//  DJDatabaseMgr.h
+//  pigoWatchOS Extension
 //
-//  Created by 洪冬介 on 2017/7/16.
-//  Copyright © 2017年 hongdongjie. All rights reserved.
+//  Created by 洪冬介 on 2020/2/13.
+//  Copyright © 2020 洪冬介. All rights reserved.
 //
 
-//#import <fmdb/FMDB.h>
+#import <Foundation/Foundation.h>
 #import "FMDB.h"
 #import "HDJDSQLSearchModel.h"
 
-//#define IS_FIRSTOPEN                            @"IS_FIRSTOPEN"
-//
-//#define APP_SECRET @""
-//
-//#define DATABASE_NAME                     @"pigo_db.sqlite"
-//#define task_list_table                   @"task_list_table"
-//#define tomato_record_table               @"tomato_record_table"
-//#define check_in_table                    @"check_in_table"
-//
-//#define Focuse_EndTimeStamp                    @"Focuse_EndTimeStamp"
-//
-//#define TaskListData                    @"TaskListData"
+NS_ASSUME_NONNULL_BEGIN
 
-@interface DJDatabaseManager : FMDatabase
+#define IS_FIRSTOPEN                            @"IS_FIRSTOPEN"
+
+#define APP_SECRET @""
+
+#define DATABASE_NAME                     @"pigo_db.sqlite"
+#define task_list_table                   @"task_list_table"
+#define tomato_record_table               @"tomato_record_table"
+#define check_in_table                    @"check_in_table"
+
+#define Focuse_EndTimeStamp                    @"Focuse_EndTimeStamp"
+
+#define TaskListData                    @"TaskListData"
+
+@interface DJDatabaseMgr : NSObject
 
 @property (nonatomic, strong) FMDatabase* database;
 @property (nonatomic, copy) NSString *database_name;
 
-+ (instancetype)sharedDJDatabaseManager;
-- (void)initializeDB;
-- (void)initializeCategory;
++ (instancetype)sharedDJDatabaseMgr;
 
 ///创建表格
 - (BOOL)createTableWithName:(NSString*)name andKeyValues:(NSDictionary*)key_values;
@@ -94,4 +94,7 @@
 
 - (double)sumFromTabel:(NSString *)name andColumnName:(NSString*)column_name andSearchModels:(NSArray<HDJDSQLSearchModel*>*)searchModelArr;
 
+
 @end
+
+NS_ASSUME_NONNULL_END

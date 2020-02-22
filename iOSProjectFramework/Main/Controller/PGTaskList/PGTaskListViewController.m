@@ -324,6 +324,7 @@
     _isEdit = YES;
     self.addView.titleLab.text = NSLocalizedString(@"Edit Pigo", nil);
     [QMSlideUpAlertView showAlertWithContentView:self.addView withSlideType:QMAlertSlideUpTypeCenter canTouchDissmiss:NO];
+    self.addView.titleCont = task.task_name;
     self.addView.textField.text = task.task_name;
     self.addView.colorIndex = [self.addView.colorArr indexOfObject:task.bg_color];
     self.addView.hexStr = self.addView.colorArr[self.addView.colorIndex];

@@ -93,10 +93,14 @@
 "Enter break time automatically" = "自动进入休息时间";
 "Screen is always on" = "屏幕常亮";
 "Rotten Pigo" = "烂番茄";
+"Sync" = "数据同步";
+"Last sync time" = "最近同步时间";
 "Pigo Recycle Bin" = "番茄回收站";
 "minutes" = "分钟";
 "hour" = "小时";
 "Pigos" = "个番茄";
+"Recover" = "从 iCloud 恢复数据";
+"Backup" = "备份数据到 iCloud";
 
 //RecycleBin
 "Delete on" = "删除";

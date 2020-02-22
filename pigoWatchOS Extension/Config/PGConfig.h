@@ -103,6 +103,8 @@ NSLog(@"%@--dealloc", [self class]);\
 // 默认缓存路径
 #define CACHES_PATH NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject
 
+//快速将数字转换成字符串
+#define TextFromNSString(n) [NSString stringWithFormat:@"\'%@\'",n]
 
 
 //判断空字符串

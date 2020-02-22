@@ -181,6 +181,7 @@
 
 #pragma mark - Method
 - (void)DataSync{
-    [PGSettingViewModel watch_updateSettingConfig];
+//    [PGSettingViewModel watch_updateSettingConfig];
+    
 }
 @end

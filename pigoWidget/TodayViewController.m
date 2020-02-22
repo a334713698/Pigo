@@ -9,6 +9,7 @@
 #import "TodayViewController.h"
 #import <NotificationCenter/NotificationCenter.h>
 #import "PGTaskListCollectionViewCell.h"
+#import "DJDatabaseManager.h"
 
 #define NCWidgetDisplayModeCompactDefaultHeight 110
 #define NCWidgetDisplayModeExpandedHeight (220-12+0)

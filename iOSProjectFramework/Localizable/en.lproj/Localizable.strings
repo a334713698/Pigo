@@ -24,3 +24,6 @@
 "Consecutive days" = "Consecutive\ndays";
 "History highest" = "History\nhighest";
 "Abort current task reminder" = "There is a task in progress, please abort the current task";
+
+"Backup" = "Backup data to iCloud";
+"Recover" = "Recover data from iCloud";

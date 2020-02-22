@@ -10,18 +10,28 @@
 #import "PGTaskListCell.h"
 #import <WatchConnectivity/WatchConnectivity.h>
 #import "PGTaskListModel.h"
+#import "PGTomatoRecordModel.h"
 #import "PGFocusInterfaceController.h"
+#import "DJDatabaseMgr.h"
 
 @interface InterfaceController ()
 
+@property (nonatomic, strong) DJDatabaseMgr* dbMgr;
+
 @property (nonatomic, strong) NSMutableArray<PGTaskListModel*> *dataArr;
+@property (nonatomic, strong) NSMutableArray<PGTaskListModel*> *taskList;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *table;
 
 @end
 
 
 @implementation InterfaceController
-
+- (DJDatabaseMgr *)dbMgr{
+    if (!_dbMgr) {
+        _dbMgr = [DJDatabaseMgr sharedDJDatabaseMgr];
+    }
+    return _dbMgr;
+}
 - (NSMutableArray <PGTaskListModel*>*)dataArr{
     if (!_dataArr) {
         NSArray* arr = [USER_DEFAULT valueForKey:TASK_LIST];
@@ -30,8 +40,42 @@
         }else{
             _dataArr = [NSMutableArray array];
         }
+        
+        
     }
     return _dataArr;
+}
+
+- (NSMutableArray<PGTaskListModel*> *)taskList{
+    if (!_taskList) {
+        _taskList = [NSMutableArray array];
+        [self.dbMgr.database open];
+        NSArray* taskArr = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"0"] withSortedMode:NSOrderedAscending andColumnName:@"priority"];
+        if (taskArr.count) {
+            NSString* dateToday = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
+            NSArray* recordDicArr = [self.dbMgr getAllTuplesFromTabel:tomato_record_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateToday)]];
+            NSMutableArray* recordModelArr = [PGTomatoRecordModel mj_objectArrayWithKeyValuesArray:recordDicArr];
+            if (recordDicArr.count) {
+                for (NSDictionary* taskDic in taskArr) {
+                    PGTaskListModel *model = [[PGTaskListModel alloc] mj_setKeyValues:taskDic];
+                    for (PGTomatoRecordModel* recordModel in recordModelArr) {
+                        if (model.task_id == recordModel.task_id) {
+                            model.count = recordModel.count;
+                            [recordModelArr removeObject:recordModel];
+                            break;
+                        }
+                    }
+                    [_taskList addObject:model];
+                }
+            }else{
+                [_taskList addObjectsFromArray:[PGTaskListModel mj_objectArrayWithKeyValuesArray:taskArr]];
+            }
+//            [self saveListData];
+//            [self.viewModel watch_updateTaskList:_taskList.copy];
+        }
+        [self.dbMgr.database close];
+    }
+    return _taskList;
 }
 
 - (void)awakeWithContext:(id)context {
@@ -41,6 +85,7 @@
 
     [self addMenuItemWithItemIcon:WKMenuItemIconResume title:NSLocalizedString(@"Refresh", nil) action:@selector(refreshTaskList)];
     [self reloadData];
+    
     
     [NOTI_CENTER addObserver:self selector:@selector(refreshTaskList) name:TaskLiskUpdateNotification object:nil];
 }
@@ -86,6 +131,7 @@
 }
 
 - (void)reloadData{
+    self.dataArr = self.taskList;
     [self.table setNumberOfRows:self.dataArr.count withRowType:@"taskCell"];
     for (NSInteger i = 0; i < self.dataArr.count; i++) {
         PGTaskListModel* model = self.dataArr[i];
