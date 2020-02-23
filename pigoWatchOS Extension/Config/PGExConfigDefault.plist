@@ -4,8 +4,6 @@
 <dict>
 	<key>NotifyAlert</key>
 	<false/>
-	<key>DataSync</key>
-	<date>2017-12-31T16:00:01Z</date>
 	<key>VibratingAlert</key>
 	<false/>
 	<key>TomatoLength</key>

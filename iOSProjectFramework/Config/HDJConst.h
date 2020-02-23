@@ -16,6 +16,7 @@ typedef void (^HDJCompletionHandler)(id resultObject, NSError *error);
 typedef void (^DidSelectItemBlock)(NSIndexPath*,id);
 typedef void (^PicChooseCallbackBlock)(NSArray<UIImage*>* imageArr,NSArray<NSString*>* urlArr);
 typedef void (^DataCallbackBlock)(id result);
+typedef void (^CommonBlcok) (void);                               
 
 // 常量
 
@@ -46,7 +47,6 @@ UIKIT_EXTERN const CGFloat PGTaskListAddCollectionViewCellLineSpacing;
 
 //PGConfigManager
 UIKIT_EXTERN NSString *const PGConfigParas;
-UIKIT_EXTERN NSString *const PGConfigParaDataSync;                  //数据同步
 UIKIT_EXTERN NSString *const PGConfigParaStatistics;                //统计
 UIKIT_EXTERN NSString *const PGConfigParaVibratingAlert;            //震动提示
 UIKIT_EXTERN BOOL      const PGConfigParaVibratingAlertDefault;     //震动提示（默认值）

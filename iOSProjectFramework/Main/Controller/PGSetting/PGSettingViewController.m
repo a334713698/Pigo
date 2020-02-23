@@ -10,6 +10,7 @@
 #import "PGSettingTableViewModel.h"
 #import "PGTotalStatisticsViewController.h"
 #import "PGRecycleBinViewController.h"
+#import "iCloudHandle.h"
 
 @interface PGSettingViewController ()
 
@@ -85,7 +86,27 @@
     }else if (contentType == PGSettingContentTypeRecycleBin){
         PGRecycleBinViewController* next = [PGRecycleBinViewController new];
         [self.navigationController pushViewController:next animated:YES];
+    }else if (contentType == PGSettingContentTypeDataBackup){
+        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"BackupTipTitle", nil) message:NSLocalizedString(@"BackupTip", nil) preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Start backup", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [PGSettingViewModel dataSerialize];
+        }]];
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }else if (contentType == PGSettingContentTypeDataRecover){
+        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"RecoverTipTitle", nil) message:NSLocalizedString(@"RecoverTip", nil) preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Recover", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            WS(weakSelf)
+            [self.viewModel deserializationCompelete:^{
+                [weakSelf.tableView reloadData];
+            }];
+        }]];
+        [self presentViewController:alertVC animated:YES completion:nil];
     }
+    
 }
 
 @end

@@ -25,5 +25,11 @@
 "History highest" = "History\nhighest";
 "Abort current task reminder" = "There is a task in progress, please abort the current task";
 
-"Backup" = "Backup data to iCloud";
-"Recover" = "Recover data from iCloud";
+"BackupiCloud" = "Backup data to iCloud";
+"RecoveriCloud" = "Recover data from iCloud";
+"RecoverSuccess" = "Successful recovery";
+"BackupSuccess" = "Backup completed";
+"RecoverTipTitle" = "Recover Pigo Document";
+"BackupTipTitle" = "Backing up soon";
+"RecoverTip" = "Clicking \"Restore\" will overwrite the current record with the latest backup data. Do you want to continue?";
+"BackupTip" = "Existing iCloud backups will not be overwritten";

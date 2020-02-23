@@ -23,7 +23,6 @@ PROPERTY_SINGLETON_FOR_CLASS(PGConfigManager)
 @property (nonatomic, assign) BOOL AutomaticNext;             //自动下一个
 @property (nonatomic, assign) BOOL AutomaticRest;             //自动休息
 @property (nonatomic, assign) BOOL ScreenBright;              //屏幕亮
-@property (nonatomic, strong) NSDate *DataSync;              //数据同步时间
 
 
 - (void)setup;

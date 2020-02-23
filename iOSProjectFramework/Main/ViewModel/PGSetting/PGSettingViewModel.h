@@ -10,8 +10,17 @@
 
 @interface PGSettingViewModel : BaseViewModel
 
+@property (nonatomic, copy) CommonBlcok recoverHandler;
+
+
 + (NSArray*)gettingCellData;
 
 + (void)watch_updateSettingConfig;
 
+//数据序列化
++ (void)dataSerialize;
+//反序列化
+- (void)deserializationCompelete:(CommonBlcok)recoverHandler;
+
+- (void)test;
 @end

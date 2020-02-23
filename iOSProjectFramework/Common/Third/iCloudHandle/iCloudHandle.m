@@ -7,7 +7,6 @@
 //
 
 #import "iCloudHandle.h"
-#import "ZZRDocument.h"
 
 #define UbiquityContainerIdentifiers @"iCloud.com.hongdongjie.pigo"
 #define RECORD_TYPE_NAME @"Note"
@@ -54,21 +53,27 @@
 
 
 //创建文档
-+ (void)createDocumentWithFileName:(NSString *)fileName content:(NSString *)content
-{
++ (void)createDocumentWithFileName:(NSString *)fileName content:(id)content handler:(CommonBlcok)compelete{
     NSURL *url = [iCloudHandle getUbiquityContauneURLWithFileName:fileName];
+    if (!url) {
+        return;
+    }
     ZZRDocument *doc = [[ZZRDocument alloc] initWithFileURL:url];
     
-    NSString *docContent = content;
-    doc.myData = [docContent dataUsingEncoding:NSUTF8StringEncoding];
+    if ([content isKindOfClass:[NSString class]]) {
+        NSString *docContent = content;
+        doc.myData = [docContent dataUsingEncoding:NSUTF8StringEncoding];
+    }else if ([content isKindOfClass:[NSData class]]){
+        doc.myData = content;
+    }
     [doc saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
        
-        if(success)
-        {
+        if(success){
             NSLog(@"创建文档成功");
-        }
-        else
-        {
+            if (compelete) {
+                compelete();
+            }
+        }else{
             NSLog(@"创建文档失败");
         }
     }];
@@ -79,6 +84,9 @@
 + (void)overwriteDocumentWithFileName:(NSString *)fileName content:(NSString *)content;
 {
     NSURL *url = [iCloudHandle getUbiquityContauneURLWithFileName:fileName];
+    if (!url) {
+        return;
+    }
     ZZRDocument *doc = [[ZZRDocument alloc] initWithFileURL:url];
     
     doc.myData = [content dataUsingEncoding:NSUTF8StringEncoding];

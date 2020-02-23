@@ -8,6 +8,10 @@
 
 #import "DJDatabaseManager.h"
 
+@interface DJDatabaseManager ()
+
+@end
+
 @implementation DJDatabaseManager
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
@@ -26,6 +30,24 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
 //        DLog(@"%@",[fileURL absoluteString]);
     }
     return _database;
+}
+
+- (NSArray *)tables{
+
+    NSMutableArray *tableNames = [NSMutableArray array];
+
+    // 根据请求参数查询数据
+    FMResultSet *resultSet = nil;
+    resultSet = [self.database executeQuery:@"SELECT * FROM sqlite_master where type='table';"];
+    DLog(@"%@",resultSet.columnNameToIndexMap);
+    
+    // 遍历查询结果
+    while (resultSet.next) {
+        NSString *table_name = [resultSet stringForColumnIndex:1];
+        [tableNames addObject:table_name];
+    }
+
+    return tableNames.copy;
 }
 
 //初始化app数据库数据
@@ -244,6 +266,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     return isSuccess;
 }
 
+- (BOOL)deleteAllDataFromTabel:(NSString *)name{
+    NSString* sqlStr = [NSString stringWithFormat:@"delete from %@ ",name];
+
+    BOOL isSuccess = [self.database executeUpdate:sqlStr];
+    
+    if (isSuccess) {
+        DLog(@"%@ 数据删除成功",name);
+    }else{
+        DLog(@"%@ 数据删除失败",name);
+    }
+    
+    return isSuccess;
+}
+
 //获取某张表所有的首列元素
 - (NSArray*)getAllColumnNameFromTabel:(NSString*)name{
     NSString* sql = [NSString stringWithFormat:@"select * from %@",name];
@@ -427,5 +463,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
 
     return conditionStr;
 }
+
 
 @end

@@ -22,6 +22,7 @@
 		B615E9E3214B6050008D0B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B615E9E2214B6050008D0B6E /* Assets.xcassets */; };
 		B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */; };
 		B6177EB32175C23A00BECE98 /* CalendarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6177EB22175C23A00BECE98 /* CalendarItemView.m */; };
+		B61EA2F02402BB3E002E7598 /* PGDataSyncModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B61EA2EF2402BB3E002E7598 /* PGDataSyncModel.m */; };
 		B636AE0E23F0F5CF006A6A85 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B636AE1023F0F5CF006A6A85 /* Intents.intentdefinition */; };
 		B636AEC523F512C4006A6A85 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC023F512C4006A6A85 /* DJDatabaseManager.m */; };
 		B636AEC623F512C4006A6A85 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */; };
@@ -294,6 +295,8 @@
 		B615E9E5214B6050008D0B6E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B6177EB12175C23A00BECE98 /* CalendarItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarItemView.h; sourceTree = "<group>"; };
 		B6177EB22175C23A00BECE98 /* CalendarItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarItemView.m; sourceTree = "<group>"; };
+		B61EA2EE2402BB3E002E7598 /* PGDataSyncModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDataSyncModel.h; sourceTree = "<group>"; };
+		B61EA2EF2402BB3E002E7598 /* PGDataSyncModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDataSyncModel.m; sourceTree = "<group>"; };
 		B636AE0F23F0F5CF006A6A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/Intents.intentdefinition; sourceTree = "<group>"; };
 		B636AE1223F0F5D7006A6A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intents.strings; sourceTree = "<group>"; };
 		B636AE1423F0F5D8006A6A85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
@@ -1790,6 +1793,8 @@
 				B6F72F4A24001997004EBA1C /* iCloudHandle.m */,
 				B6F72F4724001996004EBA1C /* ZZRDocument.h */,
 				B6F72F4824001996004EBA1C /* ZZRDocument.m */,
+				B61EA2EE2402BB3E002E7598 /* PGDataSyncModel.h */,
+				B61EA2EF2402BB3E002E7598 /* PGDataSyncModel.m */,
 			);
 			path = iCloudHandle;
 			sourceTree = "<group>";
@@ -2572,6 +2577,7 @@
 				B6A60F262140F659000A737D /* UIColor+mostColor.m in Sources */,
 				B60D50182152444B008CE149 /* PGTaskListViewModel.m in Sources */,
 				D6E33C1E218800AD00C43875 /* PGTotalStatisticsItemModel.m in Sources */,
+				B61EA2F02402BB3E002E7598 /* PGDataSyncModel.m in Sources */,
 				B6FFB0A12174841100076F44 /* PGStatisticsAndCheckinScrollerView.m in Sources */,
 				B6F72F4B24001997004EBA1C /* ZZRDocument.m in Sources */,
 				B6A60F1E2140F659000A737D /* UIImage+QRCode.m in Sources */,

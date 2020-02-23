@@ -25,6 +25,8 @@
 
 @interface DJDatabaseManager : FMDatabase
 
+@property (nonatomic, strong, readonly) NSArray *tables;
+
 @property (nonatomic, strong) FMDatabase* database;
 @property (nonatomic, copy) NSString *database_name;
 
@@ -53,6 +55,7 @@
 
 ///删除某个元素
 - (BOOL)deleteDataFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel;
+- (BOOL)deleteAllDataFromTabel:(NSString *)name;
 
 ///获取某张表的所有属性（即表的首列元素）
 - (NSArray*)getAllColumnNameFromTabel:(NSString*)name;
@@ -93,5 +96,6 @@
 - (double)sumFromTabel:(NSString *)name andColumnName:(NSString*)column_name andSearchModel:(HDJDSQLSearchModel*)searchModel;
 
 - (double)sumFromTabel:(NSString *)name andColumnName:(NSString*)column_name andSearchModels:(NSArray<HDJDSQLSearchModel*>*)searchModelArr;
+
 
 @end

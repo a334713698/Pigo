@@ -99,8 +99,18 @@
 "minutes" = "分钟";
 "hour" = "小时";
 "Pigos" = "个番茄";
-"Recover" = "从 iCloud 恢复数据";
-"Backup" = "备份数据到 iCloud";
+"RecoveriCloud" = "从iCloud恢复数据";
+"BackupiCloud" = "备份数据到iCloud";
+"RecoverSuccess" = "恢复成功";
+"BackupSuccess" = "操作结束，备份完成";
+"Recover" = "恢复";
+"Start backup" = "开始备份";
+
+"RecoverTipTitle" = "恢复Pigo备份";
+"BackupTipTitle" = "即将开始创建备份";
+"RecoverTip" = "点击「恢复」将使用最新的备份数据覆盖当前记录，是否继续？";
+"BackupTip" = "已有的iCloud备份不会被覆盖";
+
 
 //RecycleBin
 "Delete on" = "删除";

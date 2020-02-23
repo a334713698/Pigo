@@ -110,9 +110,7 @@
     PGSettingEventType eventType = [cellDic[@"eventType"] integerValue];
     PGSettingContentType contentType = [cellDic[@"contentType"] integerValue];
     
-    if (contentType == PGSettingContentTypeDataSync) {
-        [self DataSync];
-    }else if (contentType == PGSettingContentTypeStatistics || contentType == PGSettingContentTypeRecycleBin){
+    if (contentType == PGSettingContentTypeStatistics || contentType == PGSettingContentTypeRecycleBin || contentType == PGSettingContentTypeDataBackup || contentType == PGSettingContentTypeDataRecover){
         if (self.didSelectItemBlock) {
             self.didSelectItemBlock(indexPath, cellDic);
         }
@@ -180,8 +178,5 @@
 
 
 #pragma mark - Method
-- (void)DataSync{
-//    [PGSettingViewModel watch_updateSettingConfig];
-    
-}
+
 @end

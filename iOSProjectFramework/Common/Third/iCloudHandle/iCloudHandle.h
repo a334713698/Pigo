@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CloudKit/CloudKit.h>
 #import <UIKit/UIKit.h>
+#import "ZZRDocument.h"
 
 
 @interface iCloudHandle : NSObject
@@ -23,7 +24,7 @@
 //获取地址
 + (NSURL *)getUbiquityContauneURLWithFileName:(NSString *)fileName;
 //创建文档
-+ (void)createDocumentWithFileName:(NSString *)fileName content:(NSString *)content;
++ (void)createDocumentWithFileName:(NSString *)fileName content:(id)content handler:(CommonBlcok)compelete;
 //修改文档 实际上是overwrite重写
 + (void)overwriteDocumentWithFileName:(NSString *)fileName content:(NSString *)content;
 //删除文档

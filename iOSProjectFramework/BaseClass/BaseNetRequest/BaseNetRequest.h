@@ -13,7 +13,7 @@
 // 定义返回请求数据的block类型
 typedef void (^ReturnValueBlock) (id returnValue);                  // 返回数据正确
 typedef void (^ErrorCodeBlock) (id errorCode);                      // 返回数据错误
-typedef void (^FailureBlock) ();                                    // 网络请求失败
+typedef void (^FailureBlock) (void);                                // 网络请求失败
 typedef void (^ProgressBlock) (NSProgress *uploadProgress);         // 进度数据返回
 typedef void (^ErrorBlock) (id errorCode);                          // 错误信息返回
 typedef void (^SuccessBlock) (id responseObject);                   // 正确数据返回

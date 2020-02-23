@@ -35,7 +35,6 @@ const CGFloat PGTaskListAddCollectionViewCellLineSpacing = 5;
 //PGConfigManager
 NSString *const PGConfigParas = @"PGConfigParas";
 NSString *const PGConfigParaStatistics = @"PGConfigParaStatistics";                 //统计
-NSString *const PGConfigParaDataSync = @"DataSync";                     //数据同步
 NSString *const PGConfigParaVibratingAlert = @"VibratingAlert";         //震动提示
 BOOL      const PGConfigParaVibratingAlertDefault = NO;                            //震动提示（默认值）
 NSString *const PGConfigParaNotifyAlert = @"NotifyAlert";         //通知提示
