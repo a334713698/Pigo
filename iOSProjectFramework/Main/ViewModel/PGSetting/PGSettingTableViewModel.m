@@ -95,7 +95,7 @@
     
     if ((eventType & PGSettingEventTypeSwicher) == PGSettingEventTypeSwicher){
         [cell setupSwitchEvent];
-        cell.qm_switcher.on = [cellDic[@"detail"] boolValue];
+        cell.qm_switcher.on = [[PGConfigMgr valueForKey:paraName] boolValue];
     }
     
     return cell;

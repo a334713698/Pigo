@@ -41,6 +41,7 @@
     // Configure interface objects here.
 
     [self addMenuItemWithItemIcon:WKMenuItemIconMore title:NSLocalizedString(@"Pigo List", nil) action:@selector(pigoList)];
+    [self addMenuItemWithItemIcon:WKMenuItemIconResume title:NSLocalizedString(@"Refresh Config", nil) action:@selector(refreshConfig)];
 
     self.taskModel = context;
     if (self.taskModel.task_name) {
@@ -62,6 +63,10 @@
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
     NSLog(@"didDeactivate-%@",NSStringFromClass([self class]));
+}
+
+- (void)refreshConfig{
+    
 }
 
 - (IBAction)pigoList{

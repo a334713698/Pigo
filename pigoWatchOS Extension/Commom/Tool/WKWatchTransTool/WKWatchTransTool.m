@@ -23,7 +23,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WKWatchTransTool)
 
 - (NSDictionary *)messageDic{
     if (!_messageDic) {
-        _messageDic = @{@"message":@"这是一条来自iPhone的信息"};
+        _messageDic = @{@"message":@"这是一条来自Watch的信息"};
     }
     return _messageDic;
 }
@@ -32,7 +32,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WKWatchTransTool)
 #pragma mark - Watch
 + (BOOL)canSendMsgToiPhone{
     if (!WKWatchTransToolInstance.sessionDefault.isReachable){
-        DLog(@"watch 当前不在激活状态");
+        DLog(@"Log from watch → watch 当前不在激活状态");
         return false;
     }else{
         return true;
@@ -42,9 +42,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WKWatchTransTool)
 //发送前台字典数据
 - (void)sendFrontMsgDic{
     [self.sessionDefault sendMessage:self.messageDic replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
-        DLog(@"replyMessage：%@",replyMessage[@"reply"]);
+        DLog(@"Log from watch → replyMessage：%@",replyMessage[@"reply"]);
     } errorHandler:^(NSError * _Nonnull error) {
-        DLog(@"%@",error);
+        DLog(@"Log from watch → %@",error);
     }];
 }
 
@@ -57,30 +57,39 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WKWatchTransTool)
 
 
 #pragma mark - WCSessionDelegate
+- (void)session:(WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error{
+    /**
+     在会话完成激活后调用。
+     如果会话状态为WCSessionActivationStateNotActivated，则会出现错误，并提供更多详细信息。
+     */
+    DLog(@"Log from watch → activationState: %ld",activationState);
+}
+
+
 - (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message{
-    DLog(@"%s",__func__);
+    DLog(@"Log from watch → %s",__func__);
     dispatch_sync(dispatch_get_main_queue(), ^{
-        DLog(@"didReceiveMessage");
+        DLog(@"Log from watch → didReceiveMessage");
     });
 }
 
 - (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler{
-    DLog(@"%s",__func__);
+    DLog(@"Log from watch → %s",__func__);
     [self handlerWithMessage:message];
 }
 
 - (void)session:(WCSession *)session didReceiveMessageData:(NSData *)messageData{
-    DLog(@"%s",__func__);
+    DLog(@"Log from watch → %s",__func__);
 }
 
 - (void)session:(WCSession *)session didReceiveMessageData:(NSData *)messageData replyHandler:(void (^)(NSData * _Nonnull))replyHandler{
     dispatch_sync(dispatch_get_main_queue(), ^{
-        DLog(@"收到来自iphone的信息");
+        DLog(@"Log from watch → 收到来自iphone的信息");
     });
 }
 
 - (void)session:(WCSession *)session didReceiveUserInfo:(NSDictionary<NSString *,id> *)userInfo{
-    DLog(@"%s",__func__);
+    DLog(@"Log from watch → %s",__func__);
 }
 
 

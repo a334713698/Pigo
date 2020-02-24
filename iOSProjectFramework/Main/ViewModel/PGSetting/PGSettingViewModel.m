@@ -257,6 +257,7 @@
     [dgMgr.database open];
     
     [dgMgr.database beginTransaction];//开启一个事务
+    NSDictionary* currentTask;
     BOOL isRollBack = NO;
     @try {
         for(NSString * table in dsModel.tables.allKeys){
@@ -267,10 +268,12 @@
                 for (NSString* keyStr in item.allKeys) {
                     id value = item[keyStr];
                     if ([value isKindOfClass:[NSString class]]) {
-                        tempDic[keyStr] = [NSString stringWithFormat:@"\'%@\'",value];
+                        tempDic[keyStr] = TextFromNSString(value);
                     }
                     if ([value isKindOfClass:[NSNull class]]) {
                         [tempDic removeObjectForKey:keyStr];
+                    }else if(QMEqualToString(table, task_list_table) && QMEqualToString(keyStr, @"is_default") && [value boolValue]){
+                        currentTask = item;
                     }
                 }
                 [dgMgr insertDataIntoTableWithName:table andKeyValues:tempDic.copy];
@@ -284,7 +287,33 @@
             [dgMgr.database commit];//重新提交事务
         }
     }
+    if (currentTask) {
+        PGUserModelInstance.currentTask = [[PGTaskListModel alloc] mj_setKeyValues:currentTask];
+        NSString* dateToday = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
+
+        NSDictionary* currentTaskRecord = [dgMgr getAllTuplesFromTabel:tomato_record_table andSearchModels:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateToday)], [HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSValue(currentTask[@"task_id"])]]].firstObject;
+        if (currentTaskRecord) {
+            PGUserModelInstance.currentTask.count = [currentTaskRecord[@"count"] integerValue];
+        }
+    }
     [dgMgr.database close];
+    [NOTI_CENTER postNotificationName:PGListUpdatesNotification object:nil];
+    if (PGUserModelInstance.currentFocusState == PGFocusStateWillFocus) {
+        [NOTI_CENTER postNotificationName:PGSettingUpdateNotification object:@(PGSettingContentTypeTomatoLength)];
+    }
+}
+
+//请先中止当前任务
++ (void)abortReminderhandler:(CommonBlcok)recoverHandler{
+    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:NSLocalizedString(@"Abort current task reminder", nil) preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (recoverHandler) {
+            recoverHandler();
+        }
+    }]];
+    
+    [TOPVC presentViewController:alertVC animated:YES completion:nil];
 }
 
 @end

@@ -13,6 +13,7 @@
 
 @end
 
+#import "PGSettingViewModel.h"
 
 @interface PGSettingCell : UITableViewCell
 

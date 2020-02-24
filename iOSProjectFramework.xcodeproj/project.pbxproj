@@ -297,6 +297,7 @@
 		B6177EB22175C23A00BECE98 /* CalendarItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarItemView.m; sourceTree = "<group>"; };
 		B61EA2EE2402BB3E002E7598 /* PGDataSyncModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDataSyncModel.h; sourceTree = "<group>"; };
 		B61EA2EF2402BB3E002E7598 /* PGDataSyncModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDataSyncModel.m; sourceTree = "<group>"; };
+		B61EA2F1240402C4002E7598 /* iOSProjectFrameworkRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSProjectFrameworkRelease.entitlements; sourceTree = "<group>"; };
 		B636AE0F23F0F5CF006A6A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/Intents.intentdefinition; sourceTree = "<group>"; };
 		B636AE1223F0F5D7006A6A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intents.strings; sourceTree = "<group>"; };
 		B636AE1423F0F5D8006A6A85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
@@ -1571,6 +1572,7 @@
 		B6E26A5B201AF2A0006C7650 /* iOSProjectFramework */ = {
 			isa = PBXGroup;
 			children = (
+				B61EA2F1240402C4002E7598 /* iOSProjectFrameworkRelease.entitlements */,
 				D6FD8DC921DE0CC5002F4244 /* iOSProjectFramework.entitlements */,
 				B6E26A8A201AF3F2006C7650 /* BaseClass */,
 				B6E26A7E201AF3F2006C7650 /* Common */,
@@ -2958,7 +2960,7 @@
 			baseConfigurationReference = D702A9089C56B6A20595648C /* Pods-iOSProjectFramework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFramework.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFrameworkRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = HHW6X6T397;

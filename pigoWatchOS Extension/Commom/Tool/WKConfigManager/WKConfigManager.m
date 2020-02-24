@@ -43,6 +43,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WKConfigManager)
     [self setValuesForKeysWithDictionary:configDic];
 }
 
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    DLog(@"forUndefinedKey：%@",key);
+}
+
 - (void)setValue:(id)value forKey:(NSString *)key{
     [super setValue:value forKey:key];
     

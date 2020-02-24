@@ -226,9 +226,7 @@
 }
 
 - (void)removeNotiObserver{
-    [NOTI_CENTER removeObserver:self name:PGFocusUpdateCountNotification object:nil];
-    [NOTI_CENTER removeObserver:self name:PGSettingUpdateNotification object:nil];
-    [NOTI_CENTER removeObserver:self name:PGFocusStateUpdateNotification object:nil];
+    [NOTI_CENTER removeObserver:self];
 }
 
 @end

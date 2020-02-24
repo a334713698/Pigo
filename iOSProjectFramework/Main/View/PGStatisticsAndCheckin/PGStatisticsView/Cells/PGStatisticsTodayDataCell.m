@@ -28,14 +28,14 @@
         make.height.mas_equalTo(adaptWidth(35));
     }];
     
-    UILabel* countDesc = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:TEXT_BACKGROUND_COLOR andText:NSLocalizedString(@"Focus Duration", nil)];
+    UILabel* countDesc = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:TEXT_BACKGROUND_COLOR andText:NSLocalizedString(@"Complete Times", nil)];
     [self.contentView addSubview:countDesc];
     [countDesc mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(adaptWidth(PGStatisticsTodayDataCellHeight)*0.25);
         make.centerX.mas_equalTo(-SCREEN_WIDTH*0.25);
     }];
     
-    UILabel* durationDesc = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:TEXT_BACKGROUND_COLOR andText:NSLocalizedString(@"Complete Times", nil)];
+    UILabel* durationDesc = [UILabel createLabelWithFontSize:adaptFont(12) andTextColor:TEXT_BACKGROUND_COLOR andText:NSLocalizedString(@"Focus Duration", nil)];
     [self.contentView addSubview:durationDesc];
     [durationDesc mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(adaptWidth(PGStatisticsTodayDataCellHeight)*0.25);

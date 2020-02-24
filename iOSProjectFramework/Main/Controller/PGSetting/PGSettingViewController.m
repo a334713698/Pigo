@@ -95,12 +95,16 @@
         }]];
         [self presentViewController:alertVC animated:YES completion:nil];
     }else if (contentType == PGSettingContentTypeDataRecover){
+        if (PGUserModelInstance.currentFocusState == PGFocusStateFocusing){
+            [PGSettingViewModel abortReminderhandler:nil];
+            return;
+        }
+
         UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"RecoverTipTitle", nil) message:NSLocalizedString(@"RecoverTip", nil) preferredStyle:UIAlertControllerStyleAlert];
-        
+        WS(weakSelf)
         [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
         [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Recover", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            WS(weakSelf)
-            [self.viewModel deserializationCompelete:^{
+            [weakSelf.viewModel deserializationCompelete:^{
                 [weakSelf.tableView reloadData];
             }];
         }]];

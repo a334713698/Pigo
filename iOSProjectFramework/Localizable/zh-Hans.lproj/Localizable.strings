@@ -65,6 +65,9 @@
 "Take a break" = "开始休息";
 "Stop break" = "停止休息";
 
+"Refresh Config" = "刷新配置";
+
+
 //TotalStatistics
 "No data" = "暂无数据";
 "Today" = "今\n日";

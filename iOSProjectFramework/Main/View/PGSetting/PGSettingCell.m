@@ -228,15 +228,10 @@
     PGSettingContentType contType = self.contentType;
     
     if (contType == PGSettingContentTypeTomatoLength && PGUserModelInstance.currentFocusState == PGFocusStateFocusing){
-        WS(weakSelf)
-        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[@"\n" stringByAppendingString:NSLocalizedString(@"Abort current task reminder", nil)] preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSInteger index =  [weakSelf.pickArr indexOfObject:weakSelf.selectModel];
-            [weakSelf.pickerView selectRow:index inComponent:0 animated:YES];
-        }]];
-        
-        [TOPVC presentViewController:alertVC animated:YES completion:nil];
+        [PGSettingViewModel abortReminderhandler:^{
+            NSInteger index =  [self.pickArr indexOfObject:self.selectModel];
+            [self.pickerView selectRow:index inComponent:0 animated:YES];
+        }];
         return NO;
     }
     

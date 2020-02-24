@@ -100,7 +100,7 @@
     WS(weakSelf)
     
     UITableViewRowAction *abandonAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:NSLocalizedString(@"Destroy", nil) handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[NSString stringWithFormat:@"\n%@？",NSLocalizedString(@"Destroy Tips", nil)] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[NSString stringWithFormat:@"%@？",NSLocalizedString(@"Destroy Tips", nil)] preferredStyle:UIAlertControllerStyleAlert];
         
         [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Destroy Action", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             [weakSelf removeAndReloadWithIndexPath:indexPath];
@@ -153,7 +153,7 @@
 
 - (void)restoreAction:(PGTaskListModel*)task{
     [self delTask:task withDelTag:0];
-    [NOTI_CENTER postNotificationName:PGRecycleBinRestoreNotification object:nil];
+    [NOTI_CENTER postNotificationName:PGListUpdatesNotification object:nil];
 }
 
 - (void)abandonTask:(PGTaskListModel*)task{

@@ -14,11 +14,10 @@
 UIKIT_EXTERN NSString *const PGCheckinCompleteNotification;
 UIKIT_EXTERN NSString *const PGFocusUpdateCountNotification;
 
-
 UIKIT_EXTERN NSString *const PGSettingUpdateNotification;
 
 UIKIT_EXTERN NSString *const PGFocusStateUpdateNotification;
 
-UIKIT_EXTERN NSString *const PGRecycleBinRestoreNotification;
+UIKIT_EXTERN NSString *const PGListUpdatesNotification;
 
 #endif /* HDJNotification_h */

@@ -22,5 +22,6 @@
 //反序列化
 - (void)deserializationCompelete:(CommonBlcok)recoverHandler;
 
-- (void)test;
+//请先中止当前任务
++ (void)abortReminderhandler:(CommonBlcok)recoverHandler;
 @end

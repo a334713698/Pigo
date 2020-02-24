@@ -277,14 +277,14 @@
 }
 
 - (void)addNotiObserver{
-    [NOTI_CENTER addObserver:self selector:@selector(recycleBinRestore) name:PGRecycleBinRestoreNotification object:nil];
+    [NOTI_CENTER addObserver:self selector:@selector(listUpdate) name:PGListUpdatesNotification object:nil];
 }
 
 - (void)removeNotiObserver{
-    [NOTI_CENTER removeObserver:self name:PGRecycleBinRestoreNotification object:nil];
+    [NOTI_CENTER removeObserver:self];
 }
 
-- (void)recycleBinRestore{
+- (void)listUpdate{
     _taskList = nil;
     [self.tableView reloadData];
 }
@@ -297,7 +297,7 @@
     if (PGUserModelInstance.currentFocusState != PGFocusStateFocusing && PGUserModelInstance.currentFocusState != PGFocusStateShortBreaking && PGUserModelInstance.currentFocusState != PGFocusStateLongBreaking) {
         return NO;
     }
-    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[@"\n" stringByAppendingString:NSLocalizedString(@"Abort current task reminder", nil)] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:NSLocalizedString(@"Abort current task reminder", nil) preferredStyle:UIAlertControllerStyleAlert];
     
     [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
     

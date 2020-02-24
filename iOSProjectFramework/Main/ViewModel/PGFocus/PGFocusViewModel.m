@@ -54,7 +54,7 @@
             centerButton.pg_state = PGFocusButtonStateObsolete;
             centerButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
                 NSLog(@"%@",centerButton.currentTitle);
-                UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[NSString stringWithFormat:@"\n%@？",NSLocalizedString(@"Sure you abort the task", nil)] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:[NSString stringWithFormat:@"%@？",NSLocalizedString(@"Sure you abort the task", nil)] preferredStyle:UIAlertControllerStyleAlert];
                 
                 [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK to abort", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                     [weakSelf settingFocuseEndTime:0];
@@ -205,7 +205,7 @@
 
     //开始计时
     __block NSInteger seconds = PGConfigMgr.TomatoLength * 60;
-//    seconds = 3;
+//    seconds = 3;//测试
     NSDate *endTime;// 最后期限
     if (_endTimeStamp > [NSDate nowStamp]) {
         //继续进行
