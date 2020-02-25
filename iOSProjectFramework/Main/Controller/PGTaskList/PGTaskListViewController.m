@@ -92,7 +92,7 @@
                 [_taskList addObjectsFromArray:[PGTaskListModel mj_objectArrayWithKeyValuesArray:taskArr]];
             }
             [self saveListData];
-            [self.viewModel watch_updateTaskList:_taskList.copy];
+            [self watch_updateTaskList];
         }
         [self.dbMgr.database close];
     }
@@ -289,10 +289,6 @@
     [self.tableView reloadData];
 }
 
-- (void)saveListData{
-    [self.viewModel saveListData:self.taskList];
-}
-
 - (BOOL)judgingState{
     if (PGUserModelInstance.currentFocusState != PGFocusStateFocusing && PGUserModelInstance.currentFocusState != PGFocusStateShortBreaking && PGUserModelInstance.currentFocusState != PGFocusStateLongBreaking) {
         return NO;
@@ -381,11 +377,17 @@
         [self.dbMgr updateDataIntoTableWithName:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(model.task_id)] andNewModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"priority" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(i)]];
     }
     [self.dbMgr.database close];
+    [self saveListData];
+}
+
+- (void)saveListData{
+    [self.viewModel saveListData:_taskList];
 }
 
 - (void)watch_updateTaskList{
-    [self.viewModel watch_updateTaskList:self.taskList.copy];
+    [self.viewModel watch_updateTaskList:_taskList];
 }
+
 
 #pragma mark - UITableView Drag methods
 - (void)longPressGestureRecognized:(id)sender {
