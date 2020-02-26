@@ -13,5 +13,6 @@
 
 static NSString* const TaskLiskUpdateNotification = @"TaskLiskUpdateNotification";
 
+static NSString* const TaskUpdateNotification = @"TaskUpdateNotification";
 
 #endif /* PGNotification_h */

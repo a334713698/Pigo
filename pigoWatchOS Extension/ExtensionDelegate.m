@@ -15,6 +15,11 @@
     NSLog(@"项目加载");
     [WKConfigMgr setup];
     [WKWatchTransToolInstance.sessionDefault activateSession];
+    [[WKUserModel sharedWKUserModel] setup];
+    [[DJDatabaseMgr sharedDJDatabaseMgr] initializeDB];
+    [[DJDatabaseMgr sharedDJDatabaseMgr] initializeCategory];
+
+    
 }
 
 //项目显示界面时会调用

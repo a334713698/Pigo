@@ -62,7 +62,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WKWatchTransTool)
      在会话完成激活后调用。
      如果会话状态为WCSessionActivationStateNotActivated，则会出现错误，并提供更多详细信息。
      */
-    DLog(@"Log from watch → activationState: %ld",activationState);
+    switch (activationState) {
+        case WCSessionActivationStateActivated:
+            DLog(@"Log from watch → watch 被激活");
+            break;
+        case WCSessionActivationStateInactive:
+            DLog(@"Log from watch → watch 不活跃");
+            break;
+        default:
+            DLog(@"Log from watch → watch 未激活");
+            break;
+    }
 }
 
 
@@ -116,6 +126,48 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WKWatchTransTool)
     [USER_DEFAULT setObject:dataArr forKey:TASK_LIST];
     [USER_DEFAULT synchronize];
     [NOTI_CENTER postNotificationName:TaskLiskUpdateNotification object:nil];
+    
+    DJDatabaseMgr* dgMgr = [DJDatabaseMgr sharedDJDatabaseMgr];
+    [dgMgr.database open];
+    
+    [dgMgr.database beginTransaction];//开启一个事务
+    NSDictionary* currentTask;
+    BOOL isRollBack = NO;
+    @try {
+        NSString* table = task_list_table;
+        [dgMgr deleteAllDataFromTabel:table];
+        NSArray* items = dataArr;
+        NSArray* keyArr = @[@"task_id",@"priority",@"is_default",@"add_time",@"bg_color",@"is_delete",@"delete_time",@"task_name",];
+        for (NSDictionary* item in items) {
+            NSMutableDictionary* tempDic = [NSMutableDictionary dictionary];
+            for (NSString* keyStr in keyArr) {
+                id value = item[keyStr];
+                [tempDic setValue:value forKey:keyStr];
+                if ([value isKindOfClass:[NSString class]]) {
+                    tempDic[keyStr] = TextFromNSString(value);
+                }
+                if ([value isKindOfClass:[NSNull class]]) {
+                    [tempDic removeObjectForKey:keyStr];
+                }else if(QMEqualToString(table, task_list_table) && QMEqualToString(keyStr, @"is_default") && [value boolValue]){
+                    currentTask = item;
+                }
+            }
+            [dgMgr insertDataIntoTableWithName:table andKeyValues:tempDic.copy];
+        }
+        
+    } @catch (NSException *exception) {
+        isRollBack = YES;
+        [dgMgr.database rollback];//回滚事务
+    } @finally {
+        if(!isRollBack){
+            [dgMgr.database commit];//重新提交事务
+        }
+    }
+
+    [dgMgr.database close];
+    
+    WKUserModelInstance.currentTask = [[PGTaskListModel alloc] mj_setKeyValues:currentTask];
+
 }
 
 - (void)updateSetting:(NSDictionary*)message{

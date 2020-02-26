@@ -50,6 +50,8 @@
         [self.taskNameLab setText:NSLocalizedString(@"Unknown Tag", nil)];
     }
     [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
+    
+    [NOTI_CENTER addObserver:self selector:@selector(taskUpdate:) name:TaskUpdateNotification object:nil];
 
 }
 
@@ -57,6 +59,9 @@
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
     NSLog(@"willActivate-%@",NSStringFromClass([self class]));
+    
+    [self updateTask];
+
 }
 
 - (void)didDeactivate {
@@ -65,8 +70,33 @@
     NSLog(@"didDeactivate-%@",NSStringFromClass([self class]));
 }
 
+
 - (void)refreshConfig{
     
+}
+
+- (void)taskUpdate:(NSNotification*)noti{
+    PGTaskListModel* model = noti.object;
+    WKUserModelInstance.currentTask = model;
+    [self updateTask];
+}
+
+- (void)updateTask{
+    if (self.taskModel.task_id != WKUserModelInstance.currentTask.task_id) {
+        self.taskModel = WKUserModelInstance.currentTask;
+        if (NULLString(self.taskModel.task_name)) {
+            [self.taskNameLab setText:NSLocalizedString(@"Unknown Tag", nil)];
+        }else{
+            [self.taskNameLab setText:self.taskModel.task_name];
+        }
+        [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
+    }
+    
+    NSInteger stamp = [USER_DEFAULT integerForKey:Focuse_EndTimeStamp];
+    if (stamp > 0 && [WKUserModelInstance checkeMissingTomato]) {
+        self.viewModel.endTimeStamp = stamp;
+        [self.viewModel setCurrentFocusState:PGFocusStateFocusing];
+    }
 }
 
 - (IBAction)pigoList{

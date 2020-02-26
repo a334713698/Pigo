@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) PGFocusButtonState topBtnState;
 @property (nonatomic, assign) PGFocusButtonState bottomBtnState;
 
+@property (nonatomic, assign) NSTimeInterval endTimeStamp;
+
 - (void)topBtnClick;
 - (void)bottomBtnClick;
 - (void)hanlderButtonClick:(PGFocusButtonState)state;

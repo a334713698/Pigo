@@ -10,7 +10,6 @@
 
 #define PGConfigDefaultPath [[NSBundle mainBundle] pathForResource:@"PGConfigDefault" ofType:@"plist"]
 #define PGConfigSBPath ([NSString stringWithFormat:@"%@/PGConfig.plist",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject])
-//#define PGConfigFilePath ([[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.hdj.pigo"] URLByAppendingPathComponent:@"PGConfigDefault.plist"].absoluteString)
 
 @implementation PGConfigManager
 

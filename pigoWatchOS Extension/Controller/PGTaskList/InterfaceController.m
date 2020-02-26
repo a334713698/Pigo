@@ -12,14 +12,14 @@
 #import "PGTaskListModel.h"
 #import "PGTomatoRecordModel.h"
 #import "PGFocusInterfaceController.h"
-#import "DJDatabaseMgr.h"
-#import "WKWatchTransTool.h"
+#import "PGStaticNotificationController.h"
 
 @interface InterfaceController ()
 
 @property (nonatomic, strong) DJDatabaseMgr* dbMgr;
 
 @property (nonatomic, strong) NSMutableArray<PGTaskListModel*> *dataArr;
+@property (nonatomic, strong) NSMutableArray<PGTaskListModel*> *taskList;//from database
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *table;
 
@@ -35,15 +35,30 @@
 }
 - (NSMutableArray <PGTaskListModel*>*)dataArr{
     if (!_dataArr) {
-        NSArray* arr = [USER_DEFAULT valueForKey:TASK_LIST];
-        if (arr.count) {
-            _dataArr = [PGTaskListModel mj_objectArrayWithKeyValuesArray:arr].mutableCopy;
-        }else{
-            _dataArr = [NSMutableArray array];
-        }
+//        NSArray* arr = [USER_DEFAULT valueForKey:TASK_LIST];
+//        if (arr.count) {
+//            _dataArr = [PGTaskListModel mj_objectArrayWithKeyValuesArray:arr].mutableCopy;
+//        }else{
+//            _dataArr = [NSMutableArray array];
+//        }
+        self.dataArr = self.taskList;
     }
     return _dataArr;
 }
+
+- (NSMutableArray<PGTaskListModel*> *)taskList{
+    if (!_taskList) {
+        _taskList = [NSMutableArray array];
+        [self.dbMgr.database open];
+        NSArray* taskArr = [self.dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_delete" andSymbol:@"=" andSpecificValue:@"0"] withSortedMode:NSOrderedAscending andColumnName:@"priority"];
+        if (taskArr.count) {
+            [_taskList addObjectsFromArray:[PGTaskListModel mj_objectArrayWithKeyValuesArray:taskArr]];
+        }
+        [self.dbMgr.database close];
+    }
+    return _taskList;
+}
+
 
 - (void)awakeWithContext:(id)context {
     // Configure interface objects here.
@@ -61,36 +76,28 @@
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
     NSLog(@"willActivate-%@",NSStringFromClass([self class]));
+    
 }
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
     NSLog(@"didDeactivate-%@",NSStringFromClass([self class]));
+    [NOTI_CENTER removeObserver:self];
+}
+
+- (void)willDisappear{
+    [super willDisappear];
+    NSLog(@"willDisappear-%@",NSStringFromClass([self class]));
 }
 
 
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex{
     [super table:table didSelectRowAtIndex:rowIndex];
     PGTaskListModel* model = self.dataArr[rowIndex];
-
+    [NOTI_CENTER postNotificationName:TaskUpdateNotification object:model];
+    [self presentControllerWithName:@"PGStaticNotificationController" context:@"123"];
 }
-
-//- (void)addTask{
-//    NSLog(@"添加新任务");
-//
-//    WS(weakSelf)
-//    [self presentTextInputControllerWithSuggestions:@[@"工作",@"学习"] allowedInputMode:WKTextInputModePlain completion:^(NSArray * _Nullable results) {
-//        DLog(@"%@",results);
-//        PGTaskListModel* model = [PGTaskListModel new];
-//        model.task_name = results.firstObject;
-//        [weakSelf.dataArr insertObject:model atIndex:0];
-//        [weakSelf reloadData];
-//        
-//        //告诉手机，我添加了新的任务，并同步数据
-//    }];
-//    
-//}
 
 - (void)refreshTaskList{
     _dataArr = nil;
@@ -105,6 +112,7 @@
         PGTaskListCell* cell = [self.table rowControllerAtIndex:i];
         [cell.itemLabel setText:model.task_name];
         [cell.countLabel setText:QMStringFromNSInteger(model.count)];
+        [cell.groupView setBackgroundColor:HexColor(model.bg_color)];
     }
 }
 

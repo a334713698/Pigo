@@ -18,15 +18,64 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseMgr)
         NSString* dbPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:DATABASE_NAME];
         _database = [FMDatabase databaseWithPath:dbPath];
         DLog(@"%@",dbPath);
-
-//        //获取App Group的共享目录
-//        NSURL *groupURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.hdj.pigo"];
-//        NSURL *fileURL = [groupURL URLByAppendingPathComponent:DATABASE_NAME];
-//        _database = [FMDatabase databaseWithURL:fileURL];
-//        DLog(@"%@",[fileURL absoluteString]);
     }
     return _database;
 }
+
+//初始化app数据库数据
+- (void)initializeDB{
+    //打开数据库对象
+    BOOL isOpen = [self.database open];
+    
+    if (isOpen) {
+        [self init_task_list_table];
+        [self init_tomato_record_table];
+        [self init_check_in_table];
+    }else{
+        NSLog(@"数据库打开失败");
+    }
+    
+    [self.database close];
+}
+
+//初始化数据库列
+- (void)initializeCategory{
+    [self alterIntoTable:task_list_table andKeyValues:@{@"task_id":@"integer primary key",@"task_name":@"text",@"is_default":@"int",@"add_time":@"long",@"delete_time":@"long",@"is_delete":@"int",@"bg_color":@"text",@"priority":@"integer"}];
+    [self alterIntoTable:tomato_record_table andKeyValues:@{@"tomato_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long",@"count":@"integer",@"length":@"long"}];
+    [self alterIntoTable:check_in_table andKeyValues:@{@"checkin_id":@"integer primary key",@"task_id":@"integer",@"add_date":@"text",@"add_time":@"long"}];
+}
+
+//创建task_list_table，并插入数据
+- (void)init_task_list_table{
+    
+    BOOL isCreated = [self createTableWithName:task_list_table andKeyValues:@{@"task_id":@"integer primary key"}];
+
+    if (isCreated) {
+        DLog(@"任务表创建成功");
+    }
+}
+
+//创建tomato_record_table，并插入数据
+- (void)init_tomato_record_table{
+    
+    BOOL isCreated = [self createTableWithName:tomato_record_table andKeyValues:@{@"tomato_id":@"integer primary key"}];
+
+    if (isCreated) {
+        DLog(@"番茄记录表创建成功");
+    }
+}
+
+//创建check_in_table，并插入数据
+- (void)init_check_in_table{
+    
+    BOOL isCreated = [self createTableWithName:check_in_table andKeyValues:@{@"checkin_id":@"integer primary key"}];
+
+    if (isCreated) {
+        DLog(@"签到表创建成功");
+    }
+}
+
+
 
 //创建表
 - (BOOL)createTableWithName:(NSString*)name andKeyValues:(NSDictionary*)key_values{
@@ -179,6 +228,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseMgr)
 - (BOOL)deleteDataFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel{
     
     NSString* sqlStr = [NSString stringWithFormat:@"delete from %@ where %@%@%@",name,searchModel.attriName,searchModel.symbol,searchModel.specificValue];
+
+    BOOL isSuccess = [self.database executeUpdate:sqlStr];
+    
+    if (isSuccess) {
+        DLog(@"%@ 数据删除成功",name);
+    }else{
+        DLog(@"%@ 数据删除失败",name);
+    }
+    
+    return isSuccess;
+}
+
+- (BOOL)deleteAllDataFromTabel:(NSString *)name{
+    NSString* sqlStr = [NSString stringWithFormat:@"delete from %@ ",name];
 
     BOOL isSuccess = [self.database executeUpdate:sqlStr];
     

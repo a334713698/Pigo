@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define tomato_record_table               @"tomato_record_table"
 #define check_in_table                    @"check_in_table"
 
-#define Focuse_EndTimeStamp                    @"Focuse_EndTimeStamp"
+#define Focuse_EndTimeStamp             @"Focuse_EndTimeStamp"
 
 #define TaskListData                    @"TaskListData"
 
@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *database_name;
 
 + (instancetype)sharedDJDatabaseMgr;
+- (void)initializeDB;
+- (void)initializeCategory;
 
 ///创建表格
 - (BOOL)createTableWithName:(NSString*)name andKeyValues:(NSDictionary*)key_values;
@@ -53,6 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///删除某个元素
 - (BOOL)deleteDataFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel;
+- (BOOL)deleteAllDataFromTabel:(NSString *)name;
 
 ///获取某张表的所有属性（即表的首列元素）
 - (NSArray*)getAllColumnNameFromTabel:(NSString*)name;

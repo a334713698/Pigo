@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *itemLabel;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *countLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *groupView;
 
 @end
 

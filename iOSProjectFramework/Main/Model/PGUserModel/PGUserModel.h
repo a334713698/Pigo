@@ -36,6 +36,7 @@ PROPERTY_SINGLETON_FOR_CLASS(PGUserModel)
 - (BOOL)checkeMissingTomato;
 
 - (void)updateTomato;
+
 @end
 
 NS_ASSUME_NONNULL_END

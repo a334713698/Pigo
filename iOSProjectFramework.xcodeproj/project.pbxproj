@@ -23,6 +23,8 @@
 		B615E9E8214B6050008D0B6E /* pigoWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B615E9C8214B604F008D0B6E /* pigoWatchOS.app */; };
 		B6177EB32175C23A00BECE98 /* CalendarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6177EB22175C23A00BECE98 /* CalendarItemView.m */; };
 		B61EA2F02402BB3E002E7598 /* PGDataSyncModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B61EA2EF2402BB3E002E7598 /* PGDataSyncModel.m */; };
+		B61EA2FC24060A04002E7598 /* WKUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B61EA2FB24060A04002E7598 /* WKUserModel.m */; };
+		B61EA2FF2406C5BD002E7598 /* PGStaticNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61EA2FE2406C5BD002E7598 /* PGStaticNotificationController.m */; };
 		B636AE0E23F0F5CF006A6A85 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B636AE1023F0F5CF006A6A85 /* Intents.intentdefinition */; };
 		B636AEC523F512C4006A6A85 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC023F512C4006A6A85 /* DJDatabaseManager.m */; };
 		B636AEC623F512C4006A6A85 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */; };
@@ -298,6 +300,10 @@
 		B61EA2EE2402BB3E002E7598 /* PGDataSyncModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDataSyncModel.h; sourceTree = "<group>"; };
 		B61EA2EF2402BB3E002E7598 /* PGDataSyncModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDataSyncModel.m; sourceTree = "<group>"; };
 		B61EA2F1240402C4002E7598 /* iOSProjectFrameworkRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSProjectFrameworkRelease.entitlements; sourceTree = "<group>"; };
+		B61EA2FA24060A04002E7598 /* WKUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKUserModel.h; sourceTree = "<group>"; };
+		B61EA2FB24060A04002E7598 /* WKUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKUserModel.m; sourceTree = "<group>"; };
+		B61EA2FD2406C5BD002E7598 /* PGStaticNotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStaticNotificationController.h; sourceTree = "<group>"; };
+		B61EA2FE2406C5BD002E7598 /* PGStaticNotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStaticNotificationController.m; sourceTree = "<group>"; };
 		B636AE0F23F0F5CF006A6A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/Intents.intentdefinition; sourceTree = "<group>"; };
 		B636AE1223F0F5D7006A6A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intents.strings; sourceTree = "<group>"; };
 		B636AE1423F0F5D8006A6A85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
@@ -718,6 +724,7 @@
 		B60D50102151F279008CE149 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B61EA2F9240609F2002E7598 /* PGUserModel */,
 				B636AEE623F5418F006A6A85 /* DJDatabaseManager */,
 				B68B524321547EF200C1254F /* WKWatchTransTool */,
 				B68B52362153A13F00C1254F /* WKConfigManager */,
@@ -798,6 +805,8 @@
 				B68B5226215399EE00C1254F /* ViewModel */,
 				B615E9DC214B6050008D0B6E /* ExtensionDelegate.h */,
 				B615E9DD214B6050008D0B6E /* ExtensionDelegate.m */,
+				B61EA2FD2406C5BD002E7598 /* PGStaticNotificationController.h */,
+				B61EA2FE2406C5BD002E7598 /* PGStaticNotificationController.m */,
 				B615E9DF214B6050008D0B6E /* NotificationController.h */,
 				B615E9E0214B6050008D0B6E /* NotificationController.m */,
 				B60D501E21525586008CE149 /* Config */,
@@ -815,6 +824,15 @@
 				B6177EB22175C23A00BECE98 /* CalendarItemView.m */,
 			);
 			path = CalendarItemView;
+			sourceTree = "<group>";
+		};
+		B61EA2F9240609F2002E7598 /* PGUserModel */ = {
+			isa = PBXGroup;
+			children = (
+				B61EA2FA24060A04002E7598 /* WKUserModel.h */,
+				B61EA2FB24060A04002E7598 /* WKUserModel.m */,
+			);
+			path = PGUserModel;
 			sourceTree = "<group>";
 		};
 		B636AEBF23F512C4006A6A85 /* DJDB */ = {
@@ -894,8 +912,8 @@
 		B68887B02150A4640013874D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B68887AC2150A4120013874D /* PGFocus */,
 				B68887B32150A5500013874D /* PGTaskList */,
+				B68887AC2150A4120013874D /* PGFocus */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2502,11 +2520,13 @@
 				B636AEEC23F5426F006A6A85 /* DJDatabaseMgr.m in Sources */,
 				B636AEDF23F51F55006A6A85 /* FMDatabase.m in Sources */,
 				B68B52142153912A00C1254F /* NSObject+MJCoding.m in Sources */,
+				B61EA2FF2406C5BD002E7598 /* PGStaticNotificationController.m in Sources */,
 				B68B52122153912A00C1254F /* NSObject+MJKeyValue.m in Sources */,
 				B68B522A21539A0F00C1254F /* PGFocusingViewModel.m in Sources */,
 				B636AEC923F516CE006A6A85 /* BaseModel.m in Sources */,
 				B636AEE223F51F5F006A6A85 /* FMDatabaseAdditions.m in Sources */,
 				B68B524A215480DA00C1254F /* WKWatchTransTool.m in Sources */,
+				B61EA2FC24060A04002E7598 /* WKUserModel.m in Sources */,
 				B615E9E1214B6050008D0B6E /* NotificationController.m in Sources */,
 				B636AEC723F516A6006A6A85 /* HDJDSQLSearchModel.m in Sources */,
 				B636AEE123F51F5D006A6A85 /* FMDatabasePool.m in Sources */,

@@ -23,10 +23,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WKConfigManager)
 //}
 
 - (void)setup{
-    
-//    NSMutableString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject.mutableCopy;
-//    [path appendString:@"/PGConfig.plist"];
-    
+        
     NSMutableDictionary* configDic;
 
     if ([[NSFileManager defaultManager] fileExistsAtPath:PGExConfigPath]) {

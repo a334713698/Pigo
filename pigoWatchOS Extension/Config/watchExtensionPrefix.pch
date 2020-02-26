@@ -26,6 +26,8 @@
 #import "WKConfigManager.h"
 #import "WKWatchTransTool.h"
 #import "PGTool.h"
+#import "DJDatabaseMgr.h"
+#import "WKUserModel.h"
 
 //Cate
 #import "NSDate+Stamp.h"

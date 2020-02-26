@@ -35,6 +35,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGWatchTransTool)
     if (![WCSession isSupported]) {
         DLog(@"当前系统版本不支持 Connectivity框架");
         return false;
+    }else if (!WatchTransToolInstance.sessionDefault.isWatchAppInstalled){
+        DLog(@"watch 未安装此App");
+        return false;
     }else if (!WatchTransToolInstance.sessionDefault.isReachable){
         DLog(@"watch 当前不在激活状态");
         return false;
