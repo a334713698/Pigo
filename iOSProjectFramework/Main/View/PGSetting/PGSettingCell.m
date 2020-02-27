@@ -217,6 +217,7 @@
         [self stateMonitor];
         NSString* unit = self.cellDic[@"unit"] ? :@"";
         self.qm_detailLabel.text = [NSString stringWithFormat:@"%@ %@",model.valueStr,unit];
+        [PGSettingViewModel watch_updateSettingConfig];
     }
 }
 

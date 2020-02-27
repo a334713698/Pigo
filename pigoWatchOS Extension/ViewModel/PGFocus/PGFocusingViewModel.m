@@ -19,15 +19,15 @@
 - (void)setCurrentFocusState:(PGFocusState)currentFocusState{
     WKInterfaceLabel* timeLab = self.timeLab;
     _currentFocusState = currentFocusState;
+    WKUserModelInstance.currentFocusState = currentFocusState;
     switch (currentFocusState) {
         case PGFocusStateWillFocus:
             //准备专注
         {
-            timeLab.text= [NSString stringWithFormat:@"%ld:00",WKConfigMgr.TomatoLength];
+            timeLab.text= [NSString stringWithFormat:@"%02zd:00",WKConfigMgr.TomatoLength];
 
             [self setTopBtnState:PGFocusButtonStateStartFocus];
             [self setBottomBtnState:PGFocusButtonStateHidden];
-            
             
 //            topBtn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
 //                NSLog(@"%@",centerButton.currentTitle);
@@ -55,7 +55,7 @@
         case PGFocusStateWillShortBreak:
             //准备短时休息
         {
-            timeLab.text= [NSString stringWithFormat:@"%ld:00",WKConfigMgr.ShortBreak];
+            timeLab.text= [NSString stringWithFormat:@"%02zd:00",WKConfigMgr.ShortBreak];
             
             [self setTopBtnState:PGFocusButtonStateStartRest];
             [self setBottomBtnState:PGFocusButtonStateNext];
@@ -98,13 +98,17 @@
         case PGFocusStateWillLongBreak:
             //准备长时休息
         {
+            timeLab.text= [NSString stringWithFormat:@"%02zd:00",WKConfigMgr.LongBreak];
             
+            [self setTopBtnState:PGFocusButtonStateStartRest];
+            [self setBottomBtnState:PGFocusButtonStateNext];
         }
             break;
         case PGFocusStateLongBreaking:
             //长时休息中
         {
-            
+            [self setTopBtnState:PGFocusButtonStateStopRest];
+            [self setBottomBtnState:PGFocusButtonStateNext];
         }
             break;
         default:
@@ -122,11 +126,13 @@
 //完成一个番茄
 - (void)finishATomato{
 //    [self vibrating];
-    if (WKConfigMgr.AutomaticRest) {
-        self.currentFocusState = PGFocusStateShortBreaking;
-    }else{
-        self.currentFocusState = PGFocusStateWillShortBreak;
-    }
+    [WKUserModelInstance completeATomato];
+    [self settingFocuseEndTime:0];
+//    if (self.updateCount) {
+//        self.updateCount();
+//    }
+    [self dealWithTmpConfig];
+    [self chooseRestMode];
 }
 
 //休息结束
@@ -147,15 +153,24 @@
 - (void)startFocus{
     [self timerInvalidate];
     WS(weakSelf)
-    
+
     //开始计时
-    self.timeLab.text= [NSString stringWithFormat:@"%ld:00",WKConfigMgr.TomatoLength];
     __block NSInteger seconds = WKConfigMgr.TomatoLength * 60;
-//    seconds = 10;
-    NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
-//    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:NSLocalizedString(@"Focusing is over,take a break", nil)];
+//    seconds = 5;//测试
+    NSDate *endTime;// 最后期限
+    if (_endTimeStamp > [NSDate nowStamp]) {
+        //继续进行
+        seconds = _endTimeStamp - [NSDate nowStamp];
+        endTime = [NSDate dateWithTimeIntervalSinceNow:seconds];
+        self.timeLab.text = [NSDate pg_secondsToHMS:[endTime timeIntervalSinceNow]];
+    }else{
+        //从头开始
+        endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1];
+        [self settingFocuseEndTime:[[endTime dateToTimeStamp] integerValue]];
+        self.timeLab.text= [NSDate pg_secondsToHMS:[endTime timeIntervalSinceNow]];
+    }
+//    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:NSLocalizedString(@"Focusing is over, take a break", nil) cate:PGLocalNotiCateIDCompleteTomato];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        //        DLog(@"倒计时");
         int interval = [endTime timeIntervalSinceNow];
         if(interval<=0){
             DLog(@"专注结束");
@@ -171,16 +186,21 @@
 
 //开始休息
 - (void)startRest:(PGFocusState)state{
-    if (state != PGFocusStateWillShortBreak && state != PGFocusStateWillLongBreak) {
+    NSInteger timeLength;
+    if (state == PGFocusStateWillShortBreak) {
+        timeLength = WKConfigMgr.ShortBreak;
+    }else if (state == PGFocusStateWillLongBreak){
+        timeLength = WKConfigMgr.LongBreak;
+    }else{
         NSLog(@"状态不对");
         return;
     }
     [self timerInvalidate];
     WS(weakSelf)
     //开始计时
-    self.timeLab.text= [NSString stringWithFormat:@"%ld:00",WKConfigMgr.ShortBreak];
-    __block NSInteger seconds = WKConfigMgr.ShortBreak * 60;
-//    seconds = 5;
+    self.timeLab.text= [NSString stringWithFormat:@"%02zd:00",timeLength];
+    __block NSInteger seconds = timeLength * 60;
+//    seconds = 3;
     NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds+1]; // 最后期限
 //    [self localNotiWithTimeIntervalSinceNow:seconds+1 alertBody:@"休息结束，开始下一个番茄"];
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
@@ -296,5 +316,38 @@
 //    [[UIApplication sharedApplication] scheduleLocalNotification:ln];
 //}
 
+- (void)dealWithTmpConfig{
+    NSDictionary* dataDic = [USER_DEFAULT valueForKey:Tmp_Config_Setting];
+    if (dataDic) {
+        [USER_DEFAULT setObject:dataDic forKey:Config_Setting];
+        [WKConfigMgr setValuesForKeysWithDictionary:dataDic];
+        [USER_DEFAULT synchronize];
+    }
+}
 
+- (void)chooseRestMode{
+    if (WKUserModelInstance.currentTask.count > 0 && (WKUserModelInstance.currentTask.count%WKConfigMgr.LongBreakInterval == 0)) {
+        //长时休息
+        if (WKConfigMgr.AutomaticRest) {
+            self.currentFocusState = PGFocusStateLongBreaking;
+        }else{
+            self.currentFocusState = PGFocusStateWillLongBreak;
+        }
+    }else{
+        //短时休息
+        if (WKConfigMgr.AutomaticRest) {
+            self.currentFocusState = PGFocusStateShortBreaking;
+        }else{
+            self.currentFocusState = PGFocusStateWillShortBreak;
+        }
+    }
+}
+
+- (void)settingFocuseEndTime:(NSInteger)t{
+    [USER_DEFAULT setInteger:t forKey:Focuse_EndTimeStamp];
+    [USER_DEFAULT synchronize];
+    if (!t) {
+        _endTimeStamp = 0;
+    }
+}
 @end

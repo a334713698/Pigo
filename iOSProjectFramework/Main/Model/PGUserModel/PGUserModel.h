@@ -25,6 +25,7 @@ PROPERTY_SINGLETON_FOR_CLASS(PGUserModel)
 @property (nonatomic, assign) PGFocusState currentFocusState;
 
 - (void)setup;
++ (void)changeTaskFast:(NSInteger)task_id;
 - (void)completeATomato;
 - (void)completeATomatoAt:(NSDate*)date;
 

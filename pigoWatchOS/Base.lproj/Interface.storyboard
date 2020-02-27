@@ -17,16 +17,17 @@
                                 <tableRow identifier="taskCell" id="gxE-1w-Qjt" customClass="PGTaskListCell">
                                     <group key="rootItem" width="1" alignment="left" id="cwA-sX-ohI">
                                         <items>
-                                            <label width="0.65000000000000002" height="1" alignment="left" text="Label" textAlignment="left" numberOfLines="2" id="JBn-bA-Saj">
+                                            <label width="1" height="1" alignment="left" text="Label" textAlignment="left" numberOfLines="2" id="JBn-bA-Saj">
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="font" type="system" pointSize="15"/>
+                                                <fontDescription key="font" type="system" pointSize="18"/>
                                             </label>
-                                            <imageView width="20" height="20" alignment="right" verticalAlignment="center" image="icon_tomato" contentMode="scaleAspectFit" id="ooA-Wf-yP1"/>
-                                            <label alignment="right" verticalAlignment="center" text="0" id="U32-Sd-2az"/>
+                                            <imageView width="20" height="20" alignment="right" verticalAlignment="center" hidden="YES" image="icon_tomato" contentMode="scaleAspectFit" id="ooA-Wf-yP1"/>
+                                            <label alignment="right" verticalAlignment="center" hidden="YES" text="0" id="U32-Sd-2az"/>
                                         </items>
                                     </group>
                                     <connections>
                                         <outlet property="countLabel" destination="U32-Sd-2az" id="SH7-5e-yd8"/>
+                                        <outlet property="groupView" destination="cwA-sX-ohI" id="j6R-Et-tB1"/>
                                         <outlet property="itemLabel" destination="JBn-bA-Saj" id="1YO-c0-I5d"/>
                                     </connections>
                                 </tableRow>
@@ -49,11 +50,12 @@
                             <fontDescription key="font" type="system" pointSize="55"/>
                         </label>
                         <button alignment="left" id="X4z-fc-iaf">
-                            <group key="contentGroup" width="1" height="30" alignment="left" id="2FS-di-PVI">
+                            <group key="contentGroup" width="1" height="30" alignment="left" layout="vertical" id="2FS-di-PVI">
                                 <items>
-                                    <label width="1" alignment="center" text="Label" textAlignment="center" id="roY-tx-0az">
+                                    <label width="1" height="0.75" alignment="center" text="Label" textAlignment="center" id="roY-tx-0az">
                                         <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
                                     </label>
+                                    <separator width="100" alignment="center" id="6ah-ga-l8K"/>
                                 </items>
                             </group>
                             <connections>
@@ -73,13 +75,14 @@
                     </items>
                     <connections>
                         <outlet property="bottomBtn" destination="uvC-Rh-xiM" id="RC2-OJ-fWg"/>
+                        <outlet property="line" destination="6ah-ga-l8K" id="Q9K-Tk-x4k"/>
                         <outlet property="taskNameLab" destination="roY-tx-0az" id="dvo-AY-nAO"/>
                         <outlet property="timeLab" destination="LtD-G7-RwL" id="p11-JW-M6U"/>
                         <outlet property="topBtn" destination="hJi-W0-LWa" id="nac-cb-LPJ"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="219.69230769230771" y="357.43589743589746"/>
+            <point key="canvasLocation" x="219.52173913043478" y="341.51785714285717"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -106,6 +109,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_tomato" width="28" height="28"/>
+        <image name="icon_tomato" width="30" height="30"/>
     </resources>
 </document>

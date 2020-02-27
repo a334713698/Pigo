@@ -92,7 +92,7 @@
     [PGUserModelInstance updateTomato];
 }
 
--(void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler  {
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler  {
     NSLog(@"按下的是%@",identifier);
     [PGLocalNotiTool handleUserNotiWithIdentifier:identifier];
     completionHandler();
@@ -150,6 +150,26 @@ API_AVAILABLE(ios(9.0)){
     [nav popToRootViewControllerAnimated:NO];
     PGSettingViewController* next = [PGSettingViewController new];
     [nav pushViewController:next animated:NO];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    if (QMEqualToString(url.scheme, @"TodayWidget")) {
+        DLog(@"%@",url);
+        if (![WINDOW.rootViewController isKindOfClass:[BaseNavigationController class]]) {
+            [self enterMain];
+        }
+        if (TOPVC.presentingViewController) {
+            [TOPVC dismissViewControllerAnimated:NO completion:^{
+                [TOPVC.navigationController popToRootViewControllerAnimated:NO];
+            }];
+        }else{
+            [TOPVC.navigationController popToRootViewControllerAnimated:NO];
+        }
+//        [MFHUDManager showSuccess:[NSString stringWithFormat:@"%@-%zd",PGUserModelInstance.currentTask.task_name,PGUserModelInstance.currentTask.task_id]];
+        NSString* task_id = url.host;
+        [PGUserModel changeTaskFast:[task_id integerValue]];
+    }
+    return NO;
 }
 
 

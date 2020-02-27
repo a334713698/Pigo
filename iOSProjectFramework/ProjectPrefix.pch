@@ -20,7 +20,7 @@
 #import "HDJConst.h"
 #import "HDJEnum.h"
 #import "HDJGlobalVariables.h"
-#import "HDJNotification.h"
+#import "PGNoti.h"
 #import "BaseModel.h"
 #import "BaseNavigationController.h"
 #import "BaseViewController.h"

@@ -64,14 +64,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGWatchTransTool)
 - (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message{
     DLog(@"%s",__func__);
     dispatch_sync(dispatch_get_main_queue(), ^{
-        [MFHUDManager showSuccess:@"didReceiveMessage 哦哈哈"];
+//        [MFHUDManager showSuccess:@"didReceiveMessage 哦哈哈"];
     });
 }
 
 - (void)session:(WCSession *)session didReceiveMessageData:(NSData *)messageData replyHandler:(void (^)(NSData * _Nonnull))replyHandler{
     DLog(@"收到来自watch的信息");
     dispatch_sync(dispatch_get_main_queue(), ^{
-        [MFHUDManager showSuccess:@"收到来自watch的信息"];
+//        [MFHUDManager showSuccess:@"收到来自watch的信息"];
     });
 }
 

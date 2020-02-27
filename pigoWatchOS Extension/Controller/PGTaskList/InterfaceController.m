@@ -94,9 +94,12 @@
 
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex{
     [super table:table didSelectRowAtIndex:rowIndex];
+    if (WKUserModelInstance.currentFocusState == PGFocusStateFocusing || WKUserModelInstance.currentFocusState  == PGFocusStateShortBreaking || WKUserModelInstance.currentFocusState == PGFocusStateLongBreaking) {
+        return;
+    }
     PGTaskListModel* model = self.dataArr[rowIndex];
     [NOTI_CENTER postNotificationName:TaskUpdateNotification object:model];
-    [self presentControllerWithName:@"PGStaticNotificationController" context:@"123"];
+    [self dismissController];
 }
 
 - (void)refreshTaskList{
@@ -110,9 +113,9 @@
     for (NSInteger i = 0; i < self.dataArr.count; i++) {
         PGTaskListModel* model = self.dataArr[i];
         PGTaskListCell* cell = [self.table rowControllerAtIndex:i];
-        [cell.itemLabel setText:model.task_name];
-        [cell.countLabel setText:QMStringFromNSInteger(model.count)];
         [cell.groupView setBackgroundColor:HexColor(model.bg_color)];
+        [cell.itemLabel setText:model.task_name];
+//        [cell.countLabel setText:QMStringFromNSInteger(model.count)];
     }
 }
 

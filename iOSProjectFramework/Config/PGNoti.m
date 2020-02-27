@@ -1,16 +1,19 @@
 //
-//  HDJNotification.m
+//  PGNoti.m
 //  iOSProjectFramework
 //
-//  Created by quanmai on 2018/10/24.
-//  Copyright © 2018年 洪冬介. All rights reserved.
+//  Created by 洪冬介 on 2020/2/27.
+//  Copyright © 2020 洪冬介. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-
 NSString *const PGCheckinCompleteNotification = @"PGCheckinCompleteNotification";
+
+//更新番茄数量的通知
 NSString *const PGFocusUpdateCountNotification = @"PGFocusUpdateCountNotification";
+//更新当前番茄的通知
+NSString *const PGCurrentFocusUpdateNotification = @"PGCurrentFocusUpdateNotification";
 
 NSString *const PGSettingUpdateNotification = @"PGSettingUpdateNotification";
 

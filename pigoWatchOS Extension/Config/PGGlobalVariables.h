@@ -11,5 +11,6 @@
 
 #define TASK_LIST @"TASK_LIST"
 #define Config_Setting @"Config_Setting"
+#define Tmp_Config_Setting @"Tmp_Config_Setting"
 
 #endif /* PGGlobalVariables_h */

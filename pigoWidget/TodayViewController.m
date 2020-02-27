@@ -106,7 +106,13 @@
 }
 
 #pragma mark - UICollectionViewDelegate
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    PGTaskListModel* task = self.taskList[indexPath.item];
+    NSString* urlStr = [NSString stringWithFormat:@"TodayWidget://%zd",task.task_id];
+    [self.extensionContext openURL:[NSURL URLWithString:urlStr] completionHandler:^(BOOL success) {
+        
+    }];
+}
 
 #pragma mark - method
 - (void)updateData {

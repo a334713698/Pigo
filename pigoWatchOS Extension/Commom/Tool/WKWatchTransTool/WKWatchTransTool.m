@@ -173,9 +173,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WKWatchTransTool)
 - (void)updateSetting:(NSDictionary*)message{
     NSString* dataStr = message[@"data"];
     NSDictionary* dataDic = [dataStr mj_JSONObject];
-    [USER_DEFAULT setObject:dataDic forKey:Config_Setting];
+    if (WKUserModelInstance.currentFocusState == PGFocusStateFocusing) {
+        [USER_DEFAULT setObject:dataDic forKey:Tmp_Config_Setting];
+    }else{
+        [USER_DEFAULT setObject:dataDic forKey:Config_Setting];
+        [WKConfigMgr setValuesForKeysWithDictionary:dataDic];
+        [NOTI_CENTER postNotificationName:ConfigUpdateNotification object:nil];
+    }
     [USER_DEFAULT synchronize];
-    [WKConfigMgr mj_setKeyValues:dataDic];
+    
 }
 
 

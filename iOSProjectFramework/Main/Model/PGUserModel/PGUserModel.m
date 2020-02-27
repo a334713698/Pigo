@@ -39,6 +39,53 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGUserModel)
     }
 }
 
++ (void)changeTaskFast:(NSInteger)task_id{
+    DJDatabaseManager* dbMgr = [DJDatabaseManager sharedDJDatabaseManager];
+    if (task_id == PGUserModelInstance.currentTask.task_id) {
+        return;
+    }
+    if ([self judgingState]) {
+        return;
+    }
+    [dbMgr.database open];
+    //修改默认任务
+    [dbMgr updateDataIntoTableWithName:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"1"] andNewModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"0"]];
+    [dbMgr updateDataIntoTableWithName:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(task_id)] andNewModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"1"]];
+
+    //提取默认
+    NSDictionary* dic = [dbMgr getAllTuplesFromTabel:task_list_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"is_default" andSymbol:@"=" andSpecificValue:@"1"]].firstObject;
+    PGTaskListModel* model = [[PGTaskListModel alloc] mj_setKeyValues:dic];
+
+    NSString* dateToday = [NSDate dateToCustomFormateString:@"yyyyMMdd" andDate:[NSDate new]];
+    NSDictionary* tuple = [dbMgr getAllTuplesFromTabel:tomato_record_table andSearchModels:@[[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"task_id" andSymbol:@"=" andSpecificValue:QMStringFromNSInteger(model.task_id)],[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"add_date" andSymbol:@"=" andSpecificValue:TextFromNSString(dateToday)]]].firstObject;
+    NSInteger count = [tuple[@"count"] integerValue];
+    model.count = count;
+
+    [dbMgr.database close];
+    if(model.task_name){
+        PGUserModelInstance.currentTask = model;
+    }
+    [NOTI_CENTER postNotificationName:PGCurrentFocusUpdateNotification object:nil];
+}
+
++ (BOOL)judgingState{
+    if (PGUserModelInstance.currentFocusState != PGFocusStateFocusing && PGUserModelInstance.currentFocusState != PGFocusStateShortBreaking && PGUserModelInstance.currentFocusState != PGFocusStateLongBreaking) {
+        return NO;
+    }
+    NSInteger stamp = [USER_DEFAULT integerForKey:Focuse_EndTimeStamp];
+    if (stamp < 0 && [PGUserModelInstance checkeMissingTomato]) {
+        return NO;
+    }
+    UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tips", nil) message:NSLocalizedString(@"Abort current task reminder", nil) preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
+    
+    [TOPVC presentViewController:alertVC animated:YES completion:nil];
+
+    return YES;
+}
+
+
 - (void)completeATomato{
     [self completeATomatoAt:[NSDate new]];
 }

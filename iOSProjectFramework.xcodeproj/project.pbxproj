@@ -25,6 +25,8 @@
 		B61EA2F02402BB3E002E7598 /* PGDataSyncModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B61EA2EF2402BB3E002E7598 /* PGDataSyncModel.m */; };
 		B61EA2FC24060A04002E7598 /* WKUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B61EA2FB24060A04002E7598 /* WKUserModel.m */; };
 		B61EA2FF2406C5BD002E7598 /* PGStaticNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61EA2FE2406C5BD002E7598 /* PGStaticNotificationController.m */; };
+		B6358A302407F1F700931C98 /* NSDate+Stamp.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A60F1C2140F659000A737D /* NSDate+Stamp.m */; };
+		B6358A3B2407F8E000931C98 /* PGNoti.m in Sources */ = {isa = PBXBuildFile; fileRef = B6358A3A2407F8E000931C98 /* PGNoti.m */; };
 		B636AE0E23F0F5CF006A6A85 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B636AE1023F0F5CF006A6A85 /* Intents.intentdefinition */; };
 		B636AEC523F512C4006A6A85 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC023F512C4006A6A85 /* DJDatabaseManager.m */; };
 		B636AEC623F512C4006A6A85 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AEC323F512C4006A6A85 /* HDJDSQLSearchModel.m */; };
@@ -145,7 +147,6 @@
 		D6D5D2A72180195A00FF34D0 /* PGTaskListAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A62180195A00FF34D0 /* PGTaskListAddView.m */; };
 		D6D5D2AA2180347200FF34D0 /* PGTaskListAddCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2A92180347200FF34D0 /* PGTaskListAddCollectionViewCell.m */; };
 		D6D5D2AE218039C900FF34D0 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2AC218039C900FF34D0 /* NSString+Convert.m */; };
-		D6D5D2B321805B2D00FF34D0 /* HDJNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2B221805B2D00FF34D0 /* HDJNotification.m */; };
 		D6D5D2C22181A1B000FF34D0 /* UIView+MFFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2B82181A1AF00FF34D0 /* UIView+MFFrame.m */; };
 		D6D5D2C32181A1B000FF34D0 /* NSTimer+MFWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2B92181A1AF00FF34D0 /* NSTimer+MFWeakTimer.m */; };
 		D6D5D2C42181A1B000FF34D0 /* MFNotificationHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5D2C02181A1AF00FF34D0 /* MFNotificationHUD.m */; };
@@ -304,6 +305,9 @@
 		B61EA2FB24060A04002E7598 /* WKUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKUserModel.m; sourceTree = "<group>"; };
 		B61EA2FD2406C5BD002E7598 /* PGStaticNotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGStaticNotificationController.h; sourceTree = "<group>"; };
 		B61EA2FE2406C5BD002E7598 /* PGStaticNotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGStaticNotificationController.m; sourceTree = "<group>"; };
+		B61EA3002406C8EC002E7598 /* pigoWatchOS ExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pigoWatchOS ExtensionRelease.entitlements"; sourceTree = "<group>"; };
+		B6358A392407F8D100931C98 /* PGNoti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGNoti.h; sourceTree = "<group>"; };
+		B6358A3A2407F8E000931C98 /* PGNoti.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGNoti.m; sourceTree = "<group>"; };
 		B636AE0F23F0F5CF006A6A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/Intents.intentdefinition; sourceTree = "<group>"; };
 		B636AE1223F0F5D7006A6A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intents.strings; sourceTree = "<group>"; };
 		B636AE1423F0F5D8006A6A85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
@@ -530,8 +534,6 @@
 		D6D5D2A92180347200FF34D0 /* PGTaskListAddCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGTaskListAddCollectionViewCell.m; sourceTree = "<group>"; };
 		D6D5D2AC218039C900FF34D0 /* NSString+Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convert.m"; sourceTree = "<group>"; };
 		D6D5D2AD218039C900FF34D0 /* NSString+Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
-		D6D5D2B221805B2D00FF34D0 /* HDJNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJNotification.m; sourceTree = "<group>"; };
-		D6D5D2B421805B3600FF34D0 /* HDJNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJNotification.h; sourceTree = "<group>"; };
 		D6D5D2B72181A1AF00FF34D0 /* NSTimer+MFWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+MFWeakTimer.h"; sourceTree = "<group>"; };
 		D6D5D2B82181A1AF00FF34D0 /* UIView+MFFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MFFrame.m"; sourceTree = "<group>"; };
 		D6D5D2B92181A1AF00FF34D0 /* NSTimer+MFWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+MFWeakTimer.m"; sourceTree = "<group>"; };
@@ -796,6 +798,7 @@
 		B615E9D8214B6050008D0B6E /* pigoWatchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B61EA3002406C8EC002E7598 /* pigoWatchOS ExtensionRelease.entitlements */,
 				B6FDA4172150F5D9006717BB /* pigoWatchOS Extension.entitlements */,
 				B68B51F82153907000C1254F /* Commom */,
 				B68B51F221538AB500C1254F /* BaseClass */,
@@ -1791,8 +1794,8 @@
 				B6A60E202140F0C1000A737D /* HDJConst.m */,
 				B6E26AA5201AF46F006C7650 /* HDJEnum.h */,
 				B6E26AA8201AF470006C7650 /* HDJGlobalVariables.h */,
-				D6D5D2B421805B3600FF34D0 /* HDJNotification.h */,
-				D6D5D2B221805B2D00FF34D0 /* HDJNotification.m */,
+				B6358A392407F8D100931C98 /* PGNoti.h */,
+				B6358A3A2407F8E000931C98 /* PGNoti.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -2523,6 +2526,7 @@
 				B61EA2FF2406C5BD002E7598 /* PGStaticNotificationController.m in Sources */,
 				B68B52122153912A00C1254F /* NSObject+MJKeyValue.m in Sources */,
 				B68B522A21539A0F00C1254F /* PGFocusingViewModel.m in Sources */,
+				B6358A302407F1F700931C98 /* NSDate+Stamp.m in Sources */,
 				B636AEC923F516CE006A6A85 /* BaseModel.m in Sources */,
 				B636AEE223F51F5F006A6A85 /* FMDatabaseAdditions.m in Sources */,
 				B68B524A215480DA00C1254F /* WKWatchTransTool.m in Sources */,
@@ -2603,6 +2607,7 @@
 				B6FFB0A12174841100076F44 /* PGStatisticsAndCheckinScrollerView.m in Sources */,
 				B6F72F4B24001997004EBA1C /* ZZRDocument.m in Sources */,
 				B6A60F1E2140F659000A737D /* UIImage+QRCode.m in Sources */,
+				B6358A3B2407F8E000931C98 /* PGNoti.m in Sources */,
 				D6D9C2B02179B21000EF9D91 /* AATitle.m in Sources */,
 				B66110832045504700D648E9 /* BaseTabBarController.m in Sources */,
 				B6760E0F215B3AFC005E97A4 /* PGSettingDataModel.m in Sources */,
@@ -2666,7 +2671,6 @@
 				B6CC32622149F3E500E66D64 /* PGSettingCell.m in Sources */,
 				B6E26A5E201AF2A0006C7650 /* AppDelegate.m in Sources */,
 				B6A60F48214115ED000A737D /* PGTaskListViewController.m in Sources */,
-				D6D5D2B321805B2D00FF34D0 /* HDJNotification.m in Sources */,
 				B6CC32572149066900E66D64 /* PGFocusViewModel.m in Sources */,
 				B6A60F312140F659000A737D /* NSDate+Stamp.m in Sources */,
 				D6D9C2AD2179B21000EF9D91 /* AAOptions3d.m in Sources */,
@@ -2764,12 +2768,12 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = "pigoWatchOS Extension/pigoWatchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
 				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -2786,14 +2790,14 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_ENTITLEMENTS = "pigoWatchOS Extension/pigoWatchOS Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "pigoWatchOS Extension/pigoWatchOS ExtensionRelease.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWatchOS Extension/Config/watchExtensionPrefix.pch";
 				INFOPLIST_FILE = "pigoWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -2812,11 +2816,11 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWatchOS/pigoWatchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				IBSC_MODULE = pigoWatchOS_Extension;
 				INFOPLIST_FILE = pigoWatchOS/Info.plist;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -2835,11 +2839,11 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWatchOS/pigoWatchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				IBSC_MODULE = pigoWatchOS_Extension;
 				INFOPLIST_FILE = pigoWatchOS/Info.plist;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -2962,13 +2966,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFramework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2982,13 +2986,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOSProjectFramework/iOSProjectFrameworkRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSProjectFramework/ProjectPrefix.pch";
 				INFOPLIST_FILE = iOSProjectFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3003,13 +3007,13 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWidget/ProjectPrefix.pch";
 				INFOPLIST_FILE = pigoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.pigoWidget;
@@ -3027,13 +3031,13 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = pigoWidget/pigoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/pigoWidget/ProjectPrefix.pch";
 				INFOPLIST_FILE = pigoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hongdongjie.pigo.pigoWidget;
 				PRODUCT_NAME = Pigo;

@@ -152,7 +152,7 @@
     [self addNotiObserver];
     
 #ifdef DEBUG
-//    UIButton* comButton = [UIButton createButtonWithFontSize:adaptFont(17) andTitleColor:BLACK_COLOR andTitle:NSLocalizedString(@"Test", nilΩ) andBackgroundColor:WHITE_COLOR];
+//    UIButton* comButton = [UIButton createButtonWithFontSize:adaptFont(17) andTitleColor:BLACK_COLOR andTitle:NSLocalizedString(@"Test", nil) andBackgroundColor:WHITE_COLOR];
 //    [self.view addSubview:comButton];
 //    comButton.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT + STATUSBAR_HEIGHT + 50, 100, 50);
 //    [comButton addTarget:self action:@selector(comButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -192,7 +192,6 @@
 }
 
 - (void)updateCount{
-    self.taskModel = PGUserModelInstance.currentTask;
     self.contView.tomatoCount = self.taskModel.count;
 }
 
@@ -220,6 +219,7 @@
 }
 
 - (void)addNotiObserver{
+    [NOTI_CENTER addObserver:self selector:@selector(updateTask) name:PGCurrentFocusUpdateNotification object:nil];
     [NOTI_CENTER addObserver:self selector:@selector(updateCount) name:PGFocusUpdateCountNotification object:nil];
     [NOTI_CENTER addObserver:self selector:@selector(updateSettingConfig:) name:PGSettingUpdateNotification object:nil];
     [NOTI_CENTER addObserver:self selector:@selector(updateFocuseState:) name:PGFocusStateUpdateNotification object:nil];

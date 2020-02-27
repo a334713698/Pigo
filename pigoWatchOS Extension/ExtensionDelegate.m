@@ -15,7 +15,7 @@
     NSLog(@"项目加载");
     [WKConfigMgr setup];
     [WKWatchTransToolInstance.sessionDefault activateSession];
-    [[WKUserModel sharedWKUserModel] setup];
+    [WKUserModelInstance setup];
     [[DJDatabaseMgr sharedDJDatabaseMgr] initializeDB];
     [[DJDatabaseMgr sharedDJDatabaseMgr] initializeCategory];
 

@@ -20,6 +20,7 @@
 @property (nonatomic, strong) PGTaskListModel *taskModel;
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *taskNameLab;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceSeparator *line;
 
 @end
 
@@ -41,17 +42,13 @@
     // Configure interface objects here.
 
     [self addMenuItemWithItemIcon:WKMenuItemIconMore title:NSLocalizedString(@"Pigo List", nil) action:@selector(pigoList)];
-    [self addMenuItemWithItemIcon:WKMenuItemIconResume title:NSLocalizedString(@"Refresh Config", nil) action:@selector(refreshConfig)];
 
     self.taskModel = context;
-    if (self.taskModel.task_name) {
-        [self.taskNameLab setText:self.taskModel.task_name];
-    }else{
-        [self.taskNameLab setText:NSLocalizedString(@"Unknown Tag", nil)];
-    }
+    [self settingTaskLab:self.taskModel];
     [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
     
     [NOTI_CENTER addObserver:self selector:@selector(taskUpdate:) name:TaskUpdateNotification object:nil];
+    [NOTI_CENTER addObserver:self selector:@selector(ConfigUpdate) name:ConfigUpdateNotification object:nil];
 
 }
 
@@ -70,9 +67,23 @@
     NSLog(@"didDeactivate-%@",NSStringFromClass([self class]));
 }
 
+- (void)settingTaskLab:(PGTaskListModel*)model{
+    NSString* name;
+    if (NULLString(self.taskModel.task_name)) {
+        name = NSLocalizedString(@"Unknown Tag", nil);
+    }else{
+        name = self.taskModel.task_name;
+    }
+    [self.taskNameLab setText:name];
+    CGFloat width = [name boundingRectWithSize:CGSizeMake(MAXFLOAT, 30*0.75) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20]} context:NULL].size.width + 5;
+    [self.line setWidth:width];
+//    [self.line setColor:HexColor(self.taskModel.bg_color)];
 
-- (void)refreshConfig{
-    
+}
+
+- (void)ConfigUpdate{
+    PGFocusState state = self.viewModel.currentFocusState;
+    self.viewModel.currentFocusState = state;
 }
 
 - (void)taskUpdate:(NSNotification*)noti{
@@ -84,11 +95,7 @@
 - (void)updateTask{
     if (self.taskModel.task_id != WKUserModelInstance.currentTask.task_id) {
         self.taskModel = WKUserModelInstance.currentTask;
-        if (NULLString(self.taskModel.task_name)) {
-            [self.taskNameLab setText:NSLocalizedString(@"Unknown Tag", nil)];
-        }else{
-            [self.taskNameLab setText:self.taskModel.task_name];
-        }
+        [self settingTaskLab:self.taskModel];
         [self.viewModel setCurrentFocusState:PGFocusStateWillFocus];
     }
     

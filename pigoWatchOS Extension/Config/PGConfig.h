@@ -116,12 +116,8 @@ NSLog(@"%@--dealloc", [self class]);\
 //快速将数字转换成字符串
 #define QMStringFromCGFloat(n) [NSString stringWithFormat:@"%lf",n]
 #define QMStringFromNSValue(n) [NSString stringWithFormat:@"%@",n]
+#define QMStringFromNSInteger(n) [NSString stringWithFormat:@"%zd",n]
 
-#if __LP64__ || (TARGET_OS_EMBEDDED && !TARGET_OS_IPHONE) || TARGET_OS_WIN32 || NS_BUILD_32_LIKE_64
-#define QMStringFromNSInteger(n) [NSString stringWithFormat:@"%ld",n]
-#else
-#define QMStringFromNSInteger(n) [NSString stringWithFormat:@"%d",n]
-#endif
 
 //字符串比较
 #define QMEqualToString(a, b) [a isEqualToString:b]

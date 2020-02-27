@@ -174,6 +174,7 @@
 - (void)pg_cell:(PGSettingCell*)cell switchValueDidChange:(UISwitch*)switcher{
     DLog(@"%@",switcher.on?@"开":@"关");
     [PGConfigMgr setValue:@(switcher.on) forKey:cell.paraName];
+    [PGSettingViewModel watch_updateSettingConfig];
 }
 
 
