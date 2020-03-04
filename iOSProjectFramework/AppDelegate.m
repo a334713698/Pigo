@@ -92,7 +92,7 @@
     [PGUserModelInstance updateTomato];
 }
 
-- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler  {
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)(void))completionHandler  {
     NSLog(@"按下的是%@",identifier);
     [PGLocalNotiTool handleUserNotiWithIdentifier:identifier];
     completionHandler();

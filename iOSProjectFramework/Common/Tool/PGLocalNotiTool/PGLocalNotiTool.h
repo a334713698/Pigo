@@ -10,11 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PGLocalNotiTool : NSObject
+@interface PGLocalNotiTool : NSObject<UNUserNotificationCenterDelegate>
 
 + (void)registerUserNotiSettings;
 
 + (void)handleUserNotiWithIdentifier:(NSString*)identifier;
+
+PROPERTY_SINGLETON_FOR_CLASS(PGLocalNotiTool)
 
 @end
 

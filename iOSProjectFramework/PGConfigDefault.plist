@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NotifyAlert</key>
-	<false/>
+	<true/>
 	<key>VibratingAlert</key>
 	<false/>
 	<key>TomatoLength</key>

@@ -169,7 +169,8 @@
     if (_timer.isValid) {
         [_timer invalidate];
         _timer = nil;
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+//        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        [[UNUserNotificationCenter currentNotificationCenter] removeAllPendingNotificationRequests];
     }
 }
 
@@ -205,7 +206,7 @@
 
     //开始计时
     __block NSInteger seconds = PGConfigMgr.TomatoLength * 60;
-//    seconds = 3;//测试
+    seconds = 3;//测试
     NSDate *endTime;// 最后期限
     if (_endTimeStamp > [NSDate nowStamp]) {
         //继续进行
@@ -273,27 +274,51 @@
     }
 }
 
-//本地通知
+////本地通知
+//- (void)localNotiWithTimeIntervalSinceNow:(NSTimeInterval)seconds alertBody:(NSString*)alertBody cate:(NSString*)cate{
+//    if(!PGConfigMgr.NotifyAlert){
+//        return;
+//    }
+//
+//    //1.创建本地通知对象
+//    UILocalNotification* ln = [UILocalNotification new];
+//
+//    //2.设置属性
+//    //2.1 设置通知弹出时间
+//    ln.fireDate = [NSDate dateWithTimeIntervalSinceNow:seconds];
+//    //2.2 设置通知内容
+//    ln.alertBody = alertBody;
+//    //2.3 设置图标右上角的角标通知信息数量
+//    ln.applicationIconBadgeNumber++;
+//    ln.category = cate;
+//
+//    //4.调度通知
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+//    [[UIApplication sharedApplication] scheduleLocalNotification:ln];
+//}
+
 - (void)localNotiWithTimeIntervalSinceNow:(NSTimeInterval)seconds alertBody:(NSString*)alertBody cate:(NSString*)cate{
     if(!PGConfigMgr.NotifyAlert){
         return;
     }
     
-    //1.创建本地通知对象
-    UILocalNotification* ln = [UILocalNotification new];
+    UNMutableNotificationContent* cont = [UNMutableNotificationContent new];
+    cont.badge = @([cont.badge integerValue] + 1);
+    cont.body = alertBody;
+    cont.categoryIdentifier = cate;
     
-    //2.设置属性
-    //2.1 设置通知弹出时间
-    ln.fireDate = [NSDate dateWithTimeIntervalSinceNow:seconds];
-    //2.2 设置通知内容
-    ln.alertBody = alertBody;
-    //2.3 设置图标右上角的角标通知信息数量
-    ln.applicationIconBadgeNumber++;
-    ln.category = cate;
+    UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:seconds repeats:NO];
+    
+    UNNotificationRequest* notiRequest = [UNNotificationRequest requestWithIdentifier:cate content:cont trigger:trigger];
+    
     
     //4.调度通知
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    [[UIApplication sharedApplication] scheduleLocalNotification:ln];
+    [[UNUserNotificationCenter currentNotificationCenter] removeAllPendingNotificationRequests];
+    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:notiRequest withCompletionHandler:^(NSError * _Nullable error) {
+        if (!error) {
+            DLog(@"添加成功");
+        }
+    }];
 }
 
 - (void)chooseRestMode{
