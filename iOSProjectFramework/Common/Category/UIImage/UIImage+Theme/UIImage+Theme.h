@@ -12,4 +12,6 @@
 
 - (UIImage*)imageForThemeColor:(UIColor*)color;
 
++ (UIImage *)createImageWithColor:(UIColor *)color;
+
 @end

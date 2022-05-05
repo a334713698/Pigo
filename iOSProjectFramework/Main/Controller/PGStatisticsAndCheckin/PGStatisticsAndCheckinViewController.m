@@ -10,6 +10,7 @@
 #import "PGStatisticsAndCheckinScrollerView.h"
 #import "PGCheckinView.h"
 #import "PGStatisticsView.h"
+#import "UIImage+Theme.h"
 
 @interface PGStatisticsAndCheckinViewController ()<PGStatisticsAndCheckinScrollerViewDelegate>
 
@@ -29,8 +30,9 @@
         NSString* seg1 = [NSString stringWithFormat:@"  %@  ",NSLocalizedString(@"Statistics", nil)];
         NSString* seg2 = [NSString stringWithFormat:@"  %@  ",NSLocalizedString(@"Checkin", nil)];
         _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[seg1,seg2]];
-        _segmentedControl.tintColor = WHITE_COLOR;
         _segmentedControl.selectedSegmentIndex = 0;
+        [_segmentedControl setTitleTextAttributes:@{NSForegroundColorAttributeName: WHITE_COLOR} forState:UIControlStateNormal];
+        [_segmentedControl setTitleTextAttributes:@{NSForegroundColorAttributeName: BLACK_COLOR} forState:UIControlStateSelected];
         [_segmentedControl addTarget:self action:@selector(segmentedControlValueChange:) forControlEvents:UIControlEventValueChanged];
     }
     return _segmentedControl;
@@ -77,7 +79,7 @@
 
 #pragma mark - SEL
 - (void)segmentedControlValueChange:(UISegmentedControl*)sender{
-    [self.scrollerView setPageIndex:sender.selectedSegmentIndex animated:YES];
+    [self.scrollerView setPageIndex:sender.selectedSegmentIndex animated:NO];
 }
 
 #pragma mark - method

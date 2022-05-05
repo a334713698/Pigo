@@ -7,8 +7,7 @@
 //
 
 #import "BaseViewController.h"
-//#import <UMMobClick/MobClick.h>
-
+#import "UIImage+Theme.h"
 
 @interface BaseViewController ()
 
@@ -135,24 +134,45 @@
 
 ///设置导航栏颜色
 - (void)settingNavigationBarTintColor:(QMNavTintColor)color{
+    UIColor* backgroundColor;
+    UIColor* shadowColor;
+    UIColor* btnTitleColor;
+    NSDictionary* titleTextAttributes;
     switch (color) {
         case QMNavTintColorWhiteColor:
         {
-            self.navigationController.navigationBar.barTintColor = WHITE_COLOR;
-            self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: BLACK_COLOR, NSFontAttributeName : [UIFont systemFontOfSize:18]};
-            [self.navButtonLeft setTitleColor:BLACK_COLOR forState:UIControlStateNormal];
-            [self.navButtonRight setTitleColor:BLACK_COLOR forState:UIControlStateNormal];
+            backgroundColor = WHITE_COLOR;
+            titleTextAttributes = @{NSForegroundColorAttributeName: BLACK_COLOR, NSFontAttributeName : [UIFont systemFontOfSize:18]};
+            btnTitleColor = BLACK_COLOR;
         }
             break;
         default:
         {
-            self.navigationController.navigationBar.barTintColor = MAIN_COLOR;
-            self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: WHITE_COLOR, NSFontAttributeName : [UIFont systemFontOfSize:18]};
-            [self.navButtonLeft setTitleColor:WHITE_COLOR forState:UIControlStateNormal];
-            [self.navButtonRight setTitleColor:WHITE_COLOR forState:UIControlStateNormal];
+            backgroundColor = MAIN_COLOR;
+            titleTextAttributes = @{NSForegroundColorAttributeName: WHITE_COLOR, NSFontAttributeName : [UIFont systemFontOfSize:18]};
+            btnTitleColor = WHITE_COLOR;
         }
             break;
     }
+    
+    if (@available(iOS 15.0, *)) {
+        UINavigationBarAppearance *navbarAppearance = self.navigationController.navigationBar.standardAppearance;
+        if (!navbarAppearance) {
+            navbarAppearance = [UINavigationBarAppearance new];
+        }
+        [navbarAppearance configureWithDefaultBackground];
+        navbarAppearance.backgroundColor = backgroundColor;
+        navbarAppearance.shadowColor = shadowColor;
+        navbarAppearance.titleTextAttributes = titleTextAttributes;
+        self.navigationController.navigationBar.standardAppearance = navbarAppearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = navbarAppearance;
+    }else {
+        self.navigationController.navigationBar.barTintColor = backgroundColor;
+        self.navigationController.navigationBar.shadowImage = [UIImage createImageWithColor:shadowColor];
+        self.navigationController.navigationBar.titleTextAttributes = titleTextAttributes;
+    }
+    [self.navButtonLeft setTitleColor:btnTitleColor forState:UIControlStateNormal];
+    [self.navButtonRight setTitleColor:btnTitleColor forState:UIControlStateNormal];
 }
 
 ///设置导航栏左键样式
